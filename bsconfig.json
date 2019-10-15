@@ -1,0 +1,16 @@
+{
+  "name": "@bilalvis01/bs-material-ui",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    }
+  ],
+  "bs-dependencies": [
+    "reason-reaact"
+  ],
+  "reason": {
+    "react-jsx": 3
+  },
+  "refmt": 3
+}

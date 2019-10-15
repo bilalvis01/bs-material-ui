@@ -4,6 +4,8 @@ type palette;
 type breakpoints;
 type shape;
 type transitions;
+type zIndex;
+type mixins;
 
 [@bs.module "@material-ui/core/styles"]
 external make: options => t = "createMuiTheme";
@@ -22,10 +24,14 @@ external getBreakpoints: t => breakpoints = "breakpoints";
 external getShape: t => shape = "shape";
 [@bs.get]
 external getTransitions: t => transitions = "transitions";
+[@bs.get]
+external getZIndex: t => zIndex = "zIndex";
+[@bs.get]
+external getMixins: t => mixins = "mixins";
 [@bs.send]
-external spacing0: t => string = "spacing";
+external spacing0: t => int = "spacing";
 [@bs.send]
-external spacing1: (t, int) => string = "spacing";
+external spacing1: (t, int) => int= "spacing";
 [@bs.send]
 external spacing2: (t, int, int) => string = "spacing";
 [@bs.send]
@@ -34,7 +40,7 @@ external spacing3: (t, int, int, int) => string = "spacing";
 external spacing4: (t, int, int, int, int) => string = "spacing";
 
 module Breakpoints = {
-  [@bs.send]  
+  [@bs.send]
   external up: (breakpoints, string) => string = "up";
 };
 
@@ -46,7 +52,29 @@ module Shape = {
 module Transitions = {
   [@bs.send]
   external create: (transitions, string) => string = "create";
-}
+};
+
+module ZIndex = {
+  [@bs.get]
+  external getMobileStepper: zIndex => int = "mobileStepper";
+  [@bs.get]
+  external getAppBar: zIndex => int = "appBar";
+  [@bs.get]
+  external getDrawer: zIndex => int = "drawer";
+  [@bs.get]
+  external getModal: zIndex => int = "modal";
+  [@bs.get]
+  external getSnackbar: zIndex => int = "snackbar";
+  [@bs.get]
+  external getTooltip: zIndex => int = "tooltip";
+};
+
+module Mixins = {
+  [@bs.get]
+  external getToolbar: mixins => MaterialUIStyles.rule = "toolbar";
+  [@bs.send]
+  external gutters: MaterialUIStyles.rule => MaterialUIStyles.rule = "gutters";
+};
 
 type paletteColorOptions;
 type color;

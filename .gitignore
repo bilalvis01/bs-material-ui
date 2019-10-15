@@ -1,2 +1,6 @@
 *.bs.js
 node_modules/
+lib
+.merlin
+.cache
+package-lock.json
