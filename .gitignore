@@ -1,7 +1,7 @@
 *.bs.js
-node_modules/
+node_modules
 lib
 .merlin
 .cache
-package-lock.json
+/package-lock.json
 .bsb.lock

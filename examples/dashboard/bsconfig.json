@@ -1,0 +1,26 @@
+{
+  "name": "dashboard",
+  "sources": [
+    {
+      "dir": "pages",
+      "subdirs": true
+    }, {
+      "dir": "components",
+      "subdirs": true
+    }
+  ],
+  "bs-dependencies": [
+    "reason-react",
+    "@bilalvis01/bs-material-ui"
+  ],
+  "reason": {
+    "react-jsx": 3
+  },
+  "refmt": 3,
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": true
+  },
+  "suffix": ".bs.js",
+  "bsc-flags": ["-bs-super-errors"]
+}
