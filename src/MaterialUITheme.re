@@ -81,7 +81,7 @@ type color;
 type simpleColor;
 type backgroundColor;
 type commonColor;
-type text;
+type textColor;
 module Palette = {
   [@bs.obj]
   external make: (
@@ -95,15 +95,15 @@ module Palette = {
   [@bs.get]
   external getPrimary: palette => simpleColor = "primary";
   [@bs.get]
-  external getSecondary: palette => simpleColor = "primary";
+  external getSecondary: palette => simpleColor = "secondary";
   [@bs.get]
-  external getError: palette => simpleColor = "primary";
+  external getError: palette => simpleColor = "error";
   [@bs.get]
   external getBackground: palette => backgroundColor = "background";
   [@bs.get]
   external getCommon: palette => commonColor = "common";
   [@bs.get]
-  external getText: palette => text = "text";
+  external getText: palette => textColor = "text";
 
   [@bs.obj]
   external makeColor: (
@@ -193,11 +193,11 @@ module CommonColor = {
 }
 module TextColor = {
   [@bs.get]
-  external getPrimary: text => string = "primary";
+  external getPrimary: textColor => string = "primary";
   [@bs.get]
-  external getSecondary: text => string = "secondary";
+  external getSecondary: textColor => string = "secondary";
   [@bs.get]
-  external getDisabled: text => string = "disabled";
+  external getDisabled: textColor => string = "disabled";
   [@bs.get]
-  external getHint: text => string = "hint";
+  external getHint: textColor => string = "hint";
 };
