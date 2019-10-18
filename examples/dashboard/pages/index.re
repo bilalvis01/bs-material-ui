@@ -4,11 +4,11 @@ module Copyright = {
     <MaterialUI.Typography variant="body2" color="textSecondary" align="center">
       {React.string("Copyright @")}
       <MaterialUI.Link color="inherit" href="https://material-ui.com">
-       {React.string("Your Website")}
+       {React.string(" Bilal Visual Digital ")}
       </MaterialUI.Link>
       {Js.Date.make()
         ->Js.Date.getFullYear
-        ->Js.Float.toString
+        ->Belt.Float.toString
         ->React.string}
       {React.string(".")}
     </MaterialUI.Typography>
@@ -59,6 +59,7 @@ let useStyles = MUIStyles.(make(theme => {
       display("flex"),
       alignItems("center"),
       justifyContent("flex-end"),
+      padding("0 8px"),
     ]),
     ~appBar=_ => rule([
       zIndex(string_of_int(MaterialUITheme.ZIndex.getDrawer(zIndex_) + 1)),
@@ -169,7 +170,7 @@ let useStyles = MUIStyles.(make(theme => {
     ~paper=_ => rule([
       padding(
         MaterialUITheme.spacing1(theme, 2)
-          ->string_of_int),
+          ->string_of_int ++ "px"),
       display("flex"),
       overflow("auto"),
       flexDirection("column"),
@@ -219,19 +220,19 @@ let secondaryListItems =
     <MaterialUI.ListSubheader inset=true>{React.string("Saved reports")}</MaterialUI.ListSubheader>
     <MaterialUI.ListItem button=true>
       <MaterialUI.ListItemIcon>
-        <MaterialUIIcon.Dashboard />
+        <MaterialUIIcon.Assignment />
       </MaterialUI.ListItemIcon>
       <MaterialUI.ListItemText primary=React.string("Dashboard") />
     </MaterialUI.ListItem>
     <MaterialUI.ListItem button=true>
       <MaterialUI.ListItemIcon>
-        <MaterialUIIcon.ShoppingCart />
+        <MaterialUIIcon.Assignment />
       </MaterialUI.ListItemIcon>
       <MaterialUI.ListItemText primary=React.string("Orders") />
     </MaterialUI.ListItem>
     <MaterialUI.ListItem button=true>
       <MaterialUI.ListItemIcon>
-        <MaterialUIIcon.People />
+        <MaterialUIIcon.Assignment />
       </MaterialUI.ListItemIcon>
       <MaterialUI.ListItemText primary=React.string("Customers") />
     </MaterialUI.ListItem>
@@ -245,8 +246,6 @@ let make = () => {
   let handleDrawerClose = _ => setDrawerOpen(_ => false);
   let fixedHeightPaper = 
     Cn.make([paperGet(classes), fixedHeigtGet(classes)]);
-
-  Js.Console.log(drawerOpen);
 
   <div className=rootGet(classes)>
     <MaterialUI.AppBar 
@@ -323,6 +322,7 @@ let make = () => {
           </MaterialUI.Grid>
         </MaterialUI.Grid>
       </MaterialUI.Container>
+      <Copyright />
     </main>
   </div>
 };

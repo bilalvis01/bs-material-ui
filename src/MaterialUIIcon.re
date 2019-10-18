@@ -70,3 +70,8 @@ module Layers = {
   [@bs.module "@material-ui/icons/Layers"]
   external make: React.component(makeProps) = "default";
 };
+module Assignment = {
+  include Make();
+  [@bs.module "@material-ui/icons/Assignment"]
+  external make: React.component(makeProps) = "default";
+}

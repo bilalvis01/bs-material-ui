@@ -10,6 +10,9 @@
     }, {
       "dir": "utils",
       "subdirs": true
+    }, {
+      "dir": "bindings",
+      "subdirs": true
     }
   ],
   "bs-dependencies": [

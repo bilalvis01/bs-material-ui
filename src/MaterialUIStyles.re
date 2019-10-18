@@ -68,5 +68,6 @@ module Make = (Styles: StylesType) => {
   let whiteSpace = value => ruleItem("whiteSpace", value);
   let overflowX = value => ruleItem("overflowX", value);
   let overflow = value => ruleItem("overflow", value);
+  let flex = value => ruleItem("flex", value);
   let flexDirection = value => ruleItem("flexDirection", value);
 };
