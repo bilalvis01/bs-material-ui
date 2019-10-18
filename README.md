@@ -24,4 +24,4 @@ Please note that @material-ui/core >= 4.5.0, @material-ui/icons >= 4.5.0, @mater
 
 ## Usage
 
-See the [examples](https://github.com/bilalvis01/bs-material-ui/examples/)
+See the [examples](https://github.com/bilalvis01/bs-material-ui/tree/master/examples)
