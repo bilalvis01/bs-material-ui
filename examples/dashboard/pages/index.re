@@ -55,12 +55,15 @@ let useStyles = MUIStyles.(make(theme => {
     ~toolbar=_ => rule([
       paddingRight("24px"),
     ]),
-    ~toolbarIcon=_ => rule([
-      display("flex"),
-      alignItems("center"),
-      justifyContent("flex-end"),
-      padding("0 8px"),
-    ]),
+    ~toolbarIcon=_ => mergeRule(
+      MaterialUITheme.Mixins.getToolbar(mixins),
+      rule([
+        display("flex"),
+        alignItems("center"),
+        justifyContent("flex-end"),
+        padding("0 8px"),
+      ])
+    ),
     ~appBar=_ => rule([
       zIndex(string_of_int(MaterialUITheme.ZIndex.getDrawer(zIndex_) + 1)),
       transition(
@@ -145,12 +148,12 @@ let useStyles = MUIStyles.(make(theme => {
           ),
         )),
       width(
-        {MaterialUITheme.spacing1(theme, 7)
-         ->string_of_int} ++ "px"),
-      nestedRule(MaterialUITheme.Breakpoints.up(breakpoints, "sm"), rule([
+        MaterialUITheme.spacing1(theme, 7)
+         ->string_of_int ++ "px"),
+      nesteRule(MaterialUITheme.Breakpoints.up(breakpoints, "sm"), rule([
         width(
-          {MaterialUITheme.spacing1(theme, 9)
-            ->string_of_int} ++ "px"),
+          MaterialUITheme.spacing1(theme, 9)
+            ->string_of_int ++ "px"),
       ])),
     ]),
     ~appBarSpacer=_ => MaterialUITheme.Mixins.getToolbar(mixins),

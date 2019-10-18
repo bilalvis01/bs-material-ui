@@ -21,23 +21,20 @@ module Make = (Styles: StylesType) => {
   [@bs.module "@material-ui/core/styles"]
   external fade: (string, float) => string = "fade";
 
-  /*
-  let createStyles:
-    list((string, ruleGenerator('props))) => Js.Dict.t(ruleGenerator('props)) =
+  let rule: list((string, ruleValue)) => rule = 
     entries => Js.Dict.fromList(entries);
-  let styleItem:
-    (string, ruleGenerator('props)) => (string, ruleGenerator('props)) =
-    (ruleName, ruleGenerator) => (ruleName, ruleGenerator);
-  */
-
-  let rule: list((string, ruleValue)) => rule = entries => Js.Dict.fromList(entries);
 
   external ruleToRuleValue: rule => ruleValue = "%identity";
-  let nestedRule: (string, rule) => (string, ruleValue) = (ruleName, rule) => (ruleName, ruleToRuleValue(rule));
+  let nesteRule: (string, rule) => (string, ruleValue) = 
+    (ruleName, rule) => (ruleName, ruleToRuleValue(rule));
+
+  let mergeRule: (rule, rule) => rule = [%raw {|
+    (rule1, rule2) => Object.assign({}, rule1, rule2)
+  |}];
 
   external stringToRuleValue: string => ruleValue = "%identity";
-
-  let ruleItem: (string, string) => (string, ruleValue) = (property, value) => (property, stringToRuleValue(value));
+  let ruleItem: (string, string) => (string, ruleValue) = 
+    (property, value) => (property, stringToRuleValue(value));
 
   let display = value => ruleItem("display", value);
   let position = value => ruleItem("position", value);
