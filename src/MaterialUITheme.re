@@ -49,9 +49,53 @@ module Shape = {
   external getBorderRadius: shape => string = "borderRadius";
 };
 
+type transitionEasing;
+type transitionDuration;
 module Transitions = {
+  type optional;
+  [@bs.obj]
+  external makeOptions: (
+    ~duration: string=?,
+    ~easing: string=?,
+    ~delay: string=?,
+    unit
+  ) => optional = "";
+  [@bs.get]
+  external getEasing: transitions => transitionEasing = "easing"; 
+  [@bs.get]
+  external getDuration: transitions => transitionDuration = "duration";
   [@bs.send]
-  external create: (transitions, string) => string = "create";
+  external create: (transitions, array(string)) => string = "create";
+  [@bs.send]
+  external createWithOptions: (transitions, array(string), optional) => string = "create";
+};
+
+module TransitionEasing = {
+  [@bs.get]
+  external getEaseInOut: transitionEasing => string = "easeInOut";
+  [@bs.get]
+  external getEaseOut: transitionEasing => string = "easeOut";
+  [@bs.get]
+  external getEaseIn: transitionEasing => string = "easeIn";
+  [@bs.get]
+  external getSharp: transitionEasing => string = "sharp";
+};
+
+module TransitionDuration = {
+  [@bs.get]
+  external getShortest: transitionDuration => int = "shortest";
+  [@bs.get]
+  external getShorter: transitionDuration => int = "shorter";
+  [@bs.get]
+  external getShort: transitionDuration => int = "short";
+  [@bs.get]
+  external getStandard: transitionDuration => int = "standard";
+  [@bs.get]
+  external getComplex: transitionDuration => int = "complex";
+  [@bs.get]
+  external getEnteringScreen: transitionDuration => int = "enteringScreen";
+  [@bs.get]
+  external getLeavingScreen: transitionDuration => int = "leavingScreen";
 };
 
 module ZIndex = {
@@ -73,7 +117,7 @@ module Mixins = {
   [@bs.get]
   external getToolbar: mixins => MaterialUIStyles.rule = "toolbar";
   [@bs.send]
-  external gutters: MaterialUIStyles.rule => MaterialUIStyles.rule = "gutters";
+  external gutters: (mixins, MaterialUIStyles.rule) => MaterialUIStyles.rule = "gutters";
 };
 
 type paletteColorOptions;

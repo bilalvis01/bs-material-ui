@@ -7,4 +7,5 @@ external make: (
   ~gutterBottom: bool=?,
   ~component: string=?,
   ~color: string=?,
+  ~align: string=?,
 ) => React.element = "default";

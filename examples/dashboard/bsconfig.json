@@ -7,11 +7,15 @@
     }, {
       "dir": "components",
       "subdirs": true
+    }, {
+      "dir": "utils",
+      "subdirs": true
     }
   ],
   "bs-dependencies": [
     "reason-react",
-    "@bilalvis01/bs-material-ui"
+    "@bilalvis01/bs-material-ui",
+    "re-classnames"
   ],
   "reason": {
     "react-jsx": 3
