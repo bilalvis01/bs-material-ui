@@ -1050,4 +1050,4 @@ type makeProps = {
 type props = makeProps;
 
 [@bs.module "@material-ui/core/TextField"]
-external make: React.component(props) => React.element = "default";
+external make: React.component(props) = "default";

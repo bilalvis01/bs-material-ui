@@ -1,61 +1,65 @@
 [@bs.deriving abstract]
 type makeClasses = {
   [@bs.optional] root: string,
-  [@bs.optional] checked: string,
-  [@bs.optional] disabled: string,
-  [@bs.optional] indeterminate: string,
-  [@bs.optional] colorPrimary: string,
-  [@bs.optional] colorSecondary: string,
-
-  // IconButton classes
-  [@bs.optional] edgeStart: string,
-  [@bs.optional] edgeEnd: string,
-  [@bs.optional] colorInherit: string,
-  [@bs.optional] sizeSmall: string,
   [@bs.optional] label: string,
-
-  // ButtonBase classes
+  [@bs.optional] text: string,
+  [@bs.optional] textPrimary: string,
+  [@bs.optional] textSecondary: string,
+  [@bs.optional] outlined: string,
+  [@bs.optional] outlinedPrimary: string,
+  [@bs.optional] outlinedSecondary: string,
+  [@bs.optional] contained: string,
+  [@bs.optional] containedPrimary: string,
+  [@bs.optional] containedSecondary: string,
   [@bs.optional] focusVisible: string,
+  [@bs.optional] disabled: string,
+  [@bs.optional] colorInherit: string,
+  [@bs.optional] textSizeSmall: string,
+  [@bs.optional] textSizeLarge: string,
+  [@bs.optional] outlinedSizeSmall: string,
+  [@bs.optional] outlinedSizeLarge: string,
+  [@bs.optional] containedSizeSmall: string,
+  [@bs.optional] containedSizeLarge: string,
+  [@bs.optional] sizeSmall: string,
+  [@bs.optional] sizeLarge: string,
+  [@bs.optional] fullWidth: string,
+  [@bs.optional] startIcon: string,
+  [@bs.optional] endIcon: string,
+  [@bs.optional] iconSizeSmall: string,
+  [@bs.optional] iconSizeMedium: string,
+  [@bs.optional] iconSizeLarge: string,
 };
-type classes;
+type classes = makeClasses;
 
 [@bs.deriving abstract]
 type makeProps = {
-  [@bs.optional] childen: React.element,
+  [@bs.optional] children: React.element,
 
-  [@bs.optional] checked: bool,
-  [@bs.optional] checkedIcon: React.element,
   [@bs.optional] classes: classes,
   [@bs.optional] color: string,
+  [@bs.optional] component: string,
   [@bs.optional] disabled: bool,
-  [@bs.optional] disableRipple: bool,
-  [@bs.optional] icon: React.element,
-  [@bs.optional] id: string,
-  [@bs.optional] indeterminate: bool,
-  [@bs.optional] indeterminateIcon: bool,
-  [@bs.optional] inputProps: ReactDOMRe.props,
-  [@bs.optional] inputRef: ReactDOMRe.domRef,
-  [@bs.optional] onChange: ReactEvent.Form.t => bool,
-  [@bs.optional] required: bool,
-  [@bs.optional] _type: string,
-  [@bs.optional] value: string,
-
-  // IconButton props
   [@bs.optional] disableFocusRipple: bool,
-  [@bs.optional] edge: string,
+  [@bs.optional] disableRipple: bool,
+  [@bs.optional] endIcon: React.element,
+  [@bs.optional] fullWidth: bool,
+  [@bs.optional] href: string,
   [@bs.optional] size: string,
+  [@bs.optional] startIcon: React.element,
+  [@bs.optional] variant: string,
 
   // ButtonBase props
   [@bs.optional] action: ReactDOMRe.domRef,
   [@bs.optional] buttonRef: ReactDOMRe.domRef,
   [@bs.optional] centerRipple: bool,
-  [@bs.optional] component: string,
   [@bs.optional] disableTouchRipple: bool,
   [@bs.optional] focusRipple: bool,
   [@bs.optional] focusVisibleClassName: string,
   [@bs.optional] onFocusVisible: ReactEvent.Form.t => unit,
+  // [@bs.optional] _TouchRippleProps: MUI_TouchRipple.props,
+  [@bs.optional] _type: string,
 
-  // domProps
+  /* domProps */
   [@bs.optional]
   key: string,
   [@bs.optional]
@@ -174,10 +178,8 @@ type makeProps = {
   draggable: bool,
   [@bs.optional]
   hidden: bool,
-  /*
   [@bs.optional]
   id: string,
-  */
   [@bs.optional]
   lang: string,
   [@bs.optional]
@@ -206,10 +208,6 @@ type makeProps = {
   accept: string,
   [@bs.optional]
   acceptCharset: string,
-  /*
-  [@bs.optional]
-  action: string, /* uri */
-  */
   [@bs.optional]
   allowFullScreen: bool,
   [@bs.optional]
@@ -226,10 +224,8 @@ type makeProps = {
   challenge: string,
   [@bs.optional]
   charSet: string,
-  /*
   [@bs.optional]
   checked: bool,
-  */
   [@bs.optional]
   cite: string, /* uri */
   [@bs.optional]
@@ -252,10 +248,6 @@ type makeProps = {
   default: bool,
   [@bs.optional]
   defer: bool,
-  /*
-  [@bs.optional]
-  disabled: bool,
-  */
   [@bs.optional]
   download: string, /* should really be either a boolean, signifying presence, or a string */
   [@bs.optional]
@@ -275,17 +267,13 @@ type makeProps = {
   [@bs.optional]
   high: int,
   [@bs.optional]
-  href: string, /* uri */
-  [@bs.optional]
   hrefLang: string,
   [@bs.optional]
   htmlFor: string, /* substitute for "for" */
   [@bs.optional]
   httpEquiv: string, /* has a fixed set of possible values */
-  /*
   [@bs.optional]
   icon: string, /* uri? */
-  */
   [@bs.optional]
   inputMode: string, /* "verbatim", "latin", "numeric", etc. */
   [@bs.optional]
@@ -346,10 +334,8 @@ type makeProps = {
   readOnly: bool,
   [@bs.optional]
   rel: string, /* a space- or comma-separated (depending on the element) list of a fixed set of "link types" */
-  /*
   [@bs.optional]
   required: bool,
-  */
   [@bs.optional]
   reversed: bool,
   [@bs.optional]
@@ -369,10 +355,6 @@ type makeProps = {
   selected: bool,
   [@bs.optional]
   shape: string,
-  /*
-  [@bs.optional]
-  size: int,
-  */
   [@bs.optional]
   sizes: string,
   [@bs.optional]
@@ -397,10 +379,8 @@ type makeProps = {
   type_: string, /* has a fixed but large-ish set of possible values */ /* use this one. Previous one is deprecated */
   [@bs.optional]
   useMap: string,
-  /*
   [@bs.optional]
   value: string,
-  */
   [@bs.optional]
   width: string, /* in html5 this can only be a number, but in html4 it can ba a percentage as well */
   [@bs.optional]
@@ -432,10 +412,8 @@ type makeProps = {
   [@bs.optional]
   onBlur: ReactEvent.Focus.t => unit,
   /* Form events */
-  /*
   [@bs.optional]
   onChange: ReactEvent.Form.t => unit,
-  */
   [@bs.optional]
   onInput: ReactEvent.Form.t => unit,
   [@bs.optional]
@@ -543,7 +521,7 @@ type makeProps = {
   [@bs.optional]
   onWaiting: ReactEvent.Media.t => unit,
   /* Image events */
-  [@bs.optional]onLoad: ReactEvent.Image.t => unit /* duplicate */, /*~onError: ReactEvent.Image.t => unit=?,*/
+  [@bs.optional]onLoad: ReactEvent.Image.t => unit /* duplicate */, /*[@bs.optional] onError: ReactEvent.Image.t => unit,*/
   /* Animation events */
   [@bs.optional]
   onAnimationStart: ReactEvent.Animation.t => unit,
@@ -1065,5 +1043,5 @@ type makeProps = {
 };
 type props = makeProps;
 
-[@bs.module "@material-ui/core/Checkbox"]
+[@bs.module "@material-ui/core/Button"]
 external make: React.component(props) = "default";

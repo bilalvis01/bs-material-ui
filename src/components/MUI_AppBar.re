@@ -1,59 +1,99 @@
 [@bs.deriving abstract]
 type makeClasses = {
-  [@bs.optional] root: string,
-  [@bs.optional] checked: string,
-  [@bs.optional] disabled: string,
-  [@bs.optional] indeterminate: string,
-  [@bs.optional] colorPrimary: string,
-  [@bs.optional] colorSecondary: string,
+  [@bs.optional]
+  root: string,
+  [@bs.optional]
+  positionFixed: string,
+  [@bs.optional]
+  positionAbsolute: string,
+  [@bs.optional]
+  positionSticky: string,
+  [@bs.optional]
+  positionStatic: string,
+  [@bs.optional]
+  positionRelative: string,
+  [@bs.optional]
+  colorDefault: string,
+  [@bs.optional]
+  colorPrimary: string,
+  [@bs.optional]
+  colorSecondary: string,
 
-  // IconButton classes
-  [@bs.optional] edgeStart: string,
-  [@bs.optional] edgeEnd: string,
-  [@bs.optional] colorInherit: string,
-  [@bs.optional] sizeSmall: string,
-  [@bs.optional] label: string,
-
-  // ButtonBase classes
-  [@bs.optional] focusVisible: string,
+  // Paper classes
+  [@bs.optional]
+  rounded: string,
+  [@bs.optional]
+  elevation0: string,
+  [@bs.optional]
+  elevation1: string,
+  [@bs.optional]
+  elevation2: string,
+  [@bs.optional]
+  elevation3: string,
+  [@bs.optional]
+  elevation4: string,
+  [@bs.optional]
+  elevation5: string,
+  [@bs.optional]
+  elevation6: string,
+  [@bs.optional]
+  elevation7: string,
+  [@bs.optional]
+  elevation8: string,
+  [@bs.optional]
+  elevation9: string,
+  [@bs.optional]
+  elevation10: string,
+  [@bs.optional]
+  elevation11: string,
+  [@bs.optional]
+  elevation12: string,
+  [@bs.optional]
+  elevation13: string,
+  [@bs.optional]
+  elevation14: string,
+  [@bs.optional]
+  elevation15: string,
+  [@bs.optional]
+  elevation16: string,
+  [@bs.optional]
+  elevation17: string,
+  [@bs.optional]
+  elevation18: string,
+  [@bs.optional]
+  elevation19: string,
+  [@bs.optional]
+  elevation20: string,
+  [@bs.optional]
+  elevation21: string,
+  [@bs.optional]
+  elevation22: string,
+  [@bs.optional]
+  elevation23: string,
+  [@bs.optional]
+  elevation24: string,
 };
-type classes;
+type classes = makeClasses;
 
 [@bs.deriving abstract]
 type makeProps = {
-  [@bs.optional] childen: React.element,
+  [@bs.optional]
+  children: React.element,
 
-  [@bs.optional] checked: bool,
-  [@bs.optional] checkedIcon: React.element,
-  [@bs.optional] classes: classes,
-  [@bs.optional] color: string,
-  [@bs.optional] disabled: bool,
-  [@bs.optional] disableRipple: bool,
-  [@bs.optional] icon: React.element,
-  [@bs.optional] id: string,
-  [@bs.optional] indeterminate: bool,
-  [@bs.optional] indeterminateIcon: bool,
-  [@bs.optional] inputProps: ReactDOMRe.props,
-  [@bs.optional] inputRef: ReactDOMRe.domRef,
-  [@bs.optional] onChange: ReactEvent.Form.t => bool,
-  [@bs.optional] required: bool,
-  [@bs.optional] _type: string,
-  [@bs.optional] value: string,
+  [@bs.optional]
+  classes: classes,
+  [@bs.optional]
+  color: string,
+  [@bs.optional]
+  position: string,
 
-  // IconButton props
-  [@bs.optional] disableFocusRipple: bool,
-  [@bs.optional] edge: string,
-  [@bs.optional] size: string,
-
-  // ButtonBase props
-  [@bs.optional] action: ReactDOMRe.domRef,
-  [@bs.optional] buttonRef: ReactDOMRe.domRef,
-  [@bs.optional] centerRipple: bool,
-  [@bs.optional] component: string,
-  [@bs.optional] disableTouchRipple: bool,
-  [@bs.optional] focusRipple: bool,
-  [@bs.optional] focusVisibleClassName: string,
-  [@bs.optional] onFocusVisible: ReactEvent.Form.t => unit,
+  // Paper props
+  [@bs.optional]
+  component: string,
+  [@bs.optional]
+  elevation: int,
+  [@bs.optional]
+  square: bool,
 
   // domProps
   [@bs.optional]
@@ -174,10 +214,8 @@ type makeProps = {
   draggable: bool,
   [@bs.optional]
   hidden: bool,
-  /*
   [@bs.optional]
   id: string,
-  */
   [@bs.optional]
   lang: string,
   [@bs.optional]
@@ -206,10 +244,8 @@ type makeProps = {
   accept: string,
   [@bs.optional]
   acceptCharset: string,
-  /*
   [@bs.optional]
   action: string, /* uri */
-  */
   [@bs.optional]
   allowFullScreen: bool,
   [@bs.optional]
@@ -226,10 +262,8 @@ type makeProps = {
   challenge: string,
   [@bs.optional]
   charSet: string,
-  /*
   [@bs.optional]
   checked: bool,
-  */
   [@bs.optional]
   cite: string, /* uri */
   [@bs.optional]
@@ -252,10 +286,8 @@ type makeProps = {
   default: bool,
   [@bs.optional]
   defer: bool,
-  /*
   [@bs.optional]
   disabled: bool,
-  */
   [@bs.optional]
   download: string, /* should really be either a boolean, signifying presence, or a string */
   [@bs.optional]
@@ -282,10 +314,8 @@ type makeProps = {
   htmlFor: string, /* substitute for "for" */
   [@bs.optional]
   httpEquiv: string, /* has a fixed set of possible values */
-  /*
   [@bs.optional]
   icon: string, /* uri? */
-  */
   [@bs.optional]
   inputMode: string, /* "verbatim", "latin", "numeric", etc. */
   [@bs.optional]
@@ -346,10 +376,8 @@ type makeProps = {
   readOnly: bool,
   [@bs.optional]
   rel: string, /* a space- or comma-separated (depending on the element) list of a fixed set of "link types" */
-  /*
   [@bs.optional]
   required: bool,
-  */
   [@bs.optional]
   reversed: bool,
   [@bs.optional]
@@ -369,10 +397,8 @@ type makeProps = {
   selected: bool,
   [@bs.optional]
   shape: string,
-  /*
   [@bs.optional]
   size: int,
-  */
   [@bs.optional]
   sizes: string,
   [@bs.optional]
@@ -397,10 +423,8 @@ type makeProps = {
   type_: string, /* has a fixed but large-ish set of possible values */ /* use this one. Previous one is deprecated */
   [@bs.optional]
   useMap: string,
-  /*
   [@bs.optional]
   value: string,
-  */
   [@bs.optional]
   width: string, /* in html5 this can only be a number, but in html4 it can ba a percentage as well */
   [@bs.optional]
@@ -432,10 +456,8 @@ type makeProps = {
   [@bs.optional]
   onBlur: ReactEvent.Focus.t => unit,
   /* Form events */
-  /*
   [@bs.optional]
   onChange: ReactEvent.Form.t => unit,
-  */
   [@bs.optional]
   onInput: ReactEvent.Form.t => unit,
   [@bs.optional]
@@ -649,8 +671,6 @@ type makeProps = {
   dy: string,
   [@bs.optional]
   edgeMode: string,
-  [@bs.optional]
-  elevation: string,
   [@bs.optional]
   enableBackground: string,
   [@bs.optional] [@bs.as "end"]
@@ -1065,5 +1085,5 @@ type makeProps = {
 };
 type props = makeProps;
 
-[@bs.module "@material-ui/core/Checkbox"]
-external make: React.component(props) = "default";
+[@bs.module "@material-ui/core/AppBar"]
+external make: React.component(props) => React.element = "default";
