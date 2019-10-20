@@ -3,7 +3,7 @@ module Copyright = {
   let make = () => {
     <MaterialUI.Typography variant="body2" color="textSecondary" align="center">
       {React.string("Copyright @")}
-      <MaterialUI.Link color="inherit" href="https://material-ui.com">
+      <MaterialUI.Link color="inherit" href="https://github.com/bilalvis01/bs-material-ui">
        {React.string(" Bilal Visual Digital ")}
       </MaterialUI.Link>
       {Js.Date.make()
