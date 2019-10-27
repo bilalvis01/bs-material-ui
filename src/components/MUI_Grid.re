@@ -96,15 +96,12 @@ type makeClasses = {
   gridXs12: string,
 };
 type classes = makeClasses;
-type size;
+type gridSize;
 
-module Size = {
-  let auto: size = [%raw "'auto'"];
-  [@bs.val]
-  external on: size = "true"; 
-  [@bs.val]
-  external off: size = "false";
-  external size: int => size = "%identity";
+module GridSize = {
+  let auto: gridSize = [%raw "'auto'"];
+  external sw: bool => gridSize = "%identity";
+  external sz: int => gridSize = "%identity";
 };
 
 [@bs.module "@material-ui/core/Grid"] [@react.component]
@@ -119,13 +116,13 @@ external make: (
   ~direction: string=?,
   ~item: bool=?,
   ~justify: string=?,
-  ~lg: size=?,
-  ~md: size=?,
-  ~sm: size=?,
+  ~lg: gridSize=?,
+  ~md: gridSize=?,
+  ~sm: gridSize=?,
   ~spacing: int=?,
   ~wrap: string=?,
-  ~xl: size=?,
-  ~xs: size=?,
+  ~xl: gridSize=?,
+  ~xs: gridSize=?,
   ~zeroMinWidth: bool=?,
 
   ~ref: ReactDOMRe.domRef=?,

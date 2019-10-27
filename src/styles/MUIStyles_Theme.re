@@ -115,9 +115,9 @@ module ZIndex = {
 
 module Mixins = {
   [@bs.get]
-  external getToolbar: mixins => MUIStyle.t = "toolbar";
+  external getToolbar: mixins => MUIStyles_Style.t = "toolbar";
   [@bs.send]
-  external gutters: (mixins, MUIStyle.t) => MUIStyle.t = "gutters";
+  external gutters: (mixins, MUIStyles_Style.t) => MUIStyles_Style.t = "gutters";
 };
 
 type paletteColorOptions;

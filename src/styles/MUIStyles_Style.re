@@ -1,6 +1,5 @@
 type value;
 type t = Js.Dict.t(value);
-type cb('props) = 'props => t;
 
 let make: list((string, value)) => t = 
   entries => Js.Dict.fromList(entries);

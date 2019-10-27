@@ -17,66 +17,65 @@ module Copyright = {
   };
 };
 
-[@bs.deriving abstract]
-type globalStyles('a) = {
-  body: 'a,
+module Styles = {
+  [@bs.deriving abstract]
+  type globalStyles('a) = {
+    body: 'a,
+  };
+  [@bs.deriving abstract]
+  type styles('a) = {
+    [@bs.as "@global"] global: globalStyles('a),
+    paper: 'a,
+    avatar: 'a,
+    form: 'a,
+    submit: 'a,
+  };
+  include MUIStyles.StylesHook.Make({
+    type theme = MUIStyles.Theme.t;
+    type props = unit;
+    type nonrec styles('a) = styles('a);
+    let options = None;
+    let styles = theme => {
+      styles(
+        ~global=globalStyles(
+          ~body=() => MUIStyles.Style.(make([
+            backgroundColor(MUIStyles.Theme.(getPalette(theme)->Palette.getCommon->Common.getWhite))
+          ]))
+        ),
+        ~paper=() => MUIStyles.Style.(make([
+          marginTop(MUIStyles.Theme.spacing1(theme, 8)->string_of_int ++ "px"),
+          display("flex"),
+          flexDirection("column"),
+          alignItems("center"),
+        ])),
+        ~avatar=() => MUIStyles.Style.(make([
+          margin(MUIStyles.Theme.spacing1(theme, 1)->string_of_int ++ "px"),
+          backgroundColor(MUIStyles.Theme.(getPalette(theme)->Palette.getSecondary->Simple.getMain)),
+        ])),
+        ~form=() => MUIStyles.Style.(make([
+          width("100%"),
+          marginTop(MUIStyles.Theme.spacing1(theme, 1)->string_of_int ++ "px"),
+        ])),
+        ~submit=() => MUIStyles.Style.(make([
+          margin(MUIStyles.Theme.spacing3(theme, 3, 0, 2)),
+        ])),
+      )
+    }
+  });
 };
-
-
-[@bs.deriving abstract]
-type styles('a) = {
-  [@bs.as "@global"] global: globalStyles('a),
-  paper: 'a,
-  avatar: 'a,
-  form: 'a,
-  submit: 'a,
-};
-
-module StylesHook = MUIStylesHook.Make({
-  type theme = MUITheme.t;
-  type props = unit;
-  type nonrec styles('a) = styles('a);
-});
-
-let useStyles = StylesHook.make(theme => {
-  styles(
-    ~global=globalStyles(
-      ~body=_ => MUIStyle.(make([
-        backgroundColor(MUITheme.(getPalette(theme)->Palette.getCommon->Common.getWhite))
-      ]))
-    ),
-    ~paper=_ => MUIStyle.(make([
-      marginTop(MUITheme.spacing1(theme, 8)->string_of_int ++ "px"),
-      display("flex"),
-      flexDirection("column"),
-      alignItems("center"),
-    ])),
-    ~avatar=_ => MUIStyle.(make([
-      margin(MUITheme.spacing1(theme, 1)->string_of_int ++ "px"),
-      backgroundColor(MUITheme.(getPalette(theme)->Palette.getSecondary->Simple.getMain)),
-    ])),
-    ~form=_ => MUIStyle.(make([
-      width("100%"),
-      marginTop(MUITheme.spacing1(theme, 1)->string_of_int ++ "px"),
-    ])),
-    ~submit=_ => MUIStyle.(make([
-      margin(MUITheme.spacing3(theme, 3, 0, 2)),
-    ])),
-  )
-});
 
 [@react.component]
 let make = () => {
-  let classes = useStyles();
+  let classes = Styles.useStyles();
 
   <Container component="main" maxWidth="xs">
-    <div className=paperGet(classes)>
-      <Avatar className=avatarGet(classes)>
+    <div className=Styles.paperGet(classes)>
+      <Avatar className=Styles.avatarGet(classes)>
       </Avatar>
       <Typography component="h1" variant="h5">
         {React.string("Sign in")}
       </Typography>
-      <form className=formGet(classes) noValidate=true>
+      <form className=Styles.formGet(classes) noValidate=true>
         <TextField
           variant="outlined"
           margin="normal"
@@ -108,17 +107,17 @@ let make = () => {
           fullWidth=true
           variant="contained"
           color="primary"
-          className=submitGet(classes)
+          className=Styles.submitGet(classes)
         >
          {React.string("Sign In")}
         </Button>
         <Grid container=true>
-          <Grid item=true xs=Grid.Size.on>
+          <Grid item=true xs=Grid.GridSize.sw(true)>
             <Link href="#" variant="body2">
               {React.string("Forgot password")}
             </Link>
           </Grid>
-          <Grid item=true xs=Grid.Size.on>
+          <Grid item=true xs=Grid.GridSize.sw(true)>
             <Link href="#" variant="body2">
               {React.string("Don't have an account? Sign Up")}
             </Link>
@@ -131,3 +130,5 @@ let make = () => {
     </Box>
   </Container>
 };
+
+let default = make;
