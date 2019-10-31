@@ -100,8 +100,11 @@ type gridSize;
 
 module GridSize = {
   let auto: gridSize = [%raw "'auto'"];
-  external sw: bool => gridSize = "%identity";
-  external sz: int => gridSize = "%identity";
+  [@bs.val]
+  external true_: gridSize = "true";
+  [@bs.val]
+  external false_: gridSize = "false";
+  external size: int => gridSize = "%identity";
 };
 
 [@bs.module "@material-ui/core/Grid"] [@react.component]

@@ -8,7 +8,8 @@
     "dev:bs": "bsb -clean-world -make-world -w",
     "dev:next": "next",
     "build": "bsb -clean-world -make-world&&next build",
-    "start": "next start"
+    "start": "next start",
+    "clean": "bsb -clean-world"
   },
   "author": "Bilal <bilalvis01@gmail.com>",
   "license": "MIT",
@@ -16,7 +17,7 @@
     "bs-platform": "^5.0.6"
   },
   "dependencies": {
-    "@bilalvis01/bs-material-ui": "^0.1.5",
+    "@bilalvis01/bs-material-ui": "^0.2.0-dev.13",
     "@material-ui/core": "^4.5.1",
     "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.5.0",

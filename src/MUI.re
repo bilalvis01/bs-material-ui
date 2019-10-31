@@ -20,7 +20,6 @@ module ListItemIcon = MaterialUI_ListItemIcon;
 module ListItemText = MaterialUI_ListItemText;
 module ListSubheader = MaterialUI_ListSubheader;
 module Menu = MaterialUI_Menu;
-module MenuEvent = MaterialUI_MenuEvent;
 module MenuItem = MaterialUI_MenuItem;
 module Toolbar = MaterialUI_Toolbar;
 module IconButton = MaterialUI_IconButton;

@@ -5,8 +5,8 @@ module Copyright = {
   let make = () => {
     <Typography variant="body2" color="textSecondary" align="center">
       {React.string("Copyright @")}
-      <Link color="inherit" href="https://github.com/bilalvis01/bs-material-ui">
-       {React.string(" Bilal Visual Digital ")}
+      <Link color="inherit" href="https://material-ui.com/">
+       {React.string(" Your Website ")}
       </Link>
       {Js.Date.make()
         ->Js.Date.getFullYear
@@ -35,11 +35,11 @@ module Styles = {
     type props = unit;
     type nonrec styles('a) = styles('a);
     let options = None;
-    let styles = theme => {
+    let styles = theme => 
       styles(
         ~global=globalStyles(
           ~body=() => MUIStyles.Style.(make([
-            backgroundColor(MUIStyles.Theme.(getPalette(theme)->Palette.getCommon->Common.getWhite))
+            backgroundColor(MUIStyles.Theme.(palette(theme)->Palette.common->Common.white))
           ]))
         ),
         ~paper=() => MUIStyles.Style.(make([
@@ -50,7 +50,7 @@ module Styles = {
         ])),
         ~avatar=() => MUIStyles.Style.(make([
           margin(MUIStyles.Theme.spacing1(theme, 1)->string_of_int ++ "px"),
-          backgroundColor(MUIStyles.Theme.(getPalette(theme)->Palette.getSecondary->Simple.getMain)),
+          backgroundColor(MUIStyles.Theme.(palette(theme)->Palette.secondary->SimpleColor.main)),
         ])),
         ~form=() => MUIStyles.Style.(make([
           width("100%"),
@@ -59,8 +59,7 @@ module Styles = {
         ~submit=() => MUIStyles.Style.(make([
           margin(MUIStyles.Theme.spacing3(theme, 3, 0, 2)),
         ])),
-      )
-    }
+      );
   });
 };
 
@@ -71,6 +70,7 @@ let make = () => {
   <Container component="main" maxWidth="xs">
     <div className=Styles.paperGet(classes)>
       <Avatar className=Styles.avatarGet(classes)>
+        <MUIIcons.LockOutlined />
       </Avatar>
       <Typography component="h1" variant="h5">
         {React.string("Sign in")}
@@ -112,12 +112,12 @@ let make = () => {
          {React.string("Sign In")}
         </Button>
         <Grid container=true>
-          <Grid item=true xs=Grid.GridSize.sw(true)>
+          <Grid item=true xs=Grid.GridSize.true_>
             <Link href="#" variant="body2">
-              {React.string("Forgot password")}
+              {React.string("Forgot password?")}
             </Link>
           </Grid>
-          <Grid item=true xs=Grid.GridSize.sw(true)>
+          <Grid item=true>
             <Link href="#" variant="body2">
               {React.string("Don't have an account? Sign Up")}
             </Link>
@@ -125,7 +125,7 @@ let make = () => {
         </Grid>
       </form>
     </div>
-    <Box mt="8">
+    <Box mt=Box.int(8)>
       <Copyright />
     </Box>
   </Container>
