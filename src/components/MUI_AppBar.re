@@ -593,4 +593,4 @@ type makeProps = {
 type props = makeProps;
 
 [@bs.module "@material-ui/core/AppBar"]
-external make: React.component(props) => React.element = "default";
+external make: React.component(props) = "default";
