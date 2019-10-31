@@ -5,10 +5,10 @@ let make: list((string, value)) => t =
   entries => Js.Dict.fromList(entries);
 
 external ruleToRuleValue: t => value = "%identity";
-let nesteRule: (string, t) => (string, value) = 
+let nest: (string, t) => (string, value) = 
   (ruleName, rule) => (ruleName, ruleToRuleValue(rule));
 
-let mergeRule: (t, t) => t = [%raw {|
+let merge: (t, t) => t = [%raw {|
   (rule1, rule2) => Object.assign({}, rule1, rule2)
 |}];
 
