@@ -1,4 +1,4 @@
-# Simple dashboard
+# Simple a sign in page
 
 ```
 npm install
