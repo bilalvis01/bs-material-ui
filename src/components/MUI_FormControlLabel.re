@@ -200,10 +200,6 @@ type makeProps = {
   challenge: string,
   [@bs.optional]
   charSet: string,
-  /*
-  [@bs.optional]
-  checked: bool,
-  */
   [@bs.optional]
   cite: string, /* uri */
   [@bs.optional]
@@ -226,10 +222,6 @@ type makeProps = {
   default: bool,
   [@bs.optional]
   defer: bool,
-  /*
-  [@bs.optional]
-  disabled: bool,
-  */
   [@bs.optional]
   download: string, /* should really be either a boolean, signifying presence, or a string */
   [@bs.optional]
@@ -266,7 +258,6 @@ type makeProps = {
   keyType: string,
   [@bs.optional]
   kind: string, /* has a fixed set of possible values */
-  /* [@bs.optional] label: string, */
   [@bs.optional]
   list: string,
   [@bs.optional]
@@ -293,10 +284,6 @@ type makeProps = {
   multiple: bool,
   [@bs.optional]
   muted: bool,
-  /*
-  [@bs.optional]
-  name: string,
-  */
   [@bs.optional]
   nonce: string,
   [@bs.optional]
@@ -366,10 +353,6 @@ type makeProps = {
   type_: string, /* has a fixed but large-ish set of possible values */ /* use this one. Previous one is deprecated */
   [@bs.optional]
   useMap: string,
-  /*
-  [@bs.optional]
-  value: string,
-  */
   [@bs.optional]
   width: string, /* in html5 this can only be a number, but in html4 it can ba a percentage as well */
   [@bs.optional]
@@ -401,10 +384,6 @@ type makeProps = {
   [@bs.optional]
   onBlur: ReactEvent.Focus.t => unit,
   /* Form events */
-  /*
-  [@bs.optional]
-  onChange: ReactEvent.Form.t => unit,
-  */
   [@bs.optional]
   onInput: ReactEvent.Form.t => unit,
   [@bs.optional]
