@@ -2,90 +2,149 @@ type value;
 
 external str: string => value = "%identity";
 external int: int => value = "%identity";
-external obj: Js.t({..}) => value = "%identity";
+
+[@bs.obj]
+external breakpoints: (
+  ~xs: string,
+  ~sm: string,
+  ~md: string,
+  ~lg: string,
+  ~xl: string,
+) => value = "";
 
 [@bs.deriving abstract]
 type makeProps = {
-  [@bs.optional] children: React.element,
-  [@bs.optional] clone: bool,
-  [@bs.optional] component: string,
-
+  [@bs.optional] 
+  children: React.element,
+  [@bs.optional] 
+  clone: bool,
+  [@bs.optional] 
+  component: string,
   // borders
-  [@bs.optional] border: value,
-  [@bs.optional] borderTop: value,
-  [@bs.optional] borderLeft: value,
-  [@bs.optional] borderRight: value,
-  [@bs.optional] borderBottom: value,
-  [@bs.optional] borderColor: value,
-  [@bs.optional] borderRadius: value,
-
+  [@bs.optional] 
+  border: value,
+  [@bs.optional] 
+  borderTop: value,
+  [@bs.optional] 
+  borderLeft: value,
+  [@bs.optional] 
+  borderRight: value,
+  [@bs.optional] 
+  borderBottom: value,
+  [@bs.optional] 
+  borderColor: value,
+  [@bs.optional] 
+  borderRadius: value,
   // display
-  [@bs.optional] displayPrint: value,
-  [@bs.optional] displayRaw: value,
-  [@bs.optional] overflow: value,
-  [@bs.optional] textOverflow: value,
-  [@bs.optional] visibility: value,
-  [@bs.optional] whiteSpace: value,
-
+  [@bs.optional] 
+  displayPrint: value,
+  [@bs.optional]
+  displayRaw: value,
+  [@bs.optional]
+  overflow: value,
+  [@bs.optional]
+  textOverflow: value,
+  [@bs.optional]
+  visibility: value,
+  [@bs.optional]
+  whiteSpace: value,
   // flexbox
-  [@bs.optional] flexDirection: value,
-  [@bs.optional] flexWrap: value,
-  [@bs.optional] justifyContent: value,
-  [@bs.optional] alignItems: value,
-  [@bs.optional] order: value,
-  [@bs.optional] flex: value,
-  [@bs.optional] flexGrow: value,
-  [@bs.optional] flexShrink: value,
-  [@bs.optional] alignSelf: value,
-
+  [@bs.optional] 
+  flexDirection: value,
+  [@bs.optional] 
+  flexWrap: value,
+  [@bs.optional] 
+  justifyContent: value,
+  [@bs.optional] 
+  alignItems: value,
+  [@bs.optional] 
+  order: value,
+  [@bs.optional] 
+  flex: value,
+  [@bs.optional] 
+  flexGrow: value,
+  [@bs.optional] 
+  flexShrink: value,
+  [@bs.optional]
+  alignSelf: value,
   // palette
-  [@bs.optional] color: value,
-  [@bs.optional] bgColor: value,
-
+  [@bs.optional] 
+  color: value,
+  [@bs.optional] 
+  bgColor: value,
   // position
-  [@bs.optional] position: value,
-  [@bs.optional] zIndex: value,
-  [@bs.optional] top: value,
-  [@bs.optional] right: value,
-  [@bs.optional] bottom: value,
-  [@bs.optional] left: value,
-
+  [@bs.optional]
+  position: value,
+  [@bs.optional] 
+  zIndex: value,
+  [@bs.optional] 
+  top: value,
+  [@bs.optional]
+  right: value,
+  [@bs.optional]
+  bottom: value,
+  [@bs.optional]
+  left: value,
   // shadows
-  [@bs.optional] boxShadow: value,
-
+  [@bs.optional]
+  boxShadow: value,
   // sizing
-  [@bs.optional] width: value,
-  [@bs.optional] maxWidth: value,
-  [@bs.optional] minWidth: value,
-  [@bs.optional] height: value,
-  [@bs.optional] maxHeight: value,
-  [@bs.optional] minHeight: value,
-
+  [@bs.optional]
+  width: value,
+  [@bs.optional]
+  maxWidth: value,
+  [@bs.optional]
+  minWidth: value,
+  [@bs.optional]
+  height: value,
+  [@bs.optional]
+  maxHeight: value,
+  [@bs.optional]
+  minHeight: value,
   // spacing
-  [@bs.optional] m: value,
-  [@bs.optional] mt: value,
-  [@bs.optional] mr: value,
-  [@bs.optional] mb: value,
-  [@bs.optional] ml: value,
-  [@bs.optional] mx: value,
-  [@bs.optional] my: value,
-  [@bs.optional] p: value,
-  [@bs.optional] pt: value,
-  [@bs.optional] pr: value,
-  [@bs.optional] pb: value,
-  [@bs.optional] pl: value,
-  [@bs.optional] px: value,
-  [@bs.optional] py: value,
-
+  [@bs.optional] 
+  m: value,
+  [@bs.optional] 
+  mt: value,
+  [@bs.optional] 
+  mr: value,
+  [@bs.optional] 
+  mb: value,
+  [@bs.optional] 
+  ml: value,
+  [@bs.optional] 
+  mx: value,
+  [@bs.optional] 
+  my: value,
+  [@bs.optional] 
+  p: value,
+  [@bs.optional] 
+  pt: value,
+  [@bs.optional] 
+  pr: value,
+  [@bs.optional] 
+  pb: value,
+  [@bs.optional] 
+  pl: value,
+  [@bs.optional] 
+  px: value,
+  [@bs.optional] 
+  py: value,
   // typography
-  [@bs.optional] fontFamily: value,
-  [@bs.optional] fontSize: value,
-  [@bs.optional] fontStyle: value,
-  [@bs.optional] fontWeight: value,
-  [@bs.optional] letterSpacing: value,
-  [@bs.optional] lineHeight: value,
-  [@bs.optional] textAlign: value,
-
+  [@bs.optional] 
+  fontFamily: value,
+  [@bs.optional] 
+  fontSize: value,
+  [@bs.optional] 
+  fontStyle: value,
+  [@bs.optional] 
+  fontWeight: value,
+  [@bs.optional] 
+  letterSpacing: value,
+  [@bs.optional] 
+  lineHeight: value,
+  [@bs.optional] 
+  textAlign: value,
   // domProps
   [@bs.optional]
   key: string,
@@ -528,7 +587,6 @@ type makeProps = {
   onAnimationIteration: ReactEvent.Animation.t => unit,
   [@bs.optional]
   onTransitionEnd: ReactEvent.Transition.t => unit,
-
   /* RDFa */
   [@bs.optional]
   about: string,
