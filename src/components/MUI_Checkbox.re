@@ -6,16 +6,6 @@ type makeClasses = {
   [@bs.optional] indeterminate: string,
   [@bs.optional] colorPrimary: string,
   [@bs.optional] colorSecondary: string,
-
-  // IconButton classes
-  [@bs.optional] edgeStart: string,
-  [@bs.optional] edgeEnd: string,
-  [@bs.optional] colorInherit: string,
-  [@bs.optional] sizeSmall: string,
-  [@bs.optional] label: string,
-
-  // ButtonBase classes
-  [@bs.optional] focusVisible: string,
 };
 type classes;
 
