@@ -1,4 +1,4 @@
-# Simple a sign in page
+# Simple sign in page
 
 ```
 npm install
