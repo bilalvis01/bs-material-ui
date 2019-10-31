@@ -21,40 +21,64 @@ type classes;
 
 [@bs.deriving abstract]
 type makeProps = {
-  [@bs.optional] childen: React.element,
-
-  [@bs.optional] checked: bool,
-  [@bs.optional] checkedIcon: React.element,
-  [@bs.optional] classes: classes,
-  [@bs.optional] color: string,
-  [@bs.optional] disabled: bool,
-  [@bs.optional] disableRipple: bool,
-  [@bs.optional] icon: React.element,
-  [@bs.optional] id: string,
-  [@bs.optional] indeterminate: bool,
-  [@bs.optional] indeterminateIcon: bool,
-  [@bs.optional] inputProps: ReactDOMRe.props,
-  [@bs.optional] inputRef: ReactDOMRe.domRef,
-  [@bs.optional] onChange: ReactEvent.Form.t => bool,
-  [@bs.optional] required: bool,
-  [@bs.optional] _type: string,
-  [@bs.optional] value: string,
-
+  [@bs.optional] 
+  childen: React.element,
+  [@bs.optional] 
+  checked: bool,
+  [@bs.optional] 
+  checkedIcon: React.element,
+  [@bs.optional] 
+  classes: classes,
+  [@bs.optional] 
+  color: string,
+  [@bs.optional] 
+  disabled: bool,
+  [@bs.optional] 
+  disableRipple: bool,
+  [@bs.optional] 
+  icon: React.element,
+  [@bs.optional] 
+  id: string,
+  [@bs.optional] 
+  indeterminate: bool,
+  [@bs.optional] 
+  indeterminateIcon: bool,
+  [@bs.optional] 
+  inputProps: ReactDOMRe.props,
+  [@bs.optional] 
+  inputRef: ReactDOMRe.domRef,
+  [@bs.optional] 
+  onChange: ReactEvent.Form.t => bool,
+  [@bs.optional] 
+  required: bool,
+  [@bs.optional] [@bs.as "type"]
+  type_: string,
+  [@bs.optional] 
+  value: string,
   // IconButton props
-  [@bs.optional] disableFocusRipple: bool,
-  [@bs.optional] edge: string,
-  [@bs.optional] size: string,
-
+  [@bs.optional] 
+  disableFocusRipple: bool,
+  [@bs.optional] 
+  edge: string,
+  [@bs.optional] 
+  size: string,
   // ButtonBase props
-  [@bs.optional] action: ReactDOMRe.domRef,
-  [@bs.optional] buttonRef: ReactDOMRe.domRef,
-  [@bs.optional] centerRipple: bool,
-  [@bs.optional] component: string,
-  [@bs.optional] disableTouchRipple: bool,
-  [@bs.optional] focusRipple: bool,
-  [@bs.optional] focusVisibleClassName: string,
-  [@bs.optional] onFocusVisible: ReactEvent.Form.t => unit,
-
+  [@bs.optional] 
+  action: ReactDOMRe.domRef,
+  [@bs.optional] 
+  buttonRef: ReactDOMRe.domRef,
+  [@bs.optional] 
+  centerRipple: bool,
+  [@bs.optional] 
+  component: string,
+  [@bs.optional] 
+  disableTouchRipple: bool,
+  [@bs.optional] 
+  focusRipple: bool,
+  [@bs.optional] 
+  focusVisibleClassName: string,
+  [@bs.optional] 
+  onFocusVisible: ReactEvent.Form.t => unit,
   // domProps
   [@bs.optional]
   key: string,
@@ -174,10 +198,6 @@ type makeProps = {
   draggable: bool,
   [@bs.optional]
   hidden: bool,
-  /*
-  [@bs.optional]
-  id: string,
-  */
   [@bs.optional]
   lang: string,
   [@bs.optional]
@@ -206,10 +226,6 @@ type makeProps = {
   accept: string,
   [@bs.optional]
   acceptCharset: string,
-  /*
-  [@bs.optional]
-  action: string, /* uri */
-  */
   [@bs.optional]
   allowFullScreen: bool,
   [@bs.optional]
@@ -226,10 +242,6 @@ type makeProps = {
   challenge: string,
   [@bs.optional]
   charSet: string,
-  /*
-  [@bs.optional]
-  checked: bool,
-  */
   [@bs.optional]
   cite: string, /* uri */
   [@bs.optional]
@@ -252,10 +264,6 @@ type makeProps = {
   default: bool,
   [@bs.optional]
   defer: bool,
-  /*
-  [@bs.optional]
-  disabled: bool,
-  */
   [@bs.optional]
   download: string, /* should really be either a boolean, signifying presence, or a string */
   [@bs.optional]
@@ -282,10 +290,6 @@ type makeProps = {
   htmlFor: string, /* substitute for "for" */
   [@bs.optional]
   httpEquiv: string, /* has a fixed set of possible values */
-  /*
-  [@bs.optional]
-  icon: string, /* uri? */
-  */
   [@bs.optional]
   inputMode: string, /* "verbatim", "latin", "numeric", etc. */
   [@bs.optional]
@@ -346,10 +350,6 @@ type makeProps = {
   readOnly: bool,
   [@bs.optional]
   rel: string, /* a space- or comma-separated (depending on the element) list of a fixed set of "link types" */
-  /*
-  [@bs.optional]
-  required: bool,
-  */
   [@bs.optional]
   reversed: bool,
   [@bs.optional]
@@ -369,10 +369,6 @@ type makeProps = {
   selected: bool,
   [@bs.optional]
   shape: string,
-  /*
-  [@bs.optional]
-  size: int,
-  */
   [@bs.optional]
   sizes: string,
   [@bs.optional]
@@ -393,14 +389,8 @@ type makeProps = {
   summary: string, /* deprecated */
   [@bs.optional]
   target: string,
-  [@bs.optional] [@bs.as "type"]
-  type_: string, /* has a fixed but large-ish set of possible values */ /* use this one. Previous one is deprecated */
   [@bs.optional]
   useMap: string,
-  /*
-  [@bs.optional]
-  value: string,
-  */
   [@bs.optional]
   width: string, /* in html5 this can only be a number, but in html4 it can ba a percentage as well */
   [@bs.optional]
@@ -432,10 +422,6 @@ type makeProps = {
   [@bs.optional]
   onBlur: ReactEvent.Focus.t => unit,
   /* Form events */
-  /*
-  [@bs.optional]
-  onChange: ReactEvent.Form.t => unit,
-  */
   [@bs.optional]
   onInput: ReactEvent.Form.t => unit,
   [@bs.optional]
@@ -543,7 +529,8 @@ type makeProps = {
   [@bs.optional]
   onWaiting: ReactEvent.Media.t => unit,
   /* Image events */
-  [@bs.optional]onLoad: ReactEvent.Image.t => unit /* duplicate */, /*~onError: ReactEvent.Image.t => unit=?,*/
+  [@bs.optional]
+  onLoad: ReactEvent.Image.t => unit /* duplicate */, /*~onError: ReactEvent.Image.t => unit=?,*/
   /* Animation events */
   [@bs.optional]
   onAnimationStart: ReactEvent.Animation.t => unit,
@@ -554,492 +541,6 @@ type makeProps = {
   /* Transition events */
   [@bs.optional]
   onTransitionEnd: ReactEvent.Transition.t => unit,
-  /* svg */
-  [@bs.optional]
-  accentHeight: string,
-  [@bs.optional]
-  accumulate: string,
-  [@bs.optional]
-  additive: string,
-  [@bs.optional]
-  alignmentBaseline: string,
-  [@bs.optional]
-  allowReorder: string,
-  [@bs.optional]
-  alphabetic: string,
-  [@bs.optional]
-  amplitude: string,
-  [@bs.optional]
-  arabicForm: string,
-  [@bs.optional]
-  ascent: string,
-  [@bs.optional]
-  attributeName: string,
-  [@bs.optional]
-  attributeType: string,
-  [@bs.optional]
-  autoReverse: string,
-  [@bs.optional]
-  azimuth: string,
-  [@bs.optional]
-  baseFrequency: string,
-  [@bs.optional]
-  baseProfile: string,
-  [@bs.optional]
-  baselineShift: string,
-  [@bs.optional]
-  bbox: string,
-  [@bs.optional] [@bs.as "begin"]
-  begin_: string, /* use this one. Previous one is deprecated */
-  [@bs.optional]
-  bias: string,
-  [@bs.optional]
-  by: string,
-  [@bs.optional]
-  calcMode: string,
-  [@bs.optional]
-  capHeight: string,
-  [@bs.optional]
-  clip: string,
-  [@bs.optional]
-  clipPath: string,
-  [@bs.optional]
-  clipPathUnits: string,
-  [@bs.optional]
-  clipRule: string,
-  [@bs.optional]
-  colorInterpolation: string,
-  [@bs.optional]
-  colorInterpolationFilters: string,
-  [@bs.optional]
-  colorProfile: string,
-  [@bs.optional]
-  colorRendering: string,
-  [@bs.optional]
-  contentScriptType: string,
-  [@bs.optional]
-  contentStyleType: string,
-  [@bs.optional]
-  cursor: string,
-  [@bs.optional]
-  cx: string,
-  [@bs.optional]
-  cy: string,
-  [@bs.optional]
-  d: string,
-  [@bs.optional]
-  decelerate: string,
-  [@bs.optional]
-  descent: string,
-  [@bs.optional]
-  diffuseConstant: string,
-  [@bs.optional]
-  direction: string,
-  [@bs.optional]
-  display: string,
-  [@bs.optional]
-  divisor: string,
-  [@bs.optional]
-  dominantBaseline: string,
-  [@bs.optional]
-  dur: string,
-  [@bs.optional]
-  dx: string,
-  [@bs.optional]
-  dy: string,
-  [@bs.optional]
-  edgeMode: string,
-  [@bs.optional]
-  elevation: string,
-  [@bs.optional]
-  enableBackground: string,
-  [@bs.optional] [@bs.as "end"]
-  end_: string, /* use this one. Previous one is deprecated */
-  [@bs.optional]
-  exponent: string,
-  [@bs.optional]
-  externalResourcesRequired: string,
-  [@bs.optional]
-  fill: string,
-  [@bs.optional]
-  fillOpacity: string,
-  [@bs.optional]
-  fillRule: string,
-  [@bs.optional]
-  filter: string,
-  [@bs.optional]
-  filterRes: string,
-  [@bs.optional]
-  filterUnits: string,
-  [@bs.optional]
-  floodColor: string,
-  [@bs.optional]
-  floodOpacity: string,
-  [@bs.optional]
-  focusable: string,
-  [@bs.optional]
-  fontFamily: string,
-  [@bs.optional]
-  fontSize: string,
-  [@bs.optional]
-  fontSizeAdjust: string,
-  [@bs.optional]
-  fontStretch: string,
-  [@bs.optional]
-  fontStyle: string,
-  [@bs.optional]
-  fontVariant: string,
-  [@bs.optional]
-  fontWeight: string,
-  [@bs.optional]
-  fomat: string,
-  [@bs.optional]
-  from: string,
-  [@bs.optional]
-  fx: string,
-  [@bs.optional]
-  fy: string,
-  [@bs.optional]
-  g1: string,
-  [@bs.optional]
-  g2: string,
-  [@bs.optional]
-  glyphName: string,
-  [@bs.optional]
-  glyphOrientationHorizontal: string,
-  [@bs.optional]
-  glyphOrientationVertical: string,
-  [@bs.optional]
-  glyphRef: string,
-  [@bs.optional]
-  gradientTransform: string,
-  [@bs.optional]
-  gradientUnits: string,
-  [@bs.optional]
-  hanging: string,
-  [@bs.optional]
-  horizAdvX: string,
-  [@bs.optional]
-  horizOriginX: string,
-  [@bs.optional]
-  ideographic: string,
-  [@bs.optional]
-  imageRendering: string,
-  [@bs.optional] [@bs.as "in"]
-  in_: string, /* use this one. Previous one is deprecated */
-  [@bs.optional]
-  in2: string,
-  [@bs.optional]
-  intercept: string,
-  [@bs.optional]
-  k: string,
-  [@bs.optional]
-  k1: string,
-  [@bs.optional]
-  k2: string,
-  [@bs.optional]
-  k3: string,
-  [@bs.optional]
-  k4: string,
-  [@bs.optional]
-  kernelMatrix: string,
-  [@bs.optional]
-  kernelUnitLength: string,
-  [@bs.optional]
-  kerning: string,
-  [@bs.optional]
-  keyPoints: string,
-  [@bs.optional]
-  keySplines: string,
-  [@bs.optional]
-  keyTimes: string,
-  [@bs.optional]
-  lengthAdjust: string,
-  [@bs.optional]
-  letterSpacing: string,
-  [@bs.optional]
-  lightingColor: string,
-  [@bs.optional]
-  limitingConeAngle: string,
-  [@bs.optional]
-  local: string,
-  [@bs.optional]
-  markerEnd: string,
-  [@bs.optional]
-  markerHeight: string,
-  [@bs.optional]
-  markerMid: string,
-  [@bs.optional]
-  markerStart: string,
-  [@bs.optional]
-  markerUnits: string,
-  [@bs.optional]
-  markerWidth: string,
-  [@bs.optional]
-  mask: string,
-  [@bs.optional]
-  maskContentUnits: string,
-  [@bs.optional]
-  maskUnits: string,
-  [@bs.optional]
-  mathematical: string,
-  [@bs.optional]
-  mode: string,
-  [@bs.optional]
-  numOctaves: string,
-  [@bs.optional]
-  offset: string,
-  [@bs.optional]
-  opacity: string,
-  [@bs.optional]
-  operator: string,
-  [@bs.optional]
-  order: string,
-  [@bs.optional]
-  orient: string,
-  [@bs.optional]
-  orientation: string,
-  [@bs.optional]
-  origin: string,
-  [@bs.optional]
-  overflow: string,
-  [@bs.optional]
-  overflowX: string,
-  [@bs.optional]
-  overflowY: string,
-  [@bs.optional]
-  overlinePosition: string,
-  [@bs.optional]
-  overlineThickness: string,
-  [@bs.optional]
-  paintOrder: string,
-  [@bs.optional]
-  panose1: string,
-  [@bs.optional]
-  pathLength: string,
-  [@bs.optional]
-  patternContentUnits: string,
-  [@bs.optional]
-  patternTransform: string,
-  [@bs.optional]
-  patternUnits: string,
-  [@bs.optional]
-  pointerEvents: string,
-  [@bs.optional]
-  points: string,
-  [@bs.optional]
-  pointsAtX: string,
-  [@bs.optional]
-  pointsAtY: string,
-  [@bs.optional]
-  pointsAtZ: string,
-  [@bs.optional]
-  preserveAlpha: string,
-  [@bs.optional]
-  preserveAspectRatio: string,
-  [@bs.optional]
-  primitiveUnits: string,
-  [@bs.optional]
-  r: string,
-  [@bs.optional]
-  radius: string,
-  [@bs.optional]
-  refX: string,
-  [@bs.optional]
-  refY: string,
-  [@bs.optional]
-  renderingIntent: string,
-  [@bs.optional]
-  repeatCount: string,
-  [@bs.optional]
-  repeatDur: string,
-  [@bs.optional]
-  requiredExtensions: string,
-  [@bs.optional]
-  requiredFeatures: string,
-  [@bs.optional]
-  restart: string,
-  [@bs.optional]
-  result: string,
-  [@bs.optional]
-  rotate: string,
-  [@bs.optional]
-  rx: string,
-  [@bs.optional]
-  ry: string,
-  [@bs.optional]
-  scale: string,
-  [@bs.optional]
-  seed: string,
-  [@bs.optional]
-  shapeRendering: string,
-  [@bs.optional]
-  slope: string,
-  [@bs.optional]
-  spacing: string,
-  [@bs.optional]
-  specularConstant: string,
-  [@bs.optional]
-  specularExponent: string,
-  [@bs.optional]
-  speed: string,
-  [@bs.optional]
-  spreadMethod: string,
-  [@bs.optional]
-  startOffset: string,
-  [@bs.optional]
-  stdDeviation: string,
-  [@bs.optional]
-  stemh: string,
-  [@bs.optional]
-  stemv: string,
-  [@bs.optional]
-  stitchTiles: string,
-  [@bs.optional]
-  stopColor: string,
-  [@bs.optional]
-  stopOpacity: string,
-  [@bs.optional]
-  strikethroughPosition: string,
-  [@bs.optional]
-  strikethroughThickness: string,
-  [@bs.optional]
-  string,
-  [@bs.optional]
-  stroke: string,
-  [@bs.optional]
-  strokeDasharray: string,
-  [@bs.optional]
-  strokeDashoffset: string,
-  [@bs.optional]
-  strokeLinecap: string,
-  [@bs.optional]
-  strokeLinejoin: string,
-  [@bs.optional]
-  strokeMiterlimit: string,
-  [@bs.optional]
-  strokeOpacity: string,
-  [@bs.optional]
-  strokeWidth: string,
-  [@bs.optional]
-  surfaceScale: string,
-  [@bs.optional]
-  systemLanguage: string,
-  [@bs.optional]
-  tableValues: string,
-  [@bs.optional]
-  targetX: string,
-  [@bs.optional]
-  targetY: string,
-  [@bs.optional]
-  textAnchor: string,
-  [@bs.optional]
-  textDecoration: string,
-  [@bs.optional]
-  textLength: string,
-  [@bs.optional]
-  textRendering: string,
-  [@bs.optional] [@bs.as "to"]
-  to_: string, /* use this one. Previous one is deprecated */
-  [@bs.optional]
-  transform: string,
-  [@bs.optional]
-  u1: string,
-  [@bs.optional]
-  u2: string,
-  [@bs.optional]
-  underlinePosition: string,
-  [@bs.optional]
-  underlineThickness: string,
-  [@bs.optional]
-  unicode: string,
-  [@bs.optional]
-  unicodeBidi: string,
-  [@bs.optional]
-  unicodeRange: string,
-  [@bs.optional]
-  unitsPerEm: string,
-  [@bs.optional]
-  vAlphabetic: string,
-  [@bs.optional]
-  vHanging: string,
-  [@bs.optional]
-  vIdeographic: string,
-  [@bs.optional]
-  vMathematical: string,
-  [@bs.optional]
-  values: string,
-  [@bs.optional]
-  vectorEffect: string,
-  [@bs.optional]
-  version: string,
-  [@bs.optional]
-  vertAdvX: string,
-  [@bs.optional]
-  vertAdvY: string,
-  [@bs.optional]
-  vertOriginX: string,
-  [@bs.optional]
-  vertOriginY: string,
-  [@bs.optional]
-  viewBox: string,
-  [@bs.optional]
-  viewTarget: string,
-  [@bs.optional]
-  visibility: string,
-  /*width::string? =>*/
-  [@bs.optional]
-  widths: string,
-  [@bs.optional]
-  wordSpacing: string,
-  [@bs.optional]
-  writingMode: string,
-  [@bs.optional]
-  x: string,
-  [@bs.optional]
-  x1: string,
-  [@bs.optional]
-  x2: string,
-  [@bs.optional]
-  xChannelSelector: string,
-  [@bs.optional]
-  xHeight: string,
-  [@bs.optional]
-  xlinkActuate: string,
-  [@bs.optional]
-  xlinkArcrole: string,
-  [@bs.optional]
-  xlinkHref: string,
-  [@bs.optional]
-  xlinkRole: string,
-  [@bs.optional]
-  xlinkShow: string,
-  [@bs.optional]
-  xlinkTitle: string,
-  [@bs.optional]
-  xlinkType: string,
-  [@bs.optional]
-  xmlns: string,
-  [@bs.optional]
-  xmlnsXlink: string,
-  [@bs.optional]
-  xmlBase: string,
-  [@bs.optional]
-  xmlLang: string,
-  [@bs.optional]
-  xmlSpace: string,
-  [@bs.optional]
-  y: string,
-  [@bs.optional]
-  y1: string,
-  [@bs.optional]
-  y2: string,
-  [@bs.optional]
-  yChannelSelector: string,
-  [@bs.optional]
-  z: string,
-  [@bs.optional]
-  zoomAndPan: string,
   /* RDFa */
   [@bs.optional]
   about: string,
@@ -1057,11 +558,6 @@ type makeProps = {
   typeof: string,
   [@bs.optional]
   vocab: string,
-  /* react-specific */
-  [@bs.optional]
-  dangerouslySetInnerHTML: {. "__html": string},
-  [@bs.optional]
-  suppressContentEditableWarning: bool,
 };
 type props = makeProps;
 
