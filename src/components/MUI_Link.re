@@ -40,7 +40,7 @@ type makeClasses = {
 type classes = makeClasses;
 
 type variantMapping = MUI_Typography.variantMapping;
-let variantMapping = MUI_Typography.variantMapping;
+let variantMapping = MUI_Typography.makeVariantMapping;
 
 [@bs.module "@material-ui/core/Link"] [@react.component]
 external make: (
