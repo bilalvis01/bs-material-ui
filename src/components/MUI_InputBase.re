@@ -95,57 +95,9 @@ type makeProps = {
   value: string,
   // domProps
   [@bs.optional]
-  ref: ReactDOMRe.domRef,
-  [@bs.optional]
   key: string,
   [@bs.optional]
-  className: string,
-  [@bs.optional]
-  style: ReactDOMRe.style,
-  [@bs.optional]
-  accept: string,
-  [@bs.optional]
-  alt: string,
-  [@bs.optional]
-  checked: bool,
-  [@bs.optional]
-  form: string,
-  [@bs.optional]
-  formAction: string, /* uri */
-  [@bs.optional]
-  formTarget: string, /* "_blank", "_self", etc. */
-  [@bs.optional]
-  formMethod: string, /* "post", "get", "put" */
-  [@bs.optional]
-  height: string, /* in html5 this can only be a number, but in html4 it can ba a percentage as well */
-  [@bs.optional]
-  inputMode: string, /* "verbatim", "latin", "numeric", etc. */
-  [@bs.optional]
-  list: string,
-  [@bs.optional]
-  max: string, /* should be int or Js.Date.t */
-  [@bs.optional]
-  maxLength: int,
-  [@bs.optional]
-  min: int,
-  [@bs.optional]
-  minLength: int,
-  [@bs.optional]
-  multiple: bool,
-  [@bs.optional]
-  pattern: string, /* valid Js RegExp */
-  [@bs.optional]
-  size: int,
-  [@bs.optional]
-  src: string, /* uri */
-  [@bs.optional]
-  step: float,
-  [@bs.optional]
-  tabIndex: int,
-  [@bs.optional]
-  title: string,
-  [@bs.optional]
-  width: string, /* in html5 this can only be a number, but in html4 it can ba a percentage as well */
+  ref: ReactDOMRe.domRef,
   /* accessibility */
   /* https://www.w3.org/TR/wai-aria-1.1/ */
   /* https://accessibilityresources.org/<aria-tag> is a great resource for these */
@@ -240,6 +192,218 @@ type makeProps = {
   ariaRowspan: int,
   [@bs.optional] [@bs.as "aria-setsize"]
   ariaSetsize: int,
+  /* react textarea/input */
+  [@bs.optional]
+  defaultChecked: bool,
+  /* global html attributes */
+  [@bs.optional]
+  accessKey: string,
+  [@bs.optional]
+  className: string, /* substitute for "class" */
+  [@bs.optional]
+  contentEditable: bool,
+  [@bs.optional]
+  contextMenu: string,
+  [@bs.optional]
+  dir: string, /* "ltr", "rtl" or "auto" */
+  [@bs.optional]
+  draggable: bool,
+  [@bs.optional]
+  hidden: bool,
+  [@bs.optional]
+  lang: string,
+  [@bs.optional]
+  role: string, /* ARIA role */
+  [@bs.optional]
+  style: ReactDOMRe.style,
+  [@bs.optional]
+  spellCheck: bool,
+  [@bs.optional]
+  tabIndex: int,
+  [@bs.optional]
+  title: string,
+  /* html5 microdata */
+  [@bs.optional]
+  itemID: string,
+  [@bs.optional]
+  itemProp: string,
+  [@bs.optional]
+  itemRef: string,
+  [@bs.optional]
+  itemScope: bool,
+  [@bs.optional]
+  itemType: string, /* uri */
+  /* tag-specific html attributes */
+  [@bs.optional]
+  accept: string,
+  [@bs.optional]
+  acceptCharset: string,
+  [@bs.optional]
+  action: string, /* uri */
+  [@bs.optional]
+  allowFullScreen: bool,
+  [@bs.optional]
+  alt: string,
+  [@bs.optional]
+  async: bool,
+  [@bs.optional]
+  autoPlay: bool,
+  [@bs.optional]
+  challenge: string,
+  [@bs.optional]
+  charSet: string,
+  [@bs.optional]
+  checked: bool,
+  [@bs.optional]
+  cite: string, /* uri */
+  [@bs.optional]
+  crossorigin: bool,
+  [@bs.optional]
+  cols: int,
+  [@bs.optional]
+  colSpan: int,
+  [@bs.optional]
+  content: string,
+  [@bs.optional]
+  controls: bool,
+  [@bs.optional]
+  coords: string, /* set of values specifying the coordinates of a region */
+  [@bs.optional]
+  data: string, /* uri */
+  [@bs.optional]
+  dateTime: string, /* "valid date string with optional time" */
+  [@bs.optional]
+  default: bool,
+  [@bs.optional]
+  defer: bool,
+  [@bs.optional]
+  download: string, /* should really be either a boolean, signifying presence, or a string */
+  [@bs.optional]
+  encType: string, /* "application/x-www-form-urlencoded", "multipart/form-data" or "text/plain" */
+  [@bs.optional]
+  form: string,
+  [@bs.optional]
+  formAction: string, /* uri */
+  [@bs.optional]
+  formTarget: string, /* "_blank", "_self", etc. */
+  [@bs.optional]
+  formMethod: string, /* "post", "get", "put" */
+  [@bs.optional]
+  headers: string,
+  [@bs.optional]
+  height: string, /* in html5 this can only be a number, but in html4 it can ba a percentage as well */
+  [@bs.optional]
+  high: int,
+  [@bs.optional]
+  href: string, /* uri */
+  [@bs.optional]
+  hrefLang: string,
+  [@bs.optional]
+  htmlFor: string, /* substitute for "for" */
+  [@bs.optional]
+  httpEquiv: string, /* has a fixed set of possible values */
+  [@bs.optional]
+  icon: string, /* uri? */
+  [@bs.optional]
+  inputMode: string, /* "verbatim", "latin", "numeric", etc. */
+  [@bs.optional]
+  integrity: string,
+  [@bs.optional]
+  keyType: string,
+  [@bs.optional]
+  kind: string, /* has a fixed set of possible values */
+  [@bs.optional]
+  label: string,
+  [@bs.optional]
+  list: string,
+  [@bs.optional]
+  loop: bool,
+  [@bs.optional]
+  low: int,
+  [@bs.optional]
+  manifest: string, /* uri */
+  [@bs.optional]
+  max: string, /* should be int or Js.Date.t */
+  [@bs.optional]
+  maxLength: int,
+  [@bs.optional]
+  media: string, /* a valid media query */
+  [@bs.optional]
+  mediaGroup: string,
+  [@bs.optional]
+  method: string, /* "post" or "get" */
+  [@bs.optional]
+  min: int,
+  [@bs.optional]
+  minLength: int,
+  [@bs.optional]
+  multiple: bool,
+  [@bs.optional]
+  muted: bool,
+  [@bs.optional]
+  nonce: string,
+  [@bs.optional]
+  noValidate: bool,
+  [@bs.optional] [@bs.as "open"]
+  open_: bool, /* use this one. Previous one is deprecated */
+  [@bs.optional]
+  optimum: int,
+  [@bs.optional]
+  pattern: string, /* valid Js RegExp */
+  [@bs.optional]
+  poster: string, /* uri */
+  [@bs.optional]
+  preload: string, /* "none", "metadata" or "auto" (and "" as a synonym for "auto") */
+  [@bs.optional]
+  radioGroup: string,
+  [@bs.optional]
+  rel: string, /* a space- or comma-separated (depending on the element) list of a fixed set of "link types" */
+  [@bs.optional]
+  reversed: bool,
+  [@bs.optional]
+  rowSpan: int,
+  [@bs.optional]
+  sandbox: string, /* has a fixed set of possible values */
+  [@bs.optional]
+  scope: string, /* has a fixed set of possible values */
+  [@bs.optional]
+  scoped: bool,
+  [@bs.optional]
+  scrolling: string, /* html4 only, "auto", "yes" or "no" */
+  /* seamless - supported by React, but removed from the html5 spec */
+  [@bs.optional]
+  selected: bool,
+  [@bs.optional]
+  shape: string,
+  [@bs.optional]
+  size: int,
+  [@bs.optional]
+  sizes: string,
+  [@bs.optional]
+  span: int,
+  [@bs.optional]
+  src: string, /* uri */
+  [@bs.optional]
+  srcDoc: string,
+  [@bs.optional]
+  srcLang: string,
+  [@bs.optional]
+  srcSet: string,
+  [@bs.optional]
+  start: int,
+  [@bs.optional]
+  step: float,
+  [@bs.optional]
+  summary: string, /* deprecated */
+  [@bs.optional]
+  target: string,
+  [@bs.optional]
+  useMap: string,
+  [@bs.optional]
+  width: string, /* in html5 this can only be a number, but in html4 it can ba a percentage as well */
+  [@bs.optional]
+  wrap: string, /* "hard" or "soft" */
+  /* Clipboard events */
   [@bs.optional]
   onCopy: ReactEvent.Clipboard.t => unit,
   [@bs.optional]
