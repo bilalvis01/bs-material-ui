@@ -84,6 +84,14 @@ type makeProps = {
   select: bool,
   // dom props
   [@bs.optional]
+  ref: ReactDOMRe.domRef,
+  [@bs.optional]
+  key: string,
+  [@bs.optional]
+  className: string,
+  [@bs.optional]
+  style: ReactDOMRe.style,
+  [@bs.optional]
   accept: string,
   [@bs.optional]
   alt: string,
@@ -127,10 +135,6 @@ type makeProps = {
   title: string,
   [@bs.optional]
   width: string, /* in html5 this can only be a number, but in html4 it can ba a percentage as well */
-  [@bs.optional]
-  key: string,
-  [@bs.optional]
-  ref: ReactDOMRe.domRef,
   /* accessibility */
   /* https://www.w3.org/TR/wai-aria-1.1/ */
   /* https://accessibilityresources.org/<aria-tag> is a great resource for these */
