@@ -23,7 +23,7 @@ module type StylesType = {
   type props;
   type styles('a);
   let options: option(options);
-  let styles: theme => styles(props => MUIStyles_Style.t);
+  let styles: theme => styles(props => MUI_StyleRule.t);
 };
 
 module type S = {
@@ -37,7 +37,7 @@ module Make = (Styles: StylesType):
   type props = Styles.props;
   type classes('a) = Styles.styles('a);
   type stylesHook = props => classes(string);
-  type callback = Styles.theme => Styles.styles(props => MUIStyles_Style.t);
+  type callback = Styles.theme => Styles.styles(props => MUI_StyleRule.t);
 
   [@bs.module "@material-ui/core/styles"]
   external make: callback => stylesHook = "makeStyles";
