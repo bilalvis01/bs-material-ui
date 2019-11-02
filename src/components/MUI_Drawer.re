@@ -25,14 +25,15 @@ type classes = {
   modal: string,
 };
 
-[@bs.deriving abstract]
-type makeTransitionDuration = {
-  [@bs.optional]
-  enter: int,
-  [@bs.optional]
-  exit: int,
-};
-type transitionDuration = makeTransitionDuration;
+type transitionDuration;
+let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
+external transitionDurationStr: string => transitionDuration = "%identity";
+[@bs.obj]
+external transitionDurationObj: (
+  ~enter: int=?,
+  ~exit: int=?,
+  unit
+) => transitionDuration = "";
 
 [@bs.deriving abstract]
 type makeProps = {
@@ -44,10 +45,8 @@ type makeProps = {
   classes: classes,
   [@bs.optional]
   elevation: int,
-  /*
   [@bs.optional] [@bs.as "ModalProps"]
-  muiModalProps: MUI_ModalProps.props
-  */
+  _ModalProps: MUI_Modal.props,
   [@bs.optional]
   onClose: ReactEvent.Synthetic.t => unit,
   [@bs.optional] [@bs.as "open"]
@@ -56,7 +55,7 @@ type makeProps = {
   muiPaperProps: MUI_Paper.props,
   /*
   [@bs.optional] [@bs.as "SlideProps"]
-  muiSlideProps: MUI_Slide.props,
+  _SlideProps: MUI_Slide.props,
   */
   [@bs.optional]
   transitionDuration: transitionDuration,
