@@ -1,5 +1,5 @@
 [@bs.deriving abstract]
-type makeClasses = {
+type classes = {
   [@bs.optional] root: string,
   [@bs.optional] label: string,
   [@bs.optional] text: string,
@@ -29,7 +29,6 @@ type makeClasses = {
   [@bs.optional] iconSizeMedium: string,
   [@bs.optional] iconSizeLarge: string,
 };
-type classes = makeClasses;
 
 [@bs.deriving abstract]
 type makeProps = {

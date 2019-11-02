@@ -1,5 +1,5 @@
 [@bs.deriving abstract]
-type makeClasses = {
+type classes = {
   [@bs.optional] root: string,
   [@bs.optional] underlineNone: string,
   [@bs.optional] underlineHover: string,
@@ -7,7 +7,6 @@ type makeClasses = {
   [@bs.optional] button: string,
   [@bs.optional] focusVisible: string,
 };
-type classes = makeClasses;
 
 type variantMapping = MUI_Typography.variantMapping;
 let variantMapping = MUI_Typography.makeVariantMapping;

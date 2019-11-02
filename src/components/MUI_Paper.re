@@ -1,5 +1,5 @@
 [@bs.deriving abstract]
-type makeClasses = {
+type classes = {
   [@bs.optional]
   root: string,
   [@bs.optional]
@@ -55,7 +55,6 @@ type makeClasses = {
   [@bs.optional]
   elevation24: string,
 };
-type classes = makeClasses;
 
 [@bs.deriving abstract]
 type makeProps = {

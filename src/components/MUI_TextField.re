@@ -1,8 +1,7 @@
 [@bs.deriving abstract]
-type makeClasses = {
+type classes = {
   [@bs.optional] root: string
 };
-type classes = makeClasses;
 
 [@bs.deriving abstract]
 type makeProps = {
@@ -31,7 +30,7 @@ type makeProps = {
   // [@bs.optional] 
   // muiInputLabelProps: MUI_InputLabel.makeProps,
   [@bs.optional] [@bs.as "InputProps"]
-  muiInputProps: MaterialUI_Input.props,
+  muiInputProps: MUI_Input.props,
   [@bs.optional] 
   inputProps: ReactDOMRe.props,
   [@bs.optional] 
