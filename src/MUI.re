@@ -22,6 +22,7 @@ module ListItemText = MUI_ListItemText;
 module ListSubheader = MUI_ListSubheader;
 module Menu = MUI_Menu;
 module MenuItem = MaterialUI_MenuItem;
+module Modal = MUI_Modal;
 module Toolbar = MaterialUI_Toolbar;
 module Typography = MUI_Typography;
 module Link = MUI_Link;
