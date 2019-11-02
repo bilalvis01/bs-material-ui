@@ -8,9 +8,6 @@ type classes = {
   [@bs.optional] focusVisible: string,
 };
 
-type variantMapping = MUI_Typography.variantMapping;
-let variantMapping = MUI_Typography.makeVariantMapping;
-
 [@bs.deriving abstract]
 type makeProps = {
   [@bs.optional] 
@@ -39,7 +36,7 @@ type makeProps = {
   [@bs.optional] 
   paragraph: bool,
   [@bs.optional] 
-  variantMapping: variantMapping,
+  variantMapping: MUI_Typography.variantMapping,
   // domProps
   [@bs.optional]
   key: string,
