@@ -26,6 +26,7 @@ module Toolbar = MaterialUI_Toolbar;
 module Typography = MUI_Typography;
 module Link = MUI_Link;
 module Paper = MUI_Paper;
+module Popover = MUI_Popover;
 module Table = MaterialUI_Table;
 module TableHead = MaterialUI_TableHead;
 module TableRow = MaterialUI_TableRow;
