@@ -28,6 +28,7 @@ module Typography = MUI_Typography;
 module Link = MUI_Link;
 module Paper = MUI_Paper;
 module Popover = MUI_Popover;
+module Styles = MUI_Styles;
 module Table = MUI_Table;
 module TableHead = MUI_TableHead;
 module TableRow = MUI_TableRow;
