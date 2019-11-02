@@ -20,7 +20,7 @@ Then add `@bilalvis01/bs-material-ui` to `bs-dependencies` to your bsconfig.json
 }
 ```
 
-Please note that @material-ui/core >= 4.5.0, @material-ui/icons >= 4.5.0, reason-react >= 0.7.0 are peer depencencies.
+Please note that @material-ui/core >= 4.5.0, reason-react >= 0.7.0 are peer depencencies.
 
 ## Usage
 
