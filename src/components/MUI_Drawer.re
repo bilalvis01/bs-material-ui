@@ -27,7 +27,7 @@ type classes = {
 
 type transitionDuration;
 let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
-external transitionDurationStr: string => transitionDuration = "%identity";
+external transitionDurationInt: int => transitionDuration = "%identity";
 [@bs.obj]
 external transitionDurationObj: (
   ~enter: int=?,
@@ -52,7 +52,7 @@ type makeProps = {
   [@bs.optional] [@bs.as "open"]
   open_: bool, 
   [@bs.optional] [@bs.as "PaperProps"]
-  muiPaperProps: MUI_Paper.props,
+  _PaperProps: MUI_Paper.props,
   /*
   [@bs.optional] [@bs.as "SlideProps"]
   _SlideProps: MUI_Slide.props,
