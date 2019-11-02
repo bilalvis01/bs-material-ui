@@ -1,23 +1,3 @@
-type onCloseCallback;
-type onEnterCallback;
-type onEnteredCallback;
-type onEnteringCallback;
-type onExitCallback;
-type onExitedCallback;
-type onExitingCallback;
-
-external onCloseCallback: ((ReactEvent.synthetic('a), string) => unit) => onCloseCallback = "%identity";
-
-type transitionDuration;
-external transitionDurationInt: int => transitionDuration = "%identity";
-external transitionDurationStr: string => transitionDuration = "%identity";
-[@bs.obj]
-external transitionDurationObj: (
-  ~enter: int=?,
-  ~exit: int=?,
-  unit
-) => transitionDuration = "";
-
 [@bs.deriving abstract]
 type classes = {
   [@bs.optional]
@@ -26,45 +6,10 @@ type classes = {
   list: string,
 };
 
-type anchorOrigin;
-[@bs.obj]
-external anchorOriginStr: (
-  ~horizontal: string=?,
-  ~vertical: string=?,
-  unit
-) => anchorOrigin = "";
-[@bs.obj]
-external anchorOriginNum: (
-  ~horizontal: int=?,
-  ~vertical: int=?,
-  unit
-) => anchorOrigin = "";
-
-[@bs.deriving abstract]
-type anchorPosition = {
-  [@bs.optional]
-  left: int,
-  [@bs.optional]
-  top: int,
-};
-
-type transformOrigin;
-[@bs.obj]
-external transformOriginStr: (
-  ~horizontal: string=?,
-  ~vertical: string=?,
-  unit
-) => transformOrigin = "";
-[@bs.obj]
-external transformOriginNum: (
-  ~horizontal: string=?,
-  ~vertical: string=?,
-  unit
-) => transformOrigin = "";
-
-type transitionProps;
-
 type onRenderedCallback;
+
+let transitionDuration = MUI_Popover.transitionDuration;
+let onCloseCallback = MUI_Popover.onCloseCallback;
 
 [@bs.deriving abstract]
 type makeProps = {
@@ -83,19 +28,19 @@ type makeProps = {
   _MenuListProps: MUI_MenuList.props,
   */
   [@bs.optional]
-  onClose: onCloseCallback,
+  onClose: MUI_Popover.onCloseCallback,
   [@bs.optional]
-  onEnter: onEnterCallback,
+  onEnter: MUI_Popover.onEnterCallback,
   [@bs.optional]
-  onEntered: onEnteredCallback,
+  onEntered: MUI_Popover.onEnteredCallback,
   [@bs.optional]
-  onEntering: onEnteringCallback,
+  onEntering: MUI_Popover.onEnteringCallback,
   [@bs.optional]
-  onExit: onExitCallback,
+  onExit: MUI_Popover.onExitCallback,
   [@bs.optional]
-  onExited: onExitedCallback,
+  onExited: MUI_Popover.onExitedCallback,
   [@bs.optional]
-  onExiting: onExitingCallback,
+  onExiting: MUI_Popover.onExitingCallback,
   [@bs.optional] [@bs.as "open"]
   open_: bool,
   /*
@@ -103,16 +48,16 @@ type makeProps = {
   _PopoverClasses: MUI_Popover.classes,
   */
   [@bs.optional]
-  transitionDuration: transitionDuration,
+  transitionDuration: MUI_Popover.transitionDuration,
   [@bs.optional]
   variant: string,
   // Popover props
   [@bs.optional]
   action: ReactDOMRe.domRef,
   [@bs.optional]
-  anchorOrigin: anchorOrigin,
+  anchorOrigin: MUI_Popover.anchorOrigin,
   [@bs.optional]
-  anchorPosition: anchorPosition,
+  anchorPosition: MUI_Popover.anchorPosition,
   [@bs.optional]
   anchorReference: string,
   [@bs.optional]
@@ -126,11 +71,11 @@ type makeProps = {
   [@bs.optional] [@bs.as "PaperProps"]
   _PaperProps: MUI_Paper.props,
   [@bs.optional]
-  transformOrigin: transformOrigin,
+  transformOrigin: MUI_Popover.transformOrigin,
   [@bs.optional] [@bs.as "TransitionComponent"]
   _TransitionComponent: string,
   [@bs.optional]
-  _TransitionProps: transitionProps,
+  _TransitionProps: MUI_Popover.transitionProps,
   // Modal props
   [@bs.optional] [@bs.as "BackdropComponent"]
   _BackdropComponent: string,
