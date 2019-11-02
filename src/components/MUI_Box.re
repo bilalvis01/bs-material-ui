@@ -3,23 +3,21 @@ type value;
 external str: string => value = "%identity";
 external int: int => value = "%identity";
 
-[@bs.obj]
-external breakpoints: (
-  ~xs: string,
-  ~sm: string,
-  ~md: string,
-  ~lg: string,
-  ~xl: string,
-) => value = "";
+module Responsive = {
+  [@bs.obj]
+  external obj: (
+    ~xs: 'a=?,
+    ~sm: 'a=?,
+    ~md: 'a=?,
+    ~lg: 'a=?,
+    ~xl: 'a=?,
+  ) => value = "";
+
+  external arr: array('a) => value = "%identity";
+};
 
 [@bs.deriving abstract]
-type makeProps = {
-  [@bs.optional] 
-  children: React.element,
-  [@bs.optional] 
-  clone: bool,
-  [@bs.optional] 
-  component: string,
+type style = {
   // borders
   [@bs.optional] 
   border: value,
@@ -104,39 +102,241 @@ type makeProps = {
   // spacing
   [@bs.optional] 
   m: value,
+  [@bs.optional]
+  margin: value,
   [@bs.optional] 
   mt: value,
+  [@bs.optional]
+  marginTop: value,
   [@bs.optional] 
   mr: value,
+  [@bs.optional]
+  marginRight: value,
   [@bs.optional] 
   mb: value,
+  [@bs.optional]
+  marginBottom: value,
   [@bs.optional] 
   ml: value,
+  [@bs.optional]
+  marginLeft: value,
   [@bs.optional] 
   mx: value,
+  [@bs.optional]
+  marginX: value,
   [@bs.optional] 
   my: value,
+  [@bs.optional]
+  marginY: value,
   [@bs.optional] 
   p: value,
+  [@bs.optional]
+  padding: value,
   [@bs.optional] 
   pt: value,
+  [@bs.optional]
+  paddingTop: value,
   [@bs.optional] 
   pr: value,
+  [@bs.optional]
+  paddingRight: value,
   [@bs.optional] 
   pb: value,
+  [@bs.optional]
+  paddingBottom: value,
   [@bs.optional] 
   pl: value,
+  [@bs.optional]
+  paddingLeft: value,
   [@bs.optional] 
   px: value,
+  [@bs.optional]
+  paddingX: value,
   [@bs.optional] 
   py: value,
+  [@bs.optional]
+  paddingY: value,
   // typography
   [@bs.optional] 
-  fontFamily: value,
+  fontFamily: string,
   [@bs.optional] 
   fontSize: value,
   [@bs.optional] 
-  fontStyle: value,
+  fontStyle: string,
+  [@bs.optional] 
+  fontWeight: value,
+  [@bs.optional] 
+  letterSpacing: value,
+  [@bs.optional] 
+  lineHeight: value,
+  [@bs.optional] 
+  textAlign: value,
+};
+
+[@bs.deriving abstract]
+type makeProps = {
+  [@bs.optional] 
+  children: React.element,
+  [@bs.optional] 
+  clone: bool,
+  [@bs.optional] 
+  component: string,
+  // responsive 
+  [@bs.optional]
+  xs: style,
+  [@bs.optional]
+  sm: style,
+  [@bs.optional]
+  md: style,
+  [@bs.optional]
+  lg: style,
+  [@bs.optional]
+  xl: style,
+  // borders
+  [@bs.optional] 
+  border: value,
+  [@bs.optional] 
+  borderTop: value,
+  [@bs.optional] 
+  borderLeft: value,
+  [@bs.optional] 
+  borderRight: value,
+  [@bs.optional] 
+  borderBottom: value,
+  [@bs.optional] 
+  borderColor: value,
+  [@bs.optional] 
+  borderRadius: value,
+  // display
+  [@bs.optional] 
+  displayPrint: value,
+  [@bs.optional]
+  displayRaw: value,
+  [@bs.optional]
+  overflow: value,
+  [@bs.optional]
+  textOverflow: value,
+  [@bs.optional]
+  visibility: value,
+  [@bs.optional]
+  whiteSpace: value,
+  // flexbox
+  [@bs.optional] 
+  flexDirection: value,
+  [@bs.optional] 
+  flexWrap: value,
+  [@bs.optional] 
+  justifyContent: value,
+  [@bs.optional] 
+  alignItems: value,
+  [@bs.optional] 
+  order: value,
+  [@bs.optional] 
+  flex: value,
+  [@bs.optional] 
+  flexGrow: value,
+  [@bs.optional] 
+  flexShrink: value,
+  [@bs.optional]
+  alignSelf: value,
+  // palette
+  [@bs.optional] 
+  color: value,
+  [@bs.optional] 
+  bgColor: value,
+  // position
+  [@bs.optional]
+  position: value,
+  [@bs.optional] 
+  zIndex: value,
+  [@bs.optional] 
+  top: value,
+  [@bs.optional]
+  right: value,
+  [@bs.optional]
+  bottom: value,
+  [@bs.optional]
+  left: value,
+  // shadows
+  [@bs.optional]
+  boxShadow: value,
+  // sizing
+  [@bs.optional]
+  width: value,
+  [@bs.optional]
+  maxWidth: value,
+  [@bs.optional]
+  minWidth: value,
+  [@bs.optional]
+  height: value,
+  [@bs.optional]
+  maxHeight: value,
+  [@bs.optional]
+  minHeight: value,
+  // spacing
+  [@bs.optional] 
+  m: value,
+  [@bs.optional]
+  margin: value,
+  [@bs.optional] 
+  mt: value,
+  [@bs.optional]
+  marginTop: value,
+  [@bs.optional] 
+  mr: value,
+  [@bs.optional]
+  marginRight: value,
+  [@bs.optional] 
+  mb: value,
+  [@bs.optional]
+  marginBottom: value,
+  [@bs.optional] 
+  ml: value,
+  [@bs.optional]
+  marginLeft: value,
+  [@bs.optional] 
+  mx: value,
+  [@bs.optional]
+  marginX: value,
+  [@bs.optional] 
+  my: value,
+  [@bs.optional]
+  marginY: value,
+  [@bs.optional] 
+  p: value,
+  [@bs.optional]
+  padding: value,
+  [@bs.optional] 
+  pt: value,
+  [@bs.optional]
+  paddingTop: value,
+  [@bs.optional] 
+  pr: value,
+  [@bs.optional]
+  paddingRight: value,
+  [@bs.optional] 
+  pb: value,
+  [@bs.optional]
+  paddingBottom: value,
+  [@bs.optional] 
+  pl: value,
+  [@bs.optional]
+  paddingLeft: value,
+  [@bs.optional] 
+  px: value,
+  [@bs.optional]
+  paddingX: value,
+  [@bs.optional] 
+  py: value,
+  [@bs.optional]
+  paddingY: value,
+  // typography
+  [@bs.optional] 
+  fontFamily: string,
+  [@bs.optional] 
+  fontSize: value,
+  [@bs.optional] 
+  fontStyle: string,
   [@bs.optional] 
   fontWeight: value,
   [@bs.optional] 
