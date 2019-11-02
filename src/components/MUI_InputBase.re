@@ -38,8 +38,6 @@ type classes = {
   inputHiddenLabel: string,
 };
 
-let makeInputProps = MUI_Input.makeProps;
-
 [@bs.deriving abstract]
 type makeProps = {
   [@bs.optional]
