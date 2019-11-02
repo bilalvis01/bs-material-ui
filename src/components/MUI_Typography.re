@@ -33,7 +33,7 @@ type classes = {
 };
 
 [@bs.deriving abstract]
-type makeVariantMapping = {
+type variantMapping = {
   [@bs.optional] h1: string,
   [@bs.optional] h2: string,
   [@bs.optional] h3: string,
@@ -45,7 +45,6 @@ type makeVariantMapping = {
   [@bs.optional] body1: string,
   [@bs.optional] body2: string,
 };
-type variantMapping = makeVariantMapping;
 
 [@bs.deriving abstract]
 type makeProps = {
