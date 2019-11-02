@@ -9,7 +9,7 @@ type classes = {
 type onRenderedCallback;
 
 let transitionDuration = MUI_Popover.transitionDuration;
-let onCloseCallback = MUI_Popover.onCloseCallback;
+let onCloseCallback = MUI_Modal.onCloseCallback;
 
 [@bs.deriving abstract]
 type makeProps = {
@@ -28,7 +28,7 @@ type makeProps = {
   _MenuListProps: MUI_MenuList.props,
   */
   [@bs.optional]
-  onClose: MUI_Popover.onCloseCallback,
+  onClose: MUI_Modal.onCloseCallback,
   [@bs.optional]
   onEnter: MUI_Popover.onEnterCallback,
   [@bs.optional]

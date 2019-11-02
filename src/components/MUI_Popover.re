@@ -1,4 +1,3 @@
-type onCloseCallback;
 type onEnterCallback;
 type onEnteredCallback;
 type onEnteringCallback;
@@ -56,9 +55,7 @@ external transitionDurationObj: (
   ~exit: int=?,
   unit
 ) => transitionDuration = "";
-external onCloseCallback: 
-  ((ReactEvent.synthetic('a), string) => unit) => onCloseCallback = 
-  "%identity";
+let onCloseCallback = MUI_Modal.onCloseCallback;
 
 [@bs.deriving abstract]
 type makeProps = {
@@ -85,7 +82,7 @@ type makeProps = {
   [@bs.optional]
   marginThreshold: int,
   [@bs.optional]
-  onClose: onCloseCallback,
+  onClose: MUI_Modal.onCloseCallback,
   [@bs.optional]
   onEnter: onEnterCallback,
   [@bs.optional]
@@ -110,6 +107,39 @@ type makeProps = {
   transitionDuration: transitionDuration,
   [@bs.optional]
   _TransitionProps: transitionProps,
+  // Modal props
+  [@bs.optional] [@bs.as "BackdropComponent"]
+  _BackdropComponent: string,
+  /*
+  [@bs.optional] [@bs.as "BackdropProps"]
+  _BackdropProps: MUI_Backdrop.props,
+  */
+  [@bs.optional]
+  closeAfterTransition: bool,
+  [@bs.optional]
+  disableAutoFocus: bool,
+  [@bs.optional]
+  disableBackdropClick: bool,
+  [@bs.optional]
+  disableEnforceFocus: bool,
+  [@bs.optional]
+  disableEscapeKeyDown: bool,
+  [@bs.optional]
+  disablePortal: bool,
+  [@bs.optional]
+  disableRestoreFocus: bool,
+  [@bs.optional]
+  disableScrollLock: bool,
+  [@bs.optional]
+  hideBackdrop: bool,
+  [@bs.optional]
+  keepMounted: bool,
+  [@bs.optional]
+  onBackdropClick: ReactEvent.Mouse.t => unit,
+  [@bs.optional]
+  onEscapeKeyDown: ReactEvent.Keyboard.t => unit,
+  [@bs.optional]
+  onRendered: MUI_Modal.onRenderedCallback,
   // domProps
   [@bs.optional]
   key: string,
