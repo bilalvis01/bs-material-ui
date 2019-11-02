@@ -97,14 +97,9 @@ type classes = {
 };
 
 type gridSize;
-module GridSize = {
-  let auto: gridSize = [%raw "'auto'"];
-  [@bs.val]
-  external true_: gridSize = "true";
-  [@bs.val]
-  external false_: gridSize = "false";
-  external size: int => gridSize = "%identity";
-};
+external gridSize: int => gridSize = "%identity";
+external gridSizeSwitch: bool => gridSize = "%identity";
+let gridSizeAuto: string = [%raw "'auto'"];
 
 [@bs.deriving abstract]
 type makeProps = {
