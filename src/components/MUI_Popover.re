@@ -42,13 +42,13 @@ external transformOriginStr: (
   unit
 ) => transformOrigin = "";
 [@bs.obj]
-external transformOriginNum: (
+external transformOriginInt: (
   ~horizontal: string=?,
   ~vertical: string=?,
   unit
 ) => transformOrigin = "";
+let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
 external transitionDurationInt: int => transitionDuration = "%identity";
-external transitionDurationStr: string => transitionDuration = "%identity";
 [@bs.obj]
 external transitionDurationObj: (
   ~enter: int=?,
