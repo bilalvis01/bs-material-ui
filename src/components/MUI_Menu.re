@@ -9,13 +9,14 @@ type onExitingCallback;
 external onCloseCallback: ((ReactEvent.synthetic('a), string) => unit) => onCloseCallback = "%identity";
 
 type transitionDuration;
-external transitionDuration: 
-  [@bs.unwrap] 
-  [
-    | `Num(int)
-    | `Obj({. enter: int, exit: int })
-    | `Str(int)
-  ] => transitionDuration = "%identity";
+external transitionDurationInt: int => transitionDuration = "%identity";
+external transitionDurationStr: string => transitionDuration = "%identity";
+[@bs.obj]
+external transitionDurationObj: (
+  ~enter: int=?,
+  ~exit: int=?,
+  unit
+) => transitionDuration = "";
 
 [@bs.deriving abstract]
 type classes = {
