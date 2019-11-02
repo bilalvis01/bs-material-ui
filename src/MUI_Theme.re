@@ -278,9 +278,9 @@ module ZIndex = {
 module Mixins = {
   type t;
   [@bs.get]
-  external toolbar: t => MUIStyles_Style.t = "toolbar";
+  external toolbar: t => MUI_StyleRule.t = "toolbar";
   [@bs.send]
-  external gutters: (t, MUIStyles_Style.t) => MUIStyles_Style.t = "gutters";
+  external gutters: (t, MUI_StyleRule.t) => MUI_StyleRule.t = "gutters";
 };
 
 [@bs.get]
