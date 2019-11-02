@@ -1,5 +1,5 @@
 [@bs.deriving abstract]
-type makeClasses = {
+type classes = {
   [@bs.optional]
   root: string,
   [@bs.optional]
@@ -23,7 +23,6 @@ type makeClasses = {
   [@bs.optional]
   selected: string,
 };
-type classes = makeClasses;
 
 [@bs.deriving abstract]
 type makeProps = {
@@ -39,10 +38,10 @@ type makeProps = {
   classes: classes,
   [@bs.optional]
   component: string,
-  [@bs.optional]
-  muiContainerComponent: string,
-  [@bs.optional]
-  muiContainerProps: MUI_Container.props,
+  [@bs.optional] [@bs.as "ContainerComponent"]
+  _ContainerComponent: string,
+  [@bs.optional] [@bs.as "ContainerProps"]
+  _ContainerProps: MUI_Container.props,
   [@bs.optional]
   dense: bool,
   [@bs.optional]
