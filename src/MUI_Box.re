@@ -5,15 +5,24 @@ external int: int => value = "%identity";
 
 module Responsive = {
   [@bs.obj]
-  external obj: (
-    ~xs: 'a=?,
-    ~sm: 'a=?,
-    ~md: 'a=?,
-    ~lg: 'a=?,
-    ~xl: 'a=?,
+  external objI: (
+    ~xs: int=?,
+    ~sm: int=?,
+    ~md: int=?,
+    ~lg: int=?,
+    ~xl: int=?,
+  ) => value = "";
+  [@bs.obj]
+  external objS: (
+    ~xs: string=?,
+    ~sm: string=?,
+    ~md: string=?,
+    ~lg: string=?,
+    ~xl: string=?,
   ) => value = "";
 
-  external arr: array('a) => value = "%identity";
+  external arrI: array(int) => value = "%identity";
+  external arrS: array(string) => value = "%identity";
 };
 
 [@bs.deriving abstract]
