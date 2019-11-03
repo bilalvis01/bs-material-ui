@@ -1,5 +1,5 @@
 [@bs.deriving abstract]
-type classes = {
+type makeClasses = {
   [@bs.optional] 
   root: string,
   [@bs.optional] 
@@ -24,6 +24,7 @@ type classes = {
   [@bs.optional]
   modal: string,
 };
+type classes = makeClasses;
 
 type transitionDuration;
 let transitionDurationAuto: transitionDuration = [%raw "'auto'"];

@@ -1,5 +1,5 @@
 [@bs.deriving abstract]
-type classes = {
+type makeClasses = {
   [@bs.optional] root: string,
   [@bs.optional] underlineNone: string,
   [@bs.optional] underlineHover: string,
@@ -7,6 +7,7 @@ type classes = {
   [@bs.optional] button: string,
   [@bs.optional] focusVisible: string,
 };
+type classes = makeClasses;
 
 [@bs.deriving abstract]
 type makeProps = {

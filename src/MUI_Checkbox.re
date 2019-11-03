@@ -1,5 +1,5 @@
 [@bs.deriving abstract]
-type classes = {
+type makeClasses = {
   [@bs.optional] root: string,
   [@bs.optional] checked: string,
   [@bs.optional] disabled: string,
@@ -7,6 +7,7 @@ type classes = {
   [@bs.optional] colorPrimary: string,
   [@bs.optional] colorSecondary: string,
 };
+type classes = makeClasses;
 
 [@bs.deriving abstract]
 type makeProps = {

@@ -1,10 +1,11 @@
 [@bs.deriving abstract]
-type classes = {
+type makeClasses = {
   [@bs.optional]
   paper: string,
   [@bs.optional]
   list: string,
 };
+type classes = makeClasses;
 
 type onRenderedCallback;
 

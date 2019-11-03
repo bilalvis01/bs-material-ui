@@ -1,5 +1,5 @@
 [@bs.deriving abstract]
-type classes = {
+type makeClasses = {
   [@bs.optional] root: string,
   [@bs.optional] fixed: string,
   [@bs.optional] maxWidthXs: string,
@@ -8,6 +8,7 @@ type classes = {
   [@bs.optional] maxWidthLg: string,
   [@bs.optional] maxWidthXl: string,
 };
+type classes = makeClasses;
 
 [@bs.deriving abstract]
 type makeProps = {

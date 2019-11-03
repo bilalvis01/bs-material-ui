@@ -9,12 +9,13 @@ type transformOrigin;
 type transitionProps;
 type transitionDuration;
 [@bs.deriving abstract]
-type classes = {
+type makeClasses = {
   [@bs.optional]
   root: string,
   [@bs.optional]
   paper: string,
 };
+type classes = makeClasses;
 [@bs.deriving abstract]
 type anchorPosition = {
   [@bs.optional]

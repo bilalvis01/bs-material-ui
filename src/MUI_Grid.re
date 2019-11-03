@@ -1,5 +1,5 @@
 [@bs.deriving abstract]
-type classes = {
+type makeClasses = {
   [@bs.optional] 
   root: string,
   [@bs.optional] 
@@ -95,6 +95,7 @@ type classes = {
   [@bs.optional] [@bs.as "grid-xs-12"]
   gridXs12: string,
 };
+type classes = makeClasses;
 
 type gridSize;
 external size: int => gridSize = "%identity";

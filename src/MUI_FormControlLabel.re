@@ -1,5 +1,5 @@
 [@bs.deriving abstract]
-type classes = {
+type makeClasses = {
   [@bs.optional] root: string,
   [@bs.optional] labelPlacementStart: string,
   [@bs.optional] labelPlacementTop: string,
@@ -7,6 +7,7 @@ type classes = {
   [@bs.optional] disabled: string,
   [@bs.optional] label: string,
 };
+type classes = makeClasses;
 
 [@bs.deriving abstract] 
 type makeProps = {

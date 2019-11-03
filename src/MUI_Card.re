@@ -1,7 +1,8 @@
 [@bs.deriving abstract]
-type classes = {
+type makeClasses = {
   [@bs.optional] root: string,
 };
+type classes = makeClasses;
 
 [@bs.deriving abstract]
 type makeProps = {

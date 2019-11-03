@@ -1,9 +1,10 @@
 [@bs.deriving abstract]
-type classes = {
+type makeClasses = {
   [@bs.optional] root: string,
   [@bs.optional] focusVisible: string,
   [@bs.optional] focusHighlight: string,
 };
+type classes = makeClasses;
 
 [@bs.deriving abstract]
 type makeProps = {

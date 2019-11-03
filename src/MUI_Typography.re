@@ -1,5 +1,5 @@
 [@bs.deriving abstract]
-type classes = {
+type makeClasses = {
   [@bs.optional] root: string,
   [@bs.optional] body2: string,
   [@bs.optional] body1: string,
@@ -31,6 +31,7 @@ type classes = {
   [@bs.optional] displayInline: string,
   [@bs.optional] displayBlock: string,
 };
+type classes = makeClasses;
 
 [@bs.deriving abstract]
 type variantMapping = {
