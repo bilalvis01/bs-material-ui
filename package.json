@@ -1,6 +1,6 @@
 {
   "name": "@bilalvis01/bs-material-ui",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "reason binding for material-ui",
   "main": "src/MUI.js",
   "scripts": {
