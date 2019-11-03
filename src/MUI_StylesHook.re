@@ -1,11 +1,10 @@
 type options;
 
 module type StylesType = {
-  type theme;
   type props;
   type styles('a);
   let options: option(options);
-  let styles: theme => styles(props => MUI_Style.t);
+  let styles: 'theme => styles(props => MUI_Style.t);
 };
 
 module type S = {
