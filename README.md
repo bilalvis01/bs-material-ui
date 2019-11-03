@@ -24,4 +24,4 @@ Please note that @material-ui/core >= 4.5.0, reason-react >= 0.7.0 are peer depe
 
 ## Usage
 
-See the [examples](https://github.com/bilalvis01/bs-material-ui/tree/master/examples)
+See the [examples](https://github.com/bilalvis01/bs-material-ui-examples)
