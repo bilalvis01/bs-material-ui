@@ -441,8 +441,6 @@ type makeProps = {
   [@bs.optional]
   shape: string,
   [@bs.optional]
-  size: int,
-  [@bs.optional]
   sizes: string,
   [@bs.optional]
   span: int,
