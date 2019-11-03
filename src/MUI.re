@@ -45,4 +45,4 @@ module Box = MUI_Box;
 module Theme = MUI_Theme;
 module ColorManipulator = MUI_ColorManipulators;
 module StylesHook = MUI_StylesHook;
-module StyleRule = MUI_StyleRule;
+module Style = MUI_Style;
