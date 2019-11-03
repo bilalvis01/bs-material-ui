@@ -5,3 +5,4 @@ lib
 .cache
 package-lock.json
 .bsb.lock
+bs-material-ui.code-workspace
