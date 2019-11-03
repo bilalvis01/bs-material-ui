@@ -52,14 +52,12 @@ module Duration = {
 };
 module Transitions = {
   type t;
-  type optional;
-  [@bs.obj]
-  external makeOptions: (
-    ~duration: string=?,
-    ~easing: string=?,
-    ~delay: string=?,
-    unit
-  ) => optional = "";
+  [@bs.deriving abstract]
+  type optional = {
+    [@bs.optional] duration: string,
+    [@bs.optional] easing: string,
+    [@bs.optional] delay: string,
+  };
   [@bs.get]
   external easing: t => Easing.t = "easing"; 
   [@bs.get]
