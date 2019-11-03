@@ -1,6 +1,9 @@
 type t;
 type options;
 
+[@bs.module "@material-ui/core/styles"] [@bs.val]
+external useTheme: unit => 'a = "useTheme";
+
 // Palette
 module Common = {
   type t;
