@@ -43,6 +43,6 @@ module Box = MUI_Box;
 
 // mui styles
 module Theme = MUI_Theme;
-module Styles = MUI_Styles;
+module ColorManipulator = MUI_ColorManipulators;
 module StylesHook = MUI_StylesHook;
 module StyleRule = MUI_StyleRule;
