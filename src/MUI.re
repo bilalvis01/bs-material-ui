@@ -4,6 +4,7 @@ module Avatar = MUI_Avatar;
 module Badge = MUI_Badge;
 module Button = MUI_Button;
 module ButtonBase = MUI_ButtonBase;
+module CssBaseline = MUI_CssBaseline;
 module Card = MUI_Card;
 module CardActionArea = MUI_CardActionArea;
 module CardMedia = MUI_CardMedia;
