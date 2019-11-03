@@ -1,29 +1,11 @@
 type options;
 
-/*
-module type StylesType = {
-  type theme;
-  type props;
-  type styles('a);
-};
-
-module Make = (Styles: StylesType) => {
-  type t = Styles.props => Styles.styles(string);
-  type cb = Styles.theme => Styles.styles(MUIStyles_Style.cb(Styles.props));
-
-  [@bs.module "@material-ui/core/styles"]
-  external make: cb => t = "makeStyles";
-  [@bs.module "@material-ui/core/styles"]
-  external makeWithOptions: (cb, options) => t = "makeStyles";
-};
-*/
-
 module type StylesType = {
   type theme;
   type props;
   type styles('a);
   let options: option(options);
-  let styles: theme => styles(props => MUI_StyleRule.t);
+  let styles: theme => styles(props => MUI_Style.t);
 };
 
 module type S = {
@@ -37,7 +19,7 @@ module Make = (Styles: StylesType):
   type props = Styles.props;
   type classes('a) = Styles.styles('a);
   type stylesHook = props => classes(string);
-  type callback = Styles.theme => Styles.styles(props => MUI_StyleRule.t);
+  type callback = Styles.theme => Styles.styles(props => MUI_Style.t);
 
   [@bs.module "@material-ui/core/styles"]
   external make: callback => stylesHook = "makeStyles";
