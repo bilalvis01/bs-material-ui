@@ -53,7 +53,7 @@ module Duration = {
 module Transitions = {
   type t;
   [@bs.deriving abstract]
-  type optional = {
+  type options = {
     [@bs.optional] duration: string,
     [@bs.optional] easing: string,
     [@bs.optional] delay: string,
@@ -65,7 +65,7 @@ module Transitions = {
   [@bs.send]
   external create: (t, array(string)) => string = "create";
   [@bs.send]
-  external createWithOptions: (t, array(string), optional) => string = "create";
+  external createWithOptions: (t, array(string), options) => string = "create";
 };
 
 // zIndex
