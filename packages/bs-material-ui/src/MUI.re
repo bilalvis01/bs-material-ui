@@ -15,6 +15,7 @@ module Colors = MUI_Colors;
 module Drawer = MUI_Drawer;
 module Divider = MUI_Divider;
 module Grid = MUI_Grid;
+module Hidden = MUI_Hidden;
 module InputBase = MUI_InputBase;
 module Input = MUI_Input;
 module IconButton = MUI_IconButton;

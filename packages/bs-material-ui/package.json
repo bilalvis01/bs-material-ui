@@ -1,0 +1,33 @@
+{
+  "name": "@bilalvis01/bs-material-ui",
+  "version": "0.7.4",
+  "description": "reason binding for material-ui",
+  "main": "src/MUI.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world"
+  },
+  "keywords": [
+    "reasonml",
+    "bucklescript",
+    "react",
+    "material-ui"
+  ],
+  "author": "Bilal <bilalvis01@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bilalvis01/bs-material-ui.git"
+  },
+  "homepage": "https://github.com/bilalvis01/bs-material-ui/",
+  "peerDependencies": {
+    "@material-ui/core": "^4.5.0",
+    "reason-react": "0.7.0"
+  },
+  "devDependencies": {
+    "bs-platform": "^5.2.1",
+    "reason-react": "^0.7.0"
+  }
+}
