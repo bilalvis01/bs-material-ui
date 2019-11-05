@@ -3,7 +3,7 @@ Reason bindings for material ui.
 
 ## Status
 
-Please note that this package still in very early stage of development. However the folowing bindings with the check marks are available:
+This package still in very early stage of development. However the folowing bindings with the check marks are available:
 
 ### components
 - [x] AppBar
