@@ -3,6 +3,5 @@ node_modules
 lib
 .merlin
 .cache
-package-lock.json
 .bsb.lock
-bs-material-ui.code-workspace
+lerna-debug.log

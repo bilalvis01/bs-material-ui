@@ -1,13 +1,15 @@
 {
   "packages": [
-    "packages/*",
-    "docs"
+    "docs",
+    "packages/*"
   ],
-  "version": "0.7.4",
+  "version": "0.8.0",
   "npmClient": "npm",
   "command": {
     "publish": {
-      "ignoreChanges": ["*.md"]
+      "ignoreChanges": [
+        "*.md"
+      ]
     }
   }
 }
