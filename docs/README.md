@@ -1,8 +1,5 @@
-# Dashboard example
+# BS-Material-UI docs
 
-```
-npm install
-npm run build
-```
+This is the documentation website of Material-UI.
 
-Then open dist/index.html
+WIP
