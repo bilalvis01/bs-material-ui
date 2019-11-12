@@ -10,6 +10,7 @@ external classes: (
   ~colorDefault: string=?,
   ~colorPrimary: string=?,
   ~colorSecondary: string=?,
+  unit
 ) => classes = "";
 
 type props;
