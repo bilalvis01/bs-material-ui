@@ -20,7 +20,7 @@ external makeProps: (
   ~classes: classes=?,
   ~color: [@bs.string] [ 
     | `default
-    | `inherit_
+    | [@bs.as "inherit"] `inherit_
     | `primary
     | `secondary
   ]=?,
