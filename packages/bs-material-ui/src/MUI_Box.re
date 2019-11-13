@@ -2,32 +2,307 @@ type value;
 
 external str: string => value = "%identity";
 external int: int => value = "%identity";
+[@bs.obj]
+external responsive: (
+  ~xs: 'a=?,
+  ~sm: 'b=?,
+  ~md: 'c=?,
+  ~lg: 'd=?,
+  ~xl: 'e=?,
+) => value = "";
 
-module ResponsiveObj = {
-  [@bs.obj]
-  external int: (
-    ~xs: int=?,
-    ~sm: int=?,
-    ~md: int=?,
-    ~lg: int=?,
-    ~xl: int=?,
-  ) => value = "";
-  [@bs.obj]
-  external str: (
-    ~xs: string=?,
-    ~sm: string=?,
-    ~md: string=?,
-    ~lg: string=?,
-    ~xl: string=?,
-  ) => value = "";
+type props = {.
+  /* Box props */
+  "children": option(React.element),
+  "clone": option(bool),
+  "component": option(string),
+  // borders
+  "border": option(value),
+  "borderTop": option(value),
+  "borderLeft": option(value),
+  "borderRight": option(value),
+  "borderBottom": option(value),
+  "borderColor": option(value),
+  "borderRadius": option(value),
+  // display
+  "displayPrint": option(value),
+  "displayRaw": option(value),
+  "overflow": option(value),
+  "textOverflow": option(value),
+  "visibility": option(value),
+  "whiteSpace": option(value),
+  // flexbox
+  "flexDirection": option(value),
+  "flexWrap": option(value),
+  "justifyContent": option(value),
+  "alignItems": option(value),
+  "order": option(value),
+  "flex": option(value),
+  "flexGrow": option(value),
+  "flexShrink": option(value),
+  "alignSelf": option(value),
+  // palette
+  "color": option(value),
+  "bgColor": option(value),
+  // position
+  "position": option(value),
+  "zIndex": option(value),
+  "top": option(value),
+  "right": option(value),
+  "bottom": option(value),
+  "left": option(value),
+  // shadows
+  "boxShadow": option(value),
+  // sizing
+  "width": option(value),
+  "maxWidth": option(value),
+  "minWidth": option(value),
+  "height": option(value),
+  "maxHeight": option(value),
+  "minHeight": option(value),
+  // spacing
+  "m": option(value),
+  "margin": option(value),
+  "mt": option(value),
+  "marginTop": option(value),
+  "mr": option(value),
+  "marginRight": option(value),
+  "mb": option(value),
+  "marginBottom": option(value),
+  "ml": option(value),
+  "marginLeft": option(value),
+  "mx": option(value),
+  "marginX": option(value),
+  "my": option(value),
+  "marginY": option(value),
+  "p": option(value),
+  "padding": option(value),
+  "pt": option(value),
+  "paddingTop": option(value),
+  "pr": option(value),
+  "paddingRight": option(value),
+  "pb": option(value),
+  "paddingBottom": option(value),
+  "pl": option(value),
+  "paddingLeft": option(value),
+  "px": option(value),
+  "paddingX": option(value),
+  "py": option(value),
+  "paddingY": option(value),
+  // typography
+  "fontFamily": option(string),
+  "fontSize": option(value),
+  "fontStyle": option(string),
+  "fontWeight": option(value),
+  "letterSpacing": option(value),
+  "lineHeight": option(value),
+  "textAlign": option(value),
+  /* Dom props */
+  // react textarea/input
+  "defaultChecked": option(bool),
+  "defaultValue": option(string),
+  // global html attributes
+  "accessKey": option(string),
+  "className": option(string), // substitute for "class"
+  "contentEditable": option(bool),
+  "contextMenu": option(string),
+  "dir": option(string), // "ltr", "rtl" or "auto"
+  "draggable": option(bool),
+  "hidden": option(bool),
+  "id": option(string),
+  "lang": option(string),
+  "role": option(string), // ARIA role
+  "style": option(ReactDOMRe.style),
+  "spellCheck": option(bool),
+  "tabIndex": option(int),
+  "title": option(string),
+  // html5 microdata
+  "itemID": option(string),
+  "itemProp": option(string),
+  "itemRef": option(string),
+  "itemScope": option(bool),
+  "itemType": option(string), // uri
+  // tag-specific html attributes
+  "accept": option(string),
+  "acceptCharset": option(string),
+  "action": option(string), // uri 
+  "allowFullScreen": option(bool),
+  "alt": option(string),
+  "async": option(bool),
+  "autoComplete": option(string), // has a fixed, but large-ish, set of possible values
+  "autoFocus": option(bool),
+  "autoPlay": option(bool),
+  "challenge": option(string),
+  "charSet": option(string),
+  "checked": option(bool),
+  "cite": option(string), // uri 
+  "crossorigin": option(bool),
+  "cols": option(int),
+  "colSpan": option(int),
+  "content": option(string),
+  "controls": option(bool),
+  "coords": option(string), // set of values specifying the coordinates of a region 
+  "data": option(string), // uri 
+  "dateTime": option(string), // "valid date string with optional time" 
+  "default": option(bool),
+  "defer": option(bool),
+  "disabled": option(bool),
+  "download": option(string), // should really be either a boolean, signifying presence, or a string 
+  "encType": option(string), // "application/x-www-form-urlencoded", "multipart/form-data" or "text/plain" 
+  "form": option(string),
+  "formAction": option(string), // uri 
+  "formTarget": option(string), // "_self", "_blank", "_parent" or "_top"
+  "formMethod": option(string), // "post", "get" or "put"
+  "headers": option(string),
+  // "height": string, // in html5 this can only be a number, but in html4 it can ba a percentage as well
+  "high": option(int),
+  "href": option(string), // uri 
+  "hrefLang": option(string),
+  "htmlFor": option(string), // substitute for "for" 
+  "httpEquiv": option(string),
+  "icon": option(string), // uri? 
+  "inputMode": option(string), // "none", "text", "decimal", "numeric", "tel", "search", "email" or "url"
+  "integrity": option(string),
+  "keyType": option(string),
+  "kind": option(string), // has a fixed set of possible values 
+  "label": option(string),
+  "list": option(string),
+  "loop": option(bool),
+  "low": option(int),
+  "manifest": option(string), // uri 
+  "max": option(string), // should be int or Js.Date.t 
+  "maxLength": option(int),
+  "media": option(string), // a valid media query 
+  "mediaGroup": option(string),
+  "method": option(string), // "post" or "get"
+  "min": option(int),
+  "minLength": option(int),
+  "multiple": option(bool),
+  "muted": option(bool),
+  "name": option(string),
+  "nonce": option(string),
+  "noValidate": option(bool),
+  "open": option(bool), // use this one. Previous one is deprecated 
+  "optimum": option(int),
+  "pattern": option(string), // valid Js RegExp
+  "placeholder": option(string),
+  "poster": option(string), // uri
+  "preload": option(string), // "none", "metadata", or "auto"
+  "radioGroup": option(string),
+  "readOnly": option(bool),
+  "rel": option(string), // a space- or comma-separated (depending on the element) list of a fixed set of "link types"
+  "required": option(bool),
+  "reversed": option(bool),
+  "rows": option(int),
+  "rowSpan": option(int),
+  "sandbox": option(string), // has a fixed set of possible values
+  "scope": option(string), // has a fixed set of possible values
+  "scoped": option(bool),
+  "scrolling": option(string), // "auto", "yes", or "no". html4 only
+  // seamless - supported by React, but removed from the html5 spec 
+  "selected": option(bool),
+  "shape": option(string),
+  "size": option(int),
+  "sizes": option(string),
+  "span": option(int),
+  "src": option(string), // uri
+  "srcDoc": option(string),
+  "srcLang": option(string),
+  "srcSet": option(string),
+  "start": option(int),
+  "step": option(float),
+  "summary": option(string), // deprecated 
+  "target": option(string),
+  "type": option(string), /* has a fixed but large-ish set of possible values */ /* use this one. Previous one is deprecated */
+  "useMap": option(string),
+  "value": option(string),
+  // "width": string=?,
+  "wrap": option(string), // "hard" or "soft"
+  // Clipboard events
+  "onCopy": option(ReactEvent.Clipboard.t => unit),
+  "onCut": option(ReactEvent.Clipboard.t => unit),
+  "onPaste": option(ReactEvent.Clipboard.t => unit),
+  // Composition events 
+  "onCompositionEnd": option(ReactEvent.Composition.t => unit),
+  "onCompositionStart": option(ReactEvent.Composition.t => unit),
+  "onCompositionUpdate": option(ReactEvent.Composition.t => unit),
+  // Keyboard events 
+  "onKeyDown": option(ReactEvent.Keyboard.t => unit),
+  "onKeyPress": option(ReactEvent.Keyboard.t => unit),
+  "onKeyUp": option(ReactEvent.Keyboard.t => unit),
+  // Focus events 
+  "onFocus": option(ReactEvent.Focus.t => unit),
+  "onBlur": option(ReactEvent.Focus.t => unit),
+  // Form events
+  "onChange": option(ReactEvent.Form.t => unit),
+  "onInput": option(ReactEvent.Form.t => unit),
+  "onSubmit": option(ReactEvent.Form.t => unit),
+  // Mouse events
+  "onClick": option(ReactEvent.Mouse.t => unit),
+  "onContextMenu": option(ReactEvent.Mouse.t => unit),
+  "onDoubleClick": option(ReactEvent.Mouse.t => unit),
+  "onDrag": option(ReactEvent.Mouse.t => unit),
+  "onDragEnd": option(ReactEvent.Mouse.t => unit),
+  "onDragEnter": option(ReactEvent.Mouse.t => unit),
+  "onDragExit": option(ReactEvent.Mouse.t => unit),
+  "onDragLeave": option(ReactEvent.Mouse.t => unit),
+  "onDragOver": option(ReactEvent.Mouse.t => unit),
+  "onDragStart": option(ReactEvent.Mouse.t => unit),
+  "onDrop": option(ReactEvent.Mouse.t => unit),
+  "onMouseDown": option(ReactEvent.Mouse.t => unit),
+  "onMouseEnter": option(ReactEvent.Mouse.t => unit),
+  "onMouseLeave": option(ReactEvent.Mouse.t => unit),
+  "onMouseMove": option(ReactEvent.Mouse.t => unit),
+  "onMouseOut": option(ReactEvent.Mouse.t => unit),
+  "onMouseOver": option(ReactEvent.Mouse.t => unit),
+  "onMouseUp": option(ReactEvent.Mouse.t => unit),
+  // Selection events 
+  "onSelect": option(ReactEvent.Selection.t => unit),
+  // Touch events
+  "onTouchCancel": option(ReactEvent.Touch.t => unit),
+  "onTouchEnd": option(ReactEvent.Touch.t => unit),
+  "onTouchMove": option(ReactEvent.Touch.t => unit),
+  "onTouchStart": option(ReactEvent.Touch.t => unit),
+  // UI events
+  "onScroll": option(ReactEvent.UI.t => unit),
+  // Wheel events
+  "onWheel": option(ReactEvent.Wheel.t => unit),
+  // Media events
+  "onAbort": option(ReactEvent.Media.t => unit),
+  "onCanPlay": option(ReactEvent.Media.t => unit),
+  "onCanPlayThrough": option(ReactEvent.Media.t => unit),
+  "onDurationChange": option(ReactEvent.Media.t => unit),
+  "onEmptied": option(ReactEvent.Media.t => unit),
+  "onEncrypetd": option(ReactEvent.Media.t => unit),
+  "onEnded": option(ReactEvent.Media.t => unit),
+  "onError": option(ReactEvent.Media.t => unit),
+  "onLoadedData": option(ReactEvent.Media.t => unit),
+  "onLoadedMetadata": option(ReactEvent.Media.t => unit),
+  "onLoadStart": option(ReactEvent.Media.t => unit),
+  "onPause": option(ReactEvent.Media.t => unit),
+  "onPlay": option(ReactEvent.Media.t => unit),
+  "onPlaying": option(ReactEvent.Media.t => unit),
+  "onProgress": option(ReactEvent.Media.t => unit),
+  "onRateChange": option(ReactEvent.Media.t => unit),
+  "onSeeked": option(ReactEvent.Media.t => unit),
+  "onSeeking": option(ReactEvent.Media.t => unit),
+  "onStalled": option(ReactEvent.Media.t => unit),
+  "onSuspend": option(ReactEvent.Media.t => unit),
+  "onTimeUpdate": option(ReactEvent.Media.t => unit),
+  "onVolumeChange": option(ReactEvent.Media.t => unit),
+  "onWaiting": option(ReactEvent.Media.t => unit),
+  // Image events
+  "onLoad": option(ReactEvent.Image.t => unit),
+  // Animation events
+  "onAnimationStart": option(ReactEvent.Animation.t => unit),
+  "onAnimationEnd": option(ReactEvent.Animation.t => unit),
+  "onAnimationIteration": option(ReactEvent.Animation.t => unit),
+  // Transition events
+  "onTransitionEnd": option(ReactEvent.Transition.t => unit),
 };
 
-module ResponsiveArr = {
-  external int: array(int) => value = "%identity";
-  external str: array(string) => value = "%identity";
-};
+external objToProps: Js.t({..}) => props = "%identity";
 
-type props;
 [@bs.obj]
 external makeProps: (
   /* Box props */
@@ -123,7 +398,7 @@ external makeProps: (
   ~defaultValue: string=?,
   // global html attributes
   ~accessKey: string=?,
-  ~className: string=?, /* substitute for "class" */
+  ~className: string=?, // substitute for "class" 
   ~contentEditable: bool=?,
   ~contextMenu: string=?,
   ~dir: [@bs.string] [ | `ltr | `rtl | `auto ]=?,
@@ -131,7 +406,7 @@ external makeProps: (
   ~hidden: bool=?,
   ~id: string=?,
   ~lang: string=?,
-  ~role: string=?, /* ARIA role */
+  ~role: string=?, // ARIA role 
   ~style: ReactDOMRe.style=?,
   ~spellCheck: bool=?,
   ~tabIndex: int=?,
@@ -141,46 +416,45 @@ external makeProps: (
   ~itemProp: string=?,
   ~itemRef: string=?,
   ~itemScope: bool=?,
-  ~itemType: string=?, /* uri */
-  /* tag-specific html attributes */
+  ~itemType: string=?, // uri 
+  // tag-specific html attributes 
   ~accept: string=?,
   ~acceptCharset: string=?,
-  ~action: string=?, /* uri */
+  ~action: string=?, // uri 
   ~allowFullScreen: bool=?,
   ~alt: string=?,
   ~async: bool=?,
-  ~autoComplete: string=?, /* has a fixed, but large-ish, set of possible values */
+  ~autoComplete: string=?, // has a fixed, but large-ish, set of possible values 
   ~autoFocus: bool=?,
   ~autoPlay: bool=?,
   ~challenge: string=?,
   ~charSet: string=?,
   ~checked: bool=?,
-  ~cite: string=?, /* uri */
+  ~cite: string=?, // uri 
   ~crossorigin: bool=?,
   ~cols: int=?,
   ~colSpan: int=?,
   ~content: string=?,
   ~controls: bool=?,
-  ~coords: string=?, /* set of values specifying the coordinates of a region */
-  ~data: string=?, /* uri */
-  ~dateTime: string=?, /* "valid date string with optional time" */
+  ~coords: string=?, // set of values specifying the coordinates of a region 
+  ~data: string=?, // uri 
+  ~dateTime: string=?, // "valid date string with optional time" 
   ~default: bool=?,
   ~defer: bool=?,
   ~disabled: bool=?,
-  ~download: string=?, /* should really be either a boolean, signifying presence, or a string */
-  ~encType: string=?, /* "application/x-www-form-urlencoded", "multipart/form-data" or "text/plain" */
+  ~download: string=?, // should really be either a boolean, signifying presence, or a string 
+  ~encType: string=?, // "application/x-www-form-urlencoded", "multipart/form-data" or "text/plain" 
   ~form: string=?,
-  ~formAction: string=?, /* uri */
+  ~formAction: string=?, // uri 
   ~formTarget: [@bs.string] [ | `_self | `_blank | `_parent | `_top ]=?,
   ~formMethod: [@bs.string] [ |`post | `get |`put ]=?,
   ~headers: string=?,
-  ~height: string=?, /* in html5 this can only be a number, but in html4 it can ba a percentage as well */
   ~high: int=?,
-  ~href: string=?, /* uri */
+  ~href: string=?, // uri 
   ~hrefLang: string=?,
-  ~htmlFor: string=?, /* substitute for "for" */
+  ~htmlFor: string=?, // substitute for "for" 
   ~httpEquiv: string=?,
-  ~icon: string=?, /* uri? */
+  ~icon: string=?, // uri? 
   ~inputMode: [@bs.string] [
     | `none
     | `text
@@ -193,15 +467,15 @@ external makeProps: (
   ]=?,
   ~integrity: string=?,
   ~keyType: string=?,
-  ~kind: string=?, /* has a fixed set of possible values */
+  ~kind: string=?, // has a fixed set of possible values 
   ~label: string=?,
   ~list: string=?,
   ~loop: bool=?,
   ~low: int=?,
-  ~manifest: string=?, /* uri */
-  ~max: string=?, /* should be int or Js.Date.t */
+  ~manifest: string=?, // uri 
+  ~max: string=?, // should be int or Js.Date.t 
   ~maxLength: int=?,
-  ~media: string=?, /* a valid media query */
+  ~media: string=?, // a valid media query 
   ~mediaGroup: string=?,
   ~method: [@bs.string] [ | `post | `get ]=?,
   ~min: int=?,
@@ -211,21 +485,21 @@ external makeProps: (
   ~name: string=?,
   ~nonce: string=?,
   ~noValidate: bool=?,
-  ~_open: bool=?, /* use this one. Previous one is deprecated */
+  ~_open: bool=?, // use this one. Previous one is deprecated 
   ~optimum: int=?,
-  ~pattern: string=?, /* valid Js RegExp */
+  ~pattern: string=?, // valid Js RegExp 
   ~placeholder: string=?,
-  ~poster: string=?, /* uri */
+  ~poster: string=?, // uri 
   ~preload: [@bs.string] [ | `none | `metadata | `auto ]=?,
   ~radioGroup: string=?,
   ~readOnly: bool=?,
-  ~rel: string=?, /* a space- or comma-separated (depending on the element) list of a fixed set of "link types" */
+  ~rel: string=?, // a space- or comma-separated (depending on the element) list of a fixed set of "link types" 
   ~required: bool=?,
   ~reversed: bool=?,
   ~rows: int=?,
   ~rowSpan: int=?,
-  ~sandbox: string=?, /* has a fixed set of possible values */
-  ~scope: string=?, /* has a fixed set of possible values */
+  ~sandbox: string=?, // has a fixed set of possible values 
+  ~scope: string=?, // has a fixed set of possible values 
   ~scoped: bool=?,
   ~scrolling: [@bs.string] [ | `auto | `yes | `no ]=?, // html4 only
   // seamless - supported by React, but removed from the html5 spec 
@@ -234,18 +508,17 @@ external makeProps: (
   ~size: int=?,
   ~sizes: string=?,
   ~span: int=?,
-  ~src: string=?, /* uri */
+  ~src: string=?, // uri 
   ~srcDoc: string=?,
   ~srcLang: string=?,
   ~srcSet: string=?,
   ~start: int=?,
   ~step: float=?,
-  ~summary: string=?, /* deprecated */
+  ~summary: string=?, // deprecated 
   ~target: string=?,
   ~_type: string=?, /* has a fixed but large-ish set of possible values */ /* use this one. Previous one is deprecated */
   ~useMap: string=?,
   ~value: string=?,
-  ~width: string=?,
   ~wrap: [@bs.string] [ | `hard | `soft ]=?,
   // Clipboard events
   ~onCopy: ReactEvent.Clipboard.t => unit=?,
@@ -330,6 +603,9 @@ external makeProps: (
   ~onTransitionEnd: ReactEvent.Transition.t => unit=?,
   unit
 ) => props = "";
+
+[@bs.module "@material-ui/core/Box"]
+external make: React.component(props) = "default";
 
 /*
 [@bs.deriving abstract]
@@ -966,6 +1242,3 @@ type makeProps = {
 };
 type props = makeProps;
 */
-
-[@bs.module "@material-ui/core/Box"]
-external make: React.component(props) = "default";
