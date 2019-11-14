@@ -77,10 +77,14 @@ type props = {.
   "size": option(string),
   "startIcon": option(React.element),
   "variant": option(string),
-  // ButtonBase props
+  /* ButtonBase props */
   "action": option(ReactDOMRe.domRef),
-  "buttonRef": option(ReactDOMRe.domRef),
   "centerRipple": option(bool),
+  // "children": option(React.element),
+  // "classes": option(classes),
+  // "component": option(string),
+  // "disabled": option(bool),
+  // "disableRipple": option(bool),
   "disableTouchRipple": option(bool),
   "focusRipple": option(bool),
   "focusVisibleClassName": option(string),
@@ -316,10 +320,14 @@ external makeProps: (
   ~size: [@bs.string] [ | `small | `medium | `large ]=?,
   ~startIcon: React.element=?,
   ~variant: [@bs.string] [ | `text | `outlined | `contained ]=?,
-  // ButtonBase props
+  /* ButtonBase props */
   ~action: ReactDOMRe.domRef=?,
-  ~buttonRef: ReactDOMRe.domRef=?,
   ~centerRipple: bool=?,
+  // ~children: React.element=?,
+  // ~classes: classes=?,
+  // ~component: string=?,
+  // ~disabled: bool=?,
+  // ~disableRipple: bool=?,
   ~disableTouchRipple: bool=?,
   ~focusRipple: bool=?,
   ~focusVisibleClassName: string=?,
