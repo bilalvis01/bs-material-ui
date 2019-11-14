@@ -213,10 +213,10 @@ type props = {.
   "step": option(float),
   "summary": option(string), // deprecated 
   "target": option(string),
-  "type": option(string), /* has a fixed but large-ish set of possible values */ /* use this one. Previous one is deprecated */
+  "type": option(string), // has a fixed but large-ish set of possible values // use this one. Previous one is deprecated 
   "useMap": option(string),
   "value": option(string),
-  // "width": string=?,
+  // "width": string,
   "wrap": option(string), // "hard" or "soft"
   // Clipboard events
   "onCopy": option(ReactEvent.Clipboard.t => unit),
@@ -449,6 +449,7 @@ external makeProps: (
   ~formTarget: [@bs.string] [ | `_self | `_blank | `_parent | `_top ]=?,
   ~formMethod: [@bs.string] [ |`post | `get |`put ]=?,
   ~headers: string=?,
+  // ~height: string=?, // in html5 this can only be a number, but in html4 it can ba a percentage as well 
   ~high: int=?,
   ~href: string=?, // uri 
   ~hrefLang: string=?,
@@ -516,9 +517,10 @@ external makeProps: (
   ~step: float=?,
   ~summary: string=?, // deprecated 
   ~target: string=?,
-  ~_type: string=?, /* has a fixed but large-ish set of possible values */ /* use this one. Previous one is deprecated */
+  ~_type: string=?, // has a fixed but large-ish set of possible values // use this one. Previous one is deprecated
   ~useMap: string=?,
   ~value: string=?,
+  // ~width: string=?,
   ~wrap: [@bs.string] [ | `hard | `soft ]=?,
   // Clipboard events
   ~onCopy: ReactEvent.Clipboard.t => unit=?,
