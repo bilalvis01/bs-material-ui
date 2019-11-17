@@ -16,11 +16,11 @@ type props = {.
   /* ButtonBase props */
   "action": option(ReactDOMRe.domRef),
   "centerRipple": option(bool),
-  // "children": option(React.element),
-  // "classes": option(classes),
-  // "component": option(string),
-  // "disabled": option(bool),
-  // "disableRipple": option(bool),
+  "children": option(React.element),
+  "classes": option(classes),
+  "component": option(string),
+  "disabled": option(bool),
+  "disableRipple": option(bool),
   "disableTouchRipple": option(bool),
   "focusRipple": option(bool),
   "focusVisibleClassName": option(string),
@@ -88,7 +88,7 @@ type props = {.
   "headers": option(string),
   "height": string, // in html5 this can only be a number, but in html4 it can ba a percentage as well
   "high": option(int),
-  // "href": option(string), // uri 
+  "href": option(string), // uri 
   "hrefLang": option(string),
   "htmlFor": option(string), // substitute for "for" 
   "httpEquiv": option(string),
@@ -134,7 +134,7 @@ type props = {.
   // seamless - supported by React, but removed from the html5 spec 
   "selected": option(bool),
   "shape": option(string),
-  // "size": option(int),
+  "size": option(int),
   "sizes": option(string),
   "span": option(int),
   "src": option(string), // uri
@@ -240,11 +240,11 @@ external makeProps: (
   /* ButtonBase props */
   ~action: ReactDOMRe.domRef=?,
   ~centerRipple: bool=?,
-  // ~children: React.element=?,
-  // ~classes: classes=?,
-  // ~component: string=?,
-  // ~disabled: bool=?,
-  // ~disableRipple: bool=?,
+  ~children: React.element=?,
+  ~classes: classes=?,
+  ~component: string=?,
+  ~disabled: bool=?,
+  ~disableRipple: bool=?,
   ~disableTouchRipple: bool=?,
   ~focusRipple: bool=?,
   ~focusVisibleClassName: string=?,
@@ -314,7 +314,7 @@ external makeProps: (
   ~headers: string=?,
   ~height: string=?, // in html5 this can only be a number, but in html4 it can ba a percentage as well 
   ~high: int=?,
-  // ~href: string=?, // uri 
+  ~href: string=?, // uri 
   ~hrefLang: string=?,
   ~htmlFor: string=?, // substitute for "for" 
   ~httpEquiv: string=?,
@@ -369,7 +369,7 @@ external makeProps: (
   // seamless - supported by React, but removed from the html5 spec 
   ~selected: bool=?,
   ~shape: string=?,
-  // ~size: int=?,
+  ~size: int=?,
   ~sizes: string=?,
   ~span: int=?,
   ~src: string=?, // uri 
