@@ -19,7 +19,7 @@ module Styles = {
   module T = MUI.Theme;
   module S = MUI.Style;
 
-  [@bs.deriving {abstract: light}]
+  [@bs.deriving abstract]
   type styles('a) = {
     toolbar: 'a,
     toolbarTitle: 'a,
@@ -37,11 +37,11 @@ module Styles = {
     sidebarSection: 'a,
     footer: 'a,
   };
-  include MainStylesHook.Impl({
+  module H = MainStylesHook.Impl({
     type nonrec styles('a) = styles('a);
     type props = unit;
   });
-  let useStyles =   make(theme => {
+  let useStyles = H.make(theme => {
     let palette = T.palette(theme);
     let breakpoints = T.breakpoints(theme);
     let typography = T.typography(theme);
@@ -184,7 +184,7 @@ let make = () => {
   <>
     <MUI.CssBaseline />
     <MUI.Container maxWidth=MUI.Container.maxWidth(`lg)>
-      <MUI.Toolbar className=Styles.toolbar(classes)>
+      <MUI.Toolbar className=Styles.toolbarGet(classes)>
         <MUI.Button size=`small>{React.string("Subscribe")}</MUI.Button>
         <MUI.Typography
           component="h2"
@@ -192,7 +192,7 @@ let make = () => {
           color="inherit"
           align="center"
           noWrap=true
-          className=Styles.toolbarTitle(classes)
+          className=Styles.toolbarTitleGet(classes)
         >
           {React.string("Blog")}
         </MUI.Typography>
@@ -204,7 +204,7 @@ let make = () => {
         </MUI.Button>
       </MUI.Toolbar>
       <MUI.Toolbar
-        component="nav" variant="dense" className=Styles.toolbarSecondary(classes)
+        component="nav" variant="dense" className=Styles.toolbarSecondaryGet(classes)
       >
         {Belt.List.map(sections, section => 
           <MUI.Link
@@ -213,7 +213,7 @@ let make = () => {
             key=section
             variant="body2"
             href="#"
-            className=Styles.toolbarLink(classes)
+            className=Styles.toolbarLinkGet(classes)
           >
             {React.string(section)}
           </MUI.Link>
@@ -222,16 +222,16 @@ let make = () => {
           ->React.array}
       </MUI.Toolbar>
       <main>
-        <MUI.Paper className=Styles.mainFeaturedPost(classes)>
+        <MUI.Paper className=Styles.mainFeaturedPostGet(classes)>
           <img 
             style=ReactDOMRe.Style.make(~display="none", ())
             src="https://source.unsplash.com/user/erondu"
             alt="background"
           />
-          <div className=Styles.overlay(classes) />
+          <div className=Styles.overlayGet(classes) />
           <MUI.Grid container=true>
             <MUI.Grid item=true md=MUI.Grid.size(6)>
-              <div className=Styles.mainFeaturedPostContent(classes)>
+              <div className=Styles.mainFeaturedPostContentGet(classes)>
                 <MUI.Typography component="h1" variant="h3" color="inherit" gutterBottom=true>
                   {React.string("Title of a longer featured blog post")}
                 </MUI.Typography>
@@ -250,8 +250,8 @@ let make = () => {
           {Belt.List.map(featuredPosts, post => 
             <MUI.Grid item=true key=post.title xs=MUI.Grid.size(12) md=MUI.Grid.size(6)>
               <MUI.CardActionArea component="a" href="#">
-                <MUI.Card className=Styles.card(classes)>
-                  <div className=Styles.cardDetails(classes)>
+                <MUI.Card className=Styles.cardGet(classes)>
+                  <div className=Styles.cardDetailsGet(classes)>
                     <MUI.CardContent>
                       <MUI.Typography component="h2" variant="h5">
                         {React.string(post.title)}
@@ -269,7 +269,7 @@ let make = () => {
                   </div>
                   <MUI.Hidden xsDown=true>
                     <MUI.CardMedia 
-                      className=Styles.cardMedia(classes)
+                      className=Styles.cardMediaGet(classes)
                       image="https://source.unsplash.com/random"
                       title="Image title"
                     />
@@ -281,14 +281,14 @@ let make = () => {
             ->Belt.List.toArray
             ->React.array}
         </MUI.Grid>
-        <MUI.Grid container=true spacing=5 className=Styles.mainGrid(classes)>
+        <MUI.Grid container=true spacing=5 className=Styles.mainGridGet(classes)>
           <MUI.Grid item=true xs=MUI.Grid.size(12) md=MUI.Grid.size(8)>
             <MUI.Typography variant="h6" gutterBottom=true>
               {React.string("From the Firehose")}
             </MUI.Typography>
             <MUI.Divider />
             {Belt.List.map(posts, post => {
-              <MarkdownPost className=Styles.markdown(classes) key=Js.String2.substring(post, ~from=0, ~to_=40)>
+              <MarkdownPost className=Styles.markdownGet(classes) key=Js.String2.substring(post, ~from=0, ~to_=40)>
                 {React.string(post)}
               </MarkdownPost>
             })
@@ -296,7 +296,7 @@ let make = () => {
               ->React.array}
           </MUI.Grid>
           <MUI.Grid item=true xs=MUI.Grid.size(12) md=MUI.Grid.size(4)>
-            <MUI.Paper elevation=0 className=Styles.sidebarAboutBox(classes)>
+            <MUI.Paper elevation=0 className=Styles.sidebarAboutBoxGet(classes)>
               <MUI.Typography variant="h6" gutterBottom=true>
                 {React.string("About")}
               </MUI.Typography>
@@ -305,7 +305,7 @@ let make = () => {
                   amet fermentum. Aenean lacinia bibendum nulla sed consectetur.")}
               </MUI.Typography>
             </MUI.Paper>
-            <MUI.Typography variant="h6" gutterBottom=true className=Styles.sidebarSection(classes)>
+            <MUI.Typography variant="h6" gutterBottom=true className=Styles.sidebarSectionGet(classes)>
               {React.string("Archives")}
             </MUI.Typography>
             {Belt.List.map(archives, archive => 
@@ -315,7 +315,7 @@ let make = () => {
             )
               ->Belt.List.toArray
               ->React.array}
-            <MUI.Typography variant="h6" gutterBottom=true className=Styles.sidebarSection(classes)>
+            <MUI.Typography variant="h6" gutterBottom=true className=Styles.sidebarSectionGet(classes)>
               {React.string("Social")}
             </MUI.Typography>
             {Belt.List.map(social, network => 
@@ -329,7 +329,7 @@ let make = () => {
         </MUI.Grid>
       </main>
     </MUI.Container>
-    <footer className=Styles.footer(classes)>
+    <footer className=Styles.footerGet(classes)>
       <MUI.Container maxWidth=MUI.Container.maxWidth(`lg)>
         <MUI.Typography variant="h6" align="center" color="textSecondary" component="p">
           {React.string("Footer")}

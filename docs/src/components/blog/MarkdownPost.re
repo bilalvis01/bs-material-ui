@@ -1,13 +1,13 @@
 module Styles = {
-  [@bs.deriving {abstract: light}]
+  [@bs.deriving abstract]
   type styles('a) = {
     listItem: 'a,
   };
-  include MainStylesHook.Impl({
+  module H = MainStylesHook.Impl({
     type nonrec styles('a) = styles('a);    
     type props = unit;
   });
-  let useStyles = make(theme => styles(
+  let useStyles = H.make(theme => styles(
     ~listItem=() => MUI.Style.(make([
       marginTop(MUI.Theme.spacing1(theme, 1)->string_of_int ++ "px"),
     ])),
@@ -21,7 +21,7 @@ module Li = {
   ) => {
     let classes = Styles.useStyles();
 
-    <li className=Styles.listItem(classes)>  
+    <li className=Styles.listItemGet(classes)>  
       <MUI.Typography component="span">
         children
       </MUI.Typography>
