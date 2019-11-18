@@ -4,7 +4,10 @@
   "description": "Reason bindings for material-ui-icons",
   "main": "MUIIcons.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world",
+    "build": "bsb -make-wrold"
   },
   "repository": {
     "type": "git",
