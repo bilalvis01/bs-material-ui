@@ -1,16 +1,15 @@
-open MUI;
-
 module Styles = {
   [@bs.deriving {abstract: light}]
   type styles('a) = {
     listItem: 'a,
   };
-  include StylesHook.Make({
+  include MainStylesHook.Impl({
     type nonrec styles('a) = styles('a);    
+    type props = unit;
   });
   let useStyles = make(theme => styles(
-    ~listItem=() => Style.(make([
-      marginTop(Theme.spacing1(theme, 1)->string_of_int ++ "px"),
+    ~listItem=() => MUI.Style.(make([
+      marginTop(MUI.Theme.spacing1(theme, 1)->string_of_int ++ "px"),
     ])),
   ));
 };
@@ -23,44 +22,42 @@ module Li = {
     let classes = Styles.useStyles();
 
     <li className=Styles.listItem(classes)>  
-      <Typography component="span">
+      <MUI.Typography component="span">
         children
-      </Typography>
+      </MUI.Typography>
     </li>
   };
 };
 
-/*
 let options = Markdown.(options(
   ~overrides=overrides([
-    componentWithProps("h1", Typography.make, Typography.makeProps(
+    componentWithProps("h1", MUI.Typography.make, MUI.Typography.makeProps(
       ~gutterBottom=true,
       ~variant="h4",
       ()
     )),
-    componentWithProps("h2", Typography.make, Typography.makeProps(
+    componentWithProps("h2", MUI.Typography.make, MUI.Typography.makeProps(
       ~gutterBottom=true,
       ~variant="h6",
       ()
     )),
-    componentWithProps("h3", Typography.make, Typography.makeProps(
+    componentWithProps("h3", MUI.Typography.make, MUI.Typography.makeProps(
       ~gutterBottom=true,
       ~variant="subtitle",
       ()
     )),
-    componentWithProps("h4", Typography.make, Typography.makeProps(
+    componentWithProps("h4", MUI.Typography.make, MUI.Typography.makeProps(
       ~gutterBottom=true,
       ~variant="caption",
       ~paragraph=true,
       ()
     )),
-    component("a", Link.make),
+    component("a", MUI.Link.make),
     component("li", Li.make),
   ]),
   ()
 ));
-*/
-let options = Markdown.options(());
+
 
 [@react.component]
 let make = (
