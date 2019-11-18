@@ -7,7 +7,9 @@
     "start": "lerna run start --parallel",
     "clean": "lerna run clean",
     "build": "lerna run build",
-    "server:docs": "lerna run server --scope docs --stream --no-prefix"
+    "docs:next:dev": "lerna run next:dev --scope docs --stream --no-prefix",
+    "docs:next:build": "lerna run next:build --scope docs --stream --no-prefix",
+    "docs:next:start": "lerna run next:start --scope docs --stream --no-prefix"
   },
   "devDependencies": {
     "bs-platform": "^5.2.1",
