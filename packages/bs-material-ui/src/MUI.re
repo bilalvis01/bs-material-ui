@@ -38,7 +38,6 @@ module TableRow = MUI_TableRow;
 module TableCell = MUI_TableCell;
 module TableBody = MUI_TableBody;
 module TextField = MUI_TextField;
-module ThemeProvider = MUI_ThemeProvider;
 module FormControlLabel = MUI_FormControlLabel;
 module Checkbox = MUI_Checkbox;
 module Box = MUI_Box;
