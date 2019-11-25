@@ -99,7 +99,7 @@ type props = {.
   "name": Js.undefined(string),
   "nonce": Js.undefined(string),
   "noValidate": Js.undefined(bool),
-  "open": Js.undefined(bool), // use this one. Previous one is deprecated 
+  "_open": Js.undefined(bool), // use this one. Previous one is deprecated 
   "optimum": Js.undefined(int),
   "pattern": Js.undefined(string), // valid Js RegExp
   "placeholder": Js.undefined(string),
