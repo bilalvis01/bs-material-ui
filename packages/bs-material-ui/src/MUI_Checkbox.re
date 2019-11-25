@@ -1,3 +1,9 @@
+type edge;
+
+external edge: string => edge = "%identity";
+[@bs.val]
+external edgeDisable: edge = "false";
+
 type classes = {.
   "root": option(string),
   "checked": option(string),
@@ -43,7 +49,7 @@ type props = {.
   // "disabled": option(bool),
   "disableFocusRipple": option(bool),
   // "disableRipple": option(bool),
-  "edge": option(string),
+  "edge": option(edge),
   "size": option(string),
   /* ButtonBase props */
   "action": option(ReactDOMRe.domRef),
@@ -324,7 +330,7 @@ external makeProps: (
   // ~disabled: bool=?,
   ~disableFocusRipple: bool=?,
   // ~disableRipple: bool=?,
-  ~edge: [@bs.string] [ | `start | [@bs.as "end"] `end_ ]=?,
+  ~edge: edge=?,
   ~size: [@bs.string] [ | `small | `medium ]=?,
   /* ButtonBase props */
   ~action: ReactDOMRe.domRef=?,
