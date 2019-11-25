@@ -43,7 +43,7 @@ let options = Markdown.(options(
     )),
     componentWithProps("h3", MUI.Typography.make, MUI.Typography.makeProps(
       ~gutterBottom=true,
-      ~variant="subtitle",
+      ~variant="subtitle1",
       ()
     )),
     componentWithProps("h4", MUI.Typography.make, MUI.Typography.makeProps(

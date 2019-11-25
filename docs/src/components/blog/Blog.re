@@ -16,8 +16,8 @@ module Copyright = {
 };
 
 module Styles = {
-  module T = MUI.Theme;
-  module S = MUI.Style;
+  module Theme = MUI.Theme;
+  module Style = MUI.Style;
 
   [@bs.deriving abstract]
   type styles('a) = {
@@ -37,85 +37,85 @@ module Styles = {
     sidebarSection: 'a,
     footer: 'a,
   };
-  module H = MainStylesHook.Impl({
+  module StylesHook = MainStylesHook.Impl({
     type nonrec styles('a) = styles('a);
     type props = unit;
   });
-  let useStyles = H.make(theme => {
-    let palette = T.palette(theme);
-    let breakpoints = T.breakpoints(theme);
-    let typography = T.typography(theme);
+  let useStyles = StylesHook.make(theme => {
+    let palette = Theme.palette(theme);
+    let breakpoints = Theme.breakpoints(theme);
+    let typography = Theme.typography(theme);
 
     styles(
-      ~toolbar=() => S.(make([
-        borderBottom("1px solid " ++ T.Palette.divider(palette)),
+      ~toolbar=() => Style.(make([
+        borderBottom("1px solid " ++ Theme.Palette.divider(palette)),
       ])),
-      ~toolbarTitle=() => S.(make([
+      ~toolbarTitle=() => Style.(make([
         flex("1"),
       ])),
-      ~toolbarSecondary=() => S.(make([
+      ~toolbarSecondary=() => Style.(make([
         justifyContent("space-between"),
         overflowX("auto"),
       ])),
-      ~toolbarLink=() => S.(make([
-        padding(T.spacing1(theme, 1)->string_of_int ++ "px"),
+      ~toolbarLink=() => Style.(make([
+        padding(Theme.spacing1(theme, 1)->string_of_int ++ "px"),
         flexShrink("0"),
       ])),
-      ~mainFeaturedPost=() => S.(make([
+      ~mainFeaturedPost=() => Style.(make([
         position("relative"),
-        backgroundColor(T.Palette.grey(palette)->T.Color.get800),
-        color(T.Palette.common(palette)->T.Common.white),
-        marginBottom(T.spacing1(theme, 4)->string_of_int ++ "px"),
+        backgroundColor(Theme.Palette.grey(palette)->Theme.Color.get800),
+        color(Theme.Palette.common(palette)->Theme.Common.white),
+        marginBottom(Theme.spacing1(theme, 4)->string_of_int ++ "px"),
         backgroundImage("url(https://source.unsplash.com/user/erondu)"),
         backgroundSize("cover"),
         backgroundRepeat("no-repeat"),
         backgroundPosition("center"),
       ])),
-      ~overlay=() => S.(make([
+      ~overlay=() => Style.(make([
         position("absolute"),
         top("0px"),
         bottom("0px"),
         right("0px"),
         left("0px"),
-        backgroundColor("rgba(0,0,0,.3"),
+        backgroundColor("rgba(0,0,0,.3)"),
       ])),
-      ~mainFeaturedPostContent=() => S.(make([
+      ~mainFeaturedPostContent=() => Style.(make([
         position("relative"),
-        padding(T.spacing1(theme, 3)->string_of_int ++ "px"),
-        nest(T.Breakpoints.up(breakpoints, "md"), make([
-          padding(T.spacing1(theme, 6)->string_of_int ++ "px"),
+        padding(Theme.spacing1(theme, 3)->string_of_int ++ "px"),
+        nest(Theme.Breakpoints.up(breakpoints, "md"), make([
+          padding(Theme.spacing1(theme, 6)->string_of_int ++ "px"),
           paddingRight("0px"),
         ])),
       ])),
-      ~mainGrid=() => S.(make([
-        marginTop(T.spacing1(theme, 3)->string_of_int ++ "px"),
+      ~mainGrid=() => Style.(make([
+        marginTop(Theme.spacing1(theme, 3)->string_of_int ++ "px"),
       ])),
-      ~card=() => S.(make([
+      ~card=() => Style.(make([
         display("flex"),
       ])),
-      ~cardDetails=() => S.(make([
+      ~cardDetails=() => Style.(make([
         flex("1"),
       ])),
-      ~cardMedia=() => S.(make([
+      ~cardMedia=() => Style.(make([
         width("160px"),
       ])),
-      ~markdown=() => S.(merge(
-        T.Typography.body2(typography),
+      ~markdown=() => Style.(merge(
+        Theme.Typography.body2(typography),
         make([
-          padding(T.spacing2(theme, 3, 0)),
+          padding(Theme.spacing2(theme, 3, 0)),
         ])
       )),
-      ~sidebarAboutBox=() => S.(make([
-        padding(T.spacing1(theme, 2)->string_of_int ++ "px"),
-        backgroundColor(T.Palette.grey(palette)->T.Color.get200),
+      ~sidebarAboutBox=() => Style.(make([
+        padding(Theme.spacing1(theme, 2)->string_of_int ++ "px"),
+        backgroundColor(Theme.Palette.grey(palette)->Theme.Color.get200),
       ])),
-      ~sidebarSection=() => S.(make([
-        marginTop(T.spacing1(theme, 3)->string_of_int ++ "px"),
+      ~sidebarSection=() => Style.(make([
+        marginTop(Theme.spacing1(theme, 3)->string_of_int ++ "px"),
       ])),
-      ~footer=() => S.(make([
-        backgroundColor(T.Palette.background(palette)->T.Background.paper),
-        marginTop(T.spacing1(theme, 8)->string_of_int ++ "px"),
-        padding(T.spacing2(theme, 6, 0)),
+      ~footer=() => Style.(make([
+        backgroundColor(Theme.Palette.background(palette)->Theme.Background.paper),
+        marginTop(Theme.spacing1(theme, 8)->string_of_int ++ "px"),
+        padding(Theme.spacing2(theme, 6, 0)),
       ])),
     )
   });
@@ -183,7 +183,7 @@ let make = () => {
 
   <>
     <MUI.CssBaseline />
-    <MUI.Container maxWidth=MUI.Container.maxWidth(`lg)>
+    <MUI.Container maxWidth=MUI.Container.maxWidth("lg")>
       <MUI.Toolbar className=Styles.toolbarGet(classes)>
         <MUI.Button size=`small>{React.string("Subscribe")}</MUI.Button>
         <MUI.Typography
@@ -330,7 +330,7 @@ let make = () => {
       </main>
     </MUI.Container>
     <footer className=Styles.footerGet(classes)>
-      <MUI.Container maxWidth=MUI.Container.maxWidth(`lg)>
+      <MUI.Container maxWidth=MUI.Container.maxWidth("lg")>
         <MUI.Typography variant="h6" align="center" color="textSecondary" component="p">
           {React.string("Footer")}
         </MUI.Typography>
