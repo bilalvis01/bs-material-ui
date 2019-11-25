@@ -64,7 +64,7 @@ type props = {.
   "focusVisibleClassName": Js.undefined(string),
   "onFocusVisible": Js.undefined(ReactEvent.Form.t => unit),
   /*
-  "TouchRippleProps": Js.undefined(MUI_TouchRipple.props),
+  "_TouchRippleProps": Js.undefined(MUI_TouchRipple.props),
   */
   // "_type": Js.undefined(string),
   /* Dom props */
