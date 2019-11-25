@@ -25,8 +25,7 @@ type maxWidth;
 [@bs.val]
 external maxWidthDisable: maxWidth = "false";
 
-external maxWidth: ([@bs.string] [ | `xs | `sm | `md | `lg | `lg ]) =>
-  maxWidth = "%identity";
+external maxWidth: string => maxWidth = "%identity";
 
 type props = {.
   "children": option(React.element),
