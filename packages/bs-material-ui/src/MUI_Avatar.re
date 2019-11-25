@@ -107,7 +107,7 @@ type props = {.
   "name": Js.undefined(string),
   "nonce": Js.undefined(string),
   "noValidate": Js.undefined(bool),
-  "open": Js.undefined(bool), // use this one. Previous one is deprecated 
+  "_open": Js.undefined(bool), // use this one. Previous one is deprecated 
   "optimum": Js.undefined(int),
   "pattern": Js.undefined(string), // valid Js RegExp
   "placeholder": Js.undefined(string),
@@ -138,7 +138,7 @@ type props = {.
   "step": Js.undefined(float),
   "summary": Js.undefined(string), // deprecated 
   "target": Js.undefined(string),
-  "type": Js.undefined(string), // has a fixed but large-ish set of possible values // use this one. Previous one is deprecated 
+  "_type": Js.undefined(string), // has a fixed but large-ish set of possible values // use this one. Previous one is deprecated 
   "useMap": Js.undefined(string),
   "value": Js.undefined(string),
   "width": string,
