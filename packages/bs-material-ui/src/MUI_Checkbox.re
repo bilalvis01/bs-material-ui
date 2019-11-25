@@ -40,7 +40,7 @@ type props = {.
   "inputRef": Js.undefined(ReactDOMRe.domRef),
   "onChange": Js.undefined(ReactEvent.Form.t => unit),
   "required": Js.undefined(bool),
-  "type": Js.undefined(string),
+  "_type": Js.undefined(string),
   "value": Js.undefined(string),
   /* IconButton props */
   // "children": Js.undefined(React.element),
@@ -66,7 +66,7 @@ type props = {.
   /*
   "TouchRippleProps": Js.undefined(MUI_TouchRipple.props),
   */
-  // "type": Js.undefined(string),
+  // "_type": Js.undefined(string),
   /* Dom props */
   // react textarea/input
   "defaultChecked": Js.undefined(bool),
@@ -183,7 +183,7 @@ type props = {.
   "step": Js.undefined(float),
   "summary": Js.undefined(string), // deprecated 
   "target": Js.undefined(string),
-  // "type": Js.undefined(string), // has a fixed but large-ish set of possible values // use this one. Previous one is deprecated 
+  // "_type": Js.undefined(string), // has a fixed but large-ish set of possible values // use this one. Previous one is deprecated 
   "useMap": Js.undefined(string),
   // "value": Js.undefined(string),
   "width": string,

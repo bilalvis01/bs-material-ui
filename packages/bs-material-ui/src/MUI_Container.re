@@ -149,7 +149,7 @@ type props = {.
   "step": Js.undefined(float),
   "summary": Js.undefined(string), // deprecated 
   "target": Js.undefined(string),
-  "type": Js.undefined(string), // has a fixed but large-ish set of possible values // use this one. Previous one is deprecated 
+  "_type": Js.undefined(string), // has a fixed but large-ish set of possible values // use this one. Previous one is deprecated 
   "useMap": Js.undefined(string),
   "value": Js.undefined(string),
   "width": string,
