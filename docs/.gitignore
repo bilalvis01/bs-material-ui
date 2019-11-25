@@ -1,6 +1,2 @@
 *.bs.js
 .next
-node_modules
-.bsb.locx
-.merlin
-lib
