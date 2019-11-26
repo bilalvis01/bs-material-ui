@@ -248,7 +248,7 @@ external makeProps: (
   ~inputRef: ReactDOMRe.domRef=?,
   ~label: React.element=?,
   ~labelPlacement: [@bs.string] [
-    | `end
+    | `end_
     | `start
     | `top
     | `bottom
