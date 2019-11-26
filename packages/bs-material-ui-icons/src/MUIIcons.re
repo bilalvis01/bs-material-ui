@@ -1,14 +1,14 @@
 module Make = () => {
   type classes = {.
-    "root": option(string),
-    "colorPrimary": option(string),
-    "colorSecondary": option(string),
-    "colorAction": option(string),
-    "colorError": option(string),
-    "colorDisabled": option(string),
-    "fontSizeInherit": option(string),
-    "fontSizeSmall": option(string),
-    "fontSizeLarge": option(string),
+    "root": Js.undefined(string),
+    "colorPrimary": Js.undefined(string),
+    "colorSecondary": Js.undefined(string),
+    "colorAction": Js.undefined(string),
+    "colorError": Js.undefined(string),
+    "colorDisabled": Js.undefined(string),
+    "fontSizeInherit": Js.undefined(string),
+    "fontSizeSmall": Js.undefined(string),
+    "fontSizeLarge": Js.undefined(string),
   };
 
   [@bs.obj]
@@ -27,223 +27,224 @@ module Make = () => {
 
   type props = {.
     /* SvgIcon props */
-    "children": option(React.element),
-    "classes": option(classes),
-    "color": option(string),
-    "component": option(string),
-    "fontSize": option(string),
-    "htmlColor": option(string),
-    "shapeRendering": option(string),
-    "titleAccess": option(string),
-    "viewBox": option(string),
+    "children": Js.undefined(React.element),
+    "classes": Js.undefined(classes),
+    "color": Js.undefined(string),
+    "component": Js.undefined(string),
+    "fontSize": Js.undefined(string),
+    "htmlColor": Js.undefined(string),
+    "shapeRendering": Js.undefined(string),
+    "titleAccess": Js.undefined(string),
+    "viewBox": Js.undefined(string),
     /* Dom props */
     // react textarea/input
-    "defaultChecked": option(bool),
-    "defaultValue": option(string),
+    "defaultChecked": Js.undefined(bool),
+    "defaultValue": Js.undefined(string),
     // global html attributes
-    "accessKey": option(string),
-    "className": option(string), // substitute for "class"
-    "contentEditable": option(bool),
-    "contextMenu": option(string),
-    "dir": option(string), // "ltr", "rtl" or "auto"
-    "draggable": option(bool),
-    "hidden": option(bool),
-    "id": option(string),
-    "lang": option(string),
-    "role": option(string), // ARIA role
-    "style": option(ReactDOMRe.style),
-    "spellCheck": option(bool),
-    "tabIndex": option(int),
-    "title": option(string),
+    "accessKey": Js.undefined(string),
+    "className": Js.undefined(string), // substitute for "class"
+    "contentEditable": Js.undefined(bool),
+    "contextMenu": Js.undefined(string),
+    "dir": Js.undefined(string), // "ltr", "rtl" or "auto"
+    "draggable": Js.undefined(bool),
+    "hidden": Js.undefined(bool),
+    "id": Js.undefined(string),
+    "lang": Js.undefined(string),
+    "role": Js.undefined(string), // ARIA role
+    "style": Js.undefined(ReactDOMRe.style),
+    "spellCheck": Js.undefined(bool),
+    "tabIndex": Js.undefined(int),
+    "title": Js.undefined(string),
     // html5 microdata
-    "itemID": option(string),
-    "itemProp": option(string),
-    "itemRef": option(string),
-    "itemScope": option(bool),
-    "itemType": option(string), // uri
+    "itemID": Js.undefined(string),
+    "itemProp": Js.undefined(string),
+    "itemRef": Js.undefined(string),
+    "itemScope": Js.undefined(bool),
+    "itemType": Js.undefined(string), // uri
     // tag-specific html attributes
-    "accept": option(string),
-    "acceptCharset": option(string),
-    "action": option(string), // uri 
-    "allowFullScreen": option(bool),
-    "alt": option(string),
-    "async": option(bool),
-    "autoComplete": option(string), // has a fixed, but large-ish, set of possible values
-    "autoFocus": option(bool),
-    "autoPlay": option(bool),
-    "challenge": option(string),
-    "charSet": option(string),
-    "checked": option(bool),
-    "cite": option(string), // uri 
-    "crossorigin": option(bool),
-    "cols": option(int),
-    "colSpan": option(int),
-    "content": option(string),
-    "controls": option(bool),
-    "coords": option(string), // set of values specifying the coordinates of a region 
-    "data": option(string), // uri 
-    "dateTime": option(string), // "valid date string with optional time" 
-    "default": option(bool),
-    "defer": option(bool),
-    "disabled": option(bool),
-    "download": option(string), // should really be either a boolean, signifying presence, or a string 
-    "encType": option(string), // "application/x-www-form-urlencoded", "multipart/form-data" or "text/plain" 
-    "form": option(string),
-    "formAction": option(string), // uri 
-    "formTarget": option(string), // "_self", "_blank", "_parent" or "_top"
-    "formMethod": option(string), // "post", "get" or "put"
-    "headers": option(string),
-    "height": string, // in html5 this can only be a number, but in html4 it can ba a percentage as well
-    "high": option(int),
-    "href": option(string), // uri 
-    "hrefLang": option(string),
-    "htmlFor": option(string), // substitute for "for" 
-    "httpEquiv": option(string),
-    "icon": option(string), // uri? 
-    "inputMode": option(string), // "none", "text", "decimal", "numeric", "tel", "search", "email" or "url"
-    "integrity": option(string),
-    "keyType": option(string),
-    "kind": option(string), // has a fixed set of possible values 
-    "label": option(string),
-    "list": option(string),
-    "loop": option(bool),
-    "low": option(int),
-    "manifest": option(string), // uri 
-    "max": option(string), // should be int or Js.Date.t 
-    "maxLength": option(int),
-    "media": option(string), // a valid media query 
-    "mediaGroup": option(string),
-    "method": option(string), // "post" or "get"
-    "min": option(int),
-    "minLength": option(int),
-    "multiple": option(bool),
-    "muted": option(bool),
-    "name": option(string),
-    "nonce": option(string),
-    "noValidate": option(bool),
-    "open": option(bool), // use this one. Previous one is deprecated 
-    "optimum": option(int),
-    "pattern": option(string), // valid Js RegExp
-    "placeholder": option(string),
-    "poster": option(string), // uri
-    "preload": option(string), // "none", "metadata", or "auto"
-    "radioGroup": option(string),
-    "readOnly": option(bool),
-    "rel": option(string), // a space- or comma-separated (depending on the element) list of a fixed set of "link types"
-    "required": option(bool),
-    "reversed": option(bool),
-    "rows": option(int),
-    "rowSpan": option(int),
-    "sandbox": option(string), // has a fixed set of possible values
-    "scope": option(string), // has a fixed set of possible values
-    "scoped": option(bool),
-    "scrolling": option(string), // "auto", "yes", or "no". html4 only
+    "accept": Js.undefined(string),
+    "acceptCharset": Js.undefined(string),
+    "action": Js.undefined(string), // uri 
+    "allowFullScreen": Js.undefined(bool),
+    "alt": Js.undefined(string),
+    "async": Js.undefined(bool),
+    "autoComplete": Js.undefined(string), // has a fixed, but large-ish, set of possible values
+    "autoFocus": Js.undefined(bool),
+    "autoPlay": Js.undefined(bool),
+    "challenge": Js.undefined(string),
+    "charSet": Js.undefined(string),
+    "checked": Js.undefined(bool),
+    "cite": Js.undefined(string), // uri 
+    "crossorigin": Js.undefined(bool),
+    "cols": Js.undefined(int),
+    "colSpan": Js.undefined(int),
+    "content": Js.undefined(string),
+    "controls": Js.undefined(bool),
+    "coords": Js.undefined(string), // set of values specifying the coordinates of a region 
+    "data": Js.undefined(string), // uri 
+    "dateTime": Js.undefined(string), // "valid date string with optional time" 
+    "default": Js.undefined(bool),
+    "defer": Js.undefined(bool),
+    "disabled": Js.undefined(bool),
+    "download": Js.undefined(string), // should really be either a boolean, signifying presence, or a string 
+    "encType": Js.undefined(string), // "application/x-www-form-urlencoded", "multipart/form-data" or "text/plain" 
+    "form": Js.undefined(string),
+    "formAction": Js.undefined(string), // uri 
+    "formTarget": Js.undefined(string), // "_self", "_blank", "_parent" or "_top"
+    "formMethod": Js.undefined(string), // "post", "get" or "put"
+    "headers": Js.undefined(string),
+    "height": Js.undefined(string), // in html5 this can only be a number, but in html4 it can ba a percentage as well
+    "high": Js.undefined(int),
+    "href": Js.undefined(string), // uri 
+    "hrefLang": Js.undefined(string),
+    "htmlFor": Js.undefined(string), // substitute for "for" 
+    "httpEquiv": Js.undefined(string),
+    "icon": Js.undefined(string), // uri? 
+    "inputMode": Js.undefined(string), // "none", "text", "decimal", "numeric", "tel", "search", "email" or "url"
+    "integrity": Js.undefined(string),
+    "keyType": Js.undefined(string),
+    "kind": Js.undefined(string), // has a fixed set of possible values 
+    "label": Js.undefined(string),
+    "list": Js.undefined(string),
+    "loop": Js.undefined(bool),
+    "low": Js.undefined(int),
+    "manifest": Js.undefined(string), // uri 
+    "max": Js.undefined(string), // should be int or Js.Date.t 
+    "maxLength": Js.undefined(int),
+    "media": Js.undefined(string), // a valid media query 
+    "mediaGroup": Js.undefined(string),
+    "method": Js.undefined(string), // "post" or "get"
+    "min": Js.undefined(int),
+    "minLength": Js.undefined(int),
+    "multiple": Js.undefined(bool),
+    "muted": Js.undefined(bool),
+    "name": Js.undefined(string),
+    "nonce": Js.undefined(string),
+    "noValidate": Js.undefined(bool),
+    "_open": Js.undefined(bool), // use this one. Previous one is deprecated 
+    "optimum": Js.undefined(int),
+    "pattern": Js.undefined(string), // valid Js RegExp
+    "placeholder": Js.undefined(string),
+    "poster": Js.undefined(string), // uri
+    "preload": Js.undefined(string), // "none", "metadata", or "auto"
+    "radioGroup": Js.undefined(string),
+    "readOnly": Js.undefined(bool),
+    "rel": Js.undefined(string), // a space- or comma-separated (depending on the element) list of a fixed set of "link types"
+    "required": Js.undefined(bool),
+    "reversed": Js.undefined(bool),
+    "rows": Js.undefined(int),
+    "rowSpan": Js.undefined(int),
+    "sandbox": Js.undefined(string), // has a fixed set of possible values
+    "scope": Js.undefined(string), // has a fixed set of possible values
+    "scoped": Js.undefined(bool),
+    "scrolling": Js.undefined(string), // "auto", "yes", or "no". html4 only
     // seamless - supported by React, but removed from the html5 spec 
-    "selected": option(bool),
-    "shape": option(string),
-    "size": option(int),
-    "sizes": option(string),
-    "span": option(int),
-    "src": option(string), // uri
-    "srcDoc": option(string),
-    "srcLang": option(string),
-    "srcSet": option(string),
-    "start": option(int),
-    "step": option(float),
-    "summary": option(string), // deprecated 
-    "target": option(string),
-    "type": option(string), // has a fixed but large-ish set of possible values // use this one. Previous one is deprecated 
-    "useMap": option(string),
-    "value": option(string),
-    "width": string,
-    "wrap": option(string), // "hard" or "soft"
+    "selected": Js.undefined(bool),
+    "shape": Js.undefined(string),
+    "size": Js.undefined(int),
+    "sizes": Js.undefined(string),
+    "span": Js.undefined(int),
+    "src": Js.undefined(string), // uri
+    "srcDoc": Js.undefined(string),
+    "srcLang": Js.undefined(string),
+    "srcSet": Js.undefined(string),
+    "start": Js.undefined(int),
+    "step": Js.undefined(float),
+    "summary": Js.undefined(string), // deprecated 
+    "target": Js.undefined(string),
+    "_type": Js.undefined(string), // has a fixed but large-ish set of possible values // use this one. Previous one is deprecated 
+    "useMap": Js.undefined(string),
+    "value": Js.undefined(string),
+    "width": Js.undefined(string),
+    "wrap": Js.undefined(string), // "hard" or "soft"
     // Clipboard events
-    "onCopy": option(ReactEvent.Clipboard.t => unit),
-    "onCut": option(ReactEvent.Clipboard.t => unit),
-    "onPaste": option(ReactEvent.Clipboard.t => unit),
+    "onCopy": Js.undefined(ReactEvent.Clipboard.t => unit),
+    "onCut": Js.undefined(ReactEvent.Clipboard.t => unit),
+    "onPaste": Js.undefined(ReactEvent.Clipboard.t => unit),
     // Composition events 
-    "onCompositionEnd": option(ReactEvent.Composition.t => unit),
-    "onCompositionStart": option(ReactEvent.Composition.t => unit),
-    "onCompositionUpdate": option(ReactEvent.Composition.t => unit),
+    "onCompositionEnd": Js.undefined(ReactEvent.Composition.t => unit),
+    "onCompositionStart": Js.undefined(ReactEvent.Composition.t => unit),
+    "onCompositionUpdate": Js.undefined(ReactEvent.Composition.t => unit),
     // Keyboard events 
-    "onKeyDown": option(ReactEvent.Keyboard.t => unit),
-    "onKeyPress": option(ReactEvent.Keyboard.t => unit),
-    "onKeyUp": option(ReactEvent.Keyboard.t => unit),
+    "onKeyDown": Js.undefined(ReactEvent.Keyboard.t => unit),
+    "onKeyPress": Js.undefined(ReactEvent.Keyboard.t => unit),
+    "onKeyUp": Js.undefined(ReactEvent.Keyboard.t => unit),
     // Focus events 
-    "onFocus": option(ReactEvent.Focus.t => unit),
-    "onBlur": option(ReactEvent.Focus.t => unit),
+    "onFocus": Js.undefined(ReactEvent.Focus.t => unit),
+    "onBlur": Js.undefined(ReactEvent.Focus.t => unit),
     // Form events
-    "onChange": option(ReactEvent.Form.t => unit),
-    "onInput": option(ReactEvent.Form.t => unit),
-    "onSubmit": option(ReactEvent.Form.t => unit),
+    "onChange": Js.undefined(ReactEvent.Form.t => unit),
+    "onInput": Js.undefined(ReactEvent.Form.t => unit),
+    "onSubmit": Js.undefined(ReactEvent.Form.t => unit),
     // Mouse events
-    "onClick": option(ReactEvent.Mouse.t => unit),
-    "onContextMenu": option(ReactEvent.Mouse.t => unit),
-    "onDoubleClick": option(ReactEvent.Mouse.t => unit),
-    "onDrag": option(ReactEvent.Mouse.t => unit),
-    "onDragEnd": option(ReactEvent.Mouse.t => unit),
-    "onDragEnter": option(ReactEvent.Mouse.t => unit),
-    "onDragExit": option(ReactEvent.Mouse.t => unit),
-    "onDragLeave": option(ReactEvent.Mouse.t => unit),
-    "onDragOver": option(ReactEvent.Mouse.t => unit),
-    "onDragStart": option(ReactEvent.Mouse.t => unit),
-    "onDrop": option(ReactEvent.Mouse.t => unit),
-    "onMouseDown": option(ReactEvent.Mouse.t => unit),
-    "onMouseEnter": option(ReactEvent.Mouse.t => unit),
-    "onMouseLeave": option(ReactEvent.Mouse.t => unit),
-    "onMouseMove": option(ReactEvent.Mouse.t => unit),
-    "onMouseOut": option(ReactEvent.Mouse.t => unit),
-    "onMouseOver": option(ReactEvent.Mouse.t => unit),
-    "onMouseUp": option(ReactEvent.Mouse.t => unit),
+    "onClick": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onContextMenu": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onDoubleClick": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onDrag": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onDragEnd": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onDragEnter": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onDragExit": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onDragLeave": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onDragOver": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onDragStart": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onDrop": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onMouseDown": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onMouseEnter": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onMouseLeave": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onMouseMove": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onMouseOut": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onMouseOver": Js.undefined(ReactEvent.Mouse.t => unit),
+    "onMouseUp": Js.undefined(ReactEvent.Mouse.t => unit),
     // Selection events 
-    "onSelect": option(ReactEvent.Selection.t => unit),
+    "onSelect": Js.undefined(ReactEvent.Selection.t => unit),
     // Touch events
-    "onTouchCancel": option(ReactEvent.Touch.t => unit),
-    "onTouchEnd": option(ReactEvent.Touch.t => unit),
-    "onTouchMove": option(ReactEvent.Touch.t => unit),
-    "onTouchStart": option(ReactEvent.Touch.t => unit),
+    "onTouchCancel": Js.undefined(ReactEvent.Touch.t => unit),
+    "onTouchEnd": Js.undefined(ReactEvent.Touch.t => unit),
+    "onTouchMove": Js.undefined(ReactEvent.Touch.t => unit),
+    "onTouchStart": Js.undefined(ReactEvent.Touch.t => unit),
     // UI events
-    "onScroll": option(ReactEvent.UI.t => unit),
+    "onScroll": Js.undefined(ReactEvent.UI.t => unit),
     // Wheel events
-    "onWheel": option(ReactEvent.Wheel.t => unit),
+    "onWheel": Js.undefined(ReactEvent.Wheel.t => unit),
     // Media events
-    "onAbort": option(ReactEvent.Media.t => unit),
-    "onCanPlay": option(ReactEvent.Media.t => unit),
-    "onCanPlayThrough": option(ReactEvent.Media.t => unit),
-    "onDurationChange": option(ReactEvent.Media.t => unit),
-    "onEmptied": option(ReactEvent.Media.t => unit),
-    "onEncrypetd": option(ReactEvent.Media.t => unit),
-    "onEnded": option(ReactEvent.Media.t => unit),
-    "onError": option(ReactEvent.Media.t => unit),
-    "onLoadedData": option(ReactEvent.Media.t => unit),
-    "onLoadedMetadata": option(ReactEvent.Media.t => unit),
-    "onLoadStart": option(ReactEvent.Media.t => unit),
-    "onPause": option(ReactEvent.Media.t => unit),
-    "onPlay": option(ReactEvent.Media.t => unit),
-    "onPlaying": option(ReactEvent.Media.t => unit),
-    "onProgress": option(ReactEvent.Media.t => unit),
-    "onRateChange": option(ReactEvent.Media.t => unit),
-    "onSeeked": option(ReactEvent.Media.t => unit),
-    "onSeeking": option(ReactEvent.Media.t => unit),
-    "onStalled": option(ReactEvent.Media.t => unit),
-    "onSuspend": option(ReactEvent.Media.t => unit),
-    "onTimeUpdate": option(ReactEvent.Media.t => unit),
-    "onVolumeChange": option(ReactEvent.Media.t => unit),
-    "onWaiting": option(ReactEvent.Media.t => unit),
+    "onAbort": Js.undefined(ReactEvent.Media.t => unit),
+    "onCanPlay": Js.undefined(ReactEvent.Media.t => unit),
+    "onCanPlayThrough": Js.undefined(ReactEvent.Media.t => unit),
+    "onDurationChange": Js.undefined(ReactEvent.Media.t => unit),
+    "onEmptied": Js.undefined(ReactEvent.Media.t => unit),
+    "onEncrypetd": Js.undefined(ReactEvent.Media.t => unit),
+    "onEnded": Js.undefined(ReactEvent.Media.t => unit),
+    "onError": Js.undefined(ReactEvent.Media.t => unit),
+    "onLoadedData": Js.undefined(ReactEvent.Media.t => unit),
+    "onLoadedMetadata": Js.undefined(ReactEvent.Media.t => unit),
+    "onLoadStart": Js.undefined(ReactEvent.Media.t => unit),
+    "onPause": Js.undefined(ReactEvent.Media.t => unit),
+    "onPlay": Js.undefined(ReactEvent.Media.t => unit),
+    "onPlaying": Js.undefined(ReactEvent.Media.t => unit),
+    "onProgress": Js.undefined(ReactEvent.Media.t => unit),
+    "onRateChange": Js.undefined(ReactEvent.Media.t => unit),
+    "onSeeked": Js.undefined(ReactEvent.Media.t => unit),
+    "onSeeking": Js.undefined(ReactEvent.Media.t => unit),
+    "onStalled": Js.undefined(ReactEvent.Media.t => unit),
+    "onSuspend": Js.undefined(ReactEvent.Media.t => unit),
+    "onTimeUpdate": Js.undefined(ReactEvent.Media.t => unit),
+    "onVolumeChange": Js.undefined(ReactEvent.Media.t => unit),
+    "onWaiting": Js.undefined(ReactEvent.Media.t => unit),
     // Image events
-    "onLoad": option(ReactEvent.Image.t => unit),
+    "onLoad": Js.undefined(ReactEvent.Image.t => unit),
     // Animation events
-    "onAnimationStart": option(ReactEvent.Animation.t => unit),
-    "onAnimationEnd": option(ReactEvent.Animation.t => unit),
-    "onAnimationIteration": option(ReactEvent.Animation.t => unit),
+    "onAnimationStart": Js.undefined(ReactEvent.Animation.t => unit),
+    "onAnimationEnd": Js.undefined(ReactEvent.Animation.t => unit),
+    "onAnimationIteration": Js.undefined(ReactEvent.Animation.t => unit),
     // Transition events
-    "onTransitionEnd": option(ReactEvent.Transition.t => unit),
+    "onTransitionEnd": Js.undefined(ReactEvent.Transition.t => unit),
   };
 
   external objToProps: Js.t({..}) => props = "%identity";
 
   [@bs.obj]
   external makeProps: (
+    /* SvgIcon props */
     ~children: React.element=?,
     ~classes: classes=?,
     ~color: [@bs.string] [
