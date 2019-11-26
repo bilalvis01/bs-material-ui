@@ -124,7 +124,7 @@ type props = {.
   "formTarget": Js.undefined(string), // "_self", "_blank", "_parent" or "_top"
   "formMethod": Js.undefined(string), // "post", "get" or "put"
   "headers": Js.undefined(string),
-  "height": string, // in html5 this can only be a number, but in html4 it can ba a percentage as well
+  "height": Js.undefined(string), // in html5 this can only be a number, but in html4 it can ba a percentage as well
   "high": Js.undefined(int),
   "href": Js.undefined(string), // uri 
   "hrefLang": Js.undefined(string),
@@ -186,7 +186,7 @@ type props = {.
   // "_type": Js.undefined(string), // has a fixed but large-ish set of possible values // use this one. Previous one is deprecated 
   "useMap": Js.undefined(string),
   // "value": Js.undefined(string),
-  "width": string,
+  "width": Js.undefined(string),
   "wrap": Js.undefined(string), // "hard" or "soft"
   // Clipboard events
   "onCopy": Js.undefined(ReactEvent.Clipboard.t => unit),
