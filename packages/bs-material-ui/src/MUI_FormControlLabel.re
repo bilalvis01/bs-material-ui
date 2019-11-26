@@ -247,7 +247,12 @@ external makeProps: (
   ~disabled: bool=?,
   ~inputRef: ReactDOMRe.domRef=?,
   ~label: React.element=?,
-  ~labelPlacement: string=?,
+  ~labelPlacement: [@bs.string] [
+    | `end
+    | `start
+    | `top
+    | `bottom
+  ]=?,
   ~name: string=?,
   ~onChange: ReactEvent.Form.t => unit=?,
   ~value: string=?,
