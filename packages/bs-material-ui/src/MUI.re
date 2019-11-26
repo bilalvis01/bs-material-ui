@@ -29,6 +29,7 @@ module MenuItem = MUI_MenuItem;
 module Modal = MUI_Modal;
 module Toolbar = MUI_Toolbar;
 module Typography = MUI_Typography;
+module ThemeProvider = MUI_ThemeProvider;
 module Link = MUI_Link;
 module Paper = MUI_Paper;
 module Popover = MUI_Popover;
