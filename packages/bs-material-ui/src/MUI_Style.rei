@@ -1,0 +1,48 @@
+type value;
+type t = Js.Dict.t(value);
+
+let make: list((string, value)) => t;
+let nest: (string, list((string, value))) => (string, value);
+let merge: list(t) => t;
+
+let alignItems: string => (string, value);
+let borderRadius: string => (string, value);
+let borderBottom: string => (string, value);
+let backgroundImage: string => (string, value);
+let backgroundSize: string => (string, value);
+let backgroundRepeat: string => (string, value);
+let backgroundPosition: string => (string, value);
+let backgroundColor: string => (string, value);
+let bottom: string => (string, value);
+let color: string => (string, value);
+let display: string => (string, value);
+let flex: string => (string, value);
+let flexDirection: string => (string, value);
+let flexShrink: string => (string, value);
+let flexGrow: string => (string, value);
+let height: string => (string, value);
+let justifyContent: string => (string, value);
+let left: string => (string, value);
+let margin: string => (string, value);
+let marginRight: string => (string, value);
+let marginLeft: string => (string, value);
+let marginBottom: string => (string, value);
+let marginTop: string => (string, value);
+let maxWidth: string => (string, value);
+let overflowX: string => (string, value);
+let overflow: string => (string, value);
+let padding: string => (string, value);
+let position: string => (string, value);
+let paddingRight: string => (string, value);
+let paddingLeft: string => (string, value);
+let paddingBottom: string => (string, value);
+let paddingTop: string => (string, value);
+let pointerEvents: string => (string, value);
+let right: string => (string, value);
+let transition: string => (string, value);
+let textAlign: string => (string, value);
+let top: string => (string, value);
+let whiteSpace: string => (string, value);
+let width: string => (string, value);
+let zIndex: string => (string, value);
+

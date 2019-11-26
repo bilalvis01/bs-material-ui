@@ -1,58 +1,60 @@
 type value;
 type t = Js.Dict.t(value);
 
+external ruleToValue: t => value = "%identity";
+external stringToValue: string => value = "%identity";
+
 let make: list((string, value)) => t = 
   entries => Js.Dict.fromList(entries);
 
-external ruleToRuleValue: t => value = "%identity";
-let nest: (string, t) => (string, value) = 
-  (ruleName, rule) => (ruleName, ruleToRuleValue(rule));
+let nest: (string, list((string, value))) => (string, value) =
+  (ruleName, entries) => (ruleName, ruleToValue(make(entries)));
 
-let merge: (t, t) => t = [%raw {|
-  (rule1, rule2) => Object.assign({}, rule1, rule2)
+let ruleAssign: array(t) => t = [%raw {|
+  sources => Object.assign({}, ...sources)
 |}];
 
-external stringToRuleValue: string => value = "%identity";
-let ruleItem: (string, string) => (string, value) = 
-  (property, value) => (property, stringToRuleValue(value));
+let merge: list(t) => t = sources => 
+  Belt.List.toArray(sources)
+    ->ruleAssign;
 
-let alignItems = value => ruleItem("alignItems", value);
-let borderRadius = value => ruleItem("borderRadius", value);
-let borderBottom = value => ruleItem("borderBottom", value);
-let backgroundImage = value => ruleItem("backgroundImage", value);
-let backgroundSize = value => ruleItem("backgroundSize", value);
-let backgroundRepeat = value => ruleItem("backgroundRepeat", value);
-let backgroundPosition = value => ruleItem("backgroundPosition", value);
-let backgroundColor = value => ruleItem("backgroundColor", value);
-let bottom = value => ruleItem("bottom", value);
-let color = value => ruleItem("color", value);
-let display = value => ruleItem("display", value);
-let flex = value => ruleItem("flex", value);
-let flexDirection = value => ruleItem("flexDirection", value);
-let flexShrink = value => ruleItem("flexShrink", value);
-let flexGrow = value => ruleItem("flexGrow", value);
-let height = value => ruleItem("height", value);
-let justifyContent = value => ruleItem("justifyContent", value);
-let left = value => ruleItem("left", value);
-let margin = value => ruleItem("margin", value);
-let marginRight = value => ruleItem("marginRight", value);
-let marginLeft = value => ruleItem("marginLeft", value);
-let marginBottom = value => ruleItem("marginBottom", value);
-let marginTop = value => ruleItem("marginTop", value);
-let maxWidth = value => ruleItem("maxWidth", value);
-let overflowX = value => ruleItem("overflowX", value);
-let overflow = value => ruleItem("overflow", value);
-let padding = value => ruleItem("padding", value);
-let position = value => ruleItem("position", value);
-let paddingRight = value => ruleItem("paddingRight", value);
-let paddingLeft = value => ruleItem("paddingLeft", value);
-let paddingBottom = value => ruleItem("paddingBottom", value);
-let paddingTop = value => ruleItem("paddingTop", value);
-let pointerEvents = value => ruleItem("pointerEvents", value);
-let right = value => ruleItem("right", value);
-let transition = value => ruleItem("transition", value);
-let textAlign = value => ruleItem("textAlign", value);
-let top = value => ruleItem("top", value);
-let whiteSpace = value => ruleItem("whiteSpace", value);
-let width = value => ruleItem("width", value);
-let zIndex = value => ruleItem("zIndex", value);
+let alignItems = value => ("alignItems", stringToValue(value));
+let borderRadius = value => ("borderRadius", stringToValue(value));
+let borderBottom = value => ("borderBottom", stringToValue(value));
+let backgroundImage = value => ("backgroundImage", stringToValue(value));
+let backgroundSize = value => ("backgroundSize", stringToValue(value));
+let backgroundRepeat = value => ("backgroundRepeat", stringToValue(value));
+let backgroundPosition = value => ("backgroundPosition", stringToValue(value));
+let backgroundColor = value => ("backgroundColor", stringToValue(value));
+let bottom = value => ("bottom", stringToValue(value));
+let color = value => ("color", stringToValue(value));
+let display = value => ("display", stringToValue(value));
+let flex = value => ("flex", stringToValue(value));
+let flexDirection = value => ("flexDirection", stringToValue(value));
+let flexShrink = value => ("flexShrink", stringToValue(value));
+let flexGrow = value => ("flexGrow", stringToValue(value));
+let height = value => ("height", stringToValue(value));
+let justifyContent = value => ("justifyContent", stringToValue(value));
+let left = value => ("left", stringToValue(value));
+let margin = value => ("margin", stringToValue(value));
+let marginRight = value => ("marginRight", stringToValue(value));
+let marginLeft = value => ("marginLeft", stringToValue(value));
+let marginBottom = value => ("marginBottom", stringToValue(value));
+let marginTop = value => ("marginTop", stringToValue(value));
+let maxWidth = value => ("maxWidth", stringToValue(value));
+let overflowX = value => ("overflowX", stringToValue(value));
+let overflow = value => ("overflow", stringToValue(value));
+let padding = value => ("padding", stringToValue(value));
+let position = value => ("position", stringToValue(value));
+let paddingRight = value => ("paddingRight", stringToValue(value));
+let paddingLeft = value => ("paddingLeft", stringToValue(value));
+let paddingBottom = value => ("paddingBottom", stringToValue(value));
+let paddingTop = value => ("paddingTop", stringToValue(value));
+let pointerEvents = value => ("pointerEvents", stringToValue(value));
+let right = value => ("right", stringToValue(value));
+let transition = value => ("transition", stringToValue(value));
+let textAlign = value => ("textAlign", stringToValue(value));
+let top = value => ("top", stringToValue(value));
+let whiteSpace = value => ("whiteSpace", stringToValue(value));
+let width = value => ("width", stringToValue(value));
+let zIndex = value => ("zIndex", stringToValue(value));
