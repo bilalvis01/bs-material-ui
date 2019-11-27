@@ -7,8 +7,8 @@ external stringToValue: string => value = "%identity";
 let make: list((string, value)) => t = 
   entries => Js.Dict.fromList(entries);
 
-let nest: (string, list((string, value))) => (string, value) =
-  (ruleName, entries) => (ruleName, ruleToValue(make(entries)));
+let nest: (string, t) => (string, value) =
+  (ruleName, rule) => (ruleName, ruleToValue(rule));
 
 let merge: list(t) => t = sources => 
   Belt.List.toArray(sources)
