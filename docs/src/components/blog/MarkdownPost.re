@@ -1,27 +1,25 @@
-module Styles = {
-  [@bs.deriving abstract]
+module StylesHook = MUI.StylesHook.Make({
+  type theme = MUI.Theme.t;
   type styles('a) = {
-    listItem: 'a,
-  };
-  module H = MainStylesHook.Impl({
-    type nonrec styles('a) = styles('a);    
-    type props = unit;
-  });
-  let useStyles = H.make(theme => styles(
-    ~listItem=() => MUI.Style.(make([
-      marginTop(MUI.Theme.spacing1(theme, 1)->string_of_int ++ "px"),
-    ])),
-  ));
-};
+    .
+    "listItem": 'a,
+  };    
+  type props = unit;
+});
+let useStyles = StylesHook.make(theme => {
+  "listItem": () => MUI.Style.(make([
+    marginTop(MUI.Theme.spacing1(theme, 1)->string_of_int ++ "px"),
+  ])),
+});
 
 module Li = {
   [@react.component]
   let make = (
     ~children: React.element=?,
   ) => {
-    let classes = Styles.useStyles();
+    let classes = useStyles();
 
-    <li className=Styles.listItemGet(classes)>  
+    <li className=classes##listItem>  
       <MUI.Typography component="span">
         children
       </MUI.Typography>
