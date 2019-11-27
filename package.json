@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "bs-platform": "^5.2.1",
-    "lerna": "^3.18.3"
+    "lerna": "^3.18.3",
+    "@glennsl/bs-jest": "0.4.9"
   }
 }
