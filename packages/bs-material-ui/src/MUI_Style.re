@@ -1,27 +1,20 @@
-type t;
 type value;
+type t = Js.Dict.t(value);
 
 external ruleToValue: t => value = "%identity";
 external stringToValue: string => value = "%identity";
 
-[@bs.val]
-external makeRule: array((string, value)) => t = "Object.fromEntries";
-
 let make: list((string, value)) => t = 
-  entries => 
-    Belt.List.toArray(entries)
-      ->makeRule;
+  entries => Js.Dict.fromList(entries);
 
 let nest: (string, list((string, value))) => (string, value) =
   (ruleName, entries) => (ruleName, ruleToValue(make(entries)));
 
-let ruleAssign: array(t) => t = [%raw {|
-  sources => Object.assign({}, ...sources)
-|}];
-
 let merge: list(t) => t = sources => 
   Belt.List.toArray(sources)
-    ->ruleAssign;
+    ->Belt.Array.map(rule => Js.Dict.entries(rule))
+    ->Belt.Array.concatMany
+    ->Js.Dict.fromArray;
 
 let alignItems = value => ("alignItems", stringToValue(value));
 let borderRadius = value => ("borderRadius", stringToValue(value));

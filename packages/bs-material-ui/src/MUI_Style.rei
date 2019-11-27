@@ -1,5 +1,5 @@
-type t;
 type value;
+type t = Js.Dict.t(value);
 
 let make: list((string, value)) => t;
 let nest: (string, list((string, value))) => (string, value);
