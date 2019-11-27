@@ -1,8 +1,8 @@
 type value;
 type t = Js.Dict.t(value);
 
-external ruleToValue: t => value = "%identity";
-external stringToValue: string => value = "%identity";
+let ruleToValue: t => value;
+let stringToValue: string => value;
 
 let make: list((string, value)) => t;
 let nest: (string, t) => (string, value);
