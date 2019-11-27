@@ -1,8 +1,19 @@
 {
   "name": "@bilalvis01/bs-material-ui",
-  "sources": "src",
+  "sources": [
+    {
+      "dir": "src"
+    },
+    {
+      "dir": "__tests__",
+      "type": "dev"
+    }
+  ],
   "bs-dependencies": [
     "reason-react"
+  ],
+  "bs-dev-dependencies": [
+    "@glennsl/bs-jest"
   ],
   "reason": {
     "react-jsx": 3
