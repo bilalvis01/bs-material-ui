@@ -245,14 +245,44 @@ external makeProps: (
   /* Link props */
   ~children: React.element=?,
   ~classes: classes=?,
-  ~color: string=?,
+  ~color: [@bs.string] [
+    | `default
+    | `error
+    | [@bs.as "inherit"] `inherit_
+    | `primary
+    | `secondary
+    | `textPrimary
+    | `textSecondary
+  ]=?,
   ~component: string=?,
   ~_TypographyClasses: MUI_Typography.classes=?,
-  ~underline: string=?,
-  ~variant: string=?,
+  ~underline: [@bs.string] [ | `none | `hover | `always ]=?,
+  ~variant: [@bs.string] [
+    | `h1
+    | `h2
+    | `h3
+    | `h4
+    | `h5
+    | `h6
+    | `subtitle1
+    | `subtitle2
+    | `body1
+    | `body2
+    | `caption
+    | `button
+    | `overline
+    | `srOnly
+    | [@bs.as "inherit"] `inherit_
+  ]=?,
   /* Typography props */
-  ~align: string=?,
-  ~display: string=?,
+  ~align: [@bs.string] [
+    | [@bs.as "inherit"] `inherit_
+    | `left
+    | `center
+    | `right
+    | `justify
+  ]=?,
+  ~display: [@bs.string] [ | `initial | `block | `inline ]=?,
   ~gutterBottom: bool=?,
   ~noWrap: bool=?,
   ~paragraph: bool=?,
