@@ -6,7 +6,7 @@ module Copyright = {
   let make = () => {
     <MUI.Typography variant="body2" color="textSecondary" align="center">
       {React.string("Copyright @")}
-      <MUI.Link color="inherit" href="https://material-ui.com/">
+      <MUI.Link color=`inherit_ href="https://material-ui.com/">
        {React.string(" Your Website ")}
       </MUI.Link>
       {Js.Date.make()
@@ -82,10 +82,10 @@ let useStyles = StylesHook.make(theme => {
     "mainFeaturedPostContent": () => Style.(make([
       position("relative"),
       padding(Theme.spacing1(theme, 3)->string_of_int ++ "px"),
-      nest(Theme.Breakpoints.up(breakpoints, "md"), [
+      nest(Theme.Breakpoints.up(breakpoints, "md"), make([
         padding(Theme.spacing1(theme, 6)->string_of_int ++ "px"),
         paddingRight("0px"),
-      ]),
+      ])),
     ])),
     "mainGrid": () => Style.(make([
       marginTop(Theme.spacing1(theme, 3)->string_of_int ++ "px"),
@@ -207,10 +207,10 @@ let make = () => {
       >
         {Belt.List.map(sections, section => 
           <MUI.Link
-            color="inherit"
+            color=`inherit_
             noWrap=true
             key=section
-            variant="body2"
+            variant=`body2
             href="#"
             className=classes##toolbarLink
           >
@@ -238,7 +238,7 @@ let make = () => {
                   {React.string("Multiple lines of text that form the lede, informing new readers quickly and
                     efficiently about what's most interesting in this post's contents.")}
                 </MUI.Typography>
-                <MUI.Link variant="subtitle1" href="#">
+                <MUI.Link variant=`subtitle1 href="#">
                   {React.string("Continue reading...")}
                 </MUI.Link>
               </div>
@@ -308,7 +308,7 @@ let make = () => {
               {React.string("Archives")}
             </MUI.Typography>
             {Belt.List.map(archives, archive => 
-              <MUI.Link display="block" variant="body1" href="#" key=archive>
+              <MUI.Link display=`block variant=`body1 href="#" key=archive>
                 {React.string(archive)}
               </MUI.Link>
             )
@@ -318,7 +318,7 @@ let make = () => {
               {React.string("Social")}
             </MUI.Typography>
             {Belt.List.map(social, network => 
-              <MUI.Link display="block" variant="body1" href="#" key=network>
+              <MUI.Link display=`block variant=`body1 href="#" key=network>
                 {React.string(network)}
               </MUI.Link>
             )
