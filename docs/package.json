@@ -5,7 +5,7 @@
   "description": "a blog example",
   "main": "Index.bs.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
     "build": "bsb -clean-world -make-world&&webpack",
