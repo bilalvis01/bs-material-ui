@@ -289,7 +289,7 @@ external makeProps: (
   ~focusVisibleClassName: string=?,
   ~onFocusVisible: ReactEvent.Form.t => unit=?,
   // ~_TouchRippleProps: MUI_TouchRipple.props=?,
-  ~_type: [@bs.string] [ | `submit | `reset | `button ],
+  ~_type: [@bs.string] [ | `submit | `reset | `button ]=?,
   /* Dom props */
   ~key: string=?,
   ~ref: ReactDOMRe.domRef=?,
