@@ -1,11 +1,16 @@
+type t;
 type value;
-type t = Js.Dict.t(value);
 
 external ruleToValue: t => value = "%identity";
 external stringToValue: string => value = "%identity";
 
+[@bs.val]
+external makeRule: array((string, value)) => t = "Object.fromEntries";
+
 let make: list((string, value)) => t = 
-  entries => Js.Dict.fromList(entries);
+  entries => 
+    Belt.List.toArray(entries)
+      ->makeRule;
 
 let nest: (string, list((string, value))) => (string, value) =
   (ruleName, entries) => (ruleName, ruleToValue(make(entries)));
