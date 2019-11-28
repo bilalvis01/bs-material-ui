@@ -5,7 +5,7 @@
   "main": "src/MUI.js",
   "scripts": {
     "test": "jest",
-    "build": "bsb -make-world",
+    "build": "bsb -clean-world -make-world",
     "start": "bsb -clean-world -make-world -w",
     "clean": "bsb -clean-world"
   },
