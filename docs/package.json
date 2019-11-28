@@ -8,7 +8,7 @@
     "test": "jest",
     "start": "bsb -clean-world -make-world -w",
     "clean": "bsb -clean-world",
-    "build": "bsb -clean-world -make-world&&webpack",
+    "build": "bsb -clean-world -make-world",
     "next:dev": "next",
     "next:build": "bsb -clean-world -make-world&&next build",
     "next:start": "next start"
