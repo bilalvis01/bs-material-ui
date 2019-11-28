@@ -133,6 +133,7 @@ let counterReset = value => ("counterReset", stringValue(value));
 let counterSet = value => ("counterSet", stringValue(value));
 let cursor = value => ("cursor", stringValue(value));
 let direction = value => ("direction", stringValue(value));
+let display = value => ("display", stringValue(value));
 let emptyCells = value => ("emptyCells", stringValue(value));
 let fallback = value => ("fallback", stringValue(value));
 let filter = value => ("filter", stringValue(value));
@@ -201,48 +202,21 @@ let left = value => ("left", stringValue(value));
 let letterSpacing = value => ("letterSpacing", stringValue(value));
 let lineBreak = value => ("lineBreak", stringValue(value));
 let lineHeight = value => ("lineHeight", stringValue(value));
-
-
-
-
-
-let opacity = value => ("opacity", stringValue(value));
-/* Dimension properties */
-
-let maxHeight = value => ("maxHeight", stringValue(value));
-let maxWidth = value => ("maxWidth", stringValue(value));
-let minHeight = value => ("minHeight", stringValue(value));
-let minWidth = value => ("minWidth", stringValue(value));
-let width = value => ("width", stringValue(value));
-/* Generated content properties */
-let quotes = value => ("quotes", stringValue(value));
-
-/* Flexible box layout */
-
-
-let order = value => ("order", stringValue(value));
-/* Font properties */
-
-/* Grid properties */
-
-/* List properties */
 let listStyle = value => ("listStyle", stringValue(value));
 let listStyleImage = value => ("listStyleImage", stringValue(value));
 let listStylePosition = value => ("listStylePosition", stringValue(value));
 let listStyleType = value => ("listStyleType", stringValue(value));
-/* Margin properties */
 let margin = value => ("margin", stringValue(value));
 let marginBlock = value => ("marginBlock", stringValue(value));
 let marginBlockEnd = value => ("marginBlockEnd", stringValue(value));
 let marginBlockStart = value => ("marginBlockStart", stringValue(value));
+let marginBottom = value => ("marginBottom", stringValue(value));
 let marginInline = value => ("marginInline", stringValue(value));
 let marginInlineEnd = value => ("marginInlineEnd", stringValue(value));
 let marginInlineStart = value => ("marginInlineStart", stringValue(value));
-let marginRight = value => ("marginRight", stringValue(value));
 let marginLeft = value => ("marginLeft", stringValue(value));
-let marginBottom = value => ("marginBottom", stringValue(value));
+let marginRight = value => ("marginRight", stringValue(value));
 let marginTop = value => ("marginTop", stringValue(value));
-/* Mask properties */
 let mask = value => ("mask", stringValue(value));
 let maskClip = value => ("maskClip", stringValue(value));
 let maskComposite = value => ("maskComposite", stringValue(value));
@@ -253,15 +227,31 @@ let maskPosition = value => ("maskPosition", stringValue(value));
 let maskRepeat = value => ("maskRepeat", stringValue(value));
 let maskSize = value => ("maskSize", stringValue(value));
 let maskType = value => ("maskType", stringValue(value));
-/* Multi column layout properties */
-
-/* Outline properties */
+let maxHeight = value => ("maxHeight", stringValue(value));
+let maxWidth = value => ("maxWidth", stringValue(value));
+let minBlockSize = value => ("minBlockSize", stringValue(value));
+let minHeight = value => ("minHeight", stringValue(value));
+let minInlineSize = value => ("minInlineSize", stringValue(value));
+let minWidth = value => ("minWidth", stringValue(value));
+let minZoom = value => ("minZoom", stringValue(value));
+let mixBlendMode = value => ("mixBlendMode", stringValue(value));
+let negative = value => ("negative", stringValue(value));
+let objectFit = value => ("objectFit", stringValue(value));
+let objectPosition = value => ("objectPosition", stringValue(value));
+let opacity = value => ("opacity", stringValue(value));
+let order = value => ("order", stringValue(value));
+let orientation = value => ("orientation", stringValue(value));
+let orphans = value => ("orphans", stringValue(value));
 let outline = value => ("outline", stringValue(value));
 let outlineColor = value => ("outlineColor", stringValue(value));
 let outlineOffset = value => ("outlineOffset", stringValue(value));
 let outlineStyle = value => ("outlineStyle", stringValue(value));
 let outlineWidth = value => ("outlineWidth", stringValue(value));
-/* Padding properties */
+let overflow = value => ("overflow", stringValue(value));
+let overflowWrap = value => ("overflowWrap", stringValue(value));
+let overflowX = value => ("overflowX", stringValue(value));
+let overflowY = value => ("overflowY", stringValue(value));
+let pad = value => ("pad", stringValue(value));
 let padding = value => ("padding", stringValue(value));
 let paddingBlock = value => ("paddingBlock", stringValue(value));
 let paddingBlockEnd = value => ("paddingBlockEnd", stringValue(value));
@@ -270,25 +260,38 @@ let paddingBottom = value => ("paddingBottom", stringValue(value));
 let paddingInline = value => ("paddingInline", stringValue(value));
 let paddingInlineEnd = value => ("paddingInlineEnd", stringValue(value));
 let paddingInlineStart = value => ("paddingInlineStart", stringValue(value));
-let paddingRight = value => ("paddingRight", stringValue(value));
 let paddingLeft = value => ("paddingLeft", stringValue(value));
+let paddingRight = value => ("paddingRight", stringValue(value));
 let paddingTop = value => ("paddingTop", stringValue(value));
-/* Print properties */
 let pageBreakAfter = value => ("pageBreakAfter", stringValue(value));
 let pageBreakBefore = value => ("pageBreakBefore", stringValue(value));
 let pageBreakInside = value => ("pageBreakInside", stringValue(value));
-/* Scroll properties */
+let perspective = value => ("perspective", stringValue(value));
+let perspectiveOrigin = value => ("perspectiveOrigin", stringValue(value));
+let placeContent = value => ("placeContent", stringValue(value));
+let placeItems = value => ("placeItems", stringValue(value));
+let placeSelf = value => ("placeSelf", stringValue(value));
+let pointerEvents = value => ("pointerEvents", stringValue(value));
+let position = value => ("position", stringValue(value));
+let prefix = value => ("prefix", stringValue(value));
+let quotes = value => ("quotes", stringValue(value));
+let range = value => ("range", stringValue(value));
+let resize = value => ("resize", stringValue(value));
+let right = value => ("right", stringValue(value));
+let rotate = value => ("rotate", stringValue(value));
+let rowGap = value => ("rowGap", stringValue(value));
+let scale = value => ("scale", stringValue(value));
 let scrollBehavior = value => ("scrollBehavior", stringValue(value));
 let scrollMargin = value => ("scrollMargin", stringValue(value));
 let scrollMarginBlock = value => ("scrollMarginBlock", stringValue(value));
 let scrollMarginBlockEnd = value => ("scrollMarginBlockEnd", stringValue(value));
 let scrollMarginBlockStart = value => ("scrollMarginBlockStart", stringValue(value));
+let scrollMarginBottom = value => ("scrollMarginBottom", stringValue(value));
 let scrollMarginInline = value => ("scrollMarginInline", stringValue(value));
 let scrollMarginInlineEnd = value => ("scrollMarginInlineEnd", stringValue(value));
 let scrollMarginInlineStart = value => ("scrollMarginInlineStart", stringValue(value));
-let scrollMarginRight = value => ("scrollMarginRight", stringValue(value));
 let scrollMarginLeft = value => ("scrollMarginLeft", stringValue(value));
-let scrollMarginBottom = value => ("scrollMarginBottom", stringValue(value));
+let scrollMarginRight = value => ("scrollMarginRight", stringValue(value));
 let scrollMarginTop = value => ("scrollMarginTop", stringValue(value));
 let scrollPadding = value => ("scrollPadding", stringValue(value));
 let scrollPaddingBlock = value => ("scrollPaddingBlock", stringValue(value));
@@ -298,21 +301,24 @@ let scrollPaddingBottom = value => ("scrollPaddingBottom", stringValue(value));
 let scrollPaddingInline = value => ("scrollPaddingInline", stringValue(value));
 let scrollPaddingInlineEnd = value => ("scrollPaddingInlineEnd", stringValue(value));
 let scrollPaddingInlineStart = value => ("scrollPaddingInlineStart", stringValue(value));
-let scrollPaddingRight = value => ("scrollPaddingRight", stringValue(value));
 let scrollPaddingLeft = value => ("scrollPaddingLeft", stringValue(value));
+let scrollPaddingRight = value => ("scrollPaddingRight", stringValue(value));
 let scrollPaddingTop = value => ("scrollPaddingTop", stringValue(value));
 let scrollSnapAlign = value => ("scrollSnapAlign", stringValue(value));
 let scrollSnapStop = value => ("scrollSnapStop", stringValue(value));
 let scrollSnapType = value => ("scrollSnapType", stringValue(value));
 let scrollbarColor = value => ("scrollbarColor", stringValue(value));
 let scrollbarWidth = value => ("scrollbarWidth", stringValue(value));
-/* Table properties */
-
-
-let tableLayout = value => ("tableLayout", stringValue(value));
-/* Text properties */
-
+let shapeImageThreshold = value => ("shapeImageThreshold", stringValue(value));
+let shapeMargin = value => ("shapeMargin", stringValue(value));
+let shapeOutside = value => ("shapeOutside", stringValue(value));
+let speakAs = value => ("speakAs", stringValue(value));
+let src = value => ("src", stringValue(value));
+let suffix = value => ("suffix", stringValue(value));
+let symbols = value => ("symbols", stringValue(value));
+let system = value => ("system", stringValue(value));
 let tabSize = value => ("tabSize", stringValue(value));
+let tableLayout = value => ("tableLayout", stringValue(value));
 let textAlign = value => ("textAlign", stringValue(value));
 let textAlignLast = value => ("textAlignLast", stringValue(value));
 let textCombineUpright = value => ("textCombineUpright", stringValue(value));
@@ -334,49 +340,30 @@ let textShadow = value => ("textShadow", stringValue(value));
 let textTransform = value => ("textTransform", stringValue(value));
 let textUnderlineOffset = value => ("textUnderlineOffset", stringValue(value));
 let textUnderlinePosition = value => ("textUnderlinePosition", stringValue(value));
-
-let verticalAlign = value => ("verticalAlign", stringValue(value));
-
-let wordSpacing = value => ("wordSpacing", stringValue(value));
-let whiteSpace = value => ("whiteSpace", stringValue(value));
-let wordBreak = value => ("wordBreak", stringValue(value));
-let wordWrap = value => ("wordWrap", stringValue(value));
-/* Transform properties */
-
-let perspective = value => ("perspective", stringValue(value));
-let perspectiveOrigin = value => ("perspectiveOrigin", stringValue(value));
+let top = value => ("top", stringValue(value));
+let touchAction = value => ("touchAction", stringValue(value));
 let transform = value => ("transform", stringValue(value));
+let transformBox = value => ("transformBox", stringValue(value));
 let transformOrigin = value => ("transformOrigin", stringValue(value));
 let transformStyle = value => ("transformStyle", stringValue(value));
-/* Transitions properties */
 let transition = value => ("transition", stringValue(value));
 let transitionDelay = value => ("transitionDelay", stringValue(value));
 let transitionDuration = value => ("transitionDuration", stringValue(value));
 let transitionProperty = value => ("transitionProperty", stringValue(value));
 let transitionTimingFunction = value => ("transitionTimingFunction", stringValue(value)); 
-/* Visual formatting properties */
-let display = value => ("display", stringValue(value));
-let position = value => ("position", stringValue(value));
-let top = value => ("top", stringValue(value));
-let right = value => ("right", stringValue(value));
-
-
-
-
-let zIndex = value => ("zIndex", stringValue(value));
-let overflow = value => ("overflow", stringValue(value));
-let overflowX = value => ("overflowX", stringValue(value));
-let overflowY = value => ("overflowY", stringValue(value));
-let resize = value => ("resize", stringValue(value));
-
+let translate = value => ("translate", stringValue(value));
+let unicodeBidi = value => ("unicodeBidi", stringValue(value));
+let unicodeRange = value => ("unicodeRange", stringValue(value));
+let userZoom = value => ("userZoom", stringValue(value));
+let verticalAlign = value => ("verticalAlign", stringValue(value));
 let visibility = value => ("visibility", stringValue(value));
-
-
-
-let pointerEvents = value => ("pointerEvents", stringValue(value));
-
-
-
-
-
-
+let whiteSpace = value => ("whiteSpace", stringValue(value));
+let widows = value => ("widows", stringValue(value));
+let width = value => ("width", stringValue(value));
+let willChange = value => ("willChange", stringValue(value));
+let wordBreak = value => ("wordBreak", stringValue(value));
+let wordSpacing = value => ("wordSpacing", stringValue(value));
+let wordWrap = value => ("wordWrap", stringValue(value));
+let writingMode = value => ("writingMode", stringValue(value));
+let zIndex = value => ("zIndex", stringValue(value));
+let zoom = value => ("zoom", stringValue(value));
