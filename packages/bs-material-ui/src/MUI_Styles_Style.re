@@ -15,7 +15,7 @@ let merge: array(t) => t = rules =>
 let nestMerge: (string, array(t)) => (string, value) =
   (ruleName, rules) => (ruleName, nestedRule(merge(rules)));
 
-module PseudoClass = {
+module PseudoClasses = {
   let active: array((string, value)) => (string, value) = 
     properties => nest(":active", properties);
   let activeMerge: array(t) => (string, value) =
