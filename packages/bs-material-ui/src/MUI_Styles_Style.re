@@ -5,19 +5,98 @@ external nestedRule: t => value = "%identity";
 external stringValue: string => value = "%identity";
 
 let make: array((string, value)) => t = 
-  entries => Js.Dict.fromArray(entries);
-
+  properties => Js.Dict.fromArray(properties);
 let nest: (string, array((string, value))) => (string, value) =
   (ruleName, entries) => (ruleName, nestedRule(make(entries)));
-
 let merge: array(t) => t = rules => 
   Belt.Array.map(rules, rule => Js.Dict.entries(rule))
     ->Belt.Array.concatMany
     ->Js.Dict.fromArray;
-
 let nestMerge: (string, array(t)) => (string, value) =
   (ruleName, rules) => (ruleName, nestedRule(merge(rules)));
 
+/* pseudo class */
+let active: array((string, value)) => (string, value) = 
+  properties => nest(":active", properties);
+let activeMerge: array(t) => (string, value) =
+  rules => nestMerge(":active", rules);
+let checked: array((string, value)) => (string, value) = 
+  properties => nest(":checked", properties);
+let checkedMerge: array(t) => (string, value) =
+  rules => nestMerge(":checked", rules);
+let default: array((string, value)) => (string, value) = 
+  properties => nest(":default", properties);
+let defaultMerge: array(t) => (string, value) =
+  rules => nestMerge(":default", rules);
+let defined: array((string, value)) => (string, value) = 
+  properties => nest(":defined", properties);
+let definedMerge: array(t) => (string, value) =
+  rules => nestMerge(":defined", rules);
+let disabled: array((string, value)) => (string, value) = 
+  properties => nest(":disabled", properties);
+let disabledMerge: array(t) => (string, value) =
+  rules => nestMerge(":disabled", rules);
+let empty: array((string, value)) => (string, value) = 
+  properties => nest(":empty", properties);
+let emptyMerge: array(t) => (string, value) =
+  rules => nestMerge(":empty", rules);
+let enabled: array((string, value)) => (string, value) = 
+  properties => nest(":enabled", properties);
+let enabledMerge: array(t) => (string, value) =
+  rules => nestMerge(":enabled", rules);
+let first: array((string, value)) => (string, value) = 
+  properties => nest(":first", properties);
+let firstMerge: array(t) => (string, value) =
+  rules => nestMerge(":first", rules);
+let firstChild: array((string, value)) => (string, value) = 
+  properties => nest(":first-child", properties);
+let firstChildMerge: array(t) => (string, value) =
+  rules => nestMerge(":first-child", rules);
+let firstOfType: array((string, value)) => (string, value) = 
+  properties => nest(":first-of-type", properties);
+let firstOfTypeMerge: array(t) => (string, value) =
+  rules => nestMerge(":first-of-tye", rules);
+let focus: array((string, value)) => (string, value) = 
+  properties => nest(":focus", properties);
+let focusMerge: array(t) => (string, value) =
+  rules => nestMerge(":focus", rules);
+let focusWithin: array((string, value)) => (string, value) = 
+  properties => nest(":focus-within", properties);
+let focusWithinMerge: array(t) => (string, value) =
+  rules => nestMerge(":focus-within", rules);
+let host: array((string, value)) => (string, value) = 
+  properties => nest(":host", properties);
+let hostMerge: array(t) => (string, value) =
+  rules => nestMerge(":host", rules);
+let hostFunction: (string, array((string, value))) => (string, value) = 
+  (selector, properties) => nest(":host(" ++ selector ++ ")", properties);
+let hostFunctionMerge: (string, array(t)) => (string, value) =
+  (selector, rules) => nestMerge(":host(" ++ selector ++ ")", rules);
+let hover: array((string, value)) => (string, value) = 
+  properties => nest(":hover", properties);
+let hoverMerge: array(t) => (string, value) =
+  rules => nestMerge(":hover", rules);
+let indeterminate: array((string, value)) => (string, value) = 
+  properties => nest(":indeterminate", properties);
+let indeterminateMerge: array(t) => (string, value) =
+  rules => nestMerge(":indeterminate", rules);
+let inRange: array((string, value)) => (string, value) = 
+  properties => nest(":in-range", properties);
+let inRangeMerge: array(t) => (string, value) =
+  rules => nestMerge(":in-range", rules);
+let invalid: array((string, value)) => (string, value) = 
+  properties => nest(":invalid", properties);
+let invalidMerge: array(t) => (string, value) =
+  rules => nestMerge(":invalid", rules);
+let lang: (string, array((string, value))) => (string, value) = 
+  (lang, properties) => nest(":lang(" ++ lang ++ ")", properties);
+let langMerge: (string, array(t)) => (string, value) =
+  (lang, rules) => nestMerge(":lang" ++ lang ++ ")", rules);
+let lastChild: array((string, value)) => (string, value) = 
+  properties => nest(":last-child", properties);
+let lastChildMerge: array(t) => (string, value) =
+  rules => nestMerge(":last-child", rules);
+/* properties */
 let alignContent = value => ("alignContent", stringValue(value));
 let alignItems = value => ("alignItems", stringValue(value));
 let alignSelf = value => ("alignSelf", stringValue(value));
@@ -181,7 +260,7 @@ let gridTemplate = value => ("gridTemplate", stringValue(value));
 let gridTemplateAreas = value => ("gridTemplateAreas", stringValue(value));
 let gridTemplateColumns = value => ("gridTemplateColumns", stringValue(value));
 let gridTemplateRows = value => ("gridTemplateRows", stringValue(value));
-let hangingPunctuation = value => ("hangingPunctuation");
+let hangingPunctuation = value => ("hangingPunctuation", stringValue(value));
 let height = value => ("height", stringValue(value));
 let hyphens = value => ("hyphens", stringValue(value));
 let imageOrientation = value => ("imageOrientation", stringValue(value));
