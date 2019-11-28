@@ -7,7 +7,7 @@
     "test": "jest",
     "start": "bsb -clean-world -make-world -w",
     "clean": "bsb -clean-world",
-    "build": "bsb -make-wrold"
+    "build": "bsb -clean-world -make-world"
   },
   "repository": {
     "type": "git",
