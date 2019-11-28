@@ -4,17 +4,19 @@ type t = Js.Dict.t(value);
 external nestedRule: t => value = "%identity";
 external stringValue: string => value = "%identity";
 
-let make: list((string, value)) => t = 
-  entries => Js.Dict.fromList(entries);
+let make: array((string, value)) => t = 
+  entries => Js.Dict.fromArray(entries);
 
-let nest: (string, t) => (string, value) =
-  (ruleName, rule) => (ruleName, nestedRule(rule));
+let nest: (string, array((string, value))) => (string, value) =
+  (ruleName, entries) => (ruleName, nestedRule(make(entries)));
 
-let merge: list(t) => t = sources => 
-  Belt.List.toArray(sources)
-    ->Belt.Array.map(rule => Js.Dict.entries(rule))
+let merge: array(t) => t = rules => 
+  Belt.Array.map(rules, rule => Js.Dict.entries(rule))
     ->Belt.Array.concatMany
     ->Js.Dict.fromArray;
+
+let nestMerge: (string, array(t)) => (string, value) =
+  (ruleName, rules) => (ruleName, nestedRule(merge(rules)));
 
 /* Animation properties */
 let animation = value => ("animation", stringValue(value));
@@ -179,7 +181,7 @@ let textIndent = value => ("textIndent", stringValue(value));
 let textJustify = value => ("textJustify", stringValue(value));
 let textOrientation = value => ("textOrientation", stringValue(value));
 let textOverflow = value => ("textOverflow", stringValue(value));
-let textRendering = value => ("textRendering", sringValue(value));
+let textRendering = value => ("textRendering", stringValue(value));
 let textShadow = value => ("textShadow", stringValue(value));
 let textTransform = value => ("textTransform", stringValue(value));
 let textUnderlineOffset = value => ("textUnderlineOffset", stringValue(value));
