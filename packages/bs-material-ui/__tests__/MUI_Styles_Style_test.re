@@ -1,10 +1,11 @@
 open Jest;
+open MUI.Styles;
 
 describe("properties", () => {
   open Expect;
 
   test("alignItems", () => 
-    expect(Style.alignItems("normal")) |> toEqual(("alignItems", Style.stringToValue("normal"))));
+    expect(Style.alignItems("normal")) |> toEqual(("alignItems", Style.stringValue("normal"))));
 });
 
 describe("make style", () => {
@@ -17,11 +18,11 @@ describe("make style", () => {
   ]));
 
   test("color", () =>
-    expect(Js.Dict.get(style, "color")) |> toBe(Some(Style.stringToValue("red"))));
+    expect(Js.Dict.get(style, "color")) |> toBe(Some(Style.stringValue("red"))));
   test("background-color", () => 
-    expect(Js.Dict.get(style, "backgroundColor")) |> toBe(Some(Style.stringToValue("blue"))));
+    expect(Js.Dict.get(style, "backgroundColor")) |> toBe(Some(Style.stringValue("blue"))));
   test("display", () => 
-    expect(Js.Dict.get(style, "display")) |> toBe(Some(Style.stringToValue("block"))));
+    expect(Js.Dict.get(style, "display")) |> toBe(Some(Style.stringValue("block"))));
 });
 
 describe("nested style", () => {
@@ -41,10 +42,10 @@ describe("nested style", () => {
         |]));
 
   test("width", () => 
-    expect(Js.Dict.get(style, "width")) |> toBe(Some(Style.stringToValue("200px"))));
+    expect(Js.Dict.get(style, "width")) |> toBe(Some(Style.stringValue("200px"))));
   test(":hover", () =>
     expect(Js.Dict.get(style, ":hover")) 
-      |> toEqual(Some(Style.(ruleToValue(make([
+      |> toEqual(Some(Style.(nestedRule(make([
           width("240px")
         ]))))));
 });
@@ -64,9 +65,9 @@ describe("merged style", () => {
   ]));
 
   test("color", () => 
-    expect(Js.Dict.get(style, "color")) |> toBe(Some(Style.stringToValue("#000"))));
+    expect(Js.Dict.get(style, "color")) |> toBe(Some(Style.stringValue("#000"))));
   test("background-color", () => 
-    expect(Js.Dict.get(style, "backgroundColor")) |> toBe(Some(Style.stringToValue("#fff"))));
+    expect(Js.Dict.get(style, "backgroundColor")) |> toBe(Some(Style.stringValue("#fff"))));
   test("display", () => 
-    expect(Js.Dict.get(style, "display")) |> toBe(Some(Style.stringToValue("block"))));
+    expect(Js.Dict.get(style, "display")) |> toBe(Some(Style.stringValue("block"))));
 })
