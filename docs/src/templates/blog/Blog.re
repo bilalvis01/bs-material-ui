@@ -42,24 +42,24 @@ let useStyles = Styles.make(theme => {
   open MUI.Styles;
 
   {
-    "toolbar": () => Style.(make([
+    "toolbar": () => Style.(make([|
       borderBottom("1px solid " ++ Theme.palette(theme)->Palette.divider),
-    ])),
-    "toolbarTitle": () => Style.(make([
+    |])),
+    "toolbarTitle": () => Style.(make([|
       flex("1"),
-    ])),
-    "toolbarSecondary": () => Style.(make([
+    |])),
+    "toolbarSecondary": () => Style.(make([|
       justifyContent("space-between"),
       overflowX("auto"),
-    ])),
-    "toolbarLink": () => Style.(make([
+    |])),
+    "toolbarLink": () => Style.(make([|
       Theme.spacing1(theme, 1)
         ->string_of_int
         ->(++)("px")
         ->padding,
       flexShrink("0"),
-    ])),
-    "mainFeaturedPost": () => Style.(make([
+    |])),
+    "mainFeaturedPost": () => Style.(make([|
       position("relative"),
       Theme.palette(theme) 
         ->Palette.grey
@@ -77,16 +77,16 @@ let useStyles = Styles.make(theme => {
       backgroundSize("cover"),
       backgroundRepeat("no-repeat"),
       backgroundPosition("center"),
-    ])),
-    "overlay": () => Style.(make([
+    |])),
+    "overlay": () => Style.(make([|
       position("absolute"),
       top("0px"),
       bottom("0px"),
       right("0px"),
       left("0px"),
       backgroundColor("rgba(0,0,0,.3)"),
-    ])),
-    "mainFeaturedPostContent": () => Style.(make([
+    |])),
+    "mainFeaturedPostContent": () => Style.(make([|
       position("relative"),
       Theme.spacing1(theme, 3)
         ->string_of_int 
@@ -94,38 +94,38 @@ let useStyles = Styles.make(theme => {
         ->padding,
       Theme.breakpoints(theme)
         ->Breakpoints.up("md")
-        ->nest(make([
+        ->nest([|
           Theme.spacing1(theme, 6)
             ->string_of_int 
             ->(++)("px")
             ->padding,
           paddingRight("0px"),
-        ])),
-    ])),
-    "mainGrid": () => Style.(make([
+        |]),
+    |])),
+    "mainGrid": () => Style.(make([|
       Theme.spacing1(theme, 3)
         ->string_of_int
         ->(++)("px")
         ->marginTop,
-    ])),
-    "card": () => Style.(make([
+    |])),
+    "card": () => Style.(make([|
       display("flex"),
-    ])),
-    "cardDetails": () => Style.(make([
+    |])),
+    "cardDetails": () => Style.(make([|
       flex("1"),
-    ])),
-    "cardMedia": () => Style.(make([
+    |])),
+    "cardMedia": () => Style.(make([|
       width("160px"),
-    ])),
-    "markdown": () => Style.(merge([
+    |])),
+    "markdown": () => Style.(merge([|
       Theme.typography(theme)
         ->Typography.body2,
-      make([
+      make([|
         Theme.spacing2(theme, 3, 0)
           ->padding,
-      ])
-    ])),
-    "sidebarAboutBox": () => Style.(make([
+      |])
+    |])),
+    "sidebarAboutBox": () => Style.(make([|
       Theme.spacing1(theme, 2)
         ->string_of_int
         ->(++)("px")
@@ -134,14 +134,14 @@ let useStyles = Styles.make(theme => {
         ->Palette.grey
         ->Color.get200
         ->backgroundColor,
-    ])),
-    "sidebarSection": () => Style.(make([
+    |])),
+    "sidebarSection": () => Style.(make([|
       Theme.spacing1(theme, 3)
         ->string_of_int
         ->(++)("px")
         ->marginTop,
-    ])),
-    "footer": () => Style.(make([
+    |])),
+    "footer": () => Style.(make([|
       Theme.palette(theme)
         ->Palette.background
         ->Background.paper
@@ -152,7 +152,7 @@ let useStyles = Styles.make(theme => {
         ->marginTop,
       Theme.spacing2(theme, 6, 0)
         ->padding,
-    ])),
+    |])),
   }
 });
 

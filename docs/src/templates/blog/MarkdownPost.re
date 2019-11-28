@@ -11,12 +11,12 @@ let useStyles = Styles.make(theme => {
   open MUI.Styles;
   
   {
-    "listItem": () => Style.(make([
+    "listItem": () => Style.(make([|
       Theme.spacing1(theme, 1)
         ->string_of_int
         ->String.concat(["px"])
         ->marginTop,
-    ])),
+    |])),
   }
 });
 
