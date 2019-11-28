@@ -1,6 +1,4 @@
 type props;
-type onCloseCallback;
-type onRenderedCallback;
 
 [@bs.obj]
 external makeProps: (

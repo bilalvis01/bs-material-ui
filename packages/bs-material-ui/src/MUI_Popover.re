@@ -1,17 +1,10 @@
 type classes;
 type props;
-type onEnterCallback;
-type onEnteredCallback;
-type onEnteringCallback;
-type onExitCallback;
-type onExitedCallback;
-type onExitingCallback;
 type anchorOrigin;
 type transformOrigin;
 type transitionProps;
 type transitionDuration;
 type anchorPosition;
-type container = unit => React.element;
 
 module MakeOrigin = (Origin: { type t; }) => {
   [@bs.obj]
@@ -61,46 +54,46 @@ external classes: (
 [@bs.obj]
 external makeProps: (
   /* Popover props */
-  ~action: ReactDOMRe.domRef,
-  ~anchorEl: Dom.element,
-  ~anchorOrigin: anchorOrigin,
-  ~anchorPosition: anchorPosition,
-  ~anchorReference: string,
-  ~children: React.element,
-  ~classes: classes,
-  ~container: React.element,
-  ~elevation: int,
-  ~getContentAnchorEl: Dom.element => unit,
-  ~marginThreshold: int,
-  ~onClose: MUI_Modal.onCloseCallback,
-  ~onEnter: onEnterCallback,
-  ~onEntered: onEnteredCallback,
-  ~onEnteringCallback: onEnteringCallback,
-  ~onExit: onExitCallback,
-  ~onExited: onExitedCallback,
-  ~onExiting: onExitingCallback,
-  ~_open: bool,
-  ~_PaperProps: MUI_Paper.props,
-  ~transformOrigin: transformOrigin,
-  ~_TransitionComponent: string,
-  ~transitionDuration: transitionDuration,
-  ~_TransitionProps: transitionProps,
+  ~action: ReactDOMRe.domRef=?,
+  ~anchorEl: Dom.element=?,
+  ~anchorOrigin: anchorOrigin=?,
+  ~anchorPosition: anchorPosition=?,
+  ~anchorReference: string=?,
+  ~children: React.element=?,
+  ~classes: classes=?,
+  ~container: unit => React.element=?,
+  ~elevation: int=?,
+  ~getContentAnchorEl: Dom.element => unit=?,
+  ~marginThreshold: int=?,
+  ~onClose: (ReactEvent.synthetic('a), string) => unit=?,
+  ~onEnter: (Dom.element, bool) => unit=?,
+  ~onEntered: (Dom.element, bool) => unit=?,
+  ~onEntering: (Dom.element, bool) => unit=?,
+  ~onExit: Dom.element => unit=?,
+  ~onExited: Dom.element => unit=?,
+  ~onExiting: Dom.element => unit=?,
+  ~_open: bool=?,
+  ~_PaperProps: MUI_Paper.props=?,
+  ~transformOrigin: transformOrigin=?,
+  ~_TransitionComponent: string=?,
+  ~transitionDuration: transitionDuration=?,
+  ~_TransitionProps: transitionProps=?,
   /* Modal props */
-  ~_BackdropComponent: string,
-  // ~_BackdropProps: MUI_Backdrop.props,
-  ~closeAfterTransition: bool,
-  ~disableAutoFocus: bool,
-  ~disableBackdropClick: bool,
-  ~disableEnforceFocus: bool,
-  ~disableEscapeKeyDown: bool,
-  ~disablePortal: bool,
-  ~disableRestoreFocus: bool,
-  ~disableScrollLock: bool,
-  ~hideBackdrop: bool,
-  ~keepMounted: bool,
-  ~onBackdropClick: ReactEvent.Mouse.t => unit,
-  ~onEscapeKeyDown: ReactEvent.Keyboard.t => unit,
-  ~onRendered: MUI_Modal.onRenderedCallback,
+  ~_BackdropComponent: string=?,
+  // ~_BackdropProps: MUI_Backdrop.props=?,
+  ~closeAfterTransition: bool=?,
+  ~disableAutoFocus: bool=?,
+  ~disableBackdropClick: bool=?,
+  ~disableEnforceFocus: bool=?,
+  ~disableEscapeKeyDown: bool=?,
+  ~disablePortal: bool=?,
+  ~disableRestoreFocus: bool=?,
+  ~disableScrollLock: bool=?,
+  ~hideBackdrop: bool=?,
+  ~keepMounted: bool=?,
+  ~onBackdropClick: ReactEvent.Mouse.t => unit=?,
+  ~onEscapeKeyDown: ReactEvent.Keyboard.t => unit=?,
+  ~onRendered: unit => unit=?,
   /* Dom props */
   ~key: string=?,
   ~ref: ReactDOMRe.domRef=?,

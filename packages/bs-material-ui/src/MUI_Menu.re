@@ -1,267 +1,11 @@
-type classes = {
-  .
-  "paper": Js.undefined(string),
-  "list": Js.undefined(string),
-};
+type props;
+type classes;
 
 [@bs.obj]
 external classes: (
   ~paper: string=?,
   ~list: string=?,
 ) => classes = "";
-
-type props = {
-  .
-  /* Menu props */
-  "anchorEl": Js.undefined(Dom.element),
-  "autoFocus": Js.undefined(bool),
-  "children": Js.undefined(React.element),
-  "classes": Js.undefined(classes),
-  "disableAutoFocusItem": Js.undefined(bool),
-  // "_MenuListProps": Js.undefined(MUI_MenuList.props),
-  "onClose": Js.undefined(MUI_Modal.onCloseCallback),
-  "onEnter": Js.undefined(MUI_Popover.onEnterCallback),
-  "onEntered": Js.undefined(MUI_Popover.onEnteredCallback),
-  "onEntering": Js.undefined(MUI_Popover.onEnteringCallback),
-  "onExit": Js.undefined(MUI_Popover.onExitCallback),
-  "onExited": Js.undefined(MUI_Popover.onExitedCallback),
-  "onExiting": Js.undefined(MUI_Popover.onExitingCallback),
-  "_open": Js.undefined(bool),
-  "_PopoverClasses": Js.undefined(MUI_Popover.classes),
-  "transitionDuration": Js.undefined(MUI_Popover.transitionDuration),
-  "variant": Js.undefined(string),
-  /* Popover props */
-  "action": Js.undefined(ReactDOMRe.domRef),
-  "anchorOrigin": Js.undefined(MUI_Popover.anchorOrigin),
-  "anchorPosition": Js.undefined(MUI_Popover.anchorPosition),
-  "anchorReference": Js.undefined(string),
-  "container": Js.undefined(MUI_Popover.container),
-  "elevation": Js.undefined(int),
-  "getContentAnchorEl": Js.undefined(Dom.element => unit),
-  "marginThreshold": Js.undefined(int),
-  "_PaperProps": Js.undefined(MUI_Paper.props),
-  "transformOrigin": Js.undefined(MUI_Popover.transformOrigin),
-  "_TransitionComponent": Js.undefined(string),
-  "_TransitionProps": Js.undefined(MUI_Popover.transitionProps),
-  /* Modal props */
-  "_BackdropComponent": Js.undefined(string),
-  // "_BackdropProps": Js.undefined(MUI_Backdrop.props),
-  "closeAfterTransition": Js.undefined(bool),
-  "disableAutoFocus": Js.undefined(bool),
-  "disableBackdropClick": Js.undefined(bool),
-  "disableEnforceFocus": Js.undefined(bool),
-  "disableEscapeKeyDown": Js.undefined(bool),
-  "disablePortal": Js.undefined(bool),
-  "disableRestoreFocus": Js.undefined(bool),
-  "disableScrollLock": Js.undefined(bool),
-  "hideBackdrop": Js.undefined(bool),
-  "keepMounted": Js.undefined(bool),
-  "onBackdropClick": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onEscapeKeyDown": Js.undefined(ReactEvent.Keyboard.t => unit),
-  "onRendered": Js.undefined(MUI_Modal.onRenderedCallback),
-  /* Dom props */
-  // react textarea/input
-  "defaultChecked": Js.undefined(bool),
-  "defaultValue": Js.undefined(string),
-  // global html attributes
-  "accessKey": Js.undefined(string),
-  "className": Js.undefined(string), // substitute for "class"
-  "contentEditable": Js.undefined(bool),
-  "contextMenu": Js.undefined(string),
-  "dir": Js.undefined(string), // "ltr", "rtl" or "auto"
-  "draggable": Js.undefined(bool),
-  "hidden": Js.undefined(bool),
-  "id": Js.undefined(string),
-  "lang": Js.undefined(string),
-  "role": Js.undefined(string), // ARIA role
-  "style": Js.undefined(ReactDOMRe.style),
-  "spellCheck": Js.undefined(bool),
-  "tabIndex": Js.undefined(int),
-  "title": Js.undefined(string),
-  // html5 microdata
-  "itemID": Js.undefined(string),
-  "itemProp": Js.undefined(string),
-  "itemRef": Js.undefined(string),
-  "itemScope": Js.undefined(bool),
-  "itemType": Js.undefined(string), // uri
-  // tag-specific html attributes
-  "accept": Js.undefined(string),
-  "acceptCharset": Js.undefined(string),
-  // "action": Js.undefined(string), // uri 
-  "allowFullScreen": Js.undefined(bool),
-  "alt": Js.undefined(string),
-  "async": Js.undefined(bool),
-  "autoComplete": Js.undefined(string), // has a fixed, but large-ish, set of possible values
-  // "autoFocus": Js.undefined(bool),
-  "autoPlay": Js.undefined(bool),
-  "challenge": Js.undefined(string),
-  "charSet": Js.undefined(string),
-  "checked": Js.undefined(bool),
-  "cite": Js.undefined(string), // uri 
-  "crossorigin": Js.undefined(bool),
-  "cols": Js.undefined(int),
-  "colSpan": Js.undefined(int),
-  "content": Js.undefined(string),
-  "controls": Js.undefined(bool),
-  "coords": Js.undefined(string), // set of values specifying the coordinates of a region 
-  "data": Js.undefined(string), // uri 
-  "dateTime": Js.undefined(string), // "valid date string with optional time" 
-  "default": Js.undefined(bool),
-  "defer": Js.undefined(bool),
-  "disabled": Js.undefined(bool),
-  "download": Js.undefined(string), // should really be either a boolean, signifying presence, or a string 
-  "encType": Js.undefined(string), // "application/x-www-form-urlencoded", "multipart/form-data" or "text/plain" 
-  "form": Js.undefined(string),
-  "formAction": Js.undefined(string), // uri 
-  "formTarget": Js.undefined(string), // "_self", "_blank", "_parent" or "_top"
-  "formMethod": Js.undefined(string), // "post", "get" or "put"
-  "headers": Js.undefined(string),
-  "height": Js.undefined(string), // in html5 this can only be a number, but in html4 it can ba a percentage as well
-  "high": Js.undefined(int),
-  "href": Js.undefined(string), // uri 
-  "hrefLang": Js.undefined(string),
-  "htmlFor": Js.undefined(string), // substitute for "for" 
-  "httpEquiv": Js.undefined(string),
-  "icon": Js.undefined(string), // uri? 
-  "inputMode": Js.undefined(string), // "none", "text", "decimal", "numeric", "tel", "search", "email" or "url"
-  "integrity": Js.undefined(string),
-  "keyType": Js.undefined(string),
-  "kind": Js.undefined(string), // has a fixed set of possible values 
-  "label": Js.undefined(string),
-  "list": Js.undefined(string),
-  "loop": Js.undefined(bool),
-  "low": Js.undefined(int),
-  "manifest": Js.undefined(string), // uri 
-  "max": Js.undefined(string), // should be int or Js.Date.t 
-  "maxLength": Js.undefined(int),
-  "media": Js.undefined(string), // a valid media query 
-  "mediaGroup": Js.undefined(string),
-  "method": Js.undefined(string), // "post" or "get"
-  "min": Js.undefined(int),
-  "minLength": Js.undefined(int),
-  "multiple": Js.undefined(bool),
-  "muted": Js.undefined(bool),
-  "name": Js.undefined(string),
-  "nonce": Js.undefined(string),
-  "noValidate": Js.undefined(bool),
-  // "_open": Js.undefined(bool), // use this one. Previous one is deprecated 
-  "optimum": Js.undefined(int),
-  "pattern": Js.undefined(string), // valid Js RegExp
-  "placeholder": Js.undefined(string),
-  "poster": Js.undefined(string), // uri
-  "preload": Js.undefined(string), // "none", "metadata", or "auto"
-  "radioGroup": Js.undefined(string),
-  "readOnly": Js.undefined(bool),
-  "rel": Js.undefined(string), // a space- or comma-separated (depending on the element) list of a fixed set of "link types"
-  "required": Js.undefined(bool),
-  "reversed": Js.undefined(bool),
-  "rows": Js.undefined(int),
-  "rowSpan": Js.undefined(int),
-  "sandbox": Js.undefined(string), // has a fixed set of possible values
-  "scope": Js.undefined(string), // has a fixed set of possible values
-  "scoped": Js.undefined(bool),
-  "scrolling": Js.undefined(string), // "auto", "yes", or "no". html4 only
-  // seamless - supported by React, but removed from the html5 spec 
-  "selected": Js.undefined(bool),
-  "shape": Js.undefined(string),
-  "size": Js.undefined(int),
-  "sizes": Js.undefined(string),
-  "span": Js.undefined(int),
-  "src": Js.undefined(string), // uri
-  "srcDoc": Js.undefined(string),
-  "srcLang": Js.undefined(string),
-  "srcSet": Js.undefined(string),
-  "start": Js.undefined(int),
-  "step": Js.undefined(float),
-  "summary": Js.undefined(string), // deprecated 
-  "target": Js.undefined(string),
-  "_type": Js.undefined(string), // has a fixed but large-ish set of possible values // use this one. Previous one is deprecated 
-  "useMap": Js.undefined(string),
-  "value": Js.undefined(string),
-  "width": Js.undefined(string),
-  "wrap": Js.undefined(string), // "hard" or "soft"
-  // Clipboard events
-  "onCopy": Js.undefined(ReactEvent.Clipboard.t => unit),
-  "onCut": Js.undefined(ReactEvent.Clipboard.t => unit),
-  "onPaste": Js.undefined(ReactEvent.Clipboard.t => unit),
-  // Composition events 
-  "onCompositionEnd": Js.undefined(ReactEvent.Composition.t => unit),
-  "onCompositionStart": Js.undefined(ReactEvent.Composition.t => unit),
-  "onCompositionUpdate": Js.undefined(ReactEvent.Composition.t => unit),
-  // Keyboard events 
-  "onKeyDown": Js.undefined(ReactEvent.Keyboard.t => unit),
-  "onKeyPress": Js.undefined(ReactEvent.Keyboard.t => unit),
-  "onKeyUp": Js.undefined(ReactEvent.Keyboard.t => unit),
-  // Focus events 
-  "onFocus": Js.undefined(ReactEvent.Focus.t => unit),
-  "onBlur": Js.undefined(ReactEvent.Focus.t => unit),
-  // Form events
-  "onChange": Js.undefined(ReactEvent.Form.t => unit),
-  "onInput": Js.undefined(ReactEvent.Form.t => unit),
-  "onSubmit": Js.undefined(ReactEvent.Form.t => unit),
-  // Mouse events
-  "onClick": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onContextMenu": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onDoubleClick": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onDrag": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onDragEnd": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onDragEnter": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onDragExit": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onDragLeave": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onDragOver": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onDragStart": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onDrop": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onMouseDown": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onMouseEnter": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onMouseLeave": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onMouseMove": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onMouseOut": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onMouseOver": Js.undefined(ReactEvent.Mouse.t => unit),
-  "onMouseUp": Js.undefined(ReactEvent.Mouse.t => unit),
-  // Selection events 
-  "onSelect": Js.undefined(ReactEvent.Selection.t => unit),
-  // Touch events
-  "onTouchCancel": Js.undefined(ReactEvent.Touch.t => unit),
-  "onTouchEnd": Js.undefined(ReactEvent.Touch.t => unit),
-  "onTouchMove": Js.undefined(ReactEvent.Touch.t => unit),
-  "onTouchStart": Js.undefined(ReactEvent.Touch.t => unit),
-  // UI events
-  "onScroll": Js.undefined(ReactEvent.UI.t => unit),
-  // Wheel events
-  "onWheel": Js.undefined(ReactEvent.Wheel.t => unit),
-  // Media events
-  "onAbort": Js.undefined(ReactEvent.Media.t => unit),
-  "onCanPlay": Js.undefined(ReactEvent.Media.t => unit),
-  "onCanPlayThrough": Js.undefined(ReactEvent.Media.t => unit),
-  "onDurationChange": Js.undefined(ReactEvent.Media.t => unit),
-  "onEmptied": Js.undefined(ReactEvent.Media.t => unit),
-  "onEncrypetd": Js.undefined(ReactEvent.Media.t => unit),
-  "onEnded": Js.undefined(ReactEvent.Media.t => unit),
-  "onError": Js.undefined(ReactEvent.Media.t => unit),
-  "onLoadedData": Js.undefined(ReactEvent.Media.t => unit),
-  "onLoadedMetadata": Js.undefined(ReactEvent.Media.t => unit),
-  "onLoadStart": Js.undefined(ReactEvent.Media.t => unit),
-  "onPause": Js.undefined(ReactEvent.Media.t => unit),
-  "onPlay": Js.undefined(ReactEvent.Media.t => unit),
-  "onPlaying": Js.undefined(ReactEvent.Media.t => unit),
-  "onProgress": Js.undefined(ReactEvent.Media.t => unit),
-  "onRateChange": Js.undefined(ReactEvent.Media.t => unit),
-  "onSeeked": Js.undefined(ReactEvent.Media.t => unit),
-  "onSeeking": Js.undefined(ReactEvent.Media.t => unit),
-  "onStalled": Js.undefined(ReactEvent.Media.t => unit),
-  "onSuspend": Js.undefined(ReactEvent.Media.t => unit),
-  "onTimeUpdate": Js.undefined(ReactEvent.Media.t => unit),
-  "onVolumeChange": Js.undefined(ReactEvent.Media.t => unit),
-  "onWaiting": Js.undefined(ReactEvent.Media.t => unit),
-  // Image events
-  "onLoad": Js.undefined(ReactEvent.Image.t => unit),
-  // Animation events
-  "onAnimationStart": Js.undefined(ReactEvent.Animation.t => unit),
-  "onAnimationEnd": Js.undefined(ReactEvent.Animation.t => unit),
-  "onAnimationIteration": Js.undefined(ReactEvent.Animation.t => unit),
-  // Transition events
-  "onTransitionEnd": Js.undefined(ReactEvent.Transition.t => unit),
-};
 
 [@bs.obj]
 external makeProps: (
@@ -272,13 +16,13 @@ external makeProps: (
   ~classes: classes=?,
   ~disableAutoFocusItem: bool=?,
   // ~_MenuListProps: MUI_MenuList.props=?,
-  ~onClose: MUI_Modal.onCloseCallback=?,
-  ~onEnter: MUI_Popover.onEnterCallback=?,
-  ~onEntered: MUI_Popover.onEnteredCallback=?,
-  ~onEntering: MUI_Popover.onEnteringCallback=?,
-  ~onExit: MUI_Popover.onExitCallback=?,
-  ~onExited: MUI_Popover.onExitedCallback=?,
-  ~onExiting: MUI_Popover.onExitingCallback=?,
+  ~onClose: (ReactEvent.synthetic('a), string) => unit=?,
+  ~onEnter: (Dom.element, bool) => unit=?,
+  ~onEntered: (Dom.element, bool) => unit=?,
+  ~onEntering: (Dom.element, bool) => unit=?,
+  ~onExit: Dom.element => unit=?,
+  ~onExited: Dom.element => unit=?,
+  ~onExiting: Dom.element => unit=?,
   ~_open: bool=?,
   ~_PopoverClasses: MUI_Popover.classes=?,
   ~transitionDuration: MUI_Popover.transitionDuration=?,
@@ -288,7 +32,7 @@ external makeProps: (
   ~anchorOrigin: MUI_Popover.anchorOrigin=?,
   ~anchorPosition: MUI_Popover.anchorPosition=?,
   ~anchorReference: [@bs.string] [ | `anchorEl | `anchorPosition | `none ]=?,
-  ~container: MUI_Popover.container=?,
+  ~container: unit => React.element=?,
   ~elevation: int=?,
   ~getContentAnchorEl: Dom.element => unit=?,
   ~marginThreshold: int=?,
@@ -311,7 +55,7 @@ external makeProps: (
   ~keepMounted: bool=?,
   ~onBackdropClick: ReactEvent.Mouse.t => unit=?,
   ~onEscapeKeyDown: ReactEvent.Keyboard.t => unit=?,
-  ~onRendered: MUI_Modal.onRenderedCallback=?,
+  ~onRendered: unit => unit=?,
   /* Dom props */
   ~key: string=?,
   ~ref: ReactDOMRe.domRef=?,
