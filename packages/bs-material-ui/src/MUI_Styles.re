@@ -1,6 +1,9 @@
 [@bs.module "@material-ui/core/styles"]
 external fade: (string, float) => string = "fade";
 
+module Style = MUI_Styles_Style;
+type style = Style.t;
+
 module type StylesType = {
   type theme;
   type styles('a);
@@ -14,7 +17,7 @@ module Make = (Styles: StylesType) => {
   external make: 
     ( 
       [@bs.uncurry] 
-      (Styles.theme => Styles.styles(Styles.props => Style.t))
+      (Styles.theme => Styles.styles(Styles.props => style))
     ) => 
     stylesHook(Styles.props) = 
     "makeStyles";
@@ -22,7 +25,7 @@ module Make = (Styles: StylesType) => {
   external makeWithOptions: 
     (
       [@bs.uncurry] 
-      (Styles.theme => Styles.styles(Styles.props => Style.t)), 
+      (Styles.theme => Styles.styles(Styles.props => style)), 
       options
     ) =>
     stylesHook(Styles.props) = 
@@ -88,9 +91,9 @@ module ZIndex = {
 module Mixins = {
   type t = mixins;
   [@bs.get]
-  external toolbar: t => Style.t = "toolbar";
+  external toolbar: t => style = "toolbar";
   [@bs.send]
-  external gutters: (t, Style.t) => Style.t = "gutters";
+  external gutters: (t, style) => style = "gutters";
 };
 
 module Typography = {
@@ -121,29 +124,29 @@ module Typography = {
   [@bs.get]
   external fontWeightBold: t => int = "fontSize";
   [@bs.get]
-  external h1: t => Style.t = "h1";
+  external h1: t => style = "h1";
   [@bs.get]
-  external h2: t => Style.t = "h2";
+  external h2: t => style = "h2";
   [@bs.get]
-  external h3: t => Style.t = "h3";
+  external h3: t => style = "h3";
   [@bs.get]
-  external h4: t => Style.t = "h4";
+  external h4: t => style = "h4";
   [@bs.get]
-  external h5: t => Style.t = "h5";
+  external h5: t => style = "h5";
   [@bs.get]
-  external h6: t => Style.t = "h6";
+  external h6: t => style = "h6";
   [@bs.get]
-  external subtitle1: t => Style.t = "subtitle1";
+  external subtitle1: t => style = "subtitle1";
   [@bs.get]
-  external subtitle2: t => Style.t = "subtitle2";
+  external subtitle2: t => style = "subtitle2";
   [@bs.get]
-  external body1: t => Style.t = "body1";
+  external body1: t => style = "body1";
   [@bs.get]
-  external body2: t => Style.t = "body2";
+  external body2: t => style = "body2";
   [@bs.get]
-  external button: t => Style.t = "button";
+  external button: t => style = "button";
   [@bs.get]
-  external caption: t => Style.t = "caption";
+  external caption: t => style = "caption";
   [@bs.get]
-  external overline: t => Style.t = "overline";
+  external overline: t => style = "overline";
 };
