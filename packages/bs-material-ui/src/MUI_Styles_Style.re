@@ -59,7 +59,7 @@ let borderBottomLeftRadius = value => ("borderBottomLeftRadius", stringValue(val
 let borderBottomRightRadius = value => ("borderBottomRightRadius", stringValue(value));
 let borderBottomStyle = value => ("borderBottomStyle", stringValue(value));
 let borderBottomWidth = value => ("borderBottomWidth", stringValue(value));
-let borderCollapse = value => ("borderCollapse", stringValue(string));
+let borderCollapse = value => ("borderCollapse", stringValue(value));
 let borderColor = value => ("borderColor", stringValue(value));
 let borderEndEndRadius = value => ("borderEndEndRadius", stringValue(value));
 let borderEndStartRadius = value => ("borderEndStartRadius", stringValue(value));
@@ -216,6 +216,35 @@ let paddingTop = value => ("paddingTop", stringValue(value));
 let pageBreakAfter = value => ("pageBreakAfter", stringValue(value));
 let pageBreakBefore = value => ("pageBreakBefore", stringValue(value));
 let pageBreakInside = value => ("pageBreakInside", stringValue(value));
+/* Scroll properties */
+let scrollBehavior = value => ("scrollBehavior", stringValue(value));
+let scrollMargin = value => ("scrollMargin", stringValue(value));
+let scrollMarginBlock = value => ("scrollMarginBlock", stringValue(value));
+let scrollMarginBlockEnd = value => ("scrollMarginBlockEnd", stringValue(value));
+let scrollMarginBlockStart = value => ("scrollMarginBlockStart", stringValue(value));
+let scrollMarginInline = value => ("scrollMarginInline", stringValue(value));
+let scrollMarginInlineEnd = value => ("scrollMarginInlineEnd", stringValue(value));
+let scrollMarginInlineStart = value => ("scrollMarginInlineStart", stringValue(value));
+let scrollMarginRight = value => ("scrollMarginRight", stringValue(value));
+let scrollMarginLeft = value => ("scrollMarginLeft", stringValue(value));
+let scrollMarginBottom = value => ("scrollMarginBottom", stringValue(value));
+let scrollMarginTop = value => ("scrollMarginTop", stringValue(value));
+let scrollPadding = value => ("scrollPadding", stringValue(value));
+let scrollPaddingBlock = value => ("scrollPaddingBlock", stringValue(value));
+let scrollPaddingBlockEnd = value => ("scrollPaddingBlockEnd", stringValue(value));
+let scrollPaddingBlockStart = value => ("scrollPaddingBlockStart", stringValue(value));
+let scrollPaddingBottom = value => ("scrollPaddingBottom", stringValue(value));
+let scrollPaddingInline = value => ("scrollPaddingInline", stringValue(value));
+let scrollPaddingInlineEnd = value => ("scrollPaddingInlineEnd", stringValue(value));
+let scrollPaddingInlineStart = value => ("scrollPaddingInlineStart", stringValue(value));
+let scrollPaddingRight = value => ("scrollPaddingRight", stringValue(value));
+let scrollPaddingLeft = value => ("scrollPaddingLeft", stringValue(value));
+let scrollPaddingTop = value => ("scrollPaddingTop", stringValue(value));
+let scrollSnapAlign = value => ("scrollSnapAlign", stringValue(value));
+let scrollSnapStop = value => ("scrollSnapStop", stringValue(value));
+let scrollSnapType = value => ("scrollSnapType", stringValue(value));
+let scrollbarColor = value => ("scrollbarColor", stringValue(value));
+let scrollbarWidth = value => ("scrollbarWidth", stringValue(value));
 /* Table properties */
 let borderCollapse = value => ("borderCollapse", stringValue(value));
 let borderSpacing = value => ("borderSpacing", stringValue(value));
@@ -285,6 +314,7 @@ let visibility = value => ("visibility", stringValue(value));
 let cursor = value => ("cursor", stringValue(value));
 let boxShadow = value => ("boxShadow", stringValue(value));
 let boxSizing = value => ("boxSizing", stringValue(value));
+
 let pointerEvents = value => ("pointerEvents", stringValue(value));
 
 
