@@ -15,7 +15,7 @@ let merge: array(t) => t = rules =>
 let nestMerge: (string, array(t)) => (string, value) =
   (ruleName, rules) => (ruleName, nestedRule(merge(rules)));
 
-module PseudoClasses = {
+module PseudoClass = {
   let active: array((string, value)) => (string, value) = 
     properties => nest(":active", properties);
   let activeMerge: array(t) => (string, value) =
@@ -180,6 +180,41 @@ module PseudoClasses = {
     properties => nest(":visited", properties);
   let visitedMerge: array(t) => (string, value) =
     rules => nestMerge(":visited", rules);
+};
+
+module PseudoElement = {
+  let after: array((string, value)) => (string, value) = 
+    properties => nest("::after", properties);
+  let afterMerge: array(t) => (string, value) =
+    rules => nestMerge("::after", rules);
+  let before: array((string, value)) => (string, value) = 
+    properties => nest("::before", properties);
+  let beforeMerge: array(t) => (string, value) =
+    rules => nestMerge("::before", rules);
+  let cue: array((string, value)) => (string, value) = 
+    properties => nest("::cue", properties);
+  let cueMerge: array(t) => (string, value) =
+    rules => nestMerge("::cue", rules);
+  let cueRegion: array((string, value)) => (string, value) = 
+    properties => nest("::cue-region", properties);
+  let cueRegionMerge: array(t) => (string, value) =
+    rules => nestMerge("::cue-region", rules);
+  let firstLetter: array((string, value)) => (string, value) = 
+    properties => nest("::first-letter", properties);
+  let firstLetterMerge: array(t) => (string, value) =
+    rules => nestMerge("::first-letter", rules);
+  let firstLine: array((string, value)) => (string, value) = 
+    properties => nest("::first-line", properties);
+  let firstLineMerge: array(t) => (string, value) =
+    rules => nestMerge("::first-line", rules);
+  let selection: array((string, value)) => (string, value) = 
+    properties => nest("::selection", properties);
+  let selectionMerge: array(t) => (string, value) =
+    rules => nestMerge("::selection", rules);
+  let slotted: (string, array((string, value))) => (string, value) = 
+    (selector, properties) => nest("::slotted(" ++ selector ++ ")", properties);
+  let slottedMerge: (string, array(t)) => (string, value) =
+    (selector, rules) => nestMerge("::slotted(" ++ selector ++ ")", rules);
 };
 
 /* properties */
