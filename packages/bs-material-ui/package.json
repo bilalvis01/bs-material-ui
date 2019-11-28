@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "bsb -make-world",
-    "start": "bsb -make-world -w",
+    "start": "bsb -clean-world -make-world -w",
     "clean": "bsb -clean-world"
   },
   "keywords": [

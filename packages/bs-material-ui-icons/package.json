@@ -5,7 +5,7 @@
   "main": "MUIIcons.js",
   "scripts": {
     "test": "jest",
-    "start": "bsb -make-world -w",
+    "start": "bsb -clean-world -make-world -w",
     "clean": "bsb -clean-world",
     "build": "bsb -make-wrold"
   },

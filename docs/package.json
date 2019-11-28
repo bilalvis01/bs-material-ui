@@ -6,7 +6,7 @@
   "main": "Index.bs.js",
   "scripts": {
     "test": "jest",
-    "start": "bsb -make-world -w",
+    "start": "bsb -clean-world -make-world -w",
     "clean": "bsb -clean-world",
     "build": "bsb -clean-world -make-world&&webpack",
     "next:dev": "next",
