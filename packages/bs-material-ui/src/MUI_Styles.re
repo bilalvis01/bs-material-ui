@@ -57,21 +57,18 @@ module Theme = MUI_Styles_Theme.Make({
 include MUI_Styles_Palette.Make({ type t = palette; });
 include MUI_Styles_Transitions.Make({ type t = transitions; });
 
-// breakpoints
 module Breakpoints = {
   type t = breakpoints;
   [@bs.send]
   external up: (t, string) => string = "up";
 };
 
-// shape
 module Shape = {
   type t = shape;
   [@bs.get]
   external borderRadius: t => string = "borderRadius";
 };
 
-// zIndex
 module ZIndex = {
   type t = zIndex;
   [@bs.get]
