@@ -1,4 +1,4 @@
-// mui components
+// MUI components
 module AppBar = MUI_AppBar;
 module Avatar = MUI_Avatar;
 module Badge = MUI_Badge;
@@ -43,8 +43,5 @@ module FormControlLabel = MUI_FormControlLabel;
 module Checkbox = MUI_Checkbox;
 module Box = MUI_Box;
 
-// mui styles
-module Theme = MUI_Theme;
-module ColorManipulator = MUI_ColorManipulators;
-module StylesHook = MUI_StylesHook;
-module Style = MUI_Style;
+// MUI styles
+module Styles = MUI_Styles;
