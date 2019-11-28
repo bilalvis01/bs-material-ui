@@ -22,6 +22,7 @@ external makeProps: (
   ~onBackdropClick: ReactEvent.Mouse.t => unit=?,
   ~onClose: (ReactEvent.synthetic('a), string) => unit=?,
   ~onEscapeKeyDown: ReactEvent.Keyboard.t => unit=?,
+  ~onRendered: unit => unit=?,
   ~_open: bool=?,
   /* Dom props */
   ~key: string=?,
