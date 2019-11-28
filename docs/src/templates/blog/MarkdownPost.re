@@ -1,15 +1,23 @@
-module StylesHook = MUI.StylesHook.Make({
-  type theme = MUI.Theme.t;
+module Styles = MUI.Styles.Make({
+  type theme = MUI.Styles.theme;
   type styles('a) = {
     .
     "listItem": 'a,
   };    
   type props = unit;
 });
-let useStyles = StylesHook.make(theme => {
-  "listItem": () => MUI.Style.(make([
-    marginTop(MUI.Theme.spacing1(theme, 1)->string_of_int ++ "px"),
-  ])),
+
+let useStyles = Styles.make(theme => {
+  open MUI.Styles;
+  
+  {
+    "listItem": () => Style.(make([
+      Theme.spacing1(theme, 1)
+        ->string_of_int
+        ->String.concat(["px"])
+        ->marginTop,
+    ])),
+  }
 });
 
 module Li = {

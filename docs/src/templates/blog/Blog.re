@@ -1,6 +1,3 @@
-module Theme = MUI.Theme;
-module Style = MUI.Style;
-
 module Copyright = {
   [@react.component]
   let make = () => {
@@ -18,8 +15,8 @@ module Copyright = {
   };
 };
 
-module StylesHook = MUI.StylesHook.Make({
-  type theme = Theme.t
+module Styles = MUI.Styles.Make({
+  type theme = MUI.Styles.theme
   type styles('a) = {
     .
     "toolbar": 'a,
@@ -41,14 +38,12 @@ module StylesHook = MUI.StylesHook.Make({
   type props = unit;
 });
 
-let useStyles = StylesHook.make(theme => {
-  let palette = Theme.palette(theme);
-  let breakpoints = Theme.breakpoints(theme);
-  let typography = Theme.typography(theme);
+let useStyles = Styles.make(theme => {
+  open MUI.Styles;
 
   {
     "toolbar": () => Style.(make([
-      borderBottom("1px solid " ++ Theme.Palette.divider(palette)),
+      borderBottom("1px solid " ++ Theme.palette(theme)->Palette.divider),
     ])),
     "toolbarTitle": () => Style.(make([
       flex("1"),
@@ -58,14 +53,26 @@ let useStyles = StylesHook.make(theme => {
       overflowX("auto"),
     ])),
     "toolbarLink": () => Style.(make([
-      padding(Theme.spacing1(theme, 1)->string_of_int ++ "px"),
+      Theme.spacing1(theme, 1)
+        ->string_of_int
+        ->(++)("px")
+        ->padding,
       flexShrink("0"),
     ])),
     "mainFeaturedPost": () => Style.(make([
       position("relative"),
-      backgroundColor(Theme.Palette.grey(palette)->Theme.Color.get800),
-      color(Theme.Palette.common(palette)->Theme.Common.white),
-      marginBottom(Theme.spacing1(theme, 4)->string_of_int ++ "px"),
+      Theme.palette(theme) 
+        ->Palette.grey
+        ->Color.get800
+        ->backgroundColor,
+      Theme.palette(theme)
+        ->Palette.common
+        ->Common.white
+        ->color,
+      Theme.spacing1(theme, 4)
+        ->string_of_int
+        ->(++)("px")
+        ->marginBottom,
       backgroundImage("url(https://source.unsplash.com/user/erondu)"),
       backgroundSize("cover"),
       backgroundRepeat("no-repeat"),
@@ -81,14 +88,25 @@ let useStyles = StylesHook.make(theme => {
     ])),
     "mainFeaturedPostContent": () => Style.(make([
       position("relative"),
-      padding(Theme.spacing1(theme, 3)->string_of_int ++ "px"),
-      nest(Theme.Breakpoints.up(breakpoints, "md"), make([
-        padding(Theme.spacing1(theme, 6)->string_of_int ++ "px"),
-        paddingRight("0px"),
-      ])),
+      Theme.spacing1(theme, 3)
+        ->string_of_int 
+        ->(++)("px")
+        ->padding,
+      Theme.breakpoints(theme)
+        ->Breakpoints.up("md")
+        ->nest(make([
+          Theme.spacing1(theme, 6)
+            ->string_of_int 
+            ->(++)("px")
+            ->padding,
+          paddingRight("0px"),
+        ])),
     ])),
     "mainGrid": () => Style.(make([
-      marginTop(Theme.spacing1(theme, 3)->string_of_int ++ "px"),
+      Theme.spacing1(theme, 3)
+        ->string_of_int
+        ->(++)("px")
+        ->marginTop,
     ])),
     "card": () => Style.(make([
       display("flex"),
@@ -100,22 +118,40 @@ let useStyles = StylesHook.make(theme => {
       width("160px"),
     ])),
     "markdown": () => Style.(merge([
-      Theme.Typography.body2(typography),
+      Theme.typography(theme)
+        ->Typography.body2,
       make([
-        padding(Theme.spacing2(theme, 3, 0)),
+        Theme.spacing2(theme, 3, 0)
+          ->padding,
       ])
     ])),
     "sidebarAboutBox": () => Style.(make([
-      padding(Theme.spacing1(theme, 2)->string_of_int ++ "px"),
-      backgroundColor(Theme.Palette.grey(palette)->Theme.Color.get200),
+      Theme.spacing1(theme, 2)
+        ->string_of_int
+        ->(++)("px")
+        ->padding,
+      Theme.palette(theme)
+        ->Palette.grey
+        ->Color.get200
+        ->backgroundColor,
     ])),
     "sidebarSection": () => Style.(make([
-      marginTop(Theme.spacing1(theme, 3)->string_of_int ++ "px"),
+      Theme.spacing1(theme, 3)
+        ->string_of_int
+        ->(++)("px")
+        ->marginTop,
     ])),
     "footer": () => Style.(make([
-      backgroundColor(Theme.Palette.background(palette)->Theme.Background.paper),
-      marginTop(Theme.spacing1(theme, 8)->string_of_int ++ "px"),
-      padding(Theme.spacing2(theme, 6, 0)),
+      Theme.palette(theme)
+        ->Palette.background
+        ->Background.paper
+        ->backgroundColor,
+      Theme.spacing1(theme, 8)
+        ->string_of_int
+        ->(++)("px")
+        ->marginTop,
+      Theme.spacing2(theme, 6, 0)
+        ->padding,
     ])),
   }
 });
