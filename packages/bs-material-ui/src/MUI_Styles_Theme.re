@@ -1,3 +1,5 @@
+type options;
+
 module type ThemeType = {
   type t;
   type palette;
@@ -10,17 +12,13 @@ module type ThemeType = {
 };
 
 module Make = (Theme: ThemeType) => {
-  type options;
-
   [@bs.module "@material-ui/core/styles"]
   external make: options => Theme.t = "createMuiTheme";
-
   [@bs.obj]
   external options: (
     ~palette: Theme.palette=?,
     unit
   ) => options = "";
-
   [@bs.get]
   external palette: Theme.t => Theme.palette = "palette";
   [@bs.get]
@@ -45,4 +43,4 @@ module Make = (Theme: ThemeType) => {
   external spacing3: (Theme.t, int, int, int) => string = "spacing";
   [@bs.send]
   external spacing4: (Theme.t, int, int, int, int) => string = "spacing";
-} 
+}; 

@@ -1,51 +1,38 @@
+type common;
+type background;
+type color;
+type simpleColor;
+type text;
+type action;
+type paletteColorOptions;
+
 module type PaletteType = {
   type t;
 };
 
 module Make = (Type: PaletteType) => {
-  type common;
-  type background;
-  type color;
-  type simpleColor;
-  type text;
-  type action;
-  type paletteColorOptions;
-
   module Palette = {
     type t = Type.t;
-    [@bs.deriving abstract]
-    type options = {
-      [@bs.optional] 
-      primary: paletteColorOptions,
-      [@bs.optional] 
-      secondary: paletteColorOptions,
-      [@bs.optional] 
-      error: paletteColorOptions,
-      [@bs.optional] [@bs.as "type"]
-      type_: string,
-      [@bs.optional] 
-      tonalOffset: int,
-      [@bs.optional] 
-      contrastThreshold: int,
-      [@bs.optional] 
-      common: common,
-      [@bs.optional] 
-      grey: color,
-      [@bs.optional] 
-      text: text,
-      [@bs.optional] 
-      divider: string,
-      [@bs.optional] 
-      action: action,
-      [@bs.optional] 
-      background: background,
-      [@bs.optional] 
-      getContrastText: string => string,
-    };
-
+    type options;
+    [@bs.obj]
+    external options: (
+      ~primary: paletteColorOptions=?,
+      ~secondary: paletteColorOptions=?,
+      ~error: paletteColorOptions=?,
+      ~_type: string=?,
+      ~tonalOffset: int=?,
+      ~contrastThreshold: int=?,
+      ~common: common=?,
+      ~grey: color=?,
+      ~text: text=?,
+      ~divider: string=?,
+      ~action: action=?,
+      ~background: background=?,
+      ~getContrastText: string => string=?,
+      unit
+    ) => options = "";
     [@bs.module "@material-ui/core/styles/createPalette"]
     external make: options => t = "default";
-
     [@bs.get]
     external common: t => common = "common";
     [@bs.get]
@@ -73,6 +60,7 @@ module Make = (Type: PaletteType) => {
     [@bs.send]
     external getContrastText: (t, string) => string = "getContrastText"; 
   };
+
   module Common = {
     type t = common;
     [@bs.get]
@@ -80,6 +68,7 @@ module Make = (Type: PaletteType) => {
     [@bs.get]
     external white: t => string = "white";
   };
+
   module Background = {
     type t = background;
     [@bs.obj]
@@ -88,15 +77,15 @@ module Make = (Type: PaletteType) => {
       ~paper: string=?,
       unit
     ) => t = "";
-
     [@bs.get]
     external default: t => string = "default";
     [@bs.get]
     external paper: t => string = "paper";
   };
+
   module Color = {
     type t = color;
-    module Make = (T: { type t; }) => {
+    module Make = (T: {type t;}) => {
       [@bs.obj]
       external make: (
         ~_50: string=?,
@@ -115,9 +104,9 @@ module Make = (Type: PaletteType) => {
         unit
       ) => T.t = "";
     };
-
-    include Make({ type nonrec t = t; });
-    
+    include Make({ 
+      type nonrec t = t; 
+    });
     [@bs.get]
     external get50: t => string = "50";
     [@bs.get]
@@ -147,9 +136,10 @@ module Make = (Type: PaletteType) => {
     [@bs.get]
     external a700: t => string = "A400";
   };
+
   module SimpleColor = {
     type t = simpleColor;
-    module Make = (T: { type t; }) => {
+    module Make = (T: {type t;}) => {
       [@bs.obj]
       external make: (
         ~light: string=?,
@@ -159,8 +149,9 @@ module Make = (Type: PaletteType) => {
         unit
       ) => T.t = "";
     };
-
-    include Make({ type nonrec t = t; });
+    include Make({ 
+      type nonrec t = t; 
+    });
     [@bs.get]
     external light: t => string = "light";
     [@bs.get]
@@ -170,6 +161,7 @@ module Make = (Type: PaletteType) => {
     [@bs.get]
     external contrastText: t => string = "contranstText";
   };
+
   module Text = {
     type t = text;
     [@bs.get]
@@ -179,8 +171,9 @@ module Make = (Type: PaletteType) => {
     [@bs.get]
     external disabled: t => string = "disabled";
     [@bs.get]
-    external getHint: t => string = "hint";
+    external hint: t => string = "hint";
   };
+
   module Action = {
     type t = action;
     [@bs.get]
@@ -196,13 +189,10 @@ module Make = (Type: PaletteType) => {
     [@bs.get]
     external disabledBackground: t => string = "disabledBackground";
   };
+  
   module PaletteColorOptions = {
     type t = paletteColorOptions;
-    
     module Color = Color.Make({ type nonrec t = t; });
     module SimpleColor = SimpleColor.Make({ type nonrec t = t; });
-
-    let color = Color.make;
-    let simpleColor = SimpleColor.make;
   };
 };

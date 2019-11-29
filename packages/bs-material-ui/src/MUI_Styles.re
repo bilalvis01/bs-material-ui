@@ -54,8 +54,13 @@ module Theme = MUI_Styles_Theme.Make({
   type nonrec typography = typography;
 });
 
-include MUI_Styles_Palette.Make({ type t = palette; });
-include MUI_Styles_Transitions.Make({ type t = transitions; });
+include MUI_Styles_Palette.Make({ 
+  type t = palette; 
+});
+
+include MUI_Styles_Transitions.Make({ 
+  type t = transitions; 
+});
 
 module Breakpoints = {
   type t = breakpoints;
@@ -96,14 +101,12 @@ module Mixins = {
 module Typography = {
   type t = typography;
   type options;
-
   [@bs.module "@material-ui/core/styles/createTypography"]
   external make: (
     ~palette: Palette.t=?, 
     ~typography: Palette.t => options=?,
     unit,
   ) => t = "default";
-
   [@bs.get]
   external htmlFontSize: t => int = "htmlFontSize";
   [@bs.send]

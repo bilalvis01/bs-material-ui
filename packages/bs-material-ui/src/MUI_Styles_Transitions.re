@@ -1,18 +1,21 @@
+type easing;
+type duration;
+
 module type TransitionsType = {
   type t;
 };
 
 module Make = (Type: TransitionsType) => {
-  type easing;
-  type duration;
   module Transitions = {
     type t = Type.t;
-    [@bs.deriving abstract]
-    type options = {
-      [@bs.optional] duration: string,
-      [@bs.optional] easing: string,
-      [@bs.optional] delay: string,
-    };
+    type options;
+    [@bs.obj]
+    external options: (
+      ~duration: string=?,
+      ~easing: string=?,
+      ~delay: string=?,
+      unit
+    ) => options = "";
     [@bs.get]
     external easing: t => easing = "easing"; 
     [@bs.get]
@@ -22,6 +25,7 @@ module Make = (Type: TransitionsType) => {
     [@bs.send]
     external createWithOptions: (t, array(string), options) => string = "create";
   };
+
   module Easing = {
     type t = easing;
     [@bs.get]
@@ -33,6 +37,7 @@ module Make = (Type: TransitionsType) => {
     [@bs.get]
     external sharp: t => string = "sharp";
   };
+
   module Duration = {
     type t = duration;
     [@bs.get]
