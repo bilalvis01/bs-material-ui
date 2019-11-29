@@ -1,26 +1,28 @@
 module type MixinsType = {
   type t;
   type options;
-  type rule;
+  type style;
   type breakpoints;
   type spacing; 
 };
 
-module Make = (Mixins: MixinsType) => {
-  [@bs.module "@material-ui/core/styles/createMixins"]
-  external make: (
-    ~breakpoints: Mixins.breakpoints,
-    ~spacing: Mixins.spacing,
-    ~options: Mixins.options,
-  ) => Mixins.t = "";
-  [@bs.obj]
-  external options: (
-    ~gutters: Mixins.rule => Mixins.rule=?,
-    ~toolbar: Mixins.rule=?,
-    unit
-  ) => Mixins.options = "";
-  [@bs.send]
-  external gutters: (Mixins.t, Mixins.rule) => Mixins.rule = "gutters";
-  [@bs.get]
-  external toolbar: Mixins.t => Mixins.rule = "toolbar";
+module Make = (Type: MixinsType) => {
+  module Mixins = {
+    [@bs.module "@material-ui/core/styles/createMixins"]
+    external make: (
+      ~breakpoints: Type.breakpoints,
+      ~spacing: Type.spacing,
+      ~mixins: Type.options,
+    ) => Type.t = "default";
+    [@bs.obj]
+    external options: (
+      ~gutters: Type.style => Type.style=?,
+      ~toolbar: Type.style=?,
+      unit
+    ) => Type.options = "";
+    [@bs.send]
+    external gutters: (Type.t, Type.style) => Type.style = "gutters";
+    [@bs.get]
+    external toolbar: Type.t => Type.style = "toolbar";
+  };
 };

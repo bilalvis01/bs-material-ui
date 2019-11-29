@@ -2,7 +2,7 @@ type muiAppBar;
 
 module type OverridesType = {
   type t;
-  type rule;
+  type style;
 };
 
 module Make = (Type: OverridesType) => {
@@ -20,34 +20,34 @@ module Make = (Type: OverridesType) => {
     type t = muiAppBar;
     [@bs.obj]
     external make: (
-      ~root: Type.rule=?,
-      ~positionFixed: Type.rule=?,
-      ~positionAbsolute: Type.rule=?,
-      ~positionSticky: Type.rule=?,
-      ~positionStatic: Type.rule=?,
-      ~positionRelative: Type.rule=?,
-      ~colorDefault: Type.rule=?,
-      ~colorPrimary: Type.rule=?,
-      ~colorSecondary: Type.rule=?,
+      ~root: Type.style=?,
+      ~positionFixed: Type.style=?,
+      ~positionAbsolute: Type.style=?,
+      ~positionSticky: Type.style=?,
+      ~positionStatic: Type.style=?,
+      ~positionRelative: Type.style=?,
+      ~colorDefault: Type.style=?,
+      ~colorPrimary: Type.style=?,
+      ~colorSecondary: Type.style=?,
       unit
     ) => t = "";
     [@bs.get]
-    external root: t => Type.rule = "root";
+    external root: t => Type.style = "root";
     [@bs.get]
-    external positionFixed: t => Type.rule = "positionFixed";
+    external positionFixed: t => Type.style = "positionFixed";
     [@bs.get]
-    external positionAbsolute: t => Type.rule = "positionAbsolute";
+    external positionAbsolute: t => Type.style = "positionAbsolute";
     [@bs.get]
-    external positionSticky: t => Type.rule = "positionSticky";
+    external positionSticky: t => Type.style = "positionSticky";
     [@bs.get]
-    external positionStatic: t => Type.rule = "positionStatic";
+    external positionStatic: t => Type.style = "positionStatic";
     [@bs.get]
-    external positionRelative: t => Type.rule = "positionRelative";
+    external positionRelative: t => Type.style = "positionRelative";
     [@bs.get]
-    external colorDefault: t => Type.rule = "colorDefault";
+    external colorDefault: t => Type.style = "colorDefault";
     [@bs.get]
-    external colorPrimary: t => Type.rule = "colorPrimary";
+    external colorPrimary: t => Type.style = "colorPrimary";
     [@bs.get]
-    external colorSecondary: t => Type.rule = "colorSecondary";
+    external colorSecondary: t => Type.style = "colorSecondary";
   };
 };

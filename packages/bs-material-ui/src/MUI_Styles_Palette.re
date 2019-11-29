@@ -1,7 +1,7 @@
 type common;
 type background;
 type color;
-type simpleColor;
+type paletteColor;
 type text;
 type action;
 type paletteColorOptions;
@@ -13,13 +13,12 @@ module type PaletteType = {
 
 module Make = (Type: PaletteType) => {
   module Palette = {
-    type t = Type.t;
     [@bs.obj]
     external options: (
       ~primary: paletteColorOptions=?,
       ~secondary: paletteColorOptions=?,
       ~error: paletteColorOptions=?,
-      ~_type: string=?,
+      ~_type: [@bs.string] [ | `light | `dark ]=?,
       ~tonalOffset: int=?,
       ~contrastThreshold: int=?,
       ~common: common=?,
@@ -32,167 +31,176 @@ module Make = (Type: PaletteType) => {
       unit
     ) => Type.options = "";
     [@bs.module "@material-ui/core/styles/createPalette"]
-    external make: Type.options => t = "default";
+    external make: Type.options => Type.t = "default";
     [@bs.get]
-    external common: t => common = "common";
+    external common: Type.t => common = "common";
     [@bs.get]
-    external type_: t => string = "type";
+    external type_: Type.t => string = "type";
     [@bs.get]
-    external contrastThreshold: t => int = "contrastThreshold";
+    external contrastThreshold: Type.t => int = "contrastThreshold";
     [@bs.get]
-    external tonalOffset: t => int = "tonalOffset";
+    external tonalOffset: Type.t => int = "tonalOffset";
     [@bs.get]
-    external primary: t => simpleColor = "primary";
+    external primary: Type.t => paletteColor = "primary";
     [@bs.get]
-    external secondary: t => simpleColor= "secondary";
+    external secondary: Type.t => paletteColor= "secondary";
     [@bs.get]
-    external error: t => simpleColor = "error";
+    external error: Type.t => paletteColor = "error";
     [@bs.get]
-    external grey: t => color = "grey";
+    external grey: Type.t => color = "grey";
     [@bs.get]
-    external text: t => text = "text";
+    external text: Type.t => text = "text";
     [@bs.get]
-    external divider: t => string = "divider";
+    external divider: Type.t => string = "divider";
     [@bs.get]
-    external action: t => action = "action";
+    external action: Type.t => action = "action";
     [@bs.get]
-    external background: t => background = "background";
+    external background: Type.t => background = "background";
     [@bs.send]
-    external getContrastText: (t, string) => string = "getContrastText"; 
+    external getContrastText: (Type.t, string) => string = "getContrastText";
+    [@bs.send]
+    external augmentColor: (Type.t, color) => paletteColor = "augmentColor";
+    [@bs.send]
+    external augmentColor2: (
+      Type.t,
+      ~color: color,
+      ~mainShade: [@bs.unwrap] [ | `Int(int) | `Str(string) ]=?,
+      ~lightShade: [@bs.unwrap] [ | `Int(int) | `Str(string) ]=?,
+      ~darkShade: [@bs.unwrap] [ | `Int(int) | `Str(string) ]=?,
+      unit
+    ) => paletteColor = "augmentColor";
   };
 
   module Common = {
-    type t = common;
     [@bs.get]
-    external black: t => string = "black";
+    external black: common => string = "black";
     [@bs.get]
-    external white: t => string = "white";
+    external white: common => string = "white";
   };
 
   module Background = {
-    type t = background;
     [@bs.obj]
     external make: (
       ~default: string=?,
       ~paper: string=?,
       unit
-    ) => t = "";
+    ) => background = "";
     [@bs.get]
-    external default: t => string = "default";
+    external default: background => string = "default";
     [@bs.get]
-    external paper: t => string = "paper";
+    external paper: background => string = "paper";
   };
 
   module Color = {
-    type t = color;
-    module Make = (T: {type t;}) => {
-      [@bs.obj]
-      external make: (
-        ~_50: string=?,
-        ~_100: string=?,
-        ~_200: string=?,
-        ~_300: string=?,
-        ~_400: string=?,
-        ~_500: string=?,
-        ~_600: string=?,
-        ~_700: string=?,
-        ~_900: string=?,
-        ~_A100: string=?,
-        ~_A200: string=?,
-        ~_A400: string=?,
-        ~_A700: string=?,
-        unit
-      ) => T.t = "";
-    };
-    include Make({ 
-      type nonrec t = t; 
-    });
+    [@bs.obj]
+    external make: (
+      ~_50: string=?,
+      ~_100: string=?,
+      ~_200: string=?,
+      ~_300: string=?,
+      ~_400: string=?,
+      ~_500: string=?,
+      ~_600: string=?,
+      ~_700: string=?,
+      ~_900: string=?,
+      ~_A100: string=?,
+      ~_A200: string=?,
+      ~_A400: string=?,
+      ~_A700: string=?,
+      unit
+    ) => color = "";
     [@bs.get]
-    external get50: t => string = "50";
+    external get50: color => string = "50";
     [@bs.get]
-    external get100: t => string = "100";
+    external get100: color => string = "100";
     [@bs.get]
-    external get200: t => string = "200";
+    external get200: color => string = "200";
     [@bs.get]
-    external get300: t => string = "300";
+    external get300: color => string = "300";
     [@bs.get]
-    external get400: t => string = "400";
+    external get400: color => string = "400";
     [@bs.get]
-    external get500: t => string = "500";
+    external get500: color => string = "500";
     [@bs.get]
-    external get600: t => string = "600";
+    external get600: color => string = "600";
     [@bs.get]
-    external get700: t => string = "700";
+    external get700: color => string = "700";
     [@bs.get]
-    external get800: t => string = "800";
+    external get800: color => string = "800";
     [@bs.get]
-    external get900: t => string = "900";
+    external get900: color => string = "900";
     [@bs.get]
-    external a100: t => string = "A100";
+    external a100: color => string = "A100";
     [@bs.get]
-    external a200: t => string = "A200";
+    external a200: color => string = "A200";
     [@bs.get]
-    external a400: t => string = "A400";
+    external a400: color => string = "A400";
     [@bs.get]
-    external a700: t => string = "A400";
+    external a700: color => string = "A400";
   };
 
-  module SimpleColor = {
-    type t = simpleColor;
-    module Make = (T: {type t;}) => {
-      [@bs.obj]
-      external make: (
-        ~light: string=?,
-        ~main: string=?,
-        ~dark: string=?,
-        ~contrastText: string=?,
-        unit
-      ) => T.t = "";
-    };
-    include Make({ 
-      type nonrec t = t; 
-    });
+  module PaletteColor = {
     [@bs.get]
-    external light: t => string = "light";
+    external light: paletteColor => string = "light";
     [@bs.get]
-    external main: t => string = "main";
+    external main: paletteColor => string = "main";
     [@bs.get]
-    external dark: t => string = "dark";
+    external dark: paletteColor => string = "dark";
     [@bs.get]
-    external contrastText: t => string = "contranstText";
+    external contrastText: paletteColor => string = "contranstText";
   };
 
   module Text = {
-    type t = text;
     [@bs.get]
-    external primary: t => string = "primary";
+    external primary: text => string = "primary";
     [@bs.get]
-    external secondary: t => string = "secondary";
+    external secondary: text => string = "secondary";
     [@bs.get]
-    external disabled: t => string = "disabled";
+    external disabled: text => string = "disabled";
     [@bs.get]
-    external hint: t => string = "hint";
+    external hint: text => string = "hint";
   };
 
   module Action = {
-    type t = action;
     [@bs.get]
-    external active: t => string = "active";
+    external active: action => string = "active";
     [@bs.get]
-    external hover: t => string = "hover";
+    external hover: action => string = "hover";
     [@bs.get]
-    external hoverOpacity: t => int = "hoverOpacity";
+    external hoverOpacity: action => int = "hoverOpacity";
     [@bs.get]
-    external selected: t => string = "selected";
+    external selected: action => string = "selected";
     [@bs.get]
-    external disabled: t => string = "disabled";
+    external disabled: action => string = "disabled";
     [@bs.get]
-    external disabledBackground: t => string = "disabledBackground";
+    external disabledBackground: action => string = "disabledBackground";
   };
   
   module PaletteColorOptions = {
-    type t = paletteColorOptions;
-    module Color = Color.Make({ type nonrec t = t; });
-    module SimpleColor = SimpleColor.Make({ type nonrec t = t; });
+    [@bs.obj]
+    external make: (
+      ~_50: string=?,
+      ~_100: string=?,
+      ~_200: string=?,
+      ~_300: string=?,
+      ~_400: string=?,
+      ~_500: string=?,
+      ~_600: string=?,
+      ~_700: string=?,
+      ~_900: string=?,
+      ~_A100: string=?,
+      ~_A200: string=?,
+      ~_A400: string=?,
+      ~_A700: string=?,
+      unit
+    ) => paletteColorOptions = "";
+    [@bs.obj]
+    external makeSimple: (
+      ~light: string=?,
+      ~main: string,
+      ~dark: string=?,
+      ~contrastText: string=?,
+      unit
+    ) => paletteColorOptions = "";
   };
 };

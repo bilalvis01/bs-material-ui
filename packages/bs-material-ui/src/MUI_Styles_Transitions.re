@@ -1,29 +1,32 @@
 type easing;
 type duration;
+type createOptions;
 
 module type TransitionsType = {
   type t;
+  type options;
 };
 
 module Make = (Type: TransitionsType) => {
   module Transitions = {
-    type t = Type.t;
-    type options;
     [@bs.obj]
     external options: (
       ~duration: string=?,
       ~easing: string=?,
-      ~delay: string=?,
+      ~create: (array(string), ~options: createOptions=?, unit) => string=?,
+      ~getAutoHeightDuration: int => int=?,
       unit
-    ) => options = "";
+    ) => Type.options = "";
     [@bs.get]
-    external easing: t => easing = "easing"; 
+    external easing: Type.t => easing = "easing"; 
     [@bs.get]
-    external duration: t => duration = "duration";
+    external duration: Type.t => duration = "duration";
     [@bs.send]
-    external create: (t, array(string)) => string = "create";
+    external create: (Type.t, array(string)) => string = "create";
     [@bs.send]
-    external createWithOptions: (t, array(string), options) => string = "create";
+    external createWithOptions: (Type.t, array(string), createOptions) => string = "create";
+    [@bs.send]
+    external getAutoHeightDuration: (Type.t, int) => int = "getAutoHeightDuration";
   };
 
   module Easing = {
@@ -54,5 +57,21 @@ module Make = (Type: TransitionsType) => {
     external enteringScreen: t => int = "enteringScreen";
     [@bs.get]
     external leavingScreen: t => int = "leavingScreen";
+  };
+
+  module TransitionsCreateOptions = {
+    [@bs.obj]
+    external make: (
+      ~duration: int=?,
+      ~easing: int=?,
+      ~delay: int=?,
+      unit
+    ) => createOptions = "";
+    [@bs.get]
+    external duration: createOptions => int = "duration";
+    [@bs.get]
+    external easing: createOptions => int = "easing";
+    [@bs.get]
+    external delay: createOptions => int = "delay";
   };
 };

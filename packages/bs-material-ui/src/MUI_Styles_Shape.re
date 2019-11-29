@@ -3,12 +3,14 @@ module type ShapeType = {
   type options;
 };
 
-module Make = (Shape: ShapeType) => {
-  [@bs.obj]
-  external options: (
-    ~borderRadius: int=?,
-    unit
-  ) => Shape.options = "";
-  [@bs.get]
-  external borderRadius: Shape.t => string = "borderRadius";
+module Make = (Type: ShapeType) => {
+  module Shape = {
+    [@bs.obj]
+    external options: (
+      ~borderRadius: int=?,
+      unit
+    ) => Type.options = "";
+    [@bs.get]
+    external borderRadius: Type.t => string = "borderRadius";
+  };
 };
