@@ -41,6 +41,8 @@ module Styles = MUI.Styles.Make({
 let useStyles = Styles.make(theme => {
   open MUI.Styles;
 
+  Js.Console.log(Theme.overrides(theme));
+
   {
     "toolbar": () => Style.(make([|
       borderBottom("1px solid " ++ Theme.palette(theme)->Palette.divider),
@@ -93,7 +95,7 @@ let useStyles = Styles.make(theme => {
         ->(++)("px")
         ->padding,
       Theme.breakpoints(theme)
-        ->Breakpoints.up("md")
+        ->Breakpoints.up(`md)
         ->nest([|
           Theme.spacing1(theme, 6)
             ->string_of_int 

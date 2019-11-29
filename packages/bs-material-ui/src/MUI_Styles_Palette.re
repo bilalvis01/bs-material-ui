@@ -8,12 +8,12 @@ type paletteColorOptions;
 
 module type PaletteType = {
   type t;
+  type options;
 };
 
 module Make = (Type: PaletteType) => {
   module Palette = {
     type t = Type.t;
-    type options;
     [@bs.obj]
     external options: (
       ~primary: paletteColorOptions=?,
@@ -30,9 +30,9 @@ module Make = (Type: PaletteType) => {
       ~background: background=?,
       ~getContrastText: string => string=?,
       unit
-    ) => options = "";
+    ) => Type.options = "";
     [@bs.module "@material-ui/core/styles/createPalette"]
-    external make: options => t = "default";
+    external make: Type.options => t = "default";
     [@bs.get]
     external common: t => common = "common";
     [@bs.get]

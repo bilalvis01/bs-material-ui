@@ -1,5 +1,7 @@
+type theme('outer, 'inner) = 'outer => 'inner;
+
 [@bs.module "@material-ui/core/styles"] [@react.component]
 external make: (
   ~children: React.element,
-  ~theme: 'theme,
+  ~theme: theme('outer, 'inner),
 ) => React.element = "ThemeProvider";
