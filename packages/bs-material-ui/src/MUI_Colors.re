@@ -22,19 +22,19 @@ external get800: t => string = "800";
 [@bs.get]
 external get900: t => string = "900";
 [@bs.get]
-external getA100: t => string = "A100";
+external a100: t => string = "A100";
 [@bs.get]
-external getA200: t => string = "A200";
+external a200: t => string = "A200";
 [@bs.get]
-external getA400: t => string = "A400";
+external a400: t => string = "A400";
 [@bs.get]
-external getA700: t => string = "A700";
+external a700: t => string = "A700";
 [@bs.get]
-external getCommon: t => common = "common";
+external common: t => common = "common";
 [@bs.get]
-external getBlack: common => string = "black";
+external black: common => string = "black";
 [@bs.get]
-external getWhite: common => string = "white";
+external white: common => string = "white";
 
 [@bs.module "@material-ui/core/colors/amber"]
 external amber: t = "default";
