@@ -55,7 +55,7 @@ module PseudoClass = {
   let firstOfType: array((string, value)) => (string, value) = 
     properties => nest(":first-of-type", properties);
   let firstOfTypeMerge: array(t) => (string, value) =
-    rules => nestMerge(":first-of-tye", rules);
+    rules => nestMerge(":first-of-type", rules);
   let focus: array((string, value)) => (string, value) = 
     properties => nest(":focus", properties);
   let focusMerge: array(t) => (string, value) =
