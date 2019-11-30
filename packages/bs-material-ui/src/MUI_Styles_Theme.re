@@ -13,7 +13,6 @@ module type ThemeType = {
   type paletteOptions;
   type props;
   type shadows;
-  type spacingOptions;
   type transitions;
   type transitionsOptions;
   type typography;

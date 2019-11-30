@@ -54,7 +54,6 @@ type palette;
 type paletteOptions;
 type props;
 type shadows = array(string);
-type spacingOptions;
 type transitions;
 type transitionsOptions;
 type typography;
@@ -75,7 +74,6 @@ include MUI_Styles_Theme.Make({
   type nonrec paletteOptions = paletteOptions;
   type nonrec props = props;
   type nonrec shadows = shadows;
-  type nonrec spacingOptions = spacingOptions;
   type nonrec transitions = transitions;
   type nonrec transitionsOptions = transitionsOptions;
   type nonrec typography = typography;
