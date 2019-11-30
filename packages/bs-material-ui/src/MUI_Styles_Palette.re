@@ -72,6 +72,12 @@ module Make = (Type: PaletteType) => {
   };
 
   module Common = {
+    [@bs.obj]
+    external make: (
+      ~black: string=?,
+      ~white: string=?,
+      unit
+    ) => common = "";
     [@bs.get]
     external black: common => string = "black";
     [@bs.get]
@@ -140,45 +146,8 @@ module Make = (Type: PaletteType) => {
   };
 
   module PaletteColor = {
-    [@bs.get]
-    external light: paletteColor => string = "light";
-    [@bs.get]
-    external main: paletteColor => string = "main";
-    [@bs.get]
-    external dark: paletteColor => string = "dark";
-    [@bs.get]
-    external contrastText: paletteColor => string = "contranstText";
-  };
-
-  module Text = {
-    [@bs.get]
-    external primary: text => string = "primary";
-    [@bs.get]
-    external secondary: text => string = "secondary";
-    [@bs.get]
-    external disabled: text => string = "disabled";
-    [@bs.get]
-    external hint: text => string = "hint";
-  };
-
-  module Action = {
-    [@bs.get]
-    external active: action => string = "active";
-    [@bs.get]
-    external hover: action => string = "hover";
-    [@bs.get]
-    external hoverOpacity: action => int = "hoverOpacity";
-    [@bs.get]
-    external selected: action => string = "selected";
-    [@bs.get]
-    external disabled: action => string = "disabled";
-    [@bs.get]
-    external disabledBackground: action => string = "disabledBackground";
-  };
-  
-  module PaletteColorOptions = {
     [@bs.obj]
-    external make: (
+    external options: (
       ~_50: string=?,
       ~_100: string=?,
       ~_200: string=?,
@@ -195,12 +164,64 @@ module Make = (Type: PaletteType) => {
       unit
     ) => paletteColorOptions = "";
     [@bs.obj]
-    external makeSimple: (
+    external optionsSimple: (
       ~light: string=?,
       ~main: string,
       ~dark: string=?,
       ~contrastText: string=?,
       unit
     ) => paletteColorOptions = "";
+    [@bs.get]
+    external light: paletteColor => string = "light";
+    [@bs.get]
+    external main: paletteColor => string = "main";
+    [@bs.get]
+    external dark: paletteColor => string = "dark";
+    [@bs.get]
+    external contrastText: paletteColor => string = "contranstText";
+  };
+
+  module Text = {
+    [@bs.obj]
+    external make: (
+      ~primary: string=?,
+      ~secondary: string=?,
+      ~disabled: string=?,
+      ~hint: string=?,
+      unit
+    ) => text = "";
+    [@bs.get]
+    external primary: text => string = "primary";
+    [@bs.get]
+    external secondary: text => string = "secondary";
+    [@bs.get]
+    external disabled: text => string = "disabled";
+    [@bs.get]
+    external hint: text => string = "hint";
+  };
+
+  module Action = {
+    [@bs.obj]
+    external make: (
+      ~active: string=?,
+      ~hover: string=?,
+      ~hoverOpacity: int=?,
+      ~selected: string=?,
+      ~disabled: string=?,
+      ~disabledBackground: string=?,
+      unit
+    ) => action = "";
+    [@bs.get]
+    external active: action => string = "active";
+    [@bs.get]
+    external hover: action => string = "hover";
+    [@bs.get]
+    external hoverOpacity: action => int = "hoverOpacity";
+    [@bs.get]
+    external selected: action => string = "selected";
+    [@bs.get]
+    external disabled: action => string = "disabled";
+    [@bs.get]
+    external disabledBackground: action => string = "disabledBackground";
   };
 };

@@ -11,8 +11,8 @@ module Make = (Type: TransitionsType) => {
   module Transitions = {
     [@bs.obj]
     external options: (
-      ~duration: string=?,
-      ~easing: string=?,
+      ~duration: duration=?,
+      ~easing: easing=?,
       ~create: (array(string), ~options: createOptions=?, unit) => string=?,
       ~getAutoHeightDuration: int => int=?,
       unit
@@ -30,47 +30,64 @@ module Make = (Type: TransitionsType) => {
   };
 
   module Easing = {
-    type t = easing;
+    [@bs.obj]
+    external make: (
+      ~easeInOut: string=?,
+      ~easeOut: string=?,
+      ~easeIn: string=?,
+      ~sharp: string=?,
+      unit
+    ) => easing = "";
     [@bs.get]
-    external easeInOut: t => string = "easeInOut";
+    external easeInOut: easing => string = "easeInOut";
     [@bs.get]
-    external easeOut: t => string = "easeOut";
+    external easeOut: easing => string = "easeOut";
     [@bs.get]
-    external easeIn: t => string = "easeIn";
+    external easeIn: easing => string = "easeIn";
     [@bs.get]
-    external sharp: t => string = "sharp";
+    external sharp: easing => string = "sharp";
   };
 
   module Duration = {
-    type t = duration;
+    [@bs.obj]
+    external make: (
+      ~shortest: int=?,
+      ~shorter: int=?,
+      ~short: int=?,
+      ~standard: int=?,
+      ~complex: int=?,
+      ~enteringScreen: int=?,
+      ~leavingScreen: int=?,
+      unit
+    ) => duration = "";
     [@bs.get]
-    external shortest: t => int = "shortest";
+    external shortest: duration => int = "shortest";
     [@bs.get]
-    external shorter: t => int = "shorter";
+    external shorter: duration => int = "shorter";
     [@bs.get]
-    external short: t => int = "short";
+    external short: duration => int = "short";
     [@bs.get]
-    external standard: t => int = "standard";
+    external standard: duration => int = "standard";
     [@bs.get]
-    external complex: t => int = "complex";
+    external complex: duration => int = "complex";
     [@bs.get]
-    external enteringScreen: t => int = "enteringScreen";
+    external enteringScreen: duration => int = "enteringScreen";
     [@bs.get]
-    external leavingScreen: t => int = "leavingScreen";
+    external leavingScreen: duration => int = "leavingScreen";
   };
 
   module TransitionsCreateOptions = {
     [@bs.obj]
     external make: (
       ~duration: int=?,
-      ~easing: int=?,
+      ~easing: string=?,
       ~delay: int=?,
       unit
     ) => createOptions = "";
     [@bs.get]
     external duration: createOptions => int = "duration";
     [@bs.get]
-    external easing: createOptions => int = "easing";
+    external easing: createOptions => string = "easing";
     [@bs.get]
     external delay: createOptions => int = "delay";
   };

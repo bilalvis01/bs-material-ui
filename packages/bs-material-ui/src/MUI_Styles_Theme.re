@@ -13,7 +13,7 @@ module type ThemeType = {
   type paletteOptions;
   type props;
   type shadows;
-  type spacing;
+  type spacingOptions;
   type transitions;
   type transitionsOptions;
   type typography;
@@ -34,6 +34,9 @@ module Make = (Type: ThemeType) => {
       ~mixins: Type.mixinsOptions=?,
       ~overrides: Type.overrides=?,
       ~palette: Type.paletteOptions=?,
+      ~props: Type.props=?,
+      ~shadows: Type.shadows=?,
+      ~spacing: int => 'spacingReturn=?,
       ~transitions: Type.transitionsOptions=?,
       ~typography: Type.palette => Type.typographyOptions=?,
       ~zIndexOptions: Type.zIndexOptions=?,
@@ -51,6 +54,10 @@ module Make = (Type: ThemeType) => {
     external overrides: Type.t => Type.overrides = "overrides";
     [@bs.get]
     external palette: Type.t => Type.palette = "palette";
+    [@bs.get]
+    external props: Type.t => Type.props = "props";
+    [@bs.get]
+    external shadows: Type.t => Type.shadows = "shadows";
     [@bs.send]
     external spacing0: Type.t => int = "spacing";
     [@bs.send]

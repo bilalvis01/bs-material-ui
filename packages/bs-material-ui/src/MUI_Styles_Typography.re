@@ -5,7 +5,6 @@ module type TypographyType = {
   type t;
   type options;
   type palette;
-  type style;
 };
 
 module Make = (Type: TypographyType) => {
@@ -38,7 +37,7 @@ module Make = (Type: TypographyType) => {
       ~fontWeightMedium: int=?,
       ~fontWeightBold: int=?,
       ~htmlFontSize: int=?,
-      ~allVariants: Type.style=?,
+      ~allVariants: MUI_Styles_Style.t=?,
       unit
     ) => Type.options = "";
     [@bs.get]
@@ -60,31 +59,31 @@ module Make = (Type: TypographyType) => {
     [@bs.get]
     external fontWeightBold: Type.t => int = "fontSize";
     [@bs.get]
-    external h1: Type.t => Type.style = "h1";
+    external h1: Type.t => MUI_Styles_Style.t = "h1";
     [@bs.get]
-    external h2: Type.t => Type.style = "h2";
+    external h2: Type.t => MUI_Styles_Style.t = "h2";
     [@bs.get]
-    external h3: Type.t => Type.style = "h3";
+    external h3: Type.t => MUI_Styles_Style.t = "h3";
     [@bs.get]
-    external h4: Type.t => Type.style = "h4";
+    external h4: Type.t => MUI_Styles_Style.t = "h4";
     [@bs.get]
-    external h5: Type.t => Type.style = "h5";
+    external h5: Type.t => MUI_Styles_Style.t = "h5";
     [@bs.get]
-    external h6: Type.t => Type.style = "h6";
+    external h6: Type.t => MUI_Styles_Style.t = "h6";
     [@bs.get]
-    external subtitle1: Type.t => Type.style = "subtitle1";
+    external subtitle1: Type.t => MUI_Styles_Style.t = "subtitle1";
     [@bs.get]
-    external subtitle2: Type.t => Type.style = "subtitle2";
+    external subtitle2: Type.t => MUI_Styles_Style.t = "subtitle2";
     [@bs.get]
-    external body1: Type.t => Type.style = "body1";
+    external body1: Type.t => MUI_Styles_Style.t = "body1";
     [@bs.get]
-    external body2: Type.t => Type.style = "body2";
+    external body2: Type.t => MUI_Styles_Style.t = "body2";
     [@bs.get]
-    external button: Type.t => Type.style = "button";
+    external button: Type.t => MUI_Styles_Style.t = "button";
     [@bs.get]
-    external caption: Type.t => Type.style = "caption";
+    external caption: Type.t => MUI_Styles_Style.t = "caption";
     [@bs.get]
-    external overline: Type.t => Type.style = "overline";
+    external overline: Type.t => MUI_Styles_Style.t = "overline";
   };
   module TypographyStyle = {
     [@bs.obj]

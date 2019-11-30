@@ -1,9 +1,5 @@
 [@bs.module "@material-ui/core/styles"]
-external fade: (string, float) => string = "fade";
-
-module Style = MUI_Styles_Style;
-
-type style = Style.t;
+external useTheme: unit => 'theme = "useTheme";
 
 module type StylesType = {
   type theme;
@@ -15,26 +11,37 @@ module Make = (Styles: StylesType) => {
   type options;
   type stylesHook('props) = 'props => Styles.styles(string);
   [@bs.module "@material-ui/core/styles"]
-  external make: 
-    ( 
-      [@bs.uncurry] 
-      (Styles.theme => Styles.styles(Styles.props => style))
-    ) => 
-    stylesHook(Styles.props) = 
-    "makeStyles";
+  external make: ( 
+    [@bs.uncurry] 
+    (Styles.theme => Styles.styles(Styles.props => MUI_Styles_Style.t))
+  ) => stylesHook(Styles.props) = "makeStyles";
   [@bs.module "@material-ui/core/styles"]
-  external makeWithOptions: 
-    (
-      [@bs.uncurry] 
-      (Styles.theme => Styles.styles(Styles.props => style)), 
-      options
-    ) =>
-    stylesHook(Styles.props) = 
-    "makeStyles";
-  [@bs.module "@material-ui/core/styles"] [@bs.val]
-  external useTheme: unit => Styles.theme = "useTheme";
+  external makeWithOptions: (
+    [@bs.uncurry] 
+    (Styles.theme => Styles.styles(Styles.props => MUI_Styles_Style.t)), 
+    options
+  ) => stylesHook(Styles.props) = "makeStyles";
 };
 
+/**
+ * 
+ * Style helper
+ * 
+ */
+module Style = MUI_Styles_Style;
+
+/**
+ * 
+ * Color manipulator helper
+ * 
+ */
+module ColorManipulator = MUI_Styles_ColorManipulator;
+
+/**
+ * 
+ * Theme helper
+ * 
+ */
 type theme;
 type shape;
 type shapeOptions;
@@ -46,8 +53,8 @@ type overrides;
 type palette;
 type paletteOptions;
 type props;
-type shadows;
-type spacing;
+type shadows = array(string);
+type spacingOptions;
 type transitions;
 type transitionsOptions;
 type typography;
@@ -68,7 +75,7 @@ include MUI_Styles_Theme.Make({
   type nonrec paletteOptions = paletteOptions;
   type nonrec props = props;
   type nonrec shadows = shadows;
-  type nonrec spacing = spacing;
+  type nonrec spacingOptions = spacingOptions;
   type nonrec transitions = transitions;
   type nonrec transitionsOptions = transitionsOptions;
   type nonrec typography = typography;
@@ -90,19 +97,24 @@ include MUI_Styles_Breakpoints.Make({
 include MUI_Styles_Mixins.Make({
   type t = mixins;
   type options = mixinsOptions;
-  type nonrec style = style;
   type nonrec breakpoints = breakpoints;
-  type nonrec spacing = spacing;
 });
 
 include MUI_Styles_Overrides.Make({
   type t = overrides;
-  type nonrec style = style;
 });
 
 include MUI_Styles_Palette.Make({ 
   type t = palette; 
   type options = paletteOptions;
+});
+
+include MUI_Styles_Props.Make({
+  type t = props;
+});
+
+include MUI_Styles_Shadows.Make({
+  type t = shadows;
 });
 
 include MUI_Styles_Transitions.Make({ 
@@ -114,7 +126,6 @@ include MUI_Styles_Typography.Make({
   type t = typography;
   type options = typographyOptions;
   type nonrec palette = palette;
-  type nonrec style = style;
 });
 
 include MUI_Styles_ZIndex.Make({
