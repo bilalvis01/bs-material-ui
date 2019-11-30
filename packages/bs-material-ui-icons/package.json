@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bilalvis01/bs-material-ui-icons.git"
+    "url": "git+https://github.com/bilalvis01/bs-material-ui.git"
   },
   "keywords": [
     "react",
@@ -22,9 +22,9 @@
   "author": "Bilal",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bilalvis01/bs-material-ui-icons/issues"
+    "url": "https://github.com/bilalvis01/bs-material-ui/issues"
   },
-  "homepage": "https://github.com/bilalvis01/bs-material-ui-icons#readme",
+  "homepage": "https://github.com/bilalvis01/bs-material-ui/#readme",
   "peerDependencies": {
     "@material-ui/core": "4.5.0",
     "@material-ui/icons": "^4.5.0",

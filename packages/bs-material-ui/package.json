@@ -17,6 +17,9 @@
   ],
   "author": "Bilal <bilalvis01@gmail.com>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bilalvis01/bs-material-ui/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bilalvis01/bs-material-ui.git"
