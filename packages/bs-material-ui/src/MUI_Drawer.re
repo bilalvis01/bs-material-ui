@@ -63,7 +63,7 @@ external makeProps: (
     | `_24
   ]=?,
   ~_ModalProps: MUI_Modal.props=?,
-  ~onClose: ReactEvent.Synthetic.t => unit=?,
+  ~onClose: ReactEvent.synthetic('a) => unit=?,
   ~_open: bool=?, 
   ~_PaperProps: MUI_Paper.props=?,
   // ~_SlideProps: MUI_Slide.props=?,
