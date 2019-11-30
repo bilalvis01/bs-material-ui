@@ -3,42 +3,42 @@ type classes;
 
 [@bs.obj]
 external classes: (
-  ~root: string,
-  ~rounded: string,
-  ~elevation0: string,
-  ~elevation1: string,
-  ~elevation2: string,
-  ~elevation3: string,
-  ~elevation4: string,
-  ~elevation5: string,
-  ~elevation6: string,
-  ~elevation7: string,
-  ~elevation8: string,
-  ~elevation9: string,
-  ~elevation10: string,
-  ~elevation11: string,
-  ~elevation12: string,
-  ~elevation13: string,
-  ~elevation14: string,
-  ~elevation15: string,
-  ~elevation16: string,
-  ~elevation17: string,
-  ~elevation18: string,
-  ~elevation19: string,
-  ~elevation20: string,
-  ~elevation21: string,
-  ~elevation22: string,
-  ~elevation23: string,
-  ~elevation24: string,
+  ~root: string=?,
+  ~rounded: string=?,
+  ~elevation0: string=?,
+  ~elevation1: string=?,
+  ~elevation2: string=?,
+  ~elevation3: string=?,
+  ~elevation4: string=?,
+  ~elevation5: string=?,
+  ~elevation6: string=?,
+  ~elevation7: string=?,
+  ~elevation8: string=?,
+  ~elevation9: string=?,
+  ~elevation10: string=?,
+  ~elevation11: string=?,
+  ~elevation12: string=?,
+  ~elevation13: string=?,
+  ~elevation14: string=?,
+  ~elevation15: string=?,
+  ~elevation16: string=?,
+  ~elevation17: string=?,
+  ~elevation18: string=?,
+  ~elevation19: string=?,
+  ~elevation20: string=?,
+  ~elevation21: string=?,
+  ~elevation22: string=?,
+  ~elevation23: string=?,
+  ~elevation24: string=?,
   unit
 ) => classes = "";
 
 [@bs.obj]
 external makeProps: (
   /* Paper props */
-  ~children: React.element,
-  ~classes: classes,
-  ~component: string,
+  ~children: React.element=?,
+  ~classes: classes=?,
+  ~component: string=?,
   ~elevation: [@bs.int] [
     | `_0
     | `_1
@@ -66,7 +66,7 @@ external makeProps: (
     | `_23
     | `_24
   ]=?,
-  ~square: bool,
+  ~square: bool=?,
   /* Dom props */
   ~key: string=?,
   ~ref: ReactDOMRe.domRef=?,
