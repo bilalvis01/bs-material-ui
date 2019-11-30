@@ -11,11 +11,18 @@ external classes: (
 [@bs.obj]
 external makeProps: (
   /* Table props */
-  ~children: React.element=?,
+  ~children: React.element,
   ~classes: classes=?,
   ~component: string=?,
-  ~padding: string=?,
-  ~size: string=?,
+  ~padding: [@bs.string] [
+    | `default
+    | `checkbox
+    | `none
+  ]=?,
+  ~size: [@bs.string] [
+    | `small
+    | `medium
+  ]=?,
   ~stickyHeader: bool=?,
   /* Dom props */
   ~key: string=?,
