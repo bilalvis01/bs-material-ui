@@ -3,22 +3,22 @@ type classes;
 
 [@bs.obj]
 external classes: (
-  ~root: string,
-  ~selected: string,
-  ~hover: string,
-  ~head: string,
-  ~footer: string,
+  ~root: string=?,
+  ~selected: string=?,
+  ~hover: string=?,
+  ~head: string=?,
+  ~footer: string=?,
   unit
 ) => classes = "";
 
 [@bs.obj]
 external makeProps: (
   /* TableRow props */
-  ~children: React.element,
-  ~classes: classes,
-  ~component: string,
-  ~hover: bool,
-  ~selected: bool,
+  ~children: React.element=?,
+  ~classes: classes=?,
+  ~component: string=?,
+  ~hover: bool=?,
+  ~selected: bool=?,
   /* Dom props */
   ~key: string=?,
   ~ref: ReactDOMRe.domRef=?,
