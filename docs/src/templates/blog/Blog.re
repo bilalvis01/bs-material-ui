@@ -1,7 +1,7 @@
 module Copyright = {
   [@react.component]
   let make = () => {
-    <MUI.Typography variant="body2" color="textSecondary" align="center">
+    <MUI.Typography variant=`body2 color=`textSecondary align=`center>
       {React.string("Copyright @")}
       <MUI.Link color=`inherit_ href="https://material-ui.com/">
        {React.string(" Your Website ")}
@@ -41,8 +41,6 @@ module Styles = MUI.Styles.Make({
 let useStyles = Styles.make(theme => {
   open MUI.Styles;
 
-  Js.Console.log(Theme.overrides(theme));
-
   {
     "toolbar": () => Style.(make([|
       borderBottom("1px solid " ++ Theme.palette(theme)->Palette.divider),
@@ -55,26 +53,20 @@ let useStyles = Styles.make(theme => {
       overflowX("auto"),
     |])),
     "toolbarLink": () => Style.(make([|
-      Theme.spacing1(theme, 1)
-        ->string_of_int
-        ->(++)("px")
-        ->padding,
+      padding(Theme.spacing1(theme, 1)->px),
       flexShrink("0"),
     |])),
     "mainFeaturedPost": () => Style.(make([|
       position("relative"),
-      Theme.palette(theme) 
-        ->Palette.grey
-        ->Color.get800
-        ->backgroundColor,
-      Theme.palette(theme)
-        ->Palette.common
-        ->Common.white
-        ->color,
-      Theme.spacing1(theme, 4)
-        ->string_of_int
-        ->(++)("px")
-        ->marginBottom,
+      backgroundColor(
+        Theme.palette(theme) 
+          ->Palette.grey
+          ->Color.get800),
+      color(
+        Theme.palette(theme)
+          ->Palette.common
+          ->Common.white),
+      marginBottom(Theme.spacing1(theme, 4)->px),
       backgroundImage("url(https://source.unsplash.com/user/erondu)"),
       backgroundSize("cover"),
       backgroundRepeat("no-repeat"),
@@ -90,25 +82,14 @@ let useStyles = Styles.make(theme => {
     |])),
     "mainFeaturedPostContent": () => Style.(make([|
       position("relative"),
-      Theme.spacing1(theme, 3)
-        ->string_of_int 
-        ->(++)("px")
-        ->padding,
-      Theme.breakpoints(theme)
-        ->Breakpoints.up(`md)
-        ->nest([|
-          Theme.spacing1(theme, 6)
-            ->string_of_int 
-            ->(++)("px")
-            ->padding,
-          paddingRight("0px"),
-        |]),
+      padding(Theme.spacing1(theme, 3)->px),
+      nest(Theme.breakpoints(theme)->Breakpoints.up(`md), [|
+        padding(Theme.spacing1(theme, 6)->px),
+        paddingRight("0px"),
+      |]),
     |])),
     "mainGrid": () => Style.(make([|
-      Theme.spacing1(theme, 3)
-        ->string_of_int
-        ->(++)("px")
-        ->marginTop,
+      marginTop(Theme.spacing1(theme, 3)->px),
     |])),
     "card": () => Style.(make([|
       display("flex"),
@@ -120,40 +101,28 @@ let useStyles = Styles.make(theme => {
       width("160px"),
     |])),
     "markdown": () => Style.(merge([|
-      Theme.typography(theme)
-        ->Typography.body2,
+      Theme.typography(theme)->Typography.body2,
       make([|
-        Theme.spacing2(theme, 3, 0)
-          ->padding,
+        padding(Theme.spacing2(theme, 3, 0)),
       |])
     |])),
     "sidebarAboutBox": () => Style.(make([|
-      Theme.spacing1(theme, 2)
-        ->string_of_int
-        ->(++)("px")
-        ->padding,
-      Theme.palette(theme)
-        ->Palette.grey
-        ->Color.get200
-        ->backgroundColor,
+      padding(Theme.spacing1(theme, 2)->px),
+      backgroundColor(
+        Theme.palette(theme)
+          ->Palette.grey
+          ->Color.get200),
     |])),
     "sidebarSection": () => Style.(make([|
-      Theme.spacing1(theme, 3)
-        ->string_of_int
-        ->(++)("px")
-        ->marginTop,
+      marginTop(Theme.spacing1(theme, 3)->px),
     |])),
     "footer": () => Style.(make([|
-      Theme.palette(theme)
-        ->Palette.background
-        ->Background.paper
-        ->backgroundColor,
-      Theme.spacing1(theme, 8)
-        ->string_of_int
-        ->(++)("px")
-        ->marginTop,
-      Theme.spacing2(theme, 6, 0)
-        ->padding,
+      backgroundColor(
+        Theme.palette(theme)
+          ->Palette.background
+          ->Background.paper),
+      marginTop(Theme.spacing1(theme, 8)->px),
+      padding(Theme.spacing2(theme, 6, 0)),
     |])),
   }
 });
@@ -225,9 +194,9 @@ let make = () => {
         <MUI.Button size=`small>{React.string("Subscribe")}</MUI.Button>
         <MUI.Typography
           component="h2"
-          variant="h5"
-          color="inherit"
-          align="center"
+          variant=`h5
+          color=`inherit_
+          align=`center
           noWrap=true
           className=classes##toolbarTitle
         >
@@ -241,7 +210,7 @@ let make = () => {
         </MUI.Button>
       </MUI.Toolbar>
       <MUI.Toolbar
-        component="nav" variant="dense" className=classes##toolbarSecondary
+        component="nav" variant=`dense className=classes##toolbarSecondary
       >
         {Belt.List.map(sections, section => 
           <MUI.Link
@@ -269,10 +238,10 @@ let make = () => {
           <MUI.Grid container=true>
             <MUI.Grid item=true md=MUI.Grid.size(6)>
               <div className=classes##mainFeaturedPostContent>
-                <MUI.Typography component="h1" variant="h3" color="inherit" gutterBottom=true>
+                <MUI.Typography component="h1" variant=`h3 color=`inherit_ gutterBottom=true>
                   {React.string("Title of a longer featured blog post")}
                 </MUI.Typography>
-                <MUI.Typography variant="h5" color="inherit" paragraph=true>
+                <MUI.Typography variant=`h5 color=`inherit_ paragraph=true>
                   {React.string("Multiple lines of text that form the lede, informing new readers quickly and
                     efficiently about what's most interesting in this post's contents.")}
                 </MUI.Typography>
@@ -290,16 +259,16 @@ let make = () => {
                 <MUI.Card className=classes##card>
                   <div className=classes##cardDetails>
                     <MUI.CardContent>
-                      <MUI.Typography component="h2" variant="h5">
+                      <MUI.Typography component="h2" variant=`h5>
                         {React.string(post.title)}
                       </MUI.Typography>
-                      <MUI.Typography variant="subtitle1" color="textSecondary">
+                      <MUI.Typography variant=`subtitle1 color=`textSecondary>
                         {React.string(post.date)}
                       </MUI.Typography>
-                      <MUI.Typography variant="subtitle1" paragraph=true>
+                      <MUI.Typography variant=`subtitle1 paragraph=true>
                         {React.string(post.description)}
                       </MUI.Typography>
-                      <MUI.Typography variant="subtitle1" color="primary">
+                      <MUI.Typography variant=`subtitle1 color=`primary>
                         {React.string("Continue reading...")}
                       </MUI.Typography>
                     </MUI.CardContent>
@@ -320,7 +289,7 @@ let make = () => {
         </MUI.Grid>
         <MUI.Grid container=true spacing=5 className=classes##mainGrid>
           <MUI.Grid item=true xs=MUI.Grid.size(12) md=MUI.Grid.size(8)>
-            <MUI.Typography variant="h6" gutterBottom=true>
+            <MUI.Typography variant=`h6 gutterBottom=true>
               {React.string("From the Firehose")}
             </MUI.Typography>
             <MUI.Divider />
@@ -333,8 +302,8 @@ let make = () => {
               ->React.array}
           </MUI.Grid>
           <MUI.Grid item=true xs=MUI.Grid.size(12) md=MUI.Grid.size(4)>
-            <MUI.Paper elevation=0 className=classes##sidebarAboutBox>
-              <MUI.Typography variant="h6" gutterBottom=true>
+            <MUI.Paper elevation=`_0 className=classes##sidebarAboutBox>
+              <MUI.Typography variant=`h6 gutterBottom=true>
                 {React.string("About")}
               </MUI.Typography>
               <MUI.Typography>
@@ -342,7 +311,7 @@ let make = () => {
                   amet fermentum. Aenean lacinia bibendum nulla sed consectetur.")}
               </MUI.Typography>
             </MUI.Paper>
-            <MUI.Typography variant="h6" gutterBottom=true className=classes##sidebarSection>
+            <MUI.Typography variant=`h6 gutterBottom=true className=classes##sidebarSection>
               {React.string("Archives")}
             </MUI.Typography>
             {Belt.List.map(archives, archive => 
@@ -352,7 +321,7 @@ let make = () => {
             )
               ->Belt.List.toArray
               ->React.array}
-            <MUI.Typography variant="h6" gutterBottom=true className=classes##sidebarSection>
+            <MUI.Typography variant=`h6 gutterBottom=true className=classes##sidebarSection>
               {React.string("Social")}
             </MUI.Typography>
             {Belt.List.map(social, network => 
@@ -368,10 +337,10 @@ let make = () => {
     </MUI.Container>
     <footer className=classes##footer>
       <MUI.Container maxWidth=MUI.Container.maxWidth("lg")>
-        <MUI.Typography variant="h6" align="center" color="textSecondary" component="p">
+        <MUI.Typography variant=`h6 align=`center color=`textSecondary component="p">
           {React.string("Footer")}
         </MUI.Typography>
-        <MUI.Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+        <MUI.Typography variant=`subtitle1 align=`center color=`textSecondary component="p">
           {React.string("Something here to give the footer a purpose!")}
         </MUI.Typography>
         <Copyright />

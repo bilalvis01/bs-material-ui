@@ -12,10 +12,7 @@ let useStyles = Styles.make(theme => {
   
   {
     "listItem": () => Style.(make([|
-      Theme.spacing1(theme, 1)
-        ->string_of_int
-        ->String.concat(["px"])
-        ->marginTop,
+      marginTop(Theme.spacing1(theme, 1)->px),
     |])),
   }
 });
@@ -39,30 +36,25 @@ let options = Markdown.(options(
   ~overrides=overrides([
     componentWithProps("h1", MUI.Typography.make, MUI.Typography.makeProps(
       ~gutterBottom=true,
-      ~variant="h4",
-      ()
-    )),
+      ~variant=`h4,
+      ())),
     componentWithProps("h2", MUI.Typography.make, MUI.Typography.makeProps(
       ~gutterBottom=true,
-      ~variant="h6",
-      ()
-    )),
+      ~variant=`h6,
+      ())),
     componentWithProps("h3", MUI.Typography.make, MUI.Typography.makeProps(
       ~gutterBottom=true,
-      ~variant="subtitle1",
-      ()
-    )),
+      ~variant=`subtitle1,
+      ())),
     componentWithProps("h4", MUI.Typography.make, MUI.Typography.makeProps(
       ~gutterBottom=true,
-      ~variant="caption",
+      ~variant=`caption,
       ~paragraph=true,
-      ()
-    )),
+      ())),
     component("a", MUI.Link.make),
     component("li", Li.make),
   ]),
-  ()
-));
+  ()));
 
 
 [@react.component]
