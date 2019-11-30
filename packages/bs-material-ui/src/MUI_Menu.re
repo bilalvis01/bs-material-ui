@@ -1,5 +1,15 @@
 type props;
 type classes;
+type transitionDuration;
+
+let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
+external transitionDurationWithInt: int => transitionDuration = "%identity";
+[@bs.obj]
+external transitionDurationWithObj: (
+  ~enter: int=?,
+  ~exit: int=?,
+  unit
+) => transitionDuration = "";
 
 [@bs.obj]
 external classes: (
@@ -26,7 +36,7 @@ external makeProps: (
   ~onExiting: Dom.element => unit=?,
   ~_open: bool=?,
   ~_PopoverClasses: MUI_Popover.classes=?,
-  ~transitionDuration: MUI_Popover.transitionDuration=?,
+  ~transitionDuration: transitionDuration=?,
   ~variant: [@bs.string] [ | `menu | `selectedMenu ]=?,
   /* Popover props */
   ~action: ReactDOMRe.domRef=?,

@@ -6,36 +6,28 @@ type transitionProps;
 type transitionDuration;
 type anchorPosition;
 
-module MakeOrigin = (Origin: { type t; }) => {
-  [@bs.obj]
-  external objStr: (
-    ~horizontal: [@bs.string] [ | `left | `conter | `right ]=?,
-    ~vertical: [@bs.string] [ | `top | `center | `bottom ]=?,
-    unit
-  ) => Origin.t = "";
-  [@bs.obj]
-  external objInt: (
-    ~horizontal: int=?,
-    ~vertical: int=?,
-    unit
-  ) => Origin.t = "";
-};
+[@bs.obj]
+external anchorOrigin: (
+  ~horizontal: 'a=?,
+  ~vertical: 'b=?,
+  unit
+) => anchorOrigin = "";
 
-module AnchorOrigin = MakeOrigin({ type t = anchorOrigin; });
+[@bs.obj]
+external transformOrigin: (
+  ~horizontal: 'a=?,
+  ~vertical: 'b=?,
+  unit
+) => transformOrigin = "";
 
-module TransformOrigin = MakeOrigin({ type t = transformOrigin; });
-
-module TransitionDuration = {
-  type t = transitionDuration;
-  let auto: t = [%raw "'auto'"];
-  external int: int => t = "%identity";
-  [@bs.obj]
-  external obj: (
-    ~enter: int=?,
-    ~exit: int=?,
-    unit
-  ) => t = "";
-};
+let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
+external transitionDurationWithInt: int => transitionDuration = "%identity";
+[@bs.obj]
+external transitionDurationWithObj: (
+  ~enter: int=?,
+  ~exit: int=?,
+  unit
+) => transitionDuration = "";
 
 [@bs.obj]
 external anchorPosition: (
