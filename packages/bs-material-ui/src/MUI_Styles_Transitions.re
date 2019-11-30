@@ -13,7 +13,7 @@ module Make = (Type: TransitionsType) => {
     external options: (
       ~duration: duration=?,
       ~easing: easing=?,
-      ~create: (array(string), ~options: createOptions=?, unit) => string=?,
+      ~create: (array(string), createOptions) => string=?,
       ~getAutoHeightDuration: int => int=?,
       unit
     ) => Type.options = "";
