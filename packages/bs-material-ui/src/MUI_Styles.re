@@ -61,7 +61,7 @@ type typographyOptions;
 type zIndex;
 type zIndexOptions;
 
-include MUI_Styles_Theme.Make({
+module Theme = MUI_Styles_Theme.Make({
   type t = theme;
   type nonrec shape = shape;
   type nonrec shapeOptions = shapeOptions;
@@ -82,7 +82,7 @@ include MUI_Styles_Theme.Make({
   type nonrec zIndexOptions = zIndexOptions;
 });
 
-include MUI_Styles_Shape.Make({
+module Shape = MUI_Styles_Shape.Make({
   type t = shape;
   type options = shapeOptions;
 });
@@ -92,7 +92,7 @@ include MUI_Styles_Breakpoints.Make({
   type options = breakpointsOptions;
 });
 
-include MUI_Styles_Mixins.Make({
+module Mixins = MUI_Styles_Mixins.Make({
   type t = mixins;
   type options = mixinsOptions;
   type nonrec breakpoints = breakpoints;
@@ -111,7 +111,7 @@ include MUI_Styles_Props.Make({
   type t = props;
 });
 
-include MUI_Styles_Shadows.Make({
+module Shadows = MUI_Styles_Shadows.Make({
   type t = shadows;
 });
 
@@ -126,7 +126,7 @@ include MUI_Styles_Typography.Make({
   type nonrec palette = palette;
 });
 
-include MUI_Styles_ZIndex.Make({
+module ZIndex = MUI_Styles_ZIndex.Make({
   type t = zIndex;
   type options = zIndexOptions;
 });
