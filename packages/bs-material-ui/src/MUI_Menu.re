@@ -18,6 +18,8 @@ external classes: (
   unit
 ) => classes = "";
 
+external objToProps: Js.t({..}) => props = "%identity";
+
 [@bs.obj]
 external makeProps: (
   /* Menu props */

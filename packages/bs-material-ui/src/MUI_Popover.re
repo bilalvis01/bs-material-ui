@@ -21,7 +21,7 @@ external transformOrigin: (
 ) => transformOrigin = "";
 
 let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
-external transitionDurationWithInt: int => transitionDuration = "%identity";
+external transitionDuration: int => transitionDuration = "%identity";
 [@bs.obj]
 external transitionDurationWithObj: (
   ~enter: int=?,
@@ -42,6 +42,8 @@ external classes: (
   ~paper: string=?,
   unit
 ) => classes = "";
+
+external objToProps: Js.t({..}) => props = "%identity";
 
 [@bs.obj]
 external makeProps: (

@@ -1,5 +1,7 @@
 type props;
 
+external objToProps: Js.t({..}) => props = "%identity";
+
 [@bs.obj]
 external makeProps: (
   /* Modal props */

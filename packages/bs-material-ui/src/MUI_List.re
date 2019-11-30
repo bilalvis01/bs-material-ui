@@ -228,6 +228,8 @@ type props = {
   "onTransitionEnd": Js.undefined(ReactEvent.Transition.t => unit),
 };
 
+external objToProps: Js.t({..}) => props = "%identity";
+
 [@bs.obj]
 external makeProps: (
   /* List props */

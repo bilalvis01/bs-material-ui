@@ -7,6 +7,8 @@ external makeClasses: (
   unit
 ) => classes = "";
 
+external objToProps: Js.t({..}) => props = "%identity";
+
 [@bs.obj]
 external makeProps: (
   /* TableHead props */
