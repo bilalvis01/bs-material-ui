@@ -338,7 +338,7 @@ let emptyCells = value => ("emptyCells", stringValue(value));
 let fallback = value => ("fallback", stringValue(value));
 let filter = value => ("filter", stringValue(value));
 let flex = value => ("flex", stringValue(value));
-let flexBasis = value => ("flexBases", stringValue(value));
+let flexBasis = value => ("flexBasis", stringValue(value));
 let flexDirection = value => ("flexDirection", stringValue(value));
 let flexFlow = value => ("flexFlow", stringValue(value));
 let flexGrow = value => ("flexGrow", stringValue(value));
