@@ -1,6 +1,6 @@
 {
   "name": "@bilalvis01/bs-material-ui-icons",
-  "version": "0.8.2",
+  "version": "0.9.0",
   "description": "Reason bindings for material-ui-icons",
   "main": "MUIIcons.js",
   "scripts": {
@@ -31,8 +31,8 @@
     "reason-react": "0.7.0"
   },
   "devDependencies": {
+    "@glennsl/bs-jest": "0.4.9",
     "bs-platform": "^5.2.1",
-    "reason-react": "^0.7.0",
-    "@glennsl/bs-jest": "0.4.9"
+    "reason-react": "^0.7.0"
   }
 }
