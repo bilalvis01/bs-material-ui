@@ -11,7 +11,7 @@ This package is still under active development.
 npm install @bilalvis01/bs-material-ui-icons
 ```
 
-Then add `@bilalvis01/bs-material-ui` to `bs-dependencies` to your bsconfig.json:
+Then add `@bilalvis01/bs-material-ui-icons` to `bs-dependencies` to your bsconfig.json:
 
 ```
 {
