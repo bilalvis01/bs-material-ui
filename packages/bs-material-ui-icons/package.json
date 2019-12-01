@@ -7,7 +7,8 @@
     "test": "jest",
     "start": "bsb -clean-world -make-world -w",
     "clean": "bsb -clean-world",
-    "build": "bsb -clean-world -make-world"
+    "build": "bsb -clean-world -make-world",
+    "buildicons": "gulp"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,11 @@
   "devDependencies": {
     "bs-platform": "^5.2.1",
     "reason-react": "^0.7.0",
-    "@glennsl/bs-jest": "0.4.9"
+    "@glennsl/bs-jest": "0.4.9",
+    "gulp": "4.0.2",
+    "delete": "1.1.0",
+    "gulp-tap": "2.0.0",
+    "fs-extra": "8.1.0",
+    "@material-ui/icons": "4.5.1"
   }
 }

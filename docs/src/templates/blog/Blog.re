@@ -176,7 +176,6 @@ let make = () => {
   let classes = useStyles();
 
   <>
-    <MUI.CssBaseline />
     <MUI.Container maxWidth=MUI.Container.maxWidth("lg")>
       <MUI.Toolbar className=classes##toolbar>
         <MUI.Button size=`small>{React.string("Subscribe")}</MUI.Button>
