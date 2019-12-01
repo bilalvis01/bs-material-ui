@@ -11,9 +11,9 @@ let useStyles = Styles.make(theme => {
   open MUI.Styles;
   
   {
-    "listItem": () => Style.(make([|
+    "listItem": () => Style.(make([
       marginTop(Theme.spacing1(theme, 1)->px),
-    |])),
+    ])),
   }
 });
 
