@@ -58,14 +58,8 @@ let useStyles = MUIStyles.make(theme => {
     ])),
     "mainFeaturedPost": () => Style.(make([
       position("relative"),
-      backgroundColor(
-        Theme.palette(theme) 
-          ->Palette.grey
-          ->Color.get800),
-      color(
-        Theme.palette(theme)
-          ->Palette.common
-          ->Common.white),
+      backgroundColor(Theme.palette(theme)->Palette.grey->Color.get800),
+      color(Theme.palette(theme)->Palette.common->Common.white),
       marginBottom(Theme.spacing1(theme, 4)->px),
       backgroundImage("url(https://source.unsplash.com/user/erondu)"),
       backgroundSize("cover"),
@@ -108,19 +102,13 @@ let useStyles = MUIStyles.make(theme => {
     ])),
     "sidebarAboutBox": () => Style.(make([
       padding(Theme.spacing1(theme, 2)->px),
-      backgroundColor(
-        Theme.palette(theme)
-          ->Palette.grey
-          ->Color.get200),
+      backgroundColor(Theme.palette(theme)->Palette.grey->Color.get200),
     ])),
     "sidebarSection": () => Style.(make([
       marginTop(Theme.spacing1(theme, 3)->px),
     ])),
     "footer": () => Style.(make([
-      backgroundColor(
-        Theme.palette(theme)
-          ->Palette.background
-          ->Background.paper),
+      backgroundColor(Theme.palette(theme)->Palette.background->Background.paper),
       marginTop(Theme.spacing1(theme, 8)->px),
       padding(Theme.spacing2(theme, 6, 0)),
     ])),
