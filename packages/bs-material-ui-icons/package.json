@@ -8,7 +8,7 @@
     "start": "bsb -clean-world -make-world -w",
     "clean": "bsb -clean-world",
     "build": "bsb -clean-world -make-world",
-    "buildicons": "gulp"
+    "generate": "gulp"
   },
   "repository": {
     "type": "git",
