@@ -15,7 +15,7 @@ module Copyright = {
   };
 };
 
-module Styles = MUI.Styles.Make({
+module MUIStyles = MUI.Styles.Make({
   type theme = MUI.Styles.theme
   type styles('a) = {
     .
@@ -38,7 +38,7 @@ module Styles = MUI.Styles.Make({
   type props = unit;
 });
 
-let useStyles = Styles.make(theme => {
+let useStyles = MUIStyles.make(theme => {
   open MUI.Styles;
 
   {
