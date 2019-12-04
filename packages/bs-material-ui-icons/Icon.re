@@ -256,3 +256,6 @@ external makeProps: (
   ~onTransitionEnd: ReactEvent.Transition.t => unit=?,
   unit
 ) => props = "";
+
+[@bs.module "@material-ui/icons/Icon"]
+external make: React.component(props) = "default";
