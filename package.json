@@ -8,8 +8,8 @@
     "start": "lerna run start --parallel",
     "clean": "lerna run clean",
     "build": "lerna run build",
-    "bsmuiicons:generate:namelist": "lerna run generate:namelist",
-    "bsmuiicons:generate:icons": "lerna run generate:icons --scope @bilalvis01/bs-material-ui-icons --stream --no-prefix",
+    "bsmuiicons:build:namelist": "lerna run build:namelist",
+    "bsmuiicons:build:icons": "lerna run build:icons --scope @bilalvis01/bs-material-ui-icons --stream --no-prefix",
     "docs:next:dev": "lerna run next:dev --scope docs --stream --no-prefix",
     "docs:next:build": "lerna run next:build --scope docs --stream --no-prefix",
     "docs:next:start": "lerna run next:start --scope docs --stream --no-prefix"
@@ -17,10 +17,6 @@
   "devDependencies": {
     "bs-platform": "^5.2.1",
     "lerna": "^3.18.3",
-    "@glennsl/bs-jest": "0.4.9",
-    "gulp": "4.0.2",
-    "delete": "1.1.0",
-    "gulp-tap": "2.0.0",
-    "fs-extra": "8.1.0"
+    "@glennsl/bs-jest": "0.4.9"
   }
 }
