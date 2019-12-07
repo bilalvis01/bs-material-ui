@@ -29,7 +29,7 @@ class BuildIcons {
     this.themes = ['', 'Outlined', 'Rounded', 'TwoTone', 'Sharp'];
   }
 
-  async init() {
+  async initConfig() {
     const userConfig = await fse.pathExists('./bsmuiicons.config.js')
       ? require(path.resolve('./bsmuiicons.config'))
       : {};
@@ -41,10 +41,14 @@ class BuildIcons {
   }
 
   validateIconList() {
-    this.config.iconNames.forEach((iconName) => {
-      if (!muiIconNames.includes(iconName)) 
-        throw iconName + ' is not a material icons';
-    });
+    let iconNames = this.config.iconNames;
+    if (Array.isArray(iconNames)) {
+      iconNames.forEach((iconName) => {
+        if (!muiIconNames.includes(iconName)) throw iconName + ' is not a material icons';
+      });
+    } else if ((typeof iconNames === 'string' && iconNames !== 'all') || typeof iconNames !== 'string') {
+      throw "accepted value of iconNames: 'all' | array(materialIcons)";
+    }
   }
 
   async cleanMuiIcons() {
@@ -77,11 +81,14 @@ class BuildIcons {
   async buildMuiIcons() {
     console.time('Build bs-material-ui icons');
     console.log(tag.INFO + ' Starting build bs-material-ui icons');
+    let iconNames = this.config.iconNames === 'all' 
+      ? muiIconNames 
+      : this.config.iconNames;
     let fullNames = [];
     let parentContents = '';
     let baseIconPath = path.join(__dirname, 'BaseIcon.re');
     let baseIconContents = await fse.readFileSync(baseIconPath, 'utf-8');
-    this.config.iconNames.forEach((iconName) => {
+    iconNames.forEach((iconName) => {
       this.themes.forEach((theme) => {
         let fullName = iconName + theme;
         fullNames.push(fullName);
@@ -111,7 +118,7 @@ class BuildIcons {
   
   async cleanAndBuildMuiIcons() {
     try {
-      await this.init();
+      await this.initConfig();
       this.validateIconList();
       await this.cleanMuiIcons();
       this.buildMuiIcons();

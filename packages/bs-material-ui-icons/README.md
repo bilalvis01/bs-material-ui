@@ -33,7 +33,7 @@ run the bsmuiicons command in your project directory
 $ bsmuiicons --build
 ```
 
-If everything went right, the icons will be generated in mui-icons folder in your project directory.
+If everything went right, the icons (with all theme: Filled, Outlined, Rounded, TwoTone, Sharp) will be generated in mui-icons folder in your project directory.
 
 Finally, don't forget to update your bsconfig.json if necessary.
 
