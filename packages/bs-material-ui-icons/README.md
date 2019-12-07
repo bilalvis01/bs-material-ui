@@ -1,5 +1,5 @@
-# bs-material-ui
-Reason bindings for material ui.
+# bs-material-ui-icons
+Reason bindings for material ui icons.
 
 ## Status
 
