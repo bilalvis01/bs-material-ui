@@ -39,8 +39,9 @@ Finally, don't forget to update your bsconfig.json if necessary.
 
 ## Configuration
 
-- iconNames: List of generated icons.
-- outputDir: The location of generated icons.
+| Options | Description | type | default |
+| iconNames | List of generated icons. | 'all' \| array(materialIcons) | \[\] |
+| outputDir | The location of generated icons. | string | './mui-icons' |
 
 ## Documentation
 
