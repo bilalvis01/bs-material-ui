@@ -40,6 +40,7 @@ Finally, don't forget to update your bsconfig.json if necessary.
 ## Configuration
 
 | Options | Description | type | default |
+| --- | --- | --- | --- |
 | iconNames | List of generated icons. | 'all' \| array(materialIcons) | \[\] |
 | outputDir | The location of generated icons. | string | './mui-icons' |
 
