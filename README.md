@@ -34,7 +34,7 @@ Here is a quick examples to get you started, it's all you need:
 /* App.re */
 [@react.component]
 let make = () => 
-  <MUI.Button variant="contained" color="primary">
+  <MUI.Button variant=`contained color=`primary>
     {React.string("Hello World")}
   </MUI.Button>;
 ```
