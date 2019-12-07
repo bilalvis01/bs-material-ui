@@ -15,7 +15,7 @@ external classes: (
   unit
 ) => classes = "";
 
-[@bs.module "@material-ui/icons/Search"] [@react.component]
+[@bs.module "@material-ui/icons/SearchTwoTone"] [@react.component]
 external make: (
   /* SvgIcon props */
   ~children: React.element=?,

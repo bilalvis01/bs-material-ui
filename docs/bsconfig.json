@@ -9,6 +9,9 @@
     {
       "dir": "pages",
       "subdirs": true
+    },
+    {
+      "dir": "mui-icons"
     }
   ],
   "bs-dependencies": [

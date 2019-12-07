@@ -1,5 +1,5 @@
 module.exports = {
-  iconList: [
+  iconNames: [
     'Search',
   ],
 }

@@ -5,11 +5,7 @@
   "main": "",
   "scripts": {
     "test": "jest",
-    "start": "bsb -clean-world -make-world -w",
-    "clean": "bsb -clean-world",
-    "build": "bsb -clean-world -make-world",
-    "build:icons": "gulp buildIcons",
-    "build:namelist": "gulp buildNameList"
+    "build:icon-names": "gulp buildIconNames"
   },
   "preferGlobal": true,
   "bin": {
@@ -41,12 +37,11 @@
     "del": "5.1.0",
     "gulp-tap": "2.0.0",
     "fs-extra": "8.1.0",
+    "glob": "7.1.6",
     "commandeer": "1.0.2",
-    "inquirer": "7.0.0"
+    "chalk": "3.0.0"
   },
   "devDependencies": {
-    "bs-platform": "^5.2.1",
-    "reason-react": "^0.7.0",
     "@glennsl/bs-jest": "0.4.9",
     "@material-ui/icons": "4.5.1"
   }

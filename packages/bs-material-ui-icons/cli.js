@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 const program = require('commander');
-const buildIcons = require('./buildIcons');
+const BuildIcons = require('./BuildIcons');
 
-program.option('-b, --build', 'build icons');
+const buildIcons = new BuildIcons();
+
+program.option('-b, --build', 'build bs-material-ui icons');
 
 program.parse(process.argv);
 
-if (program.build) buildIcons();
+if (program.build) buildIcons.cleanAndBuildMuiIcons();
