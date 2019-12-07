@@ -2,12 +2,14 @@
   "name": "@bilalvis01/bs-material-ui-icons",
   "version": "0.9.0",
   "description": "Reason bindings for material-ui-icons",
-  "main": "MUIIcons.js",
+  "main": "",
   "scripts": {
     "test": "jest",
-    "start": "bsb -clean-world -make-world -w",
-    "clean": "bsb -clean-world",
-    "build": "bsb -clean-world -make-world"
+    "build:icon-names": "gulp buildIconNames"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "bsmuiicons": "./cli.js"
   },
   "repository": {
     "type": "git",
@@ -30,9 +32,17 @@
     "@material-ui/icons": "^4.5.0",
     "reason-react": "0.7.0"
   },
+  "dependencies": {
+    "gulp": "4.0.2",
+    "del": "5.1.0",
+    "gulp-tap": "2.0.0",
+    "fs-extra": "8.1.0",
+    "glob": "7.1.6",
+    "commandeer": "1.0.2",
+    "chalk": "3.0.0"
+  },
   "devDependencies": {
     "@glennsl/bs-jest": "0.4.9",
-    "bs-platform": "^5.2.1",
-    "reason-react": "^0.7.0"
+    "@material-ui/icons": "4.5.1"
   }
 }

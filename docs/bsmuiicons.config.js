@@ -1,0 +1,5 @@
+module.exports = {
+  iconNames: [
+    'Search',
+  ],
+}

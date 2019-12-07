@@ -4,15 +4,16 @@ type t = Js.Dict.t(value);
 external nestedStyle: t => value = "%identity";
 external stringValue: string => value = "%identity";
 
-let make: array((string, value)) => t = 
-  properties => Js.Dict.fromArray(properties);
-let nest: (string, array((string, value))) => (string, value) =
+let make: list((string, value)) => t = 
+  properties => Js.Dict.fromList(properties);
+let nest: (string, list((string, value))) => (string, value) =
   (styleName, entries) => (styleName, nestedStyle(make(entries)));
-let merge: array(t) => t = styles => 
-  Belt.Array.map(styles, style => Js.Dict.entries(style))
+let merge: list(t) => t = styles => 
+  Belt.List.toArray(styles) 
+    ->Belt.Array.map(style => Js.Dict.entries(style))
     ->Belt.Array.concatMany
     ->Js.Dict.fromArray;
-let nestMerge: (string, array(t)) => (string, value) =
+let nestMerge: (string, list(t)) => (string, value) =
   (styleName, styles) => (styleName, nestedStyle(merge(styles)));
 
 /**

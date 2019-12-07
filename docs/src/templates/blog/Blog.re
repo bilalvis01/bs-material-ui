@@ -15,7 +15,7 @@ module Copyright = {
   };
 };
 
-module Styles = MUI.Styles.Make({
+module MUIStyles = MUI.Styles.Make({
   type theme = MUI.Styles.theme
   type styles('a) = {
     .
@@ -38,92 +38,80 @@ module Styles = MUI.Styles.Make({
   type props = unit;
 });
 
-let useStyles = Styles.make(theme => {
+let useStyles = MUIStyles.make(theme => {
   open MUI.Styles;
 
   {
-    "toolbar": () => Style.(make([|
+    "toolbar": () => Style.(make([
       borderBottom("1px solid " ++ Theme.palette(theme)->Palette.divider),
-    |])),
-    "toolbarTitle": () => Style.(make([|
+    ])),
+    "toolbarTitle": () => Style.(make([
       flex("1"),
-    |])),
-    "toolbarSecondary": () => Style.(make([|
+    ])),
+    "toolbarSecondary": () => Style.(make([
       justifyContent("space-between"),
       overflowX("auto"),
-    |])),
-    "toolbarLink": () => Style.(make([|
+    ])),
+    "toolbarLink": () => Style.(make([
       padding(Theme.spacing1(theme, 1)->px),
       flexShrink("0"),
-    |])),
-    "mainFeaturedPost": () => Style.(make([|
+    ])),
+    "mainFeaturedPost": () => Style.(make([
       position("relative"),
-      backgroundColor(
-        Theme.palette(theme) 
-          ->Palette.grey
-          ->Color.get800),
-      color(
-        Theme.palette(theme)
-          ->Palette.common
-          ->Common.white),
+      backgroundColor(Theme.palette(theme)->Palette.grey->Color.get800),
+      color(Theme.palette(theme)->Palette.common->Common.white),
       marginBottom(Theme.spacing1(theme, 4)->px),
       backgroundImage("url(https://source.unsplash.com/user/erondu)"),
       backgroundSize("cover"),
       backgroundRepeat("no-repeat"),
       backgroundPosition("center"),
-    |])),
-    "overlay": () => Style.(make([|
+    ])),
+    "overlay": () => Style.(make([
       position("absolute"),
       top("0px"),
       bottom("0px"),
       right("0px"),
       left("0px"),
       backgroundColor("rgba(0,0,0,.3)"),
-    |])),
-    "mainFeaturedPostContent": () => Style.(make([|
+    ])),
+    "mainFeaturedPostContent": () => Style.(make([
       position("relative"),
       padding(Theme.spacing1(theme, 3)->px),
-      nest(Theme.breakpoints(theme)->Breakpoints.up(`md), [|
+      nest(Theme.breakpoints(theme)->Breakpoints.up(`md), [
         padding(Theme.spacing1(theme, 6)->px),
         paddingRight("0px"),
-      |]),
-    |])),
-    "mainGrid": () => Style.(make([|
+      ]),
+    ])),
+    "mainGrid": () => Style.(make([
       marginTop(Theme.spacing1(theme, 3)->px),
-    |])),
-    "card": () => Style.(make([|
+    ])),
+    "card": () => Style.(make([
       display("flex"),
-    |])),
-    "cardDetails": () => Style.(make([|
+    ])),
+    "cardDetails": () => Style.(make([
       flex("1"),
-    |])),
-    "cardMedia": () => Style.(make([|
+    ])),
+    "cardMedia": () => Style.(make([
       width("160px"),
-    |])),
-    "markdown": () => Style.(merge([|
+    ])),
+    "markdown": () => Style.(merge([
       Theme.typography(theme)->Typography.body2,
-      make([|
+      make([
         padding(Theme.spacing2(theme, 3, 0)),
-      |])
-    |])),
-    "sidebarAboutBox": () => Style.(make([|
+      ])
+    ])),
+    "sidebarAboutBox": () => Style.(make([
       padding(Theme.spacing1(theme, 2)->px),
-      backgroundColor(
-        Theme.palette(theme)
-          ->Palette.grey
-          ->Color.get200),
-    |])),
-    "sidebarSection": () => Style.(make([|
+      backgroundColor(Theme.palette(theme)->Palette.grey->Color.get200),
+    ])),
+    "sidebarSection": () => Style.(make([
       marginTop(Theme.spacing1(theme, 3)->px),
-    |])),
-    "footer": () => Style.(make([|
-      backgroundColor(
-        Theme.palette(theme)
-          ->Palette.background
-          ->Background.paper),
+    ])),
+    "footer": () => Style.(make([
+      backgroundColor(Theme.palette(theme)->Palette.background->Background.paper),
       marginTop(Theme.spacing1(theme, 8)->px),
       padding(Theme.spacing2(theme, 6, 0)),
-    |])),
+    ])),
   }
 });
 
@@ -188,7 +176,6 @@ let make = () => {
   let classes = useStyles();
 
   <>
-    <MUI.CssBaseline />
     <MUI.Container maxWidth=MUI.Container.maxWidth("lg")>
       <MUI.Toolbar className=classes##toolbar>
         <MUI.Button size=`small>{React.string("Subscribe")}</MUI.Button>

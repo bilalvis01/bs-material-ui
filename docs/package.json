@@ -16,8 +16,8 @@
   "author": "Bilal",
   "license": "MIT",
   "devDependencies": {
-    "@glennsl/bs-jest": "0.4.9",
-    "bs-platform": "^5.2.1"
+    "bs-platform": "7.0.1",
+    "@glennsl/bs-jest": "0.4.9"
   },
   "dependencies": {
     "@bilalvis01/bs-material-ui": "^0.9.0",

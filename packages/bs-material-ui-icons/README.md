@@ -1,5 +1,5 @@
-# bs-material-ui
-Reason bindings for material ui.
+# bs-material-ui-icons
+Reason bindings for material ui icons.
 
 ## Status
 
@@ -11,20 +11,40 @@ This package is still under active development.
 npm install @bilalvis01/bs-material-ui-icons
 ```
 
-Then add `@bilalvis01/bs-material-ui-icons` to `bs-dependencies` to your bsconfig.json:
+Please note that @material-ui/core >= 4.5.0, @material-ui/icons >= 4.5.0 and reason-react >= 0.7.0 are peer depencencies.
+
+## Usage
+
+create bsmuiicons.config.js in your project directory
 
 ```
-{
-  "bs-dependencies": [
-    "@bilalvis01/bs-material-ui-icons",
-  ],
-  "reason": {
-    "react-jsx": 3
-  }
+// bsmuiicons.config.js
+module.exports = {
+  iconNames = [
+    'Menu',
+    'Search',
+  ]
 }
 ```
 
-Please note that @material-ui/core >= 4.5.0, @material-ui/icons >= 4.5.0 and reason-react >= 0.7.0 are peer depencencies.
+run the bsmuiicons command in your project directory
+
+```
+$ bsmuiicons --build
+```
+
+If everything went right, the icons (with all theme: Filled, Outlined, Rounded, TwoTone, Sharp) will be generated in mui-icons folder in your project directory.
+
+Finally, don't forget to update your bsconfig.json if necessary.
+
+## Configuration
+
+| Options | Description | Type | Default |
+| --- | --- | --- | --- |
+| iconNames | List of generated icons. | 'all' \| array(materialIcons) | \[\] |
+| outputDir | The location of generated icons. | string | './mui-icons' |
+
+note: set iconNames to 'all' is discourage because the number of the generated icons are more than 5000 and it's will affect to build performance.
 
 ## Documentation
 
