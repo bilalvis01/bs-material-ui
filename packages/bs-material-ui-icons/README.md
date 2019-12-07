@@ -44,6 +44,8 @@ Finally, don't forget to update your bsconfig.json if necessary.
 | iconNames | List of generated icons. | 'all' \| array(materialIcons) | \[\] |
 | outputDir | The location of generated icons. | string | './mui-icons' |
 
+note: set iconNames to 'all' is discourage because the number of the generated icons are more than 5000 and it's will affect to build performance.
+
 ## Documentation
 
 WIP
