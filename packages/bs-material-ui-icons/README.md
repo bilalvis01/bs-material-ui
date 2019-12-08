@@ -8,14 +8,30 @@ This package is still under active development.
 ## Installation
 
 ```
-npm install @bilalvis01/bs-material-ui-icons
+npm install --save-dev @bilalvis01/bs-material-ui-icons
 ```
 
-Please note that @material-ui/core >= 4.5.0, @material-ui/icons >= 4.5.0 and reason-react >= 0.7.0 are peer depencencies.
+Add a script to your package.json.
+
+```
+{
+  "scripts" {
+    "build-icons": "bs-mui-icons --build"
+  }
+}
+```
+
+Instead you can also install it globally:
+
+```
+npm install -g @bilalvis01/bs-material-ui-icons
+```
+
+note: @material-ui/core >= 4.5.0, @material-ui/icons >= 4.5.0 and reason-react >= 0.7.0 are peer depencencies.
 
 ## Usage
 
-create bsmuiicons.config.js in your project directory
+Create bsmuiicons.config.js in your project directory.
 
 ```
 // bsmuiicons.config.js
@@ -27,10 +43,10 @@ module.exports = {
 }
 ```
 
-run the bsmuiicons command in your project directory
+Run the command below in your project directory.
 
 ```
-$ bsmuiicons --build
+$ npm run build-icons
 ```
 
 If everything went right, the icons (with all theme: Filled, Outlined, Rounded, TwoTone, Sharp) will be generated in mui-icons folder in your project directory.
@@ -39,12 +55,18 @@ Finally, don't forget to update your bsconfig.json if necessary.
 
 ## Configuration
 
-| Options | Description | Type | Default |
+| Fields | Description | Type | Default |
 | --- | --- | --- | --- |
-| iconNames | List of generated icons. | 'all' \| array(materialIcons) | \[\] |
+| icons | List of generated icons. | 'all' \| array(materialIcons) | \[\] |
 | outputDir | The location of generated icons. | string | './mui-icons' |
 
-note: set iconNames to 'all' is discourage because the number of the generated icons are more than 5000 and it's will affect to build performance.
+note: set icons fild to 'all' is discourage because the number of the generated icons are more than 5000 and it may affect to your build performance.
+
+## Options
+
+`--build`
+
+This flag is necessary when you want to build icons.
 
 ## Documentation
 

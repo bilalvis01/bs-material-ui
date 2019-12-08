@@ -1,5 +1,5 @@
 module.exports = {
-  iconNames: [
+  icons: [
     'Search',
-  ],
+  ]
 }
