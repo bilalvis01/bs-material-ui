@@ -2,10 +2,10 @@ type props;
 type classes;
 type transitionDuration;
 
+external transitionDuration: int => transitionDuration = "%identity";
 let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
-external transitionDurationWithInt: int => transitionDuration = "%identity";
 [@bs.obj]
-external transitionDurationWithObj: (
+external transitionDurationFromObj: (
   ~enter: int=?,
   ~exit: int=?,
   unit

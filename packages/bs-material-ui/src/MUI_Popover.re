@@ -20,10 +20,10 @@ external transformOrigin: (
   unit
 ) => transformOrigin = "";
 
-let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
 external transitionDuration: int => transitionDuration = "%identity";
+let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
 [@bs.obj]
-external transitionDurationWithObj: (
+external transitionDurationFromObj: (
   ~enter: int=?,
   ~exit: int=?,
   unit
