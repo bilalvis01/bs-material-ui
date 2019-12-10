@@ -45,7 +45,6 @@ module ColorManipulator = MUI_Styles_ColorManipulator;
 module Theme = MUI_Styles_Theme;
 module Shape = MUI_Styles_Shape;
 module Breakpoints = MUI_Styles_Breakpoints;
-module BreakpointValues = MUI_Styles_BreakpointValues;
 module Mixins = MUI_Styles_Mixins;
 module Overrides = MUI_Styles_Overrides;
 module AppBar = MUI_Styles_AppBar;

@@ -1,5 +1,12 @@
 type t;
 type options;
+type values = {
+  xs: int,
+  sm: int,
+  md: int,
+  lg: int,
+  xl: int,
+};
 
 [@bs.module "@material-ui/core/styles/createBreakpoints"]
 external make: options => t = "default";
@@ -8,7 +15,7 @@ external options: (
   ~unit: string=?,
   ~step: int=?,
   ~keys: array(string)=?,
-  ~values: MUI_Styles_BreakpointValues.t=?,
+  ~values: values=?,
   ~up: string => string=?,
   ~down: string => string=?,
   ~between: (string, string) => string=?,
@@ -19,7 +26,7 @@ external options: (
 [@bs.get]
 external keys: t => array(string) = "keys"; 
 [@bs.send]
-external values: t => MUI_Styles_BreakpointValues.t = "values";
+external values: t => values = "values";
 [@bs.send]
 external up: (
   t, 
