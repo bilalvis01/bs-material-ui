@@ -13,17 +13,25 @@ function deleteMaterialIconList(cb) {
 }
 
 function loadMaterialIconList() {
-  return src('./node_modules/@material-ui/icons/*.js')
+  let options = {
+    ignore: [
+      './node_modules/@material-ui/icons/index.js',
+      './node_modules/@material-ui/icons/*Outlined.js',
+      './node_modules/@material-ui/icons/*TwoTone.js',
+      './node_modules/@material-ui/icons/*Rounded.js',
+      './node_modules/@material-ui/icons/*Sharp.js',
+    ],
+    read: false,
+  };
+  return src('./node_modules/@material-ui/icons/*.js', options)
     .pipe(tap(function(file) {
-      if (file.stem !== 'index' && !file.stem.match(/(Outlined|Rounded|TwoTone|Sharp)$/)) {
-        memory.nameList += "'" + file.stem + "',";
-      }
+      memory.nameList += "'" + file.stem + "',";
     }));
 }
 
 async function buildMaterialIconList() {
+  let contents = memory.nameList + '];';
   try {
-    let contents = memory.nameList + '];';
     await fse.outputFile('./materialIconList.js', contents);
   } catch (err) {
     console.error(err);

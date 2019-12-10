@@ -4,12 +4,5 @@
     "packages/*"
   ],
   "version": "0.10.1",
-  "npmClient": "npm",
-  "command": {
-    "publish": {
-      "ignoreChanges": [
-        "*.md"
-      ]
-    }
-  }
+  "npmClient": "npm"
 }

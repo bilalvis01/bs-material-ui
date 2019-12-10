@@ -23,7 +23,7 @@ const error = (err) => {
   console.error(tag.error + ' ' + err);
 };
 
-class BuildIcons {
+class IconsBuilder {
   constructor() {
     this.modulePrefix = 'MUIIcons_';
     this.themes = ['', 'Outlined', 'Rounded', 'TwoTone', 'Sharp'];
@@ -36,7 +36,7 @@ class BuildIcons {
       : {};
   
     this.config = Object.assign({}, {
-      icons: [],
+      icons: 'all',
       outputDir: './mui-icons',
     }, userConfig);
   }
@@ -51,7 +51,7 @@ class BuildIcons {
           err = icon + ' is not a material icons'
         };
       });
-    } else if ((typeof icons === 'string' && icons !== 'all') || typeof icons !== 'string') {
+    } else if (icons !== 'all') {
       err = "accepted value of icons: 'all' | array(materialIcons)";
     }
 
@@ -124,7 +124,7 @@ class BuildIcons {
     console.time('Build bs-material-ui icons');
     console.log(tag.info + ' Starting build bs-material-ui icons');
     let icons = this.config.icons === 'all' 
-      ? muiIconNames 
+      ? materialIconList
       : this.config.icons;
     let fullNames = [];
     let parentContents = '';
@@ -159,4 +159,4 @@ class BuildIcons {
   }
 }
 
-module.exports = BuildIcons;
+module.exports = IconsBuilder;

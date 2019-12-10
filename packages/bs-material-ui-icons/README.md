@@ -21,12 +21,6 @@ Add a script to your package.json.
 }
 ```
 
-Instead you can also install it globally:
-
-```
-npm install -g @bilalvis01/bs-material-ui-icons
-```
-
 note: @material-ui/core >= 4.5.0, @material-ui/icons >= 4.5.0 and reason-react >= 0.7.0 are peer depencencies.
 
 ## Usage
@@ -36,7 +30,7 @@ Create bsmuiicons.config.js in your project directory.
 ```
 // bsmuiicons.config.js
 module.exports = {
-  iconNames = [
+  icons = [
     'Menu',
     'Search',
   ]
@@ -57,16 +51,17 @@ Finally, don't forget to update your bsconfig.json if necessary.
 
 | Fields | Description | Type | Default |
 | --- | --- | --- | --- |
-| icons | List of generated icons. | 'all' \| array(materialIcons) | \[\] |
-| outputDir | The location of generated icons. | string | './mui-icons' |
+| icons | List of generated icons. | 'all' \| array(materialIcons) | 'all' |
+| outputDir | The location of the generated icons. | string | './mui-icons' |
 
-note: set icons fild to 'all' is discourage because the number of the generated icons are more than 5000 and it may affect to your build performance.
+
+note: set icons value to 'all' is discouraged because the number of the generated icons are more than 5000 and it may affect to your build performance.
 
 ## Options
 
 `--build`
 
-This flag is necessary when you want to build icons.
+Pass this flag when you want to build your icons.
 
 ## Documentation
 
