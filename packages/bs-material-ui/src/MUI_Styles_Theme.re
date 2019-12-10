@@ -1,75 +1,53 @@
+type t;
 type options;
 
-module type ThemeType = {
-  type t;
-  type shape;
-  type shapeOptions;
-  type breakpoints;
-  type breakpointsOptions;
-  type mixins;
-  type mixinsOptions;
-  type overrides;
-  type palette;
-  type paletteOptions;
-  type props;
-  type shadows;
-  type transitions;
-  type transitionsOptions;
-  type typography;
-  type typographyOptions;
-  type zIndex;
-  type zIndexOptions;
-};
-
-module Make = (Type: ThemeType) => {
-  [@bs.module "@material-ui/core/styles"]
-  external make: options => Type.t = "createMuiTheme";
-  [@bs.obj]
-  external options: (
-    ~shape: Type.shapeOptions=?,
-    ~breakpoints: Type.breakpointsOptions=?,
-    ~direction: [@bs.string] [ | `ltr | `rtl ]=?,
-    ~mixins: Type.mixinsOptions=?,
-    ~overrides: Type.overrides=?,
-    ~palette: Type.paletteOptions=?,
-    ~props: Type.props=?,
-    ~shadows: Type.shadows=?,
-    ~spacing: int => 'spacingReturn=?,
-    ~transitions: Type.transitionsOptions=?,
-    ~typography: Type.palette => Type.typographyOptions=?,
-    ~zIndexOptions: Type.zIndexOptions=?,
-    unit
-  ) => options = "";
-  [@bs.get]
-  external shape: Type.t => Type.shape = "shape";
-  [@bs.get]
-  external breakpoints: Type.t => Type.breakpoints = "breakpoints";
-  [@bs.get]
-  external direction: Type.t => string = "direction";
-  [@bs.get]
-  external mixins: Type.t => Type.mixins = "mixins";
-  [@bs.get]
-  external overrides: Type.t => Type.overrides = "overrides";
-  [@bs.get]
-  external palette: Type.t => Type.palette = "palette";
-  [@bs.get]
-  external props: Type.t => Type.props = "props";
-  [@bs.get]
-  external shadows: Type.t => Type.shadows = "shadows";
-  [@bs.send]
-  external spacing0: Type.t => int = "spacing";
-  [@bs.send]
-  external spacing1: (Type.t, int) => int= "spacing";
-  [@bs.send]
-  external spacing2: (Type.t, int, int) => string = "spacing";
-  [@bs.send]
-  external spacing3: (Type.t, int, int, int) => string = "spacing";
-  [@bs.send]
-  external spacing4: (Type.t, int, int, int, int) => string = "spacing";
-  [@bs.get]
-  external transitions: Type.t => Type.transitions = "transitions";
-  [@bs.get]
-  external typography: Type.t => Type.typography = "typography";
-  [@bs.get]
-  external zIndex: Type.t => Type.zIndex = "zIndex";
-}; 
+[@bs.module "@material-ui/core/styles"]
+external make: options => t = "createMuiTheme";
+[@bs.obj]
+external options: (
+  ~shape: MUI_Styles_Shape.options=?,
+  ~breakpoints: MUI_Styles_Breakpoints.options=?,
+  ~direction: [@bs.string] [ | `ltr | `rtl ]=?,
+  ~mixins: MUI_Styles_Mixins.options=?,
+  ~overrides: MUI_Styles_Overrides.t=?,
+  ~palette: MUI_Styles_Palette.options=?,
+  ~props: MUI_Styles_Props.t=?,
+  ~shadows: MUI_Styles_Shadows.t=?,
+  ~spacing: int => 'spacingReturn=?,
+  ~transitions: MUI_Styles_Transitions.options=?,
+  ~typography: MUI_Styles_Palette.t => MUI_Styles_Typography.options=?,
+  ~zIndexOptions: MUI_Styles_ZIndex.options=?,
+  unit
+) => options = "";
+[@bs.get]
+external shape: t => MUI_Styles_Shape.t = "shape";
+[@bs.get]
+external breakpoints: t => MUI_Styles_Breakpoints.t = "breakpoints";
+[@bs.get]
+external direction: t => string = "direction";
+[@bs.get]
+external mixins: t => MUI_Styles_Mixins.t = "mixins";
+[@bs.get]
+external overrides: t => MUI_Styles_Overrides.t = "overrides";
+[@bs.get]
+external palette: t => MUI_Styles_Palette.t = "palette";
+[@bs.get]
+external props: t => MUI_Styles_Props.t = "props";
+[@bs.get]
+external shadows: t => MUI_Styles_Shadows.t = "shadows";
+[@bs.send]
+external spacing0: t => int = "spacing";
+[@bs.send]
+external spacing1: (t, int) => int= "spacing";
+[@bs.send]
+external spacing2: (t, int, int) => string = "spacing";
+[@bs.send]
+external spacing3: (t, int, int, int) => string = "spacing";
+[@bs.send]
+external spacing4: (t, int, int, int, int) => string = "spacing";
+[@bs.get]
+external transitions: t => MUI_Styles_Transitions.t = "transitions";
+[@bs.get]
+external typography: t => MUI_Styles_Typography.t = "typography";
+[@bs.get]
+external zIndex: t => MUI_Styles_ZIndex.t = "zIndex";

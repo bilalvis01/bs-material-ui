@@ -42,91 +42,24 @@ module ColorManipulator = MUI_Styles_ColorManipulator;
  * Theme helper
  * 
  */
-type theme;
-type shape;
-type shapeOptions;
-type breakpoints;
-type breakpointsOptions
-type mixins;
-type mixinsOptions;
-type overrides;
-type palette;
-type paletteOptions;
-type props;
-type shadows = array(string);
-type transitions;
-type transitionsOptions;
-type typography;
-type typographyOptions;
-type zIndex;
-type zIndexOptions;
-
-module Theme = MUI_Styles_Theme.Make({
-  type t = theme;
-  type nonrec shape = shape;
-  type nonrec shapeOptions = shapeOptions;
-  type nonrec breakpoints = breakpoints;
-  type nonrec breakpointsOptions = breakpointsOptions;
-  type nonrec mixins = mixins;
-  type nonrec mixinsOptions = mixinsOptions;
-  type nonrec overrides = overrides;
-  type nonrec palette = palette;
-  type nonrec paletteOptions = paletteOptions;
-  type nonrec props = props;
-  type nonrec shadows = shadows;
-  type nonrec transitions = transitions;
-  type nonrec transitionsOptions = transitionsOptions;
-  type nonrec typography = typography;
-  type nonrec typographyOptions = typographyOptions;
-  type nonrec zIndex = zIndex;
-  type nonrec zIndexOptions = zIndexOptions;
-});
-
-module Shape = MUI_Styles_Shape.Make({
-  type t = shape;
-  type options = shapeOptions;
-});
-
-include MUI_Styles_Breakpoints.Make({
-  type t = breakpoints;
-  type options = breakpointsOptions;
-});
-
-module Mixins = MUI_Styles_Mixins.Make({
-  type t = mixins;
-  type options = mixinsOptions;
-  type nonrec breakpoints = breakpoints;
-});
-
-include MUI_Styles_Overrides.Make({
-  type t = overrides;
-});
-
-include MUI_Styles_Palette.Make({ 
-  type t = palette; 
-  type options = paletteOptions;
-});
-
-include MUI_Styles_Props.Make({
-  type t = props;
-});
-
-module Shadows = MUI_Styles_Shadows.Make({
-  type t = shadows;
-});
-
-include MUI_Styles_Transitions.Make({ 
-  type t = transitions; 
-  type options = transitionsOptions;
-});
-
-include MUI_Styles_Typography.Make({
-  type t = typography;
-  type options = typographyOptions;
-  type nonrec palette = palette;
-});
-
-module ZIndex = MUI_Styles_ZIndex.Make({
-  type t = zIndex;
-  type options = zIndexOptions;
-});
+module Theme = MUI_Styles_Theme;
+module Shape = MUI_Styles_Shape;
+module Breakpoints = MUI_Styles_Breakpoints;
+module BreakpointValues = MUI_Styles_BreakpointValues;
+module Mixins = MUI_Styles_Mixins;
+module Overrides = MUI_Styles_Overrides;
+module AppBar = MUI_Styles_AppBar;
+module Palette = MUI_Styles_Palette;
+module PaletteColor = MUI_Styles_PaletteColor;
+module ActionColor = MUI_Styles_ActionColor;
+module TextColor = MUI_Styles_TextColor;
+module Color = MUI_Styles_Color;
+module BackgroundColor = MUI_Styles_BackgroundColor;
+module CommonColor = MUI_Styles_CommonColor;
+module Props = MUI_Styles_Props;
+module Shadows = MUI_Styles_Shadows;
+module Transitions = MUI_Styles_Transitions;
+module TransitionDuration = MUI_Styles_TransitionDuration;
+module Easing = MUI_Styles_Easing;
+module Typography = MUI_Styles_Typography;
+module ZIndex = MUI_Styles_ZIndex;
