@@ -27,6 +27,7 @@ external objToProps: Js.t({..}) => props = "%identity";
 
 [@bs.obj]
 external makeProps: (
+  /* TableCell props */
   ~align: [@bs.string] [
     | [@bs.as "inherit"] `inherit_
     | `left
