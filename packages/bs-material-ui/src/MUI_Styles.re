@@ -62,4 +62,5 @@ module Transitions = MUI_Styles_Transitions;
 module TransitionDuration = MUI_Styles_TransitionDuration;
 module Easing = MUI_Styles_Easing;
 module Typography = MUI_Styles_Typography;
+module TypographyStyle = MUI_Styles_TypographyStyle;
 module ZIndex = MUI_Styles_ZIndex;

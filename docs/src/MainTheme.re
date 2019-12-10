@@ -11,7 +11,7 @@ let theme = Theme.(make(options(
     ~error=PaletteColor.optionsSimple(
       ~main=MUI.Colors.(a400(red)), 
       ()),
-    ~background=Background.make(
+    ~background=BackgroundColor.make(
       ~default="#fff",
       ()),
     ()),

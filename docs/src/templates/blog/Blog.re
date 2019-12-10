@@ -16,7 +16,7 @@ module Copyright = {
 };
 
 module MUIStyles = MUI.Styles.Make({
-  type theme = MUI.Styles.theme
+  type theme = MUI.Styles.Theme.t;
   type styles('a) = {
     .
     "toolbar": 'a,
@@ -59,7 +59,7 @@ let useStyles = MUIStyles.make(theme => {
     "mainFeaturedPost": () => Style.(make([
       position("relative"),
       backgroundColor(Theme.palette(theme)->Palette.grey->Color.get800),
-      color(Theme.palette(theme)->Palette.common->Common.white),
+      color(Theme.palette(theme)->Palette.common->CommonColor.white),
       marginBottom(Theme.spacing1(theme, 4)->px),
       backgroundImage("url(https://source.unsplash.com/user/erondu)"),
       backgroundSize("cover"),
@@ -108,7 +108,7 @@ let useStyles = MUIStyles.make(theme => {
       marginTop(Theme.spacing1(theme, 3)->px),
     ])),
     "footer": () => Style.(make([
-      backgroundColor(Theme.palette(theme)->Palette.background->Background.paper),
+      backgroundColor(Theme.palette(theme)->Palette.background->BackgroundColor.paper),
       marginTop(Theme.spacing1(theme, 8)->px),
       padding(Theme.spacing2(theme, 6, 0)),
     ])),

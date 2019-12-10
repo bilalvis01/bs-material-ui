@@ -1,5 +1,5 @@
 module MUIStyles = MUI.Styles.Make({
-  type theme = MUI.Styles.theme;
+  type theme = MUI.Styles.Theme.t;
   type styles('a) = {
     .
     "listItem": 'a,

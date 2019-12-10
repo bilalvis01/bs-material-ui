@@ -1,7 +1,7 @@
 type colorObject = {
-  .
-  "type": string,
-  "values": array(int),
+  [@bs.as "type"]
+  type_: string,
+  values: array(int),
 };
 
 [@bs.module "@material-ui/core/styles/colorManipulator"]
