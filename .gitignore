@@ -4,4 +4,3 @@ lib
 .cache
 .bsb.lock
 lerna-debug.log
-package-lock.json
