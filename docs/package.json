@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "private": true,
   "description": "a blog example",
   "main": "Index.bs.js",
@@ -17,12 +17,12 @@
   "author": "Bilal",
   "license": "MIT",
   "devDependencies": {
-    "@bilalvis01/bs-material-ui-icons": "^0.10.1",
+    "@bilalvis01/bs-material-ui-icons": "^0.10.2",
     "@glennsl/bs-jest": "0.4.9",
     "bs-platform": "7.0.1"
   },
   "dependencies": {
-    "@bilalvis01/bs-material-ui": "^0.10.0",
+    "@bilalvis01/bs-material-ui": "^0.10.2",
     "@material-ui/core": "^4.5.2",
     "@material-ui/icons": "^4.5.1",
     "markdown-to-jsx": "^6.10.3",
