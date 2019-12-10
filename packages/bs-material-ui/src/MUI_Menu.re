@@ -5,7 +5,7 @@ type transitionDuration;
 external transitionDuration: int => transitionDuration = "%identity";
 let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
 [@bs.obj]
-external transitionDurationFromObj: (
+external transitionDurationObj: (
   ~enter: int=?,
   ~exit: int=?,
   unit
