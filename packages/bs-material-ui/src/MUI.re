@@ -35,6 +35,7 @@ module Paper = MUI_Paper;
 module Popover = MUI_Popover;
 module Table = MUI_Table;
 module TableHead = MUI_TableHead;
+module TableFooter = MUI_TableFooter;
 module TableRow = MUI_TableRow;
 module TableCell = MUI_TableCell;
 module TableBody = MUI_TableBody;
