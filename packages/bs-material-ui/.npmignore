@@ -4,3 +4,4 @@
 /.bsb-lock
 /.cache
 /package-lock.json
+/src/*.bs.js
