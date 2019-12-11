@@ -30,7 +30,7 @@ external makeProps: (
   ~onExiting: Dom.element => unit=?,
   ~_open: bool=?,
   ~_PopoverClasses: Mui_Popover.classes=?,
-  ~transitionDuration: MuiCommonProps.transitionDuration=?,
+  ~transitionDuration: MuiCommonProps.TransitionDuration.t=?,
   ~variant: [@bs.string] [ | `menu | `selectedMenu ]=?,
   /* Popover props */
   ~action: ReactDOMRe.domRef=?,

@@ -11,15 +11,15 @@ type transformOrigin('a, 'b) = {
   horizontal: 'a,
   vertical: 'b,
 };
-type transitionDuration;
 
-module MakeTransitionDuration = () => {
-  external transitionDuration: int => transitionDuration = "%identity";
-  let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
+module TransitionDuration = {
+  type t;
+  external transitionDuration: int => t = "%identity";
+  let transitionDurationAuto: t = [%raw "'auto'"];
   [@bs.obj]
   external transitionDurationObj: (
     ~enter: int=?,
     ~exit: int=?,
     unit
-  ) => transitionDuration = "";
+  ) => t = "";
 };

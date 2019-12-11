@@ -1,8 +1,6 @@
 type classes;
 type props;
 
-include MuiCommonProps.MakeTransitionDuration();
-
 [@bs.obj]
 external classes: (
   ~root: string=?,
@@ -37,7 +35,7 @@ external makeProps: (
   ~_PaperProps: Mui_Paper.props=?,
   ~transformOrigin: MuiCommonProps.transformOrigin('transformOriginHor, 'transformOriginVer)=?,
   ~_TransitionComponent: string=?,
-  ~transitionDuration: MuiCommonProps.transitionDuration=?,
+  ~transitionDuration: MuiCommonProps.TransitionDuration.t=?,
   // ~_TransitionProps: ReactTransitionGroup.Transition.props=?,
   /* Modal props */
   ~_BackdropComponent: string=?,
