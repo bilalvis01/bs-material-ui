@@ -6,9 +6,9 @@
   "main": "Index.bs.js",
   "scripts": {
     "test": "jest",
-    "start": "bsb -clean-world -make-world -w",
-    "clean": "bsb -clean-world",
-    "build": "bsb -clean-world -make-world",
+    "bs:dev": "bsb -make-world -w",
+    "bs:clean": "bsb -clean-world",
+    "bs:build": "bsb -clean-world -make-world",
     "next:dev": "next",
     "next:build": "bsb -clean-world -make-world&&next build",
     "next:start": "next start",

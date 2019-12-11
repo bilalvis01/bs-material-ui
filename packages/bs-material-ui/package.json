@@ -5,9 +5,9 @@
   "main": "src/MUI.js",
   "scripts": {
     "test": "jest",
-    "build": "bsb -clean-world -make-world",
-    "start": "bsb -clean-world -make-world -w",
-    "clean": "bsb -clean-world"
+    "bs:build": "bsb -clean-world -make-world",
+    "bs:dev": "bsb -make-world -w",
+    "bs:clean": "bsb -clean-world"
   },
   "keywords": [
     "reasonml",

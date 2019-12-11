@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "test": "jest",
-    "build:material-icon-list": "gulp buildMaterialIconList"
+    "build-material-icon-list": "gulp buildMaterialIconList"
   },
   "bin": {
     "bs-mui-icons": "./cli.js"
