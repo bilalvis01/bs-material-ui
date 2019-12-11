@@ -1,31 +1,7 @@
 type classes;
 type props;
-type anchorOrigin('a, 'b) = {
-  horizontal: 'a,
-  vertical: 'b,
-};
-type anchorPosition = {
-  left: int,
-  top: int,
-};
-type transformOrigin('a, 'b) = {
-  horizontal: 'a,
-  vertical: 'b,
-};
 
-module MakeTransitionDuration = () => {
-  type transitionDuration;
-  external transitionDuration: int => transitionDuration = "%identity";
-  let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
-  [@bs.obj]
-  external transitionDurationObj: (
-    ~enter: int=?,
-    ~exit: int=?,
-    unit
-  ) => transitionDuration = "";
-};
-
-include MakeTransitionDuration();
+include MuiCommonProps.MakeTransitionDuration();
 
 [@bs.obj]
 external classes: (
@@ -41,8 +17,8 @@ external makeProps: (
   /* Popover props */
   ~action: ReactDOMRe.domRef=?,
   ~anchorEl: Dom.element=?,
-  ~anchorOrigin: anchorOrigin('anchorOriginHor, 'anchorOriginVer)=?,
-  ~anchorPosition: anchorPosition=?,
+  ~anchorOrigin: MuiCommonProps.anchorOrigin('anchorOriginHor, 'anchorOriginVer)=?,
+  ~anchorPosition: MuiCommonProps.anchorPosition=?,
   ~anchorReference: string=?,
   ~children: React.element=?,
   ~classes: classes=?,
@@ -59,9 +35,9 @@ external makeProps: (
   ~onExiting: Dom.element => unit=?,
   ~_open: bool=?,
   ~_PaperProps: MUI_Paper.props=?,
-  ~transformOrigin: transformOrigin('transformOriginHor, 'transformOriginVer)=?,
+  ~transformOrigin: MuiCommonProps.transformOrigin('transformOriginHor, 'transformOriginVer)=?,
   ~_TransitionComponent: string=?,
-  ~transitionDuration: transitionDuration=?,
+  ~transitionDuration: MuiCommonProps.transitionDuration=?,
   // ~_TransitionProps: ReactTransitionGroup.Transition.props=?,
   /* Modal props */
   ~_BackdropComponent: string=?,

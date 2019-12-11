@@ -1,7 +1,7 @@
 type props;
 type classes;
 
-include MUI_Popover.MakeTransitionDuration();
+include MuiCommonProps.MakeTransitionDuration();
 
 [@bs.obj]
 external classes: (
@@ -30,19 +30,19 @@ external makeProps: (
   ~onExiting: Dom.element => unit=?,
   ~_open: bool=?,
   ~_PopoverClasses: MUI_Popover.classes=?,
-  ~transitionDuration: transitionDuration=?,
+  ~transitionDuration: MuiCommonProps.transitionDuration=?,
   ~variant: [@bs.string] [ | `menu | `selectedMenu ]=?,
   /* Popover props */
   ~action: ReactDOMRe.domRef=?,
-  ~anchorOrigin: MUI_Popover.anchorOrigin('anchorOriginHor, 'anchorOriginVer)=?,
-  ~anchorPosition: MUI_Popover.anchorPosition=?,
+  ~anchorOrigin: MuiCommonProps.anchorOrigin('anchorOriginHor, 'anchorOriginVer)=?,
+  ~anchorPosition: MuiCommonProps.anchorPosition=?,
   ~anchorReference: [@bs.string] [ | `anchorEl | `anchorPosition | `none ]=?,
   ~container: unit => React.element=?,
   ~elevation: int=?,
   ~getContentAnchorEl: Dom.element => unit=?,
   ~marginThreshold: int=?,
   ~_PaperProps: MUI_Paper.props=?,
-  ~transformOrigin: MUI_Popover.transformOrigin('transformOriginHor, 'transformOriginVer)=?,
+  ~transformOrigin: MuiCommonProps.transformOrigin('transformOriginHor, 'transformOriginVer)=?,
   ~_TransitionComponent: string=?,
   // ~_TransitionProps: ReactTransitionGroup.Transition.props=?,
   /* Modal props */
