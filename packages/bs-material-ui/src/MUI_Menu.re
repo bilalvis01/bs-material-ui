@@ -1,15 +1,7 @@
 type props;
 type classes;
-type transitionDuration;
 
-external transitionDuration: int => transitionDuration = "%identity";
-let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
-[@bs.obj]
-external transitionDurationObj: (
-  ~enter: int=?,
-  ~exit: int=?,
-  unit
-) => transitionDuration = "";
+include MUI_Popover.MakeTransitionDuration();
 
 [@bs.obj]
 external classes: (
@@ -29,7 +21,7 @@ external makeProps: (
   ~classes: classes=?,
   ~disableAutoFocusItem: bool=?,
   // ~_MenuListProps: MUI_MenuList.props=?,
-  ~onClose: (ReactEvent.synthetic('a), string) => unit=?,
+  ~onClose: (ReactEvent.synthetic('onClose), string) => unit=?,
   ~onEnter: (Dom.element, bool) => unit=?,
   ~onEntered: (Dom.element, bool) => unit=?,
   ~onEntering: (Dom.element, bool) => unit=?,
@@ -42,7 +34,7 @@ external makeProps: (
   ~variant: [@bs.string] [ | `menu | `selectedMenu ]=?,
   /* Popover props */
   ~action: ReactDOMRe.domRef=?,
-  ~anchorOrigin: MUI_Popover.anchorOrigin=?,
+  ~anchorOrigin: MUI_Popover.anchorOrigin('anchorOriginHor, 'anchorOriginVer)=?,
   ~anchorPosition: MUI_Popover.anchorPosition=?,
   ~anchorReference: [@bs.string] [ | `anchorEl | `anchorPosition | `none ]=?,
   ~container: unit => React.element=?,
@@ -50,9 +42,9 @@ external makeProps: (
   ~getContentAnchorEl: Dom.element => unit=?,
   ~marginThreshold: int=?,
   ~_PaperProps: MUI_Paper.props=?,
-  ~transformOrigin: MUI_Popover.transformOrigin=?,
+  ~transformOrigin: MUI_Popover.transformOrigin('transformOriginHor, 'transformOriginVer)=?,
   ~_TransitionComponent: string=?,
-  ~_TransitionProps: MUI_Popover.transitionProps=?,
+  // ~_TransitionProps: ReactTransitionGroup.Transition.props=?,
   /* Modal props */
   ~_BackdropComponent: string=?,
   // ~_BackdropProps: MUI_Backdrop.props=?,

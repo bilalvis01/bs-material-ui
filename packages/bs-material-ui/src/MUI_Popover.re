@@ -1,40 +1,31 @@
 type classes;
 type props;
-type anchorOrigin;
-type transformOrigin;
-type transitionProps;
-type transitionDuration;
-type anchorPosition;
+type anchorOrigin('a, 'b) = {
+  horizontal: 'a,
+  vertical: 'b,
+};
+type anchorPosition = {
+  left: int,
+  top: int,
+};
+type transformOrigin('a, 'b) = {
+  horizontal: 'a,
+  vertical: 'b,
+};
 
-[@bs.obj]
-external anchorOrigin: (
-  ~horizontal: 'a=?,
-  ~vertical: 'b=?,
-  unit
-) => anchorOrigin = "";
+module MakeTransitionDuration = () => {
+  type transitionDuration;
+  external transitionDuration: int => transitionDuration = "%identity";
+  let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
+  [@bs.obj]
+  external transitionDurationObj: (
+    ~enter: int=?,
+    ~exit: int=?,
+    unit
+  ) => transitionDuration = "";
+};
 
-[@bs.obj]
-external transformOrigin: (
-  ~horizontal: 'a=?,
-  ~vertical: 'b=?,
-  unit
-) => transformOrigin = "";
-
-external transitionDuration: int => transitionDuration = "%identity";
-let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
-[@bs.obj]
-external transitionDurationObj: (
-  ~enter: int=?,
-  ~exit: int=?,
-  unit
-) => transitionDuration = "";
-
-[@bs.obj]
-external anchorPosition: (
-  ~left: int=?,
-  ~top: int=?,
-  unit
-) => anchorPosition = "";
+include MakeTransitionDuration();
 
 [@bs.obj]
 external classes: (
@@ -50,7 +41,7 @@ external makeProps: (
   /* Popover props */
   ~action: ReactDOMRe.domRef=?,
   ~anchorEl: Dom.element=?,
-  ~anchorOrigin: anchorOrigin=?,
+  ~anchorOrigin: anchorOrigin('anchorOriginHor, 'anchorOriginVer)=?,
   ~anchorPosition: anchorPosition=?,
   ~anchorReference: string=?,
   ~children: React.element=?,
@@ -59,7 +50,7 @@ external makeProps: (
   ~elevation: int=?,
   ~getContentAnchorEl: Dom.element => unit=?,
   ~marginThreshold: int=?,
-  ~onClose: (ReactEvent.synthetic('a), string) => unit=?,
+  ~onClose: (ReactEvent.synthetic('onClose), string) => unit=?,
   ~onEnter: (Dom.element, bool) => unit=?,
   ~onEntered: (Dom.element, bool) => unit=?,
   ~onEntering: (Dom.element, bool) => unit=?,
@@ -68,10 +59,10 @@ external makeProps: (
   ~onExiting: Dom.element => unit=?,
   ~_open: bool=?,
   ~_PaperProps: MUI_Paper.props=?,
-  ~transformOrigin: transformOrigin=?,
+  ~transformOrigin: transformOrigin('transformOriginHor, 'transformOriginVer)=?,
   ~_TransitionComponent: string=?,
   ~transitionDuration: transitionDuration=?,
-  ~_TransitionProps: transitionProps=?,
+  // ~_TransitionProps: ReactTransitionGroup.Transition.props=?,
   /* Modal props */
   ~_BackdropComponent: string=?,
   // ~_BackdropProps: MUI_Backdrop.props=?,
