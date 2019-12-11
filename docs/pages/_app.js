@@ -3,7 +3,7 @@ import App from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { theme } from '../src/MainTheme.bs'
+import { theme } from '../src/DocsTheme.bs'
 
 class MyApp extends App {
   componentDidMount() {

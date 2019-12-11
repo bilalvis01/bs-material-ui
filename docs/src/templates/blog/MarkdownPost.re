@@ -1,5 +1,5 @@
-module MUIStyles = MUI.Styles.Make({
-  type theme = MUI.Styles.Theme.t;
+module MuiStyles = Mui.Styles.Make({
+  type theme = Mui.Styles.Theme.t;
   type styles('a) = {
     .
     "listItem": 'a,
@@ -7,8 +7,8 @@ module MUIStyles = MUI.Styles.Make({
   type props = unit;
 });
 
-let useStyles = MUIStyles.make(theme => {
-  open MUI.Styles;
+let useStyles = MuiStyles.make(theme => {
+  open Mui.Styles;
   
   {
     "listItem": () => Style.(make([
@@ -25,33 +25,33 @@ module Li = {
     let classes = useStyles();
 
     <li className=classes##listItem>  
-      <MUI.Typography component="span">
+      <Mui.Typography component="span">
         children
-      </MUI.Typography>
+      </Mui.Typography>
     </li>
   };
 };
 
 let options = Markdown.(options(
   ~overrides=overrides([
-    componentWithProps("h1", MUI.Typography.make, MUI.Typography.makeProps(
+    componentWithProps("h1", Mui.Typography.make, Mui.Typography.makeProps(
       ~gutterBottom=true,
       ~variant=`h4,
       ())),
-    componentWithProps("h2", MUI.Typography.make, MUI.Typography.makeProps(
+    componentWithProps("h2", Mui.Typography.make, Mui.Typography.makeProps(
       ~gutterBottom=true,
       ~variant=`h6,
       ())),
-    componentWithProps("h3", MUI.Typography.make, MUI.Typography.makeProps(
+    componentWithProps("h3", Mui.Typography.make, Mui.Typography.makeProps(
       ~gutterBottom=true,
       ~variant=`subtitle1,
       ())),
-    componentWithProps("h4", MUI.Typography.make, MUI.Typography.makeProps(
+    componentWithProps("h4", Mui.Typography.make, Mui.Typography.makeProps(
       ~gutterBottom=true,
       ~variant=`caption,
       ~paragraph=true,
       ())),
-    component("a", MUI.Link.make),
+    component("a", Mui.Link.make),
     component("li", Li.make),
   ]),
   ()));

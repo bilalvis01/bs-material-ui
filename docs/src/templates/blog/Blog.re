@@ -1,22 +1,22 @@
 module Copyright = {
   [@react.component]
   let make = () => {
-    <MUI.Typography variant=`body2 color=`textSecondary align=`center>
+    <Mui.Typography variant=`body2 color=`textSecondary align=`center>
       {React.string("Copyright @")}
-      <MUI.Link color=`inherit_ href="https://material-ui.com/">
+      <Mui.Link color=`inherit_ href="https://material-ui.com/">
        {React.string(" Your Website ")}
-      </MUI.Link>
+      </Mui.Link>
       {Js.Date.make()
         ->Js.Date.getFullYear
         ->Belt.Float.toString
         ->React.string}
       {React.string(".")}
-    </MUI.Typography>
+    </Mui.Typography>
   };
 };
 
-module MUIStyles = MUI.Styles.Make({
-  type theme = MUI.Styles.Theme.t;
+module MuiStyles = Mui.Styles.Make({
+  type theme = Mui.Styles.Theme.t;
   type styles('a) = {
     .
     "toolbar": 'a,
@@ -38,8 +38,8 @@ module MUIStyles = MUI.Styles.Make({
   type props = unit;
 });
 
-let useStyles = MUIStyles.make(theme => {
-  open MUI.Styles;
+let useStyles = MuiStyles.make(theme => {
+  open Mui.Styles;
 
   {
     "toolbar": () => Style.(make([
@@ -176,10 +176,10 @@ let make = () => {
   let classes = useStyles();
 
   <>
-    <MUI.Container maxWidth=MUI.Container.maxWidth("lg")>
-      <MUI.Toolbar className=classes##toolbar>
-        <MUI.Button size=`small>{React.string("Subscribe")}</MUI.Button>
-        <MUI.Typography
+    <Mui.Container maxWidth=Mui.Container.maxWidth("lg")>
+      <Mui.Toolbar className=classes##toolbar>
+        <Mui.Button size=`small>{React.string("Subscribe")}</Mui.Button>
+        <Mui.Typography
           component="h2"
           variant=`h5
           color=`inherit_
@@ -188,19 +188,19 @@ let make = () => {
           className=classes##toolbarTitle
         >
           {React.string("Blog")}
-        </MUI.Typography>
-        <MUI.IconButton>
-          <MUIIcons.Search />
-        </MUI.IconButton>
-        <MUI.Button variant=`outlined size=`small>
+        </Mui.Typography>
+        <Mui.IconButton>
+          <MuiIcons.Search />
+        </Mui.IconButton>
+        <Mui.Button variant=`outlined size=`small>
           {React.string("Sign up")}
-        </MUI.Button>
-      </MUI.Toolbar>
-      <MUI.Toolbar
+        </Mui.Button>
+      </Mui.Toolbar>
+      <Mui.Toolbar
         component="nav" variant=`dense className=classes##toolbarSecondary
       >
         {Belt.List.map(sections, section => 
-          <MUI.Link
+          <Mui.Link
             color=`inherit_
             noWrap=true
             key=section
@@ -209,77 +209,77 @@ let make = () => {
             className=classes##toolbarLink
           >
             {React.string(section)}
-          </MUI.Link>
+          </Mui.Link>
         )
           ->Belt.List.toArray
           ->React.array}
-      </MUI.Toolbar>
+      </Mui.Toolbar>
       <main>
-        <MUI.Paper className=classes##mainFeaturedPost>
+        <Mui.Paper className=classes##mainFeaturedPost>
           <img 
             style=ReactDOMRe.Style.make(~display="none", ())
             src="https://source.unsplash.com/user/erondu"
             alt="background"
           />
           <div className=classes##overlay />
-          <MUI.Grid container=true>
-            <MUI.Grid item=true md=MUI.Grid.size(6)>
+          <Mui.Grid container=true>
+            <Mui.Grid item=true md=Mui.Grid.size(6)>
               <div className=classes##mainFeaturedPostContent>
-                <MUI.Typography component="h1" variant=`h3 color=`inherit_ gutterBottom=true>
+                <Mui.Typography component="h1" variant=`h3 color=`inherit_ gutterBottom=true>
                   {React.string("Title of a longer featured blog post")}
-                </MUI.Typography>
-                <MUI.Typography variant=`h5 color=`inherit_ paragraph=true>
+                </Mui.Typography>
+                <Mui.Typography variant=`h5 color=`inherit_ paragraph=true>
                   {React.string("Multiple lines of text that form the lede, informing new readers quickly and
                     efficiently about what's most interesting in this post's contents.")}
-                </MUI.Typography>
-                <MUI.Link variant=`subtitle1 href="#">
+                </Mui.Typography>
+                <Mui.Link variant=`subtitle1 href="#">
                   {React.string("Continue reading...")}
-                </MUI.Link>
+                </Mui.Link>
               </div>
-            </MUI.Grid>
-          </MUI.Grid>
-        </MUI.Paper>
-        <MUI.Grid container=true spacing=4>
+            </Mui.Grid>
+          </Mui.Grid>
+        </Mui.Paper>
+        <Mui.Grid container=true spacing=4>
           {Belt.List.map(featuredPosts, post => 
-            <MUI.Grid item=true key=post.title xs=MUI.Grid.size(12) md=MUI.Grid.size(6)>
-              <MUI.CardActionArea component="a" href="#">
-                <MUI.Card className=classes##card>
+            <Mui.Grid item=true key=post.title xs=Mui.Grid.size(12) md=Mui.Grid.size(6)>
+              <Mui.CardActionArea component="a" href="#">
+                <Mui.Card className=classes##card>
                   <div className=classes##cardDetails>
-                    <MUI.CardContent>
-                      <MUI.Typography component="h2" variant=`h5>
+                    <Mui.CardContent>
+                      <Mui.Typography component="h2" variant=`h5>
                         {React.string(post.title)}
-                      </MUI.Typography>
-                      <MUI.Typography variant=`subtitle1 color=`textSecondary>
+                      </Mui.Typography>
+                      <Mui.Typography variant=`subtitle1 color=`textSecondary>
                         {React.string(post.date)}
-                      </MUI.Typography>
-                      <MUI.Typography variant=`subtitle1 paragraph=true>
+                      </Mui.Typography>
+                      <Mui.Typography variant=`subtitle1 paragraph=true>
                         {React.string(post.description)}
-                      </MUI.Typography>
-                      <MUI.Typography variant=`subtitle1 color=`primary>
+                      </Mui.Typography>
+                      <Mui.Typography variant=`subtitle1 color=`primary>
                         {React.string("Continue reading...")}
-                      </MUI.Typography>
-                    </MUI.CardContent>
+                      </Mui.Typography>
+                    </Mui.CardContent>
                   </div>
-                  <MUI.Hidden xsDown=true>
-                    <MUI.CardMedia 
+                  <Mui.Hidden xsDown=true>
+                    <Mui.CardMedia 
                       className=classes##cardMedia
                       image="https://source.unsplash.com/random"
                       title="Image title"
                     />
-                  </MUI.Hidden>
-                </MUI.Card>
-              </MUI.CardActionArea>
-            </MUI.Grid>
+                  </Mui.Hidden>
+                </Mui.Card>
+              </Mui.CardActionArea>
+            </Mui.Grid>
           )
             ->Belt.List.toArray
             ->React.array}
-        </MUI.Grid>
-        <MUI.Grid container=true spacing=5 className=classes##mainGrid>
-          <MUI.Grid item=true xs=MUI.Grid.size(12) md=MUI.Grid.size(8)>
-            <MUI.Typography variant=`h6 gutterBottom=true>
+        </Mui.Grid>
+        <Mui.Grid container=true spacing=5 className=classes##mainGrid>
+          <Mui.Grid item=true xs=Mui.Grid.size(12) md=Mui.Grid.size(8)>
+            <Mui.Typography variant=`h6 gutterBottom=true>
               {React.string("From the Firehose")}
-            </MUI.Typography>
-            <MUI.Divider />
+            </Mui.Typography>
+            <Mui.Divider />
             {Belt.List.map(posts, post => {
               <MarkdownPost className=classes##markdown key=Js.String2.substring(post, ~from=0, ~to_=40)>
                 {React.string(post)}
@@ -287,51 +287,51 @@ let make = () => {
             })
               ->Belt.List.toArray
               ->React.array}
-          </MUI.Grid>
-          <MUI.Grid item=true xs=MUI.Grid.size(12) md=MUI.Grid.size(4)>
-            <MUI.Paper elevation=`_0 className=classes##sidebarAboutBox>
-              <MUI.Typography variant=`h6 gutterBottom=true>
+          </Mui.Grid>
+          <Mui.Grid item=true xs=Mui.Grid.size(12) md=Mui.Grid.size(4)>
+            <Mui.Paper elevation=`_0 className=classes##sidebarAboutBox>
+              <Mui.Typography variant=`h6 gutterBottom=true>
                 {React.string("About")}
-              </MUI.Typography>
-              <MUI.Typography>
+              </Mui.Typography>
+              <Mui.Typography>
                 {React.string("Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit
                   amet fermentum. Aenean lacinia bibendum nulla sed consectetur.")}
-              </MUI.Typography>
-            </MUI.Paper>
-            <MUI.Typography variant=`h6 gutterBottom=true className=classes##sidebarSection>
+              </Mui.Typography>
+            </Mui.Paper>
+            <Mui.Typography variant=`h6 gutterBottom=true className=classes##sidebarSection>
               {React.string("Archives")}
-            </MUI.Typography>
+            </Mui.Typography>
             {Belt.List.map(archives, archive => 
-              <MUI.Link display=`block variant=`body1 href="#" key=archive>
+              <Mui.Link display=`block variant=`body1 href="#" key=archive>
                 {React.string(archive)}
-              </MUI.Link>
+              </Mui.Link>
             )
               ->Belt.List.toArray
               ->React.array}
-            <MUI.Typography variant=`h6 gutterBottom=true className=classes##sidebarSection>
+            <Mui.Typography variant=`h6 gutterBottom=true className=classes##sidebarSection>
               {React.string("Social")}
-            </MUI.Typography>
+            </Mui.Typography>
             {Belt.List.map(social, network => 
-              <MUI.Link display=`block variant=`body1 href="#" key=network>
+              <Mui.Link display=`block variant=`body1 href="#" key=network>
                 {React.string(network)}
-              </MUI.Link>
+              </Mui.Link>
             )
               ->Belt.List.toArray
               ->React.array}
-          </MUI.Grid>
-        </MUI.Grid>
+          </Mui.Grid>
+        </Mui.Grid>
       </main>
-    </MUI.Container>
+    </Mui.Container>
     <footer className=classes##footer>
-      <MUI.Container maxWidth=MUI.Container.maxWidth("lg")>
-        <MUI.Typography variant=`h6 align=`center color=`textSecondary component="p">
+      <Mui.Container maxWidth=Mui.Container.maxWidth("lg")>
+        <Mui.Typography variant=`h6 align=`center color=`textSecondary component="p">
           {React.string("Footer")}
-        </MUI.Typography>
-        <MUI.Typography variant=`subtitle1 align=`center color=`textSecondary component="p">
+        </Mui.Typography>
+        <Mui.Typography variant=`subtitle1 align=`center color=`textSecondary component="p">
           {React.string("Something here to give the footer a purpose!")}
-        </MUI.Typography>
+        </Mui.Typography>
         <Copyright />
-      </MUI.Container>
+      </Mui.Container>
     </footer>
   </>
 };

@@ -1,4 +1,4 @@
-open MUI.Styles;
+open Mui.Styles;
 
 let theme = Theme.(make(options(
   ~palette=Palette.options(
@@ -9,7 +9,7 @@ let theme = Theme.(make(options(
       ~main="#19857b",
       ()),
     ~error=PaletteColor.optionsSimple(
-      ~main=MUI.Colors.(a400(red)), 
+      ~main=Mui.Colors.(a400(red)), 
       ()),
     ~background=BackgroundColor.make(
       ~default="#fff",
