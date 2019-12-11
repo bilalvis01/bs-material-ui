@@ -1,8 +1,6 @@
 type props;
 type classes;
 
-include MuiCommonProps.MakeTransitionDuration();
-
 [@bs.obj]
 external classes: (
   ~paper: string=?,
