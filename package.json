@@ -11,7 +11,8 @@
     "bs-mui-icons:build-material-icon-list": "lerna run build-material-icon-list --scope @bilalvis01/bs-material-ui-icons --stream --no-prefix",
     "docs:next:dev": "lerna run next:dev --scope docs --stream --no-prefix",
     "docs:next:build": "lerna run next:build --scope docs --stream --no-prefix",
-    "docs:next:start": "lerna run next:start --scope docs --stream --no-prefix"
+    "docs:next:start": "lerna run next:start --scope docs --stream --no-prefix",
+    "docs:build-icons": "lerna run build-icons --scope docs --stream --no-prefix"
   },
   "devDependencies": {
     "bs-platform": "7.0.1",
