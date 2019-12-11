@@ -535,7 +535,7 @@ external makeProps: (
   ~typeof: string=?,
   ~vocab: string=?,
   // react-specific
-  ~dangerouslySetInnerHTML: {. "__html": string}=?,
+  ~dangerouslySetInnerHTML: MuiCommonProps.domInnerHtml=?,
   ~suppressContentEditableWarning: bool=?,
   unit
 ) => props = "";

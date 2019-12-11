@@ -1,0 +1,1 @@
+type domInnerHtml = {__html: string};
