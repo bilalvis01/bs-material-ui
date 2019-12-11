@@ -16,8 +16,7 @@
   ],
   "bs-dependencies": [
     "reason-react",
-    "@bilalvis01/bs-material-ui",
-    "@bilalvis01/bs-material-ui-icons"
+    "@bilalvis01/bs-material-ui"
   ],
   "reason": {
     "react-jsx": 3
