@@ -3,25 +3,25 @@ type options;
 
 [@bs.module "@material-ui/core/styles/createTypography"]
 external make: (
-  ~palette: MUI_Styles_Palette.t=?, 
-  ~typography: MUI_Styles_Palette.t => options=?,
+  ~palette: Mui_Styles_Palette.t=?, 
+  ~typography: Mui_Styles_Palette.t => options=?,
   unit,
 ) => t = "default";
 [@bs.obj]
 external options: (
-  ~h1: MUI_Styles_TypographyStyle.options=?,
-  ~h2: MUI_Styles_TypographyStyle.options=?,
-  ~h3: MUI_Styles_TypographyStyle.options=?,
-  ~h4: MUI_Styles_TypographyStyle.options=?,
-  ~h5: MUI_Styles_TypographyStyle.options=?,
-  ~h6: MUI_Styles_TypographyStyle.options=?,
-  ~subtitle1: MUI_Styles_TypographyStyle.options=?,
-  ~subtitle2: MUI_Styles_TypographyStyle.options=?,
-  ~body1: MUI_Styles_TypographyStyle.options=?,
-  ~body2: MUI_Styles_TypographyStyle.options=?,
-  ~caption: MUI_Styles_TypographyStyle.options=?,
-  ~button: MUI_Styles_TypographyStyle.options=?,
-  ~overline: MUI_Styles_TypographyStyle.options=?,
+  ~h1: Mui_Styles_TypographyStyle.options=?,
+  ~h2: Mui_Styles_TypographyStyle.options=?,
+  ~h3: Mui_Styles_TypographyStyle.options=?,
+  ~h4: Mui_Styles_TypographyStyle.options=?,
+  ~h5: Mui_Styles_TypographyStyle.options=?,
+  ~h6: Mui_Styles_TypographyStyle.options=?,
+  ~subtitle1: Mui_Styles_TypographyStyle.options=?,
+  ~subtitle2: Mui_Styles_TypographyStyle.options=?,
+  ~body1: Mui_Styles_TypographyStyle.options=?,
+  ~body2: Mui_Styles_TypographyStyle.options=?,
+  ~caption: Mui_Styles_TypographyStyle.options=?,
+  ~button: Mui_Styles_TypographyStyle.options=?,
+  ~overline: Mui_Styles_TypographyStyle.options=?,
   ~fontFamily: string=?,
   ~fontSize: int=?,
   ~fontWeightLight: int=?,
@@ -29,7 +29,7 @@ external options: (
   ~fontWeightMedium: int=?,
   ~fontWeightBold: int=?,
   ~htmlFontSize: int=?,
-  ~allVariants: MUI_Styles_Style.t=?,
+  ~allVariants: Mui_Styles_Style.t=?,
   unit
 ) => options = "";
 [@bs.get]
@@ -51,28 +51,28 @@ external fontWeightMedium: t => int = "fontSize";
 [@bs.get]
 external fontWeightBold: t => int = "fontSize";
 [@bs.get]
-external h1: t => MUI_Styles_Style.t = "h1";
+external h1: t => Mui_Styles_Style.t = "h1";
 [@bs.get]
-external h2: t => MUI_Styles_Style.t = "h2";
+external h2: t => Mui_Styles_Style.t = "h2";
 [@bs.get]
-external h3: t => MUI_Styles_Style.t = "h3";
+external h3: t => Mui_Styles_Style.t = "h3";
 [@bs.get]
-external h4: t => MUI_Styles_Style.t = "h4";
+external h4: t => Mui_Styles_Style.t = "h4";
 [@bs.get]
-external h5: t => MUI_Styles_Style.t = "h5";
+external h5: t => Mui_Styles_Style.t = "h5";
 [@bs.get]
-external h6: t => MUI_Styles_Style.t = "h6";
+external h6: t => Mui_Styles_Style.t = "h6";
 [@bs.get]
-external subtitle1: t => MUI_Styles_Style.t = "subtitle1";
+external subtitle1: t => Mui_Styles_Style.t = "subtitle1";
 [@bs.get]
-external subtitle2: t => MUI_Styles_Style.t = "subtitle2";
+external subtitle2: t => Mui_Styles_Style.t = "subtitle2";
 [@bs.get]
-external body1: t => MUI_Styles_Style.t = "body1";
+external body1: t => Mui_Styles_Style.t = "body1";
 [@bs.get]
-external body2: t => MUI_Styles_Style.t = "body2";
+external body2: t => Mui_Styles_Style.t = "body2";
 [@bs.get]
-external button: t => MUI_Styles_Style.t = "button";
+external button: t => Mui_Styles_Style.t = "button";
 [@bs.get]
-external caption: t => MUI_Styles_Style.t = "caption";
+external caption: t => Mui_Styles_Style.t = "caption";
 [@bs.get]
-external overline: t => MUI_Styles_Style.t = "overline";
+external overline: t => Mui_Styles_Style.t = "overline";

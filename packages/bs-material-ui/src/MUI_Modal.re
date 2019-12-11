@@ -6,7 +6,7 @@ external objToProps: Js.t({..}) => props = "%identity";
 external makeProps: (
   /* Modal props */
   ~_BackdropComponent: string=?,
-  // ~_BackdropProps: MUI_Backdrop.props=?,
+  // ~_BackdropProps: Mui_Backdrop.props=?,
   ~children: React.element=?,
   ~closeAfterTransition: bool=?,
   ~container: React.element=?,

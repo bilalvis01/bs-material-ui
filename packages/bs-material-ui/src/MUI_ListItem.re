@@ -31,7 +31,7 @@ external makeProps: (
   ~classes: classes=?,
   ~component: string=?,
   ~_ContainerComponent: string=?,
-  ~_ContainerProps: MUI_Container.props=?,
+  ~_ContainerProps: Mui_Container.props=?,
   ~dense: bool=?,
   ~disabled: bool=?,
   ~disableGutters: bool=?,

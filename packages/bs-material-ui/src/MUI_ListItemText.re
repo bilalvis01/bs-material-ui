@@ -22,9 +22,9 @@ external makeProps: (
   ~disableTypography: bool=?,
   ~inset: bool=?,
   ~primary: React.element=?,
-  ~primaryTypographyProps: MUI_Typography.props=?,
+  ~primaryTypographyProps: Mui_Typography.props=?,
   ~secondary: React.element=?,
-  ~secondaryTypograhyProps: MUI_Typography.props=?,
+  ~secondaryTypograhyProps: Mui_Typography.props=?,
   /* Dom props */
   ~key: string=?,
   ~ref: ReactDOMRe.domRef=?,

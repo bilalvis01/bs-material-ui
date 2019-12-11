@@ -29,7 +29,7 @@ external makeProps: (
     | `textSecondary
   ]=?,
   ~component: string=?,
-  ~_TypographyClasses: MUI_Typography.classes=?,
+  ~_TypographyClasses: Mui_Typography.classes=?,
   ~underline: [@bs.string] [ | `none | `hover | `always ]=?,
   ~variant: [@bs.string] [
     | `h1
@@ -60,7 +60,7 @@ external makeProps: (
   ~gutterBottom: bool=?,
   ~noWrap: bool=?,
   ~paragraph: bool=?,
-  ~variantMapping: MUI_Typography.variantMapping=?,
+  ~variantMapping: Mui_Typography.variantMapping=?,
   /* Dom props */
   ~key: string=?,
   ~ref: ReactDOMRe.domRef=?,

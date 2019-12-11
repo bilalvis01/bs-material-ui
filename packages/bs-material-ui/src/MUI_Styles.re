@@ -13,12 +13,12 @@ module Make = (Styles: StylesType) => {
   [@bs.module "@material-ui/core/styles"]
   external make: ( 
     [@bs.uncurry] 
-    (Styles.theme => Styles.styles(Styles.props => MUI_Styles_Style.t))
+    (Styles.theme => Styles.styles(Styles.props => Mui_Styles_Style.t))
   ) => stylesHook(Styles.props) = "makeStyles";
   [@bs.module "@material-ui/core/styles"]
   external makeWithOptions: (
     [@bs.uncurry] 
-    (Styles.theme => Styles.styles(Styles.props => MUI_Styles_Style.t)), 
+    (Styles.theme => Styles.styles(Styles.props => Mui_Styles_Style.t)), 
     options
   ) => stylesHook(Styles.props) = "makeStyles";
 };
@@ -28,38 +28,38 @@ module Make = (Styles: StylesType) => {
  * Style helper
  * 
  */
-module Style = MUI_Styles_Style;
+module Style = Mui_Styles_Style;
 
 /**
  * 
  * Color manipulator helper
  * 
  */
-module ColorManipulator = MUI_Styles_ColorManipulator;
+module ColorManipulator = Mui_Styles_ColorManipulator;
 
 /**
  * 
  * Theme helper
  * 
  */
-module Theme = MUI_Styles_Theme;
-module Shape = MUI_Styles_Shape;
-module Breakpoints = MUI_Styles_Breakpoints;
-module Mixins = MUI_Styles_Mixins;
-module Overrides = MUI_Styles_Overrides;
-module AppBar = MUI_Styles_AppBar;
-module Palette = MUI_Styles_Palette;
-module PaletteColor = MUI_Styles_PaletteColor;
-module ActionColor = MUI_Styles_ActionColor;
-module TextColor = MUI_Styles_TextColor;
-module Color = MUI_Styles_Color;
-module BackgroundColor = MUI_Styles_BackgroundColor;
-module CommonColor = MUI_Styles_CommonColor;
-module Props = MUI_Styles_Props;
-module Shadows = MUI_Styles_Shadows;
-module Transitions = MUI_Styles_Transitions;
-module TransitionDuration = MUI_Styles_TransitionDuration;
-module Easing = MUI_Styles_Easing;
-module Typography = MUI_Styles_Typography;
-module TypographyStyle = MUI_Styles_TypographyStyle;
-module ZIndex = MUI_Styles_ZIndex;
+module Theme = Mui_Styles_Theme;
+module Shape = Mui_Styles_Shape;
+module Breakpoints = Mui_Styles_Breakpoints;
+module Mixins = Mui_Styles_Mixins;
+module Overrides = Mui_Styles_Overrides;
+module AppBar = Mui_Styles_AppBar;
+module Palette = Mui_Styles_Palette;
+module PaletteColor = Mui_Styles_PaletteColor;
+module ActionColor = Mui_Styles_ActionColor;
+module TextColor = Mui_Styles_TextColor;
+module Color = Mui_Styles_Color;
+module BackgroundColor = Mui_Styles_BackgroundColor;
+module CommonColor = Mui_Styles_CommonColor;
+module Props = Mui_Styles_Props;
+module Shadows = Mui_Styles_Shadows;
+module Transitions = Mui_Styles_Transitions;
+module TransitionDuration = Mui_Styles_TransitionDuration;
+module Easing = Mui_Styles_Easing;
+module Typography = Mui_Styles_Typography;
+module TypographyStyle = Mui_Styles_TypographyStyle;
+module ZIndex = Mui_Styles_ZIndex;

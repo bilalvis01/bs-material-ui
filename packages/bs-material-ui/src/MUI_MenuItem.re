@@ -28,7 +28,7 @@ external makeProps: (
   ~autoFocus: bool=?,
   ~button: bool=?,
   ~_ContainerComponent: string=?,
-  ~_ContainerProps: MUI_Container.props=?,
+  ~_ContainerProps: Mui_Container.props=?,
   ~disabled: bool=?,
   ~divider: bool=?,
   ~selected: bool=?,

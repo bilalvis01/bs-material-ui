@@ -62,11 +62,11 @@ external makeProps: (
     | `_23
     | `_24
   ]=?,
-  ~_ModalProps: MUI_Modal.props=?,
+  ~_ModalProps: Mui_Modal.props=?,
   ~onClose: ReactEvent.synthetic('a) => unit=?,
   ~_open: bool=?, 
-  ~_PaperProps: MUI_Paper.props=?,
-  // ~_SlideProps: MUI_Slide.props=?,
+  ~_PaperProps: Mui_Paper.props=?,
+  // ~_SlideProps: Mui_Slide.props=?,
   ~transitionDuration: transitionDuration=?,
   ~variant: [@bs.string] [ | `permanent | `persistent | `temporary ]=?,
   /* Dom props */

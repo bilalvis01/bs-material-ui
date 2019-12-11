@@ -26,21 +26,21 @@ external classes: (
 external makeProps: (
   /* TablePagination props */
   ~_ActionsComponent: string=?,
-  ~backIconButtonProps: MUI_IconButton.props=?,
+  ~backIconButtonProps: Mui_IconButton.props=?,
   ~backIconButtonText: string=?,
   ~classes: classes=?,
   ~component: string=?,
   ~count: int,
   ~labelDisplayedRows: labelDisplayedRowsParam => string=?,
   ~labelRowsPerPage: React.element=?,
-  ~nextIconButtonProps: MUI_IconButton.props=?,
+  ~nextIconButtonProps: Mui_IconButton.props=?,
   ~nextIconButtonText: string=?,
   ~onChangePage: (ReactEvent.synthetic('onChangePage), int) => unit,
   ~onChangeRowsPerPage: ReactEvent.synthetic('onChangeRowsPerPage) => unit,
   ~page: int,
   ~rowsPerPage: int,
   ~rowsPerPageOptions: array(int)=?,
-  // ~_SelectProps: MUI_Select.props=?,
+  // ~_SelectProps: Mui_Select.props=?,
   /* TableCell props */
   ~align: [@bs.string] [
     | [@bs.as "inherit"] `inherit_
@@ -60,7 +60,7 @@ external makeProps: (
     | `small
     | `medium
   ]=?,
-  ~sortDirection: MUI_TableCell.sortDirection=?,
+  ~sortDirection: Mui_TableCell.sortDirection=?,
   ~variant: [@bs.string] [
     | `head
     | `body
