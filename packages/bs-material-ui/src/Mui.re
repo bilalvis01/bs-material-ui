@@ -39,6 +39,7 @@ module TableFooter = Mui_TableFooter;
 module TableRow = Mui_TableRow;
 module TableCell = Mui_TableCell;
 module TableBody = Mui_TableBody;
+module TableSortLabel = Mui_TableSortLabel;
 module TextField = Mui_TextField;
 module FormControlLabel = Mui_FormControlLabel;
 module Checkbox = Mui_Checkbox;
