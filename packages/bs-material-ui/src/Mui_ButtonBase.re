@@ -28,7 +28,7 @@ external makeProps: (
   /*
   ~_TouchRippleProps: Mui_TouchRipple.props=?,
   */
-  ~_type: [@bs.string] [ | `submit | `reset | `button ],
+  ~_type: [@bs.string] [ | `submit | `reset | `button ]=?,
   /* Dom props */
   ~key: string=?,
   ~ref: ReactDOMRe.domRef=?,
