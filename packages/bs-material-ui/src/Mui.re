@@ -19,6 +19,7 @@ module FormControl = Mui_FormControl;
 module FormControlLabel = Mui_FormControlLabel;
 module FormGroup = Mui_FormGroup;
 module FormHelperText = Mui_FormHelperText;
+module FormLabel = Mui_FormLabel;
 module Grid = Mui_Grid;
 module Hidden = Mui_Hidden;
 module InputBase = Mui_InputBase;
