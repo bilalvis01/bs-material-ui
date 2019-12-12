@@ -22,7 +22,7 @@ external objToProps: Js.t({..}) => props = "%identity";
 
 [@bs.obj]
 external makeProps: (
-  ~children: React.element=?,
+  ~children: React.element,
   ~classes: classes=?,
   ~component: string=?,
   ~fixed: bool=?,
