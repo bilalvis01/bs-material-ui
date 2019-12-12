@@ -15,6 +15,8 @@ module Container = Mui_Container;
 module Colors = Mui_Colors;
 module Drawer = Mui_Drawer;
 module Divider = Mui_Divider;
+module FormControl = Mui_FormControl;
+module FormControlLabel = Mui_FormControlLabel;
 module Grid = Mui_Grid;
 module Hidden = Mui_Hidden;
 module InputBase = Mui_InputBase;
@@ -42,7 +44,6 @@ module TableCell = Mui_TableCell;
 module TableBody = Mui_TableBody;
 module TableSortLabel = Mui_TableSortLabel;
 module TextField = Mui_TextField;
-module FormControlLabel = Mui_FormControlLabel;
 module Checkbox = Mui_Checkbox;
 module Box = Mui_Box;
 
