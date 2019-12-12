@@ -39,7 +39,7 @@ external objToProps: Js.t({..}) => props = "%identity";
 [@bs.obj]
 external makeProps: (
   /* Button props */
-  ~children: React.element=?,
+  ~children: React.element,
   ~classes: classes=?,
   ~color: [@bs.string] [ 
     | `default 
