@@ -2,6 +2,17 @@ type props;
 type classes;
 
 [@bs.obj]
+external classes: (
+  ~root: string=?,
+  ~avatar: string=?,
+  ~action: string=?,
+  ~content: string=?,
+  ~title: string=?,
+  ~subheader: string=?,
+  unit
+) => classes = "";
+
+[@bs.obj]
 external makeProps: (
   /* CardHeader props */
   ~action: React.element=?,
