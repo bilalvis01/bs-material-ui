@@ -32,13 +32,13 @@ external makeProps: (
   ]=?,
   ~name: string=?,
   ~onChange: ReactEvent.Form.t => unit=?,
-  ~value: string=?,
+  ~value: 'value=?,
   /* Dom props */
   ~key: string=?,
   ~ref: ReactDOMRe.domRef=?,
   // react textarea/input
   ~defaultChecked: bool=?,
-  ~defaultValue: string=?,
+  ~defaultValue: 'defaultValue=?,
   // global html attributes
   ~accessKey: string=?,
   ~className: string=?, // substitute for "class" 

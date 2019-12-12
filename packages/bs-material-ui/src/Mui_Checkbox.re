@@ -60,7 +60,7 @@ external makeProps: (
     | `url
     | `week
   ]=?,
-  ~value: string=?,
+  ~value: 'value=?,
   /* IconButton props */
   // ~children: React.element=?,
   // ~classes: classes=?,
@@ -207,7 +207,7 @@ external makeProps: (
   ~ref: ReactDOMRe.domRef=?,
   // react textarea/input
   ~defaultChecked: bool=?,
-  ~defaultValue: string=?,
+  ~defaultValue: 'defaultValue=?,
   // global html attributes
   ~accessKey: string=?,
   ~className: string=?, // substitute for "class" 

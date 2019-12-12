@@ -27,7 +27,7 @@ external makeProps: (
   ~classes: classes=?,
   ~className: string=?,
   ~color: [@bs.string] [ | `primary | `secondary ]=?,
-  ~defaultValue: string=?,
+  ~defaultValue: 'defaultValue=?,
   ~disabled: bool=?,
   ~disableUnderline: bool=?,
   ~endAdornment: React.element=?,
@@ -180,7 +180,7 @@ external makeProps: (
     | `url
     | `week
   ]=?,
-  ~value: string=?,
+  ~value: 'value=?,
   // InputBase props
   ~select: bool=?,
   /* Dom props */

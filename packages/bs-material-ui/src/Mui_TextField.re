@@ -12,12 +12,11 @@ external objToProps: Js.t({..}) => props = "%identity";
 [@bs.obj]
 external makeProps: (
   /* TextField props */
-  ~children: React.element=?,
   ~autoComplete: string=?,
   ~autoFocus: bool=?,
   ~classes: classes=?,
   ~color: [@bs.string] [ | `primary | `secondary ]=?,
-  ~defaultValue: string=?,
+  ~defaultValue: 'defaultValue=?,
   ~disabled: bool=?,
   ~error: bool=?,
   // ~_FormHelperTextProps: Mui_FormHelperText.props=?,
@@ -40,8 +39,10 @@ external makeProps: (
   ~select: bool=?,
   // ~_SelectProps: Mui_Select.props=?,
   ~_type: string=?,
+  ~value: 'value=?,
   ~variant: [@bs.string] [ | `standard | `outlined | `filled ]=?,
   /* FormControl props */
+  ~children: React.element=?,
   ~component: [@bs.string] [
     | `address
     | `article
