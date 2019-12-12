@@ -26,7 +26,7 @@ external makeProps: (
   ~onExit: Dom.element => unit=?,
   ~onExited: Dom.element => unit=?,
   ~onExiting: Dom.element => unit=?,
-  ~_open: bool=?,
+  ~_open: bool,
   ~_PopoverClasses: Mui_Popover.classes=?,
   ~transitionDuration: MuiCommonProps.TransitionDuration.t=?,
   ~variant: [@bs.string] [ | `menu | `selectedMenu ]=?,
