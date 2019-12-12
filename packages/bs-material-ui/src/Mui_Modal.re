@@ -7,7 +7,7 @@ external makeProps: (
   /* Modal props */
   ~_BackdropComponent: string=?,
   // ~_BackdropProps: Mui_Backdrop.props=?,
-  ~children: React.element=?,
+  ~children: React.element,
   ~closeAfterTransition: bool=?,
   ~container: React.element=?,
   ~disableAutoFocus: bool=?,
@@ -23,7 +23,7 @@ external makeProps: (
   ~onClose: (ReactEvent.synthetic('a), string) => unit=?,
   ~onEscapeKeyDown: ReactEvent.Keyboard.t => unit=?,
   ~onRendered: unit => unit=?,
-  ~_open: bool=?,
+  ~_open: bool,
   /* Dom props */
   ~key: string=?,
   ~ref: ReactDOMRe.domRef=?,
