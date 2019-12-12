@@ -31,7 +31,7 @@ external makeProps: (
   ~onExit: Dom.element => unit=?,
   ~onExited: Dom.element => unit=?,
   ~onExiting: Dom.element => unit=?,
-  ~_open: bool=?,
+  ~_open: bool,
   ~_PaperProps: Mui_Paper.props=?,
   ~transformOrigin: MuiCommonProps.transformOrigin('transformOriginHor, 'transformOriginVer)=?,
   ~_TransitionComponent: string=?,
