@@ -17,6 +17,7 @@ module Drawer = Mui_Drawer;
 module Divider = Mui_Divider;
 module FormControl = Mui_FormControl;
 module FormControlLabel = Mui_FormControlLabel;
+module FormGroup = Mui_FormGroup;
 module Grid = Mui_Grid;
 module Hidden = Mui_Hidden;
 module InputBase = Mui_InputBase;
