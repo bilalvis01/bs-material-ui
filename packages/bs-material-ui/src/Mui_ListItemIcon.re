@@ -13,7 +13,7 @@ external objToProps: Js.t({..}) => props = "%identity";
 [@bs.obj]
 external makeProps: (
   /* ListItemIcon props */
-  ~children: React.element=?,
+  ~children: React.element,
   ~classes: classes=?,
   /* Dom props */
   ~key: string=?,
