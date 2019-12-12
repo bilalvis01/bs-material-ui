@@ -10,6 +10,7 @@ module CardActionArea = Mui_CardActionArea;
 module CardMedia = Mui_CardMedia;
 module CardContent = Mui_CardContent;
 module CardActions = Mui_CardActions;
+module CardHeader = Mui_CardHeader;
 module Container = Mui_Container;
 module Colors = Mui_Colors;
 module Drawer = Mui_Drawer;
