@@ -36,7 +36,7 @@ external makeProps: (
   ~nextIconButtonProps: Mui_IconButton.props=?,
   ~nextIconButtonText: string=?,
   ~onChangePage: (ReactEvent.synthetic('onChangePage), int) => unit,
-  ~onChangeRowsPerPage: ReactEvent.synthetic('onChangeRowsPerPage) => unit,
+  ~onChangeRowsPerPage: ReactEvent.synthetic('onChangeRowsPerPage) => unit=?,
   ~page: int,
   ~rowsPerPage: int,
   ~rowsPerPageOptions: array(int)=?,
