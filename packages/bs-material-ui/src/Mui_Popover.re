@@ -1,5 +1,27 @@
 type classes;
 type props;
+type transitionDuration;
+type anchorOrigin('h, 'v) = {
+  horizontal: 'h,
+  vertical: 'v,
+};
+type anchorPosition = {
+  left: int,
+  top: int,
+};
+type transformOrigin('h, 'v) = {
+  horizontal: 'h,
+  vertical: 'v,
+};
+
+external transitionDuration: int => transitionDuration = "%identity";
+let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
+[@bs.obj]
+external transitionDurationObj: (
+  ~enter: int=?,
+  ~exit: int=?,
+  unit
+) => transitionDuration = "";
 
 [@bs.obj]
 external classes: (
@@ -15,7 +37,7 @@ external makeProps: (
   /* Popover props */
   ~action: ReactDOMRe.domRef=?,
   ~anchorEl: Dom.element=?,
-  ~anchorOrigin: MuiCommonProps.anchorOrigin('anchorOriginHor, 'anchorOriginVer)=?,
+  ~anchorOrigin: MuiCommonProps.anchorOrigin('anchorOriginH, 'anchorOriginV)=?,
   ~anchorPosition: MuiCommonProps.anchorPosition=?,
   ~anchorReference: string=?,
   ~children: React.element=?,
@@ -33,7 +55,7 @@ external makeProps: (
   ~onExiting: Dom.element => unit=?,
   ~_open: bool,
   ~_PaperProps: Mui_Paper.props=?,
-  ~transformOrigin: MuiCommonProps.transformOrigin('transformOriginHor, 'transformOriginVer)=?,
+  ~transformOrigin: MuiCommonProps.transformOrigin('transformOriginH, 'transformOriginV)=?,
   ~_TransitionComponent: [@bs.string] [
     | `address
     | `article
