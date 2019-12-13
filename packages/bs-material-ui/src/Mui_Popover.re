@@ -37,8 +37,8 @@ external makeProps: (
   /* Popover props */
   ~action: ReactDOMRe.domRef=?,
   ~anchorEl: Dom.element=?,
-  ~anchorOrigin: MuiCommonProps.anchorOrigin('anchorOriginH, 'anchorOriginV)=?,
-  ~anchorPosition: MuiCommonProps.anchorPosition=?,
+  ~anchorOrigin: anchorOrigin('anchorOriginH, 'anchorOriginV)=?,
+  ~anchorPosition: anchorPosition=?,
   ~anchorReference: string=?,
   ~children: React.element=?,
   ~classes: classes=?,
@@ -55,7 +55,7 @@ external makeProps: (
   ~onExiting: Dom.element => unit=?,
   ~_open: bool,
   ~_PaperProps: Mui_Paper.props=?,
-  ~transformOrigin: MuiCommonProps.transformOrigin('transformOriginH, 'transformOriginV)=?,
+  ~transformOrigin: transformOrigin('transformOriginH, 'transformOriginV)=?,
   ~_TransitionComponent: [@bs.string] [
     | `address
     | `article
@@ -166,7 +166,7 @@ external makeProps: (
     | `slot
     | `template
   ]=?,
-  ~transitionDuration: MuiCommonProps.TransitionDuration.t=?,
+  ~transitionDuration: transitionDuration=?,
   // ~_TransitionProps: ReactTransitionGroup.Transition.props=?,
   /* Modal props */
   ~_BackdropComponent: [@bs.string] [
