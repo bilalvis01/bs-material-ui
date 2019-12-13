@@ -1,5 +1,27 @@
 type props;
 type classes;
+type transitionDuration;
+type anchorOrigin('h, 'v) = {
+  horizontal: 'h,
+  vertical: 'v,
+};
+type anchorPosition = {
+  left: int,
+  top: int,
+};
+type transformOrigin('h, 'v) = {
+  horizontal: 'h,
+  vertical: 'v,
+};
+
+external transitionDuration: int => transitionDuration = "%identity";
+let transitionDurationAuto: transitionDuration = [%raw "'auto'"];
+[@bs.obj]
+external transitionDurationObj: (
+  ~enter: int=?,
+  ~exit: int=?,
+  unit
+) => transitionDuration = "";
 
 [@bs.obj]
 external classes: (
@@ -28,19 +50,19 @@ external makeProps: (
   ~onExiting: Dom.element => unit=?,
   ~_open: bool,
   ~_PopoverClasses: Mui_Popover.classes=?,
-  ~transitionDuration: MuiCommonProps.TransitionDuration.t=?,
+  ~transitionDuration: transitionDuration=?,
   ~variant: [@bs.string] [ | `menu | `selectedMenu ]=?,
   /* Popover props */
   ~action: ReactDOMRe.domRef=?,
-  ~anchorOrigin: MuiCommonProps.anchorOrigin('anchorOriginHor, 'anchorOriginVer)=?,
-  ~anchorPosition: MuiCommonProps.anchorPosition=?,
+  ~anchorOrigin: anchorOrigin('anchorOriginH, 'anchorOriginV)=?,
+  ~anchorPosition: anchorPosition=?,
   ~anchorReference: [@bs.string] [ | `anchorEl | `anchorPosition | `none ]=?,
   ~container: unit => React.element=?,
   ~elevation: int=?,
   ~getContentAnchorEl: Dom.element => unit=?,
   ~marginThreshold: int=?,
   ~_PaperProps: Mui_Paper.props=?,
-  ~transformOrigin: MuiCommonProps.transformOrigin('transformOriginHor, 'transformOriginVer)=?,
+  ~transformOrigin: transformOrigin('transformOriginH, 'transformOriginV)=?,
   ~_TransitionComponent: [@bs.string] [
     | `address
     | `article
