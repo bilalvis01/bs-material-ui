@@ -30,6 +30,7 @@ module ListItem = Mui_ListItem;
 module ListItemAvatar = Mui_ListItemAvatar;
 module ListItemIcon = Mui_ListItemIcon;
 module ListItemText = Mui_ListItemText;
+module ListItemSecondaryAction = Mui_ListItemSecondaryAction;
 module ListSubheader = Mui_ListSubheader;
 module Menu = Mui_Menu;
 module MenuItem = Mui_MenuItem;
