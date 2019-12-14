@@ -1,6 +1,16 @@
 type props;
 type classes;
 
+[@bs.obj]
+external classes: (
+  ~root: string=?,
+  ~active: string=?,
+  ~icon: string=?,
+  ~iconDirectionDesc: string=?,
+  ~iconDirectionAsc: string=?,
+  unit
+) => classes = "";
+
 external objToProps: Js.t({..}) => props = "%identity";
 
 [@bs.obj]
