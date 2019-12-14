@@ -27,6 +27,7 @@ module Input = Mui_Input;
 module IconButton = Mui_IconButton;
 module List = Mui_List;
 module ListItem = Mui_ListItem;
+module ListItemAvatar = Mui_ListItemAvatar;
 module ListItemIcon = Mui_ListItemIcon;
 module ListItemText = Mui_ListItemText;
 module ListSubheader = Mui_ListSubheader;
