@@ -1,6 +1,8 @@
 type props;
 type classes;
 
+external objToProps: Js.t({..}) => props = "%identity";
+
 [@bs.obj]
 external makeProps: (
   /* TableSortLabel props */

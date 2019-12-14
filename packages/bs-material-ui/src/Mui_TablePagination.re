@@ -7,6 +7,8 @@ type labelDisplayedRowsParam = {
   count: int,
 };
 
+external objToProps: Js.t({..}) => props = "%identity";
+
 [@bs.obj]
 external classes: (
   ~root: string=?,
