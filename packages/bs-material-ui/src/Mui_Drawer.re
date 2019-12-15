@@ -2,6 +2,14 @@ type props;
 type classes;
 type transitionDuration;
 
+external transitionDuration: int => transitionDuration = "%identity";
+[@bs.obj]
+external transitionDurationObj: (
+  ~enter: int=?,
+  ~exit: int=?,
+  unit
+) => transitionDuration = "";
+
 [@bs.obj]
 external classes: (
   ~root: string=?,
@@ -18,14 +26,6 @@ external classes: (
   ~modal: string=?,
   unit
 ) => classes = "";
-
-external transitionDuration: int => transitionDuration = "%identity";
-[@bs.obj]
-external transitionDurationWithObj: (
-  ~enter: int=?,
-  ~exit: int=?,
-  unit
-) => transitionDuration = "";
 
 external objToProps: Js.t({..}) => props = "%identity";
 
