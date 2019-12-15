@@ -1,16 +1,283 @@
 type props;
-type value;
+type style;
 
-external str: string => value = "%identity";
-external int: int => value = "%identity";
+/**
+ * 
+ * Unit Helper
+ * 
+ */
+// Relative length units
+let ch = value => string_of_int(value) ++ "ch";
+let em = value => Belt.Float.toString(value) ++ "em";
+let ex = value => string_of_int(value) ++ "ex";
+let rem = value => Belt.Float.toString(value) ++ "rem";
+let vh = value => string_of_int(value) ++ "vh";
+let vw = value => string_of_int(value) ++ "vw";
+let vmin = value => string_of_int(value) ++ "vmin";
+let vmax = value => string_of_int(value) ++ "vmax";
+// Absolute length units
+let px = value => string_of_int(value) ++ "px";
+let cm = value => string_of_int(value) ++ "cm";
+let mm = value => string_of_int(value) ++ "mm";
+let inch = value => string_of_int(value) ++ "in";
+let pc = value => string_of_int(value) ++ "pc";
+let pt = value => string_of_int(value) ++ "pt";
+// Length percentage
+let percent = value => string_of_int(value) ++ "%";
+
 [@bs.obj]
-external responsive: (
-  ~xs: 'a=?,
-  ~sm: 'b=?,
-  ~md: 'c=?,
-  ~lg: 'd=?,
-  ~xl: 'e=?,
-) => value = "";
+external style: (
+  // borders
+  ~border: string=?,
+  ~borderTop: string=?,
+  ~borderLeft: string=?,
+  ~borderRight: string=?,
+  ~borderBottom: string=?,
+  ~borderColor: string=?,
+  ~borderRadius: string=?,
+  // display
+  ~displayPrint: [@bs.string] [
+    | `block
+    | `inline
+    | [@bs.as "flow-root"] `flowRoot
+    | `table
+    | `flex
+    | `grid
+    | [@bs.as "list-item"] `listItem
+    | [@bs.as "table-row-group"] `tableRowGroup
+    | [@bs.as "table-header-group"] `tableHeaderGroup
+    | [@bs.as "table-footer-group"] `tableFooterGroup
+    | [@bs.as "table-row"] `tableRow
+    | [@bs.as "table-cell"] `tableCell
+    | [@bs.as "table-column-group"] `tableColumnGroup
+    | [@bs.as "table-column"] `tableColumn
+    | [@bs.as "table-caption"] `tableCaption
+    | `none
+    | [@bs.as "inline-block"] `inlineBlock
+    | [@bs.as "inline-table"] `inlineTable
+    | [@bs.as "inline-flex"] `inlineFlex
+    | [@bs.as "inline-grid"] `inlineGrid
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~displayRaw: [@bs.string] [
+    | `block
+    | `inline
+    | [@bs.as "flow-root"] `flowRoot
+    | `table
+    | `flex
+    | `grid
+    | [@bs.as "list-item"] `listItem
+    | [@bs.as "table-row-group"] `tableRowGroup
+    | [@bs.as "table-header-group"] `tableHeaderGroup
+    | [@bs.as "table-footer-group"] `tableFooterGroup
+    | [@bs.as "table-row"] `tableRow
+    | [@bs.as "table-cell"] `tableCell
+    | [@bs.as "table-column-group"] `tableColumnGroup
+    | [@bs.as "table-column"] `tableColumn
+    | [@bs.as "table-caption"] `tableCaption
+    | `none
+    | [@bs.as "inline-block"] `inlineBlock
+    | [@bs.as "inline-table"] `inlineTable
+    | [@bs.as "inline-flex"] `inlineFlex
+    | [@bs.as "inline-grid"] `inlineGrid
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~overflow: [@bs.string] [
+    | `visible
+    | `hidden
+    | `clip
+    | `scroll
+    | `auto
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~textOverflow: [@bs.string] [
+    | `clip
+    | `ellipsis
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~visibility: [@bs.string] [
+    | `visible
+    | `hidden
+    | `collapse
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~whiteSpace: [@bs.string] [
+    | `normal
+    | `nowrap
+    | `pre
+    | [@bs.as "pre-wrap"] `preWrap
+    | [@bs.as "pre-line"] `preLine
+    | [@bs.as "break-spaces"] `breakSpaces
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  // flexbox
+  ~flexDirection: [@bs.string] [
+    | `row
+    | [@bs.as "row-reverse"] `rowReverse
+    | `column
+    | [@bs.as "column-reverse"] `columnReverse
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~flexWrap: [@bs.string] [
+    | `nowrap
+    | `wrap
+    | [@bs.as "wrap-reverse"] `wrapReverse
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~justifyContent: [@bs.string] [
+    | `start
+    | `end_
+    | [@bs.as "flex-start"] `flexStart
+    | [@bs.as "flex-end"] `flexEnd
+    | `center
+    | `left
+    | `right
+    | `normal
+    | `baseline
+    | [@bs.as "first baseline"] `first_baseline
+    | [@bs.as "last baseline"] `last_baseline
+    | [@bs.as "space-between"] `spaceBetween
+    | [@bs.as "space-around"] `spcaeAround
+    | [@bs.as "spcae-evenly"] `spaceEvenly
+    | `stretch
+    | `safe
+    | `unsafe
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~alignItems: [@bs.string] [
+    | `normal
+    | [@bs.as "flex-start"] `flexStart
+    | [@bs.as "flex-end"] `flexEnd
+    | `center
+    | `start
+    | `end_
+    | [@bs.as "self-start"] `selfStart
+    | [@bs.as "flex-end"] `flexEnd
+    | `baseline
+    | [@bs.as "first baseline"] `first_baseline
+    | [@bs.as "lastBaseline"] `last_baseline
+    | `stretch
+    | `safe
+    | `unsafe
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~order: string=?,
+  ~flex: string=?,
+  ~flexGrow: string=?,
+  ~flexShrink: string=?,
+  ~alignSelf: [@bs.string] [
+    | `auto
+    | `normal
+    | [@bs.as "self-start"] `selfStart
+    | [@bs.as "self-end"] `selfEnd
+    | [@bs.as "flex-start"] `flexStart
+    | [@bs.as "flex-end"] `flexEnd
+    | `center
+    | `baseline
+    | [@bs.as "first baseline"] `first_baseline
+    | [@bs.as "last baseline"] `last_baseline
+    | `stretch
+    | `safe
+    | `unsafe
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  // palette
+  ~color: string=?,
+  ~bgColor: string=?,
+  // position
+  ~position: [@bs.string] [
+    | `static
+    | `relative
+    | `absolute
+    | `fixed
+    | `sticky
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~zIndex: string=?,
+  ~top: string=?,
+  ~right: string=?,
+  ~bottom: string=?,
+  ~left: string=?,
+  // shadows
+  ~boxShadow: string=?,
+  // sizing
+  ~width: string=?,
+  ~maxWidth: string=?,
+  ~minWidth: string=?,
+  ~height: string=?,
+  ~maxHeight: string=?,
+  ~minHeight: string=?,
+  // spacing
+  ~m: string=?,
+  ~margin: string=?,
+  ~mt: string=?,
+  ~marginTop: string=?,
+  ~mr: string=?,
+  ~marginRight: string=?,
+  ~mb: string=?,
+  ~marginBottom: string=?,
+  ~ml: string=?,
+  ~marginLeft: string=?,
+  ~mx: string=?,
+  ~marginX: string=?,
+  ~my: string=?,
+  ~marginY: string=?,
+  ~p: string=?,
+  ~padding: string=?,
+  ~pt: string=?,
+  ~paddingTop: string=?,
+  ~pr: string=?,
+  ~paddingRight: string=?,
+  ~pb: string=?,
+  ~paddingBottom: string=?,
+  ~pl: string=?,
+  ~paddingLeft: string=?,
+  ~px: string=?,
+  ~paddingX: string=?,
+  ~py: string=?,
+  ~paddingY: string=?,
+  // typography
+  ~fontFamily: string=?,
+  ~fontSize: string=?,
+  ~fontStyle: string=?,
+  ~fontWeight: string=?,
+  ~letterSpacing: string=?,
+  ~lineHeight: string=?,
+  ~textAlign: [@bs.string] [
+    | `left
+    | `right
+    | `center
+    | `justify
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  unit
+) => style = "";
 
 external objToProps: Js.t({..}) => props = "%identity";
 
@@ -129,87 +396,261 @@ external makeProps: (
     | `slot
     | `template
   ]=?,
-  // borders
-  ~border: value=?,
-  ~borderTop: value=?,
-  ~borderLeft: value=?,
-  ~borderRight: value=?,
-  ~borderBottom: value=?,
-  ~borderColor: value=?,
-  ~borderRadius: value=?,
+  // collocation responsive
+  ~xs: style=?,
+  ~sm: style=?,
+  ~md: style=?,
+  ~lg: style=?,
+  ~xl: style=?,
+  // border
+  ~border: string=?,
+  ~borderTop: string=?,
+  ~borderLeft: string=?,
+  ~borderRight: string=?,
+  ~borderBottom: string=?,
+  ~borderColor: string=?,
+  ~borderRadius: string=?,
   // display
-  ~displayPrint: value=?,
-  ~displayRaw: value=?,
-  ~overflow: value=?,
-  ~textOverflow: value=?,
-  ~visibility: value=?,
-  ~whiteSpace: value=?,
+  ~displayPrint: [@bs.string] [
+    | `block
+    | `inline
+    | [@bs.as "flow-root"] `flowRoot
+    | `table
+    | `flex
+    | `grid
+    | [@bs.as "list-item"] `listItem
+    | [@bs.as "table-row-group"] `tableRowGroup
+    | [@bs.as "table-header-group"] `tableHeaderGroup
+    | [@bs.as "table-footer-group"] `tableFooterGroup
+    | [@bs.as "table-row"] `tableRow
+    | [@bs.as "table-cell"] `tableCell
+    | [@bs.as "table-column-group"] `tableColumnGroup
+    | [@bs.as "table-column"] `tableColumn
+    | [@bs.as "table-caption"] `tableCaption
+    | `none
+    | [@bs.as "inline-block"] `inlineBlock
+    | [@bs.as "inline-table"] `inlineTable
+    | [@bs.as "inline-flex"] `inlineFlex
+    | [@bs.as "inline-grid"] `inlineGrid
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~displayRaw: [@bs.string] [
+    | `block
+    | `inline
+    | [@bs.as "flow-root"] `flowRoot
+    | `table
+    | `flex
+    | `grid
+    | [@bs.as "list-item"] `listItem
+    | [@bs.as "table-row-group"] `tableRowGroup
+    | [@bs.as "table-header-group"] `tableHeaderGroup
+    | [@bs.as "table-footer-group"] `tableFooterGroup
+    | [@bs.as "table-row"] `tableRow
+    | [@bs.as "table-cell"] `tableCell
+    | [@bs.as "table-column-group"] `tableColumnGroup
+    | [@bs.as "table-column"] `tableColumn
+    | [@bs.as "table-caption"] `tableCaption
+    | `none
+    | [@bs.as "inline-block"] `inlineBlock
+    | [@bs.as "inline-table"] `inlineTable
+    | [@bs.as "inline-flex"] `inlineFlex
+    | [@bs.as "inline-grid"] `inlineGrid
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~overflow: [@bs.string] [
+    | `visible
+    | `hidden
+    | `clip
+    | `scroll
+    | `auto
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~textOverflow: [@bs.string] [
+    | `clip
+    | `ellipsis
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~visibility: [@bs.string] [
+    | `visible
+    | `hidden
+    | `collapse
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~whiteSpace: [@bs.string] [
+    | `normal
+    | `nowrap
+    | `pre
+    | [@bs.as "pre-wrap"] `preWrap
+    | [@bs.as "pre-line"] `preLine
+    | [@bs.as "break-spaces"] `breakSpaces
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
   // flexbox
-  ~flexDirection: value=?,
-  ~flexWrap: value=?,
-  ~justifyContent: value=?,
-  ~alignItems: value=?,
-  ~order: value=?,
-  ~flex: value=?,
-  ~flexGrow: value=?,
-  ~flexShrink: value=?,
-  ~alignSelf: value=?,
+  ~flexDirection: [@bs.string] [
+    | `row
+    | [@bs.as "row-reverse"] `rowReverse
+    | `column
+    | [@bs.as "column-reverse"] `columnReverse
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~flexWrap: [@bs.string] [
+    | `nowrap
+    | `wrap
+    | [@bs.as "wrap-reverse"] `wrapReverse
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~justifyContent: [@bs.string] [
+    | `start
+    | `end_
+    | [@bs.as "flex-start"] `flexStart
+    | [@bs.as "flex-end"] `flexEnd
+    | `center
+    | `left
+    | `right
+    | `normal
+    | `baseline
+    | [@bs.as "first baseline"] `first_baseline
+    | [@bs.as "last baseline"] `last_baseline
+    | [@bs.as "space-between"] `spaceBetween
+    | [@bs.as "space-around"] `spcaeAround
+    | [@bs.as "spcae-evenly"] `spaceEvenly
+    | `stretch
+    | `safe
+    | `unsafe
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~alignItems: [@bs.string] [
+    | `normal
+    | [@bs.as "flex-start"] `flexStart
+    | [@bs.as "flex-end"] `flexEnd
+    | `center
+    | `start
+    | `end_
+    | [@bs.as "self-start"] `selfStart
+    | [@bs.as "flex-end"] `flexEnd
+    | `baseline
+    | [@bs.as "first baseline"] `first_baseline
+    | [@bs.as "lastBaseline"] `last_baseline
+    | `stretch
+    | `safe
+    | `unsafe
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~order: string=?,
+  ~flex: string=?,
+  ~flexGrow: string=?,
+  ~flexShrink: string=?,
+  ~alignSelf: [@bs.string] [
+    | `auto
+    | `normal
+    | [@bs.as "self-start"] `selfStart
+    | [@bs.as "self-end"] `selfEnd
+    | [@bs.as "flex-start"] `flexStart
+    | [@bs.as "flex-end"] `flexEnd
+    | `center
+    | `baseline
+    | [@bs.as "first baseline"] `first_baseline
+    | [@bs.as "last baseline"] `last_baseline
+    | `stretch
+    | `safe
+    | `unsafe
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
   // palette
-  ~color: value=?,
-  ~bgColor: value=?,
+  ~color: string=?,
+  ~bgColor: string=?,
   // position
-  ~position: value=?,
-  ~zIndex: value=?,
-  ~top: value=?,
-  ~right: value=?,
-  ~bottom: value=?,
-  ~left: value=?,
+  ~position: [@bs.string] [
+    | `static
+    | `relative
+    | `absolute
+    | `fixed
+    | `sticky
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
+  ~zIndex: string=?,
+  ~top: string=?,
+  ~right: string=?,
+  ~bottom: string=?,
+  ~left: string=?,
   // shadows
-  ~boxShadow: value=?,
+  ~boxShadow: string=?,
   // sizing
-  ~width: value=?,
-  ~maxWidth: value=?,
-  ~minWidth: value=?,
-  ~height: value=?,
-  ~maxHeight: value=?,
-  ~minHeight: value=?,
+  ~width: string=?,
+  ~maxWidth: string=?,
+  ~minWidth: string=?,
+  ~height: string=?,
+  ~maxHeight: string=?,
+  ~minHeight: string=?,
   // spacing
-  ~m: value=?,
-  ~margin: value=?,
-  ~mt: value=?,
-  ~marginTop: value=?,
-  ~mr: value=?,
-  ~marginRight: value=?,
-  ~mb: value=?,
-  ~marginBottom: value=?,
-  ~ml: value=?,
-  ~marginLeft: value=?,
-  ~mx: value=?,
-  ~marginX: value=?,
-  ~my: value=?,
-  ~marginY: value=?,
-  ~p: value=?,
-  ~padding: value=?,
-  ~pt: value=?,
-  ~paddingTop: value=?,
-  ~pr: value=?,
-  ~paddingRight: value=?,
-  ~pb: value=?,
-  ~paddingBottom: value=?,
-  ~pl: value=?,
-  ~paddingLeft: value=?,
-  ~px: value=?,
-  ~paddingX: value=?,
-  ~py: value=?,
-  ~paddingY: value=?,
+  ~m: string=?,
+  ~margin: string=?,
+  ~mt: string=?,
+  ~marginTop: string=?,
+  ~mr: string=?,
+  ~marginRight: string=?,
+  ~mb: string=?,
+  ~marginBottom: string=?,
+  ~ml: string=?,
+  ~marginLeft: string=?,
+  ~mx: string=?,
+  ~marginX: string=?,
+  ~my: string=?,
+  ~marginY: string=?,
+  ~p: string=?,
+  ~padding: string=?,
+  ~pt: string=?,
+  ~paddingTop: string=?,
+  ~pr: string=?,
+  ~paddingRight: string=?,
+  ~pb: string=?,
+  ~paddingBottom: string=?,
+  ~pl: string=?,
+  ~paddingLeft: string=?,
+  ~px: string=?,
+  ~paddingX: string=?,
+  ~py: string=?,
+  ~paddingY: string=?,
   // typography
   ~fontFamily: string=?,
-  ~fontSize: value=?,
+  ~fontSize: string=?,
   ~fontStyle: string=?,
-  ~fontWeight: value=?,
-  ~letterSpacing: value=?,
-  ~lineHeight: value=?,
-  ~textAlign: value=?,
+  ~fontWeight: string=?,
+  ~letterSpacing: string=?,
+  ~lineHeight: string=?,
+  ~textAlign: [@bs.string] [
+    | `left
+    | `right
+    | `center
+    | `justify
+    | [@bs.as "inherit"] `inherit_
+    | `initial
+    | `unset
+  ]=?,
   /* Dom props */
   ~key: string=?,
   ~ref: ReactDOMRe.domRef=?,
