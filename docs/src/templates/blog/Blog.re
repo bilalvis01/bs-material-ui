@@ -180,7 +180,7 @@ let make = () => {
       <Mui.Toolbar className=classes##toolbar>
         <Mui.Button size=`small>{React.string("Subscribe")}</Mui.Button>
         <Mui.Typography
-          component="h2"
+          component=`h2
           variant=`h5
           color=`inherit_
           align=`center
@@ -197,7 +197,7 @@ let make = () => {
         </Mui.Button>
       </Mui.Toolbar>
       <Mui.Toolbar
-        component="nav" variant=`dense className=classes##toolbarSecondary
+        component=`nav variant=`dense className=classes##toolbarSecondary
       >
         {Belt.List.map(sections, section => 
           <Mui.Link
@@ -225,7 +225,7 @@ let make = () => {
           <Mui.Grid container=true>
             <Mui.Grid item=true md=Mui.Grid.size(6)>
               <div className=classes##mainFeaturedPostContent>
-                <Mui.Typography component="h1" variant=`h3 color=`inherit_ gutterBottom=true>
+                <Mui.Typography component=`h1 variant=`h3 color=`inherit_ gutterBottom=true>
                   {React.string("Title of a longer featured blog post")}
                 </Mui.Typography>
                 <Mui.Typography variant=`h5 color=`inherit_ paragraph=true>
@@ -242,11 +242,11 @@ let make = () => {
         <Mui.Grid container=true spacing=4>
           {Belt.List.map(featuredPosts, post => 
             <Mui.Grid item=true key=post.title xs=Mui.Grid.size(12) md=Mui.Grid.size(6)>
-              <Mui.CardActionArea component="a" href="#">
+              <Mui.CardActionArea component=`a href="#">
                 <Mui.Card className=classes##card>
                   <div className=classes##cardDetails>
                     <Mui.CardContent>
-                      <Mui.Typography component="h2" variant=`h5>
+                      <Mui.Typography component=`h2 variant=`h5>
                         {React.string(post.title)}
                       </Mui.Typography>
                       <Mui.Typography variant=`subtitle1 color=`textSecondary>
@@ -324,10 +324,10 @@ let make = () => {
     </Mui.Container>
     <footer className=classes##footer>
       <Mui.Container maxWidth=Mui.Container.maxWidth("lg")>
-        <Mui.Typography variant=`h6 align=`center color=`textSecondary component="p">
+        <Mui.Typography variant=`h6 align=`center color=`textSecondary component=`p>
           {React.string("Footer")}
         </Mui.Typography>
-        <Mui.Typography variant=`subtitle1 align=`center color=`textSecondary component="p">
+        <Mui.Typography variant=`subtitle1 align=`center color=`textSecondary component=`p>
           {React.string("Something here to give the footer a purpose!")}
         </Mui.Typography>
         <Copyright />

@@ -25,7 +25,7 @@ module Li = {
     let classes = useStyles();
 
     <li className=classes##listItem>  
-      <Mui.Typography component="span">
+      <Mui.Typography component=`span>
         children
       </Mui.Typography>
     </li>
