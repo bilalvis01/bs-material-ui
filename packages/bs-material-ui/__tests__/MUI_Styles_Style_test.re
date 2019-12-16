@@ -1,5 +1,5 @@
 open Jest;
-open MUI.Styles;
+open Mui.Styles;
 
 describe("make style", () => {
   open Expect;
