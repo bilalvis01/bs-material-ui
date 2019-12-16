@@ -14,7 +14,6 @@ external classes: (
   unit
 ) => classes = "";
 
-external maxWidth: string => maxWidth = "%identity";
 let maxWidthXs: maxWidth = [%raw "xs"];
 let maxWidthSm: maxWidth = [%raw "sm"];
 let maxWidthMd: maxWidth = [%raw "md"];
