@@ -9,6 +9,7 @@ module Badge = Mui_Badge;
 module Button = Mui_Button;
 module BottomNavigation = Mui_BottomNavigation;
 module BottomNavigationAction = Mui_BottomNavigationAction;
+module Breadcrumbs = Mui_Breadcrumbs;
 module ButtonBase = Mui_ButtonBase;
 module CssBaseline = Mui_CssBaseline;
 module Card = Mui_Card;
