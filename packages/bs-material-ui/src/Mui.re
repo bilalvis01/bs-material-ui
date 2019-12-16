@@ -62,10 +62,3 @@ module Box = Mui_Box;
  *  
  */
 module Styles = Mui_Styles;
-
-/**
- * 
- * Unit helper
- * 
- */
-module Unit = Mui_Unit;
