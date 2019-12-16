@@ -284,7 +284,7 @@ external objToProps: Js.t({..}) => props = "%identity";
 [@bs.obj]
 external makeProps: (
   /* Box props */
-  ~children: React.element=?,
+  ~children: React.element,
   ~clone: bool=?,
   ~component: [@bs.string] [
     | `address
