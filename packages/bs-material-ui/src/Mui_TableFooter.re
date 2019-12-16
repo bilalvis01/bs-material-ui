@@ -2,7 +2,7 @@ type props;
 type classes;
 
 [@bs.obj]
-external makeClasses: (
+external classes: (
   ~root: string=?,
   unit
 ) => classes = "";
