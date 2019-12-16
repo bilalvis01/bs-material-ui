@@ -153,8 +153,8 @@ external style: (
     | [@bs.as "first baseline"] `first_baseline
     | [@bs.as "last baseline"] `last_baseline
     | [@bs.as "space-between"] `spaceBetween
-    | [@bs.as "space-around"] `spcaeAround
-    | [@bs.as "spcae-evenly"] `spaceEvenly
+    | [@bs.as "space-around"] `spaceAround
+    | [@bs.as "space-evenly"] `spaceEvenly
     | `stretch
     | `safe
     | `unsafe
@@ -173,7 +173,7 @@ external style: (
     | [@bs.as "flex-end"] `flexEnd
     | `baseline
     | [@bs.as "first baseline"] `first_baseline
-    | [@bs.as "lastBaseline"] `last_baseline
+    | [@bs.as "last baseline"] `last_baseline
     | `stretch
     | `safe
     | `unsafe
@@ -528,8 +528,8 @@ external makeProps: (
     | [@bs.as "first baseline"] `first_baseline
     | [@bs.as "last baseline"] `last_baseline
     | [@bs.as "space-between"] `spaceBetween
-    | [@bs.as "space-around"] `spcaeAround
-    | [@bs.as "spcae-evenly"] `spaceEvenly
+    | [@bs.as "space-around"] `spaceAround
+    | [@bs.as "space-evenly"] `spaceEvenly
     | `stretch
     | `safe
     | `unsafe
@@ -548,7 +548,7 @@ external makeProps: (
     | [@bs.as "flex-end"] `flexEnd
     | `baseline
     | [@bs.as "first baseline"] `first_baseline
-    | [@bs.as "lastBaseline"] `last_baseline
+    | [@bs.as "last baseline"] `last_baseline
     | `stretch
     | `safe
     | `unsafe
