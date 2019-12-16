@@ -9,7 +9,7 @@ let theme = Theme.(make(options(
       ~main="#19857b",
       ()),
     ~error=PaletteColor.optionsSimple(
-      ~main=Mui.Colors.(a400(red)), 
+      ~main=Mui.Colors.(red->a400), 
       ()),
     ~background=BackgroundColor.make(
       ~default="#fff",

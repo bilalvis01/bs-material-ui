@@ -176,7 +176,7 @@ let make = () => {
   let classes = useStyles();
 
   <>
-    <Mui.Container maxWidth=Mui.Container.maxWidth("lg")>
+    <Mui.Container maxWidth=Mui.Container.maxWidthLg>
       <Mui.Toolbar className=classes##toolbar>
         <Mui.Button size=`small>{React.string("Subscribe")}</Mui.Button>
         <Mui.Typography
@@ -223,7 +223,7 @@ let make = () => {
           />
           <div className=classes##overlay />
           <Mui.Grid container=true>
-            <Mui.Grid item=true md=Mui.Grid.size(6)>
+            <Mui.Grid item=true md=Mui.Grid.size6>
               <div className=classes##mainFeaturedPostContent>
                 <Mui.Typography component=`h1 variant=`h3 color=`inherit_ gutterBottom=true>
                   {React.string("Title of a longer featured blog post")}
@@ -241,7 +241,7 @@ let make = () => {
         </Mui.Paper>
         <Mui.Grid container=true spacing=`_4>
           {Belt.List.map(featuredPosts, post => 
-            <Mui.Grid item=true key=post.title xs=Mui.Grid.size(12) md=Mui.Grid.size(6)>
+            <Mui.Grid item=true key=post.title xs=Mui.Grid.size12 md=Mui.Grid.size6>
               <Mui.CardActionArea component=`a href="#">
                 <Mui.Card className=classes##card>
                   <div className=classes##cardDetails>
@@ -275,7 +275,7 @@ let make = () => {
             ->React.array}
         </Mui.Grid>
         <Mui.Grid container=true spacing=`_5 className=classes##mainGrid>
-          <Mui.Grid item=true xs=Mui.Grid.size(12) md=Mui.Grid.size(8)>
+          <Mui.Grid item=true xs=Mui.Grid.size12 md=Mui.Grid.size8>
             <Mui.Typography variant=`h6 gutterBottom=true>
               {React.string("From the Firehose")}
             </Mui.Typography>
@@ -288,7 +288,7 @@ let make = () => {
               ->Belt.List.toArray
               ->React.array}
           </Mui.Grid>
-          <Mui.Grid item=true xs=Mui.Grid.size(12) md=Mui.Grid.size(4)>
+          <Mui.Grid item=true xs=Mui.Grid.size12 md=Mui.Grid.size4>
             <Mui.Paper elevation=`_0 className=classes##sidebarAboutBox>
               <Mui.Typography variant=`h6 gutterBottom=true>
                 {React.string("About")}
@@ -323,7 +323,7 @@ let make = () => {
       </main>
     </Mui.Container>
     <footer className=classes##footer>
-      <Mui.Container maxWidth=Mui.Container.maxWidth("lg")>
+      <Mui.Container maxWidth=Mui.Container.maxWidthLg>
         <Mui.Typography variant=`h6 align=`center color=`textSecondary component=`p>
           {React.string("Footer")}
         </Mui.Typography>
