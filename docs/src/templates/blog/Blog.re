@@ -239,7 +239,7 @@ let make = () => {
             </Mui.Grid>
           </Mui.Grid>
         </Mui.Paper>
-        <Mui.Grid container=true spacing=4>
+        <Mui.Grid container=true spacing=`_4>
           {Belt.List.map(featuredPosts, post => 
             <Mui.Grid item=true key=post.title xs=Mui.Grid.size(12) md=Mui.Grid.size(6)>
               <Mui.CardActionArea component=`a href="#">
@@ -274,7 +274,7 @@ let make = () => {
             ->Belt.List.toArray
             ->React.array}
         </Mui.Grid>
-        <Mui.Grid container=true spacing=5 className=classes##mainGrid>
+        <Mui.Grid container=true spacing=`_5 className=classes##mainGrid>
           <Mui.Grid item=true xs=Mui.Grid.size(12) md=Mui.Grid.size(8)>
             <Mui.Typography variant=`h6 gutterBottom=true>
               {React.string("From the Firehose")}
