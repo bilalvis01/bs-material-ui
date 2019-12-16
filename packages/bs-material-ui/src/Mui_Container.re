@@ -14,9 +14,14 @@ external classes: (
   unit
 ) => classes = "";
 
+external maxWidth: string => maxWidth = "%identity";
+let maxWidthXs: maxWidth = [%raw "xs"];
+let maxWidthSm: maxWidth = [%raw "sm"];
+let maxWidthMd: maxWidth = [%raw "md"];
+let maxWidthLg: maxWidth = [%raw "lg"];
+let maxWidthXl: maxWidth = [%raw "xl"];
 [@bs.val]
 external maxWidthDisable: maxWidth = "false";
-external maxWidth: string => maxWidth = "%identity";
 
 external objToProps: Js.t({..}) => props = "%identity";
 
