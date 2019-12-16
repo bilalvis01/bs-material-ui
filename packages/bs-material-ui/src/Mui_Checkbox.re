@@ -3,6 +3,8 @@ type classes;
 type edge;
 
 external edge: string => edge = "%identity";
+let edgeStart: edge = [%raw "start"];
+let edgeEnd: edge = [%raw "end"];
 [@bs.val]
 external edgeDisable: edge = "false";
 
