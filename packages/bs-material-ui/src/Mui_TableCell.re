@@ -3,6 +3,8 @@ type classes;
 type sortDirection;
 
 external sortDirection: string => sortDirection = "%identity";
+let sortDirectionAsc: sortDirection = [%raw "asc"];
+let sortDirectionDecs: sortDirection = [%raw "decs"];
 [@bs.val]
 external sortDirectionDisable: sortDirection = "false";
 
