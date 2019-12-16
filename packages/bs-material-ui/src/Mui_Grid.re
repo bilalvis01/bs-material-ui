@@ -100,6 +100,18 @@ type classes = {
 };
 
 external size: int => gridSize = "%identity";
+let size1: gridSize = [%raw "1"];
+let size2: gridSize = [%raw "2"];
+let size3: gridSize = [%raw "3"];
+let size4: gridSize = [%raw "4"];
+let size5: gridSize = [%raw "5"];
+let size6: gridSize = [%raw "6"];
+let size7: gridSize = [%raw "7"];
+let size8: gridSize = [%raw "8"];
+let size9: gridSize = [%raw "9"];
+let size10: gridSize = [%raw "10"];
+let size11: gridSize = [%raw "11"];
+let size12: gridSize = [%raw "12"];
 external sizeSwitch: bool => gridSize = "%identity";
 let sizeAuto: gridSize = [%raw "'auto'"];
 
