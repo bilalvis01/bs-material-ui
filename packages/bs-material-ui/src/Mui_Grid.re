@@ -99,7 +99,6 @@ type classes = {
   gridXs12: string,
 };
 
-external size: int => gridSize = "%identity";
 let size1: gridSize = [%raw "1"];
 let size2: gridSize = [%raw "2"];
 let size3: gridSize = [%raw "3"];
