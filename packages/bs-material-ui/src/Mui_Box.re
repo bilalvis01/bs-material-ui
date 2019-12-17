@@ -1,5 +1,8 @@
 type props;
 type style;
+type spacing = string;
+
+external spacingOfInt: int => spacing = "%identity";
 
 /**
  * 
@@ -7,23 +10,23 @@ type style;
  * 
  */
 // Relative length units
-let ch = value => string_of_int(value) ++ "ch";
+let ch = value => Belt.Int.toString(value) ++ "ch";
 let em = value => Belt.Float.toString(value) ++ "em";
-let ex = value => string_of_int(value) ++ "ex";
+let ex = value => Belt.Int.toString(value) ++ "ex";
 let rem = value => Belt.Float.toString(value) ++ "rem";
-let vh = value => string_of_int(value) ++ "vh";
-let vw = value => string_of_int(value) ++ "vw";
-let vmin = value => string_of_int(value) ++ "vmin";
-let vmax = value => string_of_int(value) ++ "vmax";
+let vh = value => Belt.Int.toString(value) ++ "vh";
+let vw = value => Belt.Int.toString(value) ++ "vw";
+let vmin = value => Belt.Int.toString(value) ++ "vmin";
+let vmax = value => Belt.Int.toString(value) ++ "vmax";
 // Absolute length units
-let px = value => string_of_int(value) ++ "px";
-let cm = value => string_of_int(value) ++ "cm";
-let mm = value => string_of_int(value) ++ "mm";
-let inch = value => string_of_int(value) ++ "in";
-let pc = value => string_of_int(value) ++ "pc";
-let pt = value => string_of_int(value) ++ "pt";
+let px = value => Belt.Int.toString(value) ++ "px";
+let cm = value => Belt.Int.toString(value) ++ "cm";
+let mm = value => Belt.Int.toString(value) ++ "mm";
+let inch = value => Belt.Int.toString(value) ++ "in";
+let pc = value => Belt.Int.toString(value) ++ "pc";
+let pt = value => Belt.Int.toString(value) ++ "pt";
 // Length percentage
-let percent = value => string_of_int(value) ++ "%";
+let percent = value => Belt.Int.toString(value) ++ "%";
 
 [@bs.obj]
 external style: (
@@ -232,34 +235,34 @@ external style: (
   ~maxHeight: string=?,
   ~minHeight: string=?,
   // spacing
-  ~m: 'm=?,
-  ~margin: 'm=?,
-  ~mt: 'mt=?,
-  ~marginTop: 'mt=?,
-  ~mr: 'mr=?,
-  ~marginRight: 'mr=?,
-  ~mb: 'mb=?,
-  ~marginBottom: 'mb=?,
-  ~ml: 'ml=?,
-  ~marginLeft: 'ml=?,
-  ~mx: 'mx=?,
-  ~marginX: 'mx=?,
-  ~my: 'my=?,
-  ~marginY: 'my=?,
-  ~p: 'p=?,
-  ~padding: 'p=?,
-  ~pt: 'pt=?,
-  ~paddingTop: 'pt=?,
-  ~pr: 'pr=?,
-  ~paddingRight: 'pr=?,
-  ~pb: 'pb=?,
-  ~paddingBottom: 'pb=?,
-  ~pl: 'pl=?,
-  ~paddingLeft: 'pl=?,
-  ~px: 'px=?,
-  ~paddingX: 'px=?,
-  ~py: 'py=?,
-  ~paddingY: 'py=?,
+  ~m: spacing=?,
+  ~margin: spacing=?,
+  ~mt: spacing=?,
+  ~marginTop: spacing=?,
+  ~mr: spacing=?,
+  ~marginRight: spacing=?,
+  ~mb: spacing=?,
+  ~marginBottom: spacing=?,
+  ~ml: spacing=?,
+  ~marginLeft: spacing=?,
+  ~mx: spacing=?,
+  ~marginX: spacing=?,
+  ~my: spacing=?,
+  ~marginY: spacing=?,
+  ~p: spacing=?,
+  ~padding: spacing=?,
+  ~pt: spacing=?,
+  ~paddingTop: spacing=?,
+  ~pr: spacing=?,
+  ~paddingRight: spacing=?,
+  ~pb: spacing=?,
+  ~paddingBottom: spacing=?,
+  ~pl: spacing=?,
+  ~paddingLeft: spacing=?,
+  ~px: spacing=?,
+  ~paddingX: spacing=?,
+  ~py: spacing=?,
+  ~paddingY: spacing=?,
   // typography
   ~fontFamily: string=?,
   ~fontSize: string=?,
@@ -607,34 +610,34 @@ external makeProps: (
   ~maxHeight: string=?,
   ~minHeight: string=?,
   // spacing
-  ~m: 'm=?,
-  ~margin: 'm=?,
-  ~mt: 'mt=?,
-  ~marginTop: 'mt=?,
-  ~mr: 'mr=?,
-  ~marginRight: 'mr=?,
-  ~mb: 'mb=?,
-  ~marginBottom: 'mb=?,
-  ~ml: 'ml=?,
-  ~marginLeft: 'ml=?,
-  ~mx: 'mx=?,
-  ~marginX: 'mx=?,
-  ~my: 'my=?,
-  ~marginY: 'my=?,
-  ~p: 'p=?,
-  ~padding: 'p=?,
-  ~pt: 'pt=?,
-  ~paddingTop: 'pt=?,
-  ~pr: 'pr=?,
-  ~paddingRight: 'pr=?,
-  ~pb: 'pb=?,
-  ~paddingBottom: 'pb=?,
-  ~pl: 'pl=?,
-  ~paddingLeft: 'pl=?,
-  ~px: 'px=?,
-  ~paddingX: 'px=?,
-  ~py: 'py=?,
-  ~paddingY: 'py=?,
+  ~m: spacing=?,
+  ~margin: spacing=?,
+  ~mt: spacing=?,
+  ~marginTop: spacing=?,
+  ~mr: spacing=?,
+  ~marginRight: spacing=?,
+  ~mb: spacing=?,
+  ~marginBottom: spacing=?,
+  ~ml: spacing=?,
+  ~marginLeft: spacing=?,
+  ~mx: spacing=?,
+  ~marginX: spacing=?,
+  ~my: spacing=?,
+  ~marginY: spacing=?,
+  ~p: spacing=?,
+  ~padding: spacing=?,
+  ~pt: spacing=?,
+  ~paddingTop: spacing=?,
+  ~pr: spacing=?,
+  ~paddingRight: spacing=?,
+  ~pb: spacing=?,
+  ~paddingBottom: spacing=?,
+  ~pl: spacing=?,
+  ~paddingLeft: spacing=?,
+  ~px: spacing=?,
+  ~paddingX: spacing=?,
+  ~py: spacing=?,
+  ~paddingY: spacing=?,
   // typography
   ~fontFamily: string=?,
   ~fontSize: string=?,
