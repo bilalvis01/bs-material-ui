@@ -145,7 +145,7 @@ external style: (
   ]=?,
   ~justifyContent: [@bs.string] [
     | `start
-    | `end_
+    | [@bs.as "end"] `end_
     | [@bs.as "flex-start"] `flexStart
     | [@bs.as "flex-end"] `flexEnd
     | `center
@@ -171,7 +171,7 @@ external style: (
     | [@bs.as "flex-end"] `flexEnd
     | `center
     | `start
-    | `end_
+    | [@bs.as "end"] `end_
     | [@bs.as "self-start"] `selfStart
     | [@bs.as "flex-end"] `flexEnd
     | `baseline
@@ -520,7 +520,7 @@ external makeProps: (
   ]=?,
   ~justifyContent: [@bs.string] [
     | `start
-    | `end_
+    | [@bs.as "end"] `end_
     | [@bs.as "flex-start"] `flexStart
     | [@bs.as "flex-end"] `flexEnd
     | `center
@@ -546,7 +546,7 @@ external makeProps: (
     | [@bs.as "flex-end"] `flexEnd
     | `center
     | `start
-    | `end_
+    | [@bs.as "end"] `end_
     | [@bs.as "self-start"] `selfStart
     | [@bs.as "flex-end"] `flexEnd
     | `baseline
