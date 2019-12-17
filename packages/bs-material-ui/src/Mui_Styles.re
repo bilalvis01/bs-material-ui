@@ -1,5 +1,5 @@
-[@bs.module "@material-ui/core/styles"]
-external useTheme: unit => 'theme = "useTheme";
+[@bs.module "@material-ui/core/styles/useTheme"]
+external useTheme: unit => 'theme = "default";
 
 module type StylesType = {
   type theme;
@@ -10,17 +10,17 @@ module type StylesType = {
 module Make = (Styles: StylesType) => {
   type options;
   type stylesHook('props) = 'props => Styles.styles(string);
-  [@bs.module "@material-ui/core/styles"]
+  [@bs.module "@material-ui/core/styles/makeStyles"]
   external make: ( 
     [@bs.uncurry] 
     (Styles.theme => Styles.styles(Styles.props => Mui_Styles_Style.t))
-  ) => stylesHook(Styles.props) = "makeStyles";
-  [@bs.module "@material-ui/core/styles"]
+  ) => stylesHook(Styles.props) = "default";
+  [@bs.module "@material-ui/core/styles/makeStyles"]
   external makeWithOptions: (
     [@bs.uncurry] 
     (Styles.theme => Styles.styles(Styles.props => Mui_Styles_Style.t)), 
     options
-  ) => stylesHook(Styles.props) = "makeStyles";
+  ) => stylesHook(Styles.props) = "default";
 };
 
 /**
