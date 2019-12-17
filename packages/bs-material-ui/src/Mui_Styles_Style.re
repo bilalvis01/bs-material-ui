@@ -2,7 +2,7 @@ type value;
 type t = Js.Dict.t(value);
 
 external nestedStyle: t => value = "%identity";
-external stringValue: string => value = "%identity";
+external valueOfString: string => value = "%identity";
 
 let make: list((string, value)) => t = 
   properties => Js.Dict.fromList(properties);
@@ -155,352 +155,790 @@ let slottedMerge = (selector, styles) => nestMerge("&::slotted(" ++ selector ++ 
  * Properties helper
  * 
  */
-let alignContent = value => ("alignContent", stringValue(value));
-let alignItems = value => ("alignItems", stringValue(value));
-let alignSelf = value => ("alignSelf", stringValue(value));
-let animation = value => ("animation", stringValue(value));
-let animationDelay = value => ("animationDelay", stringValue(value));
-let animationDirection = value => ("animationDirection", stringValue(value));
-let animationDuration = value => ("animationDuration", stringValue(value));
-let animationFillMode = value => ("animationFillMode", stringValue(value));
-let animationIterationCount = value => ("animationIterationCount", stringValue(value));
-let animationName = value => ("animationName", stringValue(value));
-let animationPlayState = value => ("animationPlayState", stringValue(value));
-let animationTimingFunction = value => ("animationTimingFunction", stringValue(value));
-let backfaceVisibility = value => ("backfaceVisibility", stringValue(value));
-let background = value => ("background", stringValue(value));
-let backgroundAttachment = value => ("backgroundAttachment", stringValue(value));
-let backgroundBlendMode = value => ("backgroundBlendMode", stringValue(value));
-let backgroundClip = value => ("backgroundClip", stringValue(value));
-let backgroundColor = value => ("backgroundColor", stringValue(value));
-let backgroundImage = value => ("backgroundImage", stringValue(value));
-let backgroundOrigin = value => ("backgroundOrigin", stringValue(value));
-let backgroundPosition = value => ("backgroundPosition", stringValue(value));
-let backgroundRepeat = value => ("backgroundRepeat", stringValue(value));
-let backgroundSize = value => ("backgroundSize", stringValue(value));
-let blockSize = value => ("blockSize", stringValue(value));
-let border = value => ("border", stringValue(value));
-let borderBlock = value => ("borderBlock", stringValue(value));
-let borderBlockColor = value => ("borderBlockColor", stringValue(value));
-let borderBlockEnd = value => ("borderBlockEnd", stringValue(value));
-let borderBlockEndColor = value => ("borderBlockEndColor", stringValue(value));
-let borderBlockEndStyle = value => ("borderBlockEndStyle", stringValue(value));
-let borderBlockEndWidth = value => ("borderBlockEndWidth", stringValue(value));
-let borderBlockStart = value => ("borderBlockStart", stringValue(value));
-let borderBlockStartColor = value => ("borderBlockStartColor", stringValue(value));
-let borderBlockStartStyle = value => ("borderBlockStartStyle", stringValue(value));
-let borderBlockStartWidth = value => ("borderBlockStartWidth", stringValue(value));
-let borderBlockStyle = value => ("borderBlockStyle", stringValue(value));
-let borderBlockWidth = value => ("borderBlockWidth", stringValue(value));
-let borderBottom = value => ("borderBottom", stringValue(value));
-let borderBottomColor = value => ("borderBottomColor", stringValue(value));
-let borderBottomLeftRadius = value => ("borderBottomLeftRadius", stringValue(value));
-let borderBottomRightRadius = value => ("borderBottomRightRadius", stringValue(value));
-let borderBottomStyle = value => ("borderBottomStyle", stringValue(value));
-let borderBottomWidth = value => ("borderBottomWidth", stringValue(value));
-let borderCollapse = value => ("borderCollapse", stringValue(value));
-let borderColor = value => ("borderColor", stringValue(value));
-let borderEndEndRadius = value => ("borderEndEndRadius", stringValue(value));
-let borderEndStartRadius = value => ("borderEndStartRadius", stringValue(value));
-let borderImage = value => ("borderImage", stringValue(value));
-let borderImageOutset = value => ("borderImageOutset", stringValue(value));
-let borderImageRepeat = value => ("borderImageRepeat", stringValue(value));
-let borderImageSlice = value => ("borderImageSlice", stringValue(value));
-let borderImageSource = value => ("borderImageSource", stringValue(value));
-let borderImageWidth = value => ("borderImageWidth", stringValue(value));
-let borderInline = value => ("borderInline", stringValue(value));
-let borderInlineColor = value => ("borderInlineColor", stringValue(value));
-let borderInlineEnd = value => ("borderInlineEnd", stringValue(value));
-let borderInlineEndColor = value => ("borderInlineEndColor", stringValue(value));
-let borderInlineEndStyle = value => ("borderInlineEndStyle", stringValue(value));
-let borderInlineEndWidth = value => ("borderInlineEndWidth", stringValue(value));
-let borderInlineStart = value => ("borderInlineStart", stringValue(value));
-let borderInlineStartColor = value => ("borderInlineStartColor", stringValue(value));
-let borderInlineStartStyle = value => ("borderInlineStartStyle", stringValue(value));
-let borderInlineStartWidth = value => ("borderInlineStartWidth", stringValue(value));
-let borderInlineStyle = value => ("borderInlineStyle", stringValue(value));
-let borderInlineWidth = value => ("borderInlineWidth", stringValue(value));
-let borderLeft = value => ("borderLeft", stringValue(value));
-let borderLeftColor = value => ("borderLeftColor", stringValue(value));
-let borderLeftStyle = value => ("borderLeftStyle", stringValue(value));
-let borderLeftWidth = value => ("borderLeftWidth", stringValue(value));
-let borderRadius = value => ("borderRadius", stringValue(value));
-let borderRight = value => ("borderRight", stringValue(value));
-let borderRightColor = value => ("borderRightColor", stringValue(value));
-let borderRightStyle = value => ("borderRightStyle", stringValue(value));
-let borderRightWidth = value => ("borderRightWidth", stringValue(value));
-let borderSpacing = value => ("borderSpacing", stringValue(value));
-let borderStartEndRadius = value => ("borderStartEndRadius", stringValue(value));
-let borderStartStartRadius = value => ("borderStartStartRadius", stringValue(value));
-let borderStyle = value => ("borderStyle", stringValue(value));
-let borderTop = value => ("borderTop", stringValue(value));
-let borderTopColor = value => ("borderTopColor", stringValue(value));
-let borderTopLeftRadius = value => ("borderTopLeftRadius", stringValue(value));
-let borderTopRightRadius = value => ("borderTopRightRadius", stringValue(value));
-let borderTopStyle = value => ("borderTopStyle", stringValue(value));
-let borderTopWidth = value => ("borderTopWidth", stringValue(value));
-let borderWidth = value => ("borderWidth", stringValue(value));
-let bottom = value => ("bottom", stringValue(value));
-let boxDecorationBreak = value => ("boxDecorationBreak", stringValue(value));
-let boxShadow = value => ("boxShadow", stringValue(value));
-let boxSizing = value => ("boxSizing", stringValue(value));
-let breakAfter = value => ("breakAfter", stringValue(value));
-let breakBefore = value => ("breakBefore", stringValue(value));
-let breakInside = value => ("breakInside", stringValue(value));
-let captionSide = value => ("captionSide", stringValue(value));
-let caretColor = value => ("caretColor", stringValue(value));
-let clear = value => ("clear", stringValue(value));
-let clip = value => ("clip", stringValue(value));
-let clipPath = value => ("clipPath", stringValue(value));
-let color = value => ("color", stringValue(value));
-let colorAdjust = value => ("colorAdjust", stringValue(value));
-let columnCount = value => ("columnCount", stringValue(value));
-let columnFill = value => ("columnFill", stringValue(value));
-let columnGap = value => ("columnGap", stringValue(value));
-let columnRule = value => ("columnRule", stringValue(value));
-let columnRuleColor = value => ("columnRuleColor", stringValue(value));
-let columnRuleStyle = value => ("columnRuleStyle", stringValue(value));
-let columnRuleWidth = value => ("columnRuleWidth", stringValue(value));
-let columnSpan = value => ("columnSpan", stringValue(value));
-let columnWidth = value => ("columnWidth", stringValue(value));
-let columns = value => ("columns", stringValue(value));
-let content = value => ("content", stringValue(value));
-let counterIncrement = value => ("counterIncrement", stringValue(value));
-let counterReset = value => ("counterReset", stringValue(value));
-let counterSet = value => ("counterSet", stringValue(value));
-let cursor = value => ("cursor", stringValue(value));
-let direction = value => ("direction", stringValue(value));
-let display = value => ("display", stringValue(value));
-let emptyCells = value => ("emptyCells", stringValue(value));
-let fallback = value => ("fallback", stringValue(value));
-let filter = value => ("filter", stringValue(value));
-let flex = value => ("flex", stringValue(value));
-let flexBasis = value => ("flexBasis", stringValue(value));
-let flexDirection = value => ("flexDirection", stringValue(value));
-let flexFlow = value => ("flexFlow", stringValue(value));
-let flexGrow = value => ("flexGrow", stringValue(value));
-let flexShrink = value => ("flexShrink", stringValue(value));
-let flexWrap = value => ("flexWrap", stringValue(value));
-let float = value => ("float", stringValue(value));
-let font = value => ("font", stringValue(value));
-let fontFamily = value => ("fontFamily", stringValue(value));
-let fontFeatureSettings = value => ("fontFeatureSettings", stringValue(value));
-let fontKerning = value => ("fontKerning", stringValue(value));
-let fontLanguageOverride = value => ("fontLanguageOverride", stringValue(value));
-let fontOpticalSizing = value => ("fontOpticalSizing", stringValue(value));
-let fontSize = value => ("fontSize", stringValue(value));
-let fontSizeAdjust = value => ("fontSizeAdjust", stringValue(value));
-let fontStretch = value => ("fontStretch", stringValue(value));
-let fontStyle = value => ("fontStyle", stringValue(value));
-let fontSynthesis = value => ("fontSynthesis", stringValue(value));
-let fontVariant = value => ("fontVariant", stringValue(value));
-let fontVariantAlternates = value => ("fontVariantAlternates", stringValue(value));
-let fontVariantCaps = value => ("fontVariantCaps", stringValue(value));
-let fontVariantEastAsian = value => ("fontVariantEastAsian", stringValue(value));
-let fontVariantLigatures = value => ("fontVariantLigatures", stringValue(value));
-let fontVariantNumeric = value => ("fontVariantNumeric", stringValue(value));
-let fontVariantPosition = value => ("fontVariantPosition", stringValue(value));
-let fontVariantSettings = value => ("fontVariantSettings", stringValue(value));
-let fontWeight = value => ("fontWeight", stringValue(value));
-let gap = value => ("gap", stringValue(value));
-let grid = value => ("grid", stringValue(value));
-let gridArea = value => ("gridArea", stringValue(value));
-let gridAutoColumns = value => ("gridAutoColumns", stringValue(value));
-let gridAutoFlow = value => ("gridAutoFlow", stringValue(value));
-let gridAutoRows = value => ("gridAutoRows", stringValue(value));
-let gridColumn = value => ("gridColumn", stringValue(value));
-let gridColumnEnd = value => ("gridColumnEnd", stringValue(value));
-let gridColumnStart = value => ("gridColumnStart", stringValue(value));
-let gridRow = value => ("gridRow", stringValue(value));
-let gridRowEnd = value => ("gridRowEnd", stringValue(value));
-let gridRowStart = value => ("gridRowStart", stringValue(value));
-let gridTemplate = value => ("gridTemplate", stringValue(value));
-let gridTemplateAreas = value => ("gridTemplateAreas", stringValue(value));
-let gridTemplateColumns = value => ("gridTemplateColumns", stringValue(value));
-let gridTemplateRows = value => ("gridTemplateRows", stringValue(value));
-let hangingPunctuation = value => ("hangingPunctuation", stringValue(value));
-let height = value => ("height", stringValue(value));
-let hyphens = value => ("hyphens", stringValue(value));
-let imageOrientation = value => ("imageOrientation", stringValue(value));
-let imageRendering = value => ("imageRendering", stringValue(value));
-let inlineSize = value => ("inlineSize", stringValue(value));
-let inset = value => ("inset", stringValue(value));
-let insetBlock = value => ("insetBlock", stringValue(value));
-let insetBlockEnd = value => ("insetBlockEnd", stringValue(value));
-let insetBlockStart = value => ("insetBlockStart", stringValue(value));
-let insetInline = value => ("insetInline", stringValue(value));
-let insetInlineEnd = value => ("insetInlineEnd", stringValue(value));
-let insetInlineStart = value => ("insetInlineStart", stringValue(value));
-let isolation = value => ("isolation", stringValue(value));
-let justifyContent = value => ("justifyContent", stringValue(value));
-let justifyItems = value => ("justifyItems", stringValue(value));
-let justifySelf = value => ("justifySelf", stringValue(value));
-let left = value => ("left", stringValue(value));
-let letterSpacing = value => ("letterSpacing", stringValue(value));
-let lineBreak = value => ("lineBreak", stringValue(value));
-let lineHeight = value => ("lineHeight", stringValue(value));
-let listStyle = value => ("listStyle", stringValue(value));
-let listStyleImage = value => ("listStyleImage", stringValue(value));
-let listStylePosition = value => ("listStylePosition", stringValue(value));
-let listStyleType = value => ("listStyleType", stringValue(value));
-let margin = value => ("margin", stringValue(value));
-let marginBlock = value => ("marginBlock", stringValue(value));
-let marginBlockEnd = value => ("marginBlockEnd", stringValue(value));
-let marginBlockStart = value => ("marginBlockStart", stringValue(value));
-let marginBottom = value => ("marginBottom", stringValue(value));
-let marginInline = value => ("marginInline", stringValue(value));
-let marginInlineEnd = value => ("marginInlineEnd", stringValue(value));
-let marginInlineStart = value => ("marginInlineStart", stringValue(value));
-let marginLeft = value => ("marginLeft", stringValue(value));
-let marginRight = value => ("marginRight", stringValue(value));
-let marginTop = value => ("marginTop", stringValue(value));
-let mask = value => ("mask", stringValue(value));
-let maskClip = value => ("maskClip", stringValue(value));
-let maskComposite = value => ("maskComposite", stringValue(value));
-let maskImage = value => ("maskImage", stringValue(value));
-let maskMode = value => ("maskMode", stringValue(value));
-let maskOrigin = value => ("maskOrigin", stringValue(value));
-let maskPosition = value => ("maskPosition", stringValue(value));
-let maskRepeat = value => ("maskRepeat", stringValue(value));
-let maskSize = value => ("maskSize", stringValue(value));
-let maskType = value => ("maskType", stringValue(value));
-let maxHeight = value => ("maxHeight", stringValue(value));
-let maxWidth = value => ("maxWidth", stringValue(value));
-let minBlockSize = value => ("minBlockSize", stringValue(value));
-let minHeight = value => ("minHeight", stringValue(value));
-let minInlineSize = value => ("minInlineSize", stringValue(value));
-let minWidth = value => ("minWidth", stringValue(value));
-let minZoom = value => ("minZoom", stringValue(value));
-let mixBlendMode = value => ("mixBlendMode", stringValue(value));
-let negative = value => ("negative", stringValue(value));
-let objectFit = value => ("objectFit", stringValue(value));
-let objectPosition = value => ("objectPosition", stringValue(value));
-let opacity = value => ("opacity", stringValue(value));
-let order = value => ("order", stringValue(value));
-let orientation = value => ("orientation", stringValue(value));
-let orphans = value => ("orphans", stringValue(value));
-let outline = value => ("outline", stringValue(value));
-let outlineColor = value => ("outlineColor", stringValue(value));
-let outlineOffset = value => ("outlineOffset", stringValue(value));
-let outlineStyle = value => ("outlineStyle", stringValue(value));
-let outlineWidth = value => ("outlineWidth", stringValue(value));
-let overflow = value => ("overflow", stringValue(value));
-let overflowWrap = value => ("overflowWrap", stringValue(value));
-let overflowX = value => ("overflowX", stringValue(value));
-let overflowY = value => ("overflowY", stringValue(value));
-let pad = value => ("pad", stringValue(value));
-let padding = value => ("padding", stringValue(value));
-let paddingBlock = value => ("paddingBlock", stringValue(value));
-let paddingBlockEnd = value => ("paddingBlockEnd", stringValue(value));
-let paddingBlockStart = value => ("paddingBlockStart", stringValue(value));
-let paddingBottom = value => ("paddingBottom", stringValue(value));
-let paddingInline = value => ("paddingInline", stringValue(value));
-let paddingInlineEnd = value => ("paddingInlineEnd", stringValue(value));
-let paddingInlineStart = value => ("paddingInlineStart", stringValue(value));
-let paddingLeft = value => ("paddingLeft", stringValue(value));
-let paddingRight = value => ("paddingRight", stringValue(value));
-let paddingTop = value => ("paddingTop", stringValue(value));
-let pageBreakAfter = value => ("pageBreakAfter", stringValue(value));
-let pageBreakBefore = value => ("pageBreakBefore", stringValue(value));
-let pageBreakInside = value => ("pageBreakInside", stringValue(value));
-let perspective = value => ("perspective", stringValue(value));
-let perspectiveOrigin = value => ("perspectiveOrigin", stringValue(value));
-let placeContent = value => ("placeContent", stringValue(value));
-let placeItems = value => ("placeItems", stringValue(value));
-let placeSelf = value => ("placeSelf", stringValue(value));
-let pointerEvents = value => ("pointerEvents", stringValue(value));
-let position = value => ("position", stringValue(value));
-let prefix = value => ("prefix", stringValue(value));
-let quotes = value => ("quotes", stringValue(value));
-let range = value => ("range", stringValue(value));
-let resize = value => ("resize", stringValue(value));
-let right = value => ("right", stringValue(value));
-let rotate = value => ("rotate", stringValue(value));
-let rowGap = value => ("rowGap", stringValue(value));
-let scale = value => ("scale", stringValue(value));
-let scrollBehavior = value => ("scrollBehavior", stringValue(value));
-let scrollMargin = value => ("scrollMargin", stringValue(value));
-let scrollMarginBlock = value => ("scrollMarginBlock", stringValue(value));
-let scrollMarginBlockEnd = value => ("scrollMarginBlockEnd", stringValue(value));
-let scrollMarginBlockStart = value => ("scrollMarginBlockStart", stringValue(value));
-let scrollMarginBottom = value => ("scrollMarginBottom", stringValue(value));
-let scrollMarginInline = value => ("scrollMarginInline", stringValue(value));
-let scrollMarginInlineEnd = value => ("scrollMarginInlineEnd", stringValue(value));
-let scrollMarginInlineStart = value => ("scrollMarginInlineStart", stringValue(value));
-let scrollMarginLeft = value => ("scrollMarginLeft", stringValue(value));
-let scrollMarginRight = value => ("scrollMarginRight", stringValue(value));
-let scrollMarginTop = value => ("scrollMarginTop", stringValue(value));
-let scrollPadding = value => ("scrollPadding", stringValue(value));
-let scrollPaddingBlock = value => ("scrollPaddingBlock", stringValue(value));
-let scrollPaddingBlockEnd = value => ("scrollPaddingBlockEnd", stringValue(value));
-let scrollPaddingBlockStart = value => ("scrollPaddingBlockStart", stringValue(value));
-let scrollPaddingBottom = value => ("scrollPaddingBottom", stringValue(value));
-let scrollPaddingInline = value => ("scrollPaddingInline", stringValue(value));
-let scrollPaddingInlineEnd = value => ("scrollPaddingInlineEnd", stringValue(value));
-let scrollPaddingInlineStart = value => ("scrollPaddingInlineStart", stringValue(value));
-let scrollPaddingLeft = value => ("scrollPaddingLeft", stringValue(value));
-let scrollPaddingRight = value => ("scrollPaddingRight", stringValue(value));
-let scrollPaddingTop = value => ("scrollPaddingTop", stringValue(value));
-let scrollSnapAlign = value => ("scrollSnapAlign", stringValue(value));
-let scrollSnapStop = value => ("scrollSnapStop", stringValue(value));
-let scrollSnapType = value => ("scrollSnapType", stringValue(value));
-let scrollbarColor = value => ("scrollbarColor", stringValue(value));
-let scrollbarWidth = value => ("scrollbarWidth", stringValue(value));
-let shapeImageThreshold = value => ("shapeImageThreshold", stringValue(value));
-let shapeMargin = value => ("shapeMargin", stringValue(value));
-let shapeOutside = value => ("shapeOutside", stringValue(value));
-let speakAs = value => ("speakAs", stringValue(value));
-let src = value => ("src", stringValue(value));
-let suffix = value => ("suffix", stringValue(value));
-let symbols = value => ("symbols", stringValue(value));
-let system = value => ("system", stringValue(value));
-let tabSize = value => ("tabSize", stringValue(value));
-let tableLayout = value => ("tableLayout", stringValue(value));
-let textAlign = value => ("textAlign", stringValue(value));
-let textAlignLast = value => ("textAlignLast", stringValue(value));
-let textCombineUpright = value => ("textCombineUpright", stringValue(value));
-let textDecoration = value => ("textDecoration", stringValue(value));
-let textDecorationColor = value => ("textDecorationColor", stringValue(value));
-let textDecorationLine = value => ("textDecorationLine", stringValue(value));
-let textDecorationStyle = value => ("textDecorationStyle", stringValue(value));
-let textDecorationThickness = value => ("textDecorationThickness", stringValue(value));
-let textEmphasis = value => ("textEmphasis", stringValue(value));
-let textEmphasisColor = value => ("textEmphasisColor", stringValue(value));
-let textEmphasisPosition = value => ("textEmphasisPosition", stringValue(value));
-let textEmphasisStyle = value => ("textEmphasisStyle", stringValue(value));
-let textIndent = value => ("textIndent", stringValue(value));
-let textJustify = value => ("textJustify", stringValue(value));
-let textOrientation = value => ("textOrientation", stringValue(value));
-let textOverflow = value => ("textOverflow", stringValue(value));
-let textRendering = value => ("textRendering", stringValue(value));
-let textShadow = value => ("textShadow", stringValue(value));
-let textTransform = value => ("textTransform", stringValue(value));
-let textUnderlineOffset = value => ("textUnderlineOffset", stringValue(value));
-let textUnderlinePosition = value => ("textUnderlinePosition", stringValue(value));
-let top = value => ("top", stringValue(value));
-let touchAction = value => ("touchAction", stringValue(value));
-let transform = value => ("transform", stringValue(value));
-let transformBox = value => ("transformBox", stringValue(value));
-let transformOrigin = value => ("transformOrigin", stringValue(value));
-let transformStyle = value => ("transformStyle", stringValue(value));
-let transition = value => ("transition", stringValue(value));
-let transitionDelay = value => ("transitionDelay", stringValue(value));
-let transitionDuration = value => ("transitionDuration", stringValue(value));
-let transitionProperty = value => ("transitionProperty", stringValue(value));
-let transitionTimingFunction = value => ("transitionTimingFunction", stringValue(value)); 
-let translate = value => ("translate", stringValue(value));
-let unicodeBidi = value => ("unicodeBidi", stringValue(value));
-let unicodeRange = value => ("unicodeRange", stringValue(value));
-let userZoom = value => ("userZoom", stringValue(value));
-let verticalAlign = value => ("verticalAlign", stringValue(value));
-let visibility = value => ("visibility", stringValue(value));
-let whiteSpace = value => ("whiteSpace", stringValue(value));
-let widows = value => ("widows", stringValue(value));
-let width = value => ("width", stringValue(value));
-let willChange = value => ("willChange", stringValue(value));
-let wordBreak = value => ("wordBreak", stringValue(value));
-let wordSpacing = value => ("wordSpacing", stringValue(value));
-let wordWrap = value => ("wordWrap", stringValue(value));
-let writingMode = value => ("writingMode", stringValue(value));
-let zIndex = value => ("zIndex", stringValue(value));
-let zoom = value => ("zoom", stringValue(value));
+[@bs.deriving jsConverter]
+type display = [
+  | `block
+  | `inline
+  | [@bs.as "flow-root"] `flowRoot
+  | `table
+  | `flex
+  | `grid
+  | [@bs.as "list-item"] `listItem
+  | [@bs.as "table-row-group"] `tableRowGroup
+  | [@bs.as "table-header-group"] `tableHeaderGroup
+  | [@bs.as "table-footer-group"] `tableFooterGroup
+  | [@bs.as "table-row"] `tableRow
+  | [@bs.as "table-cell"] `tableCell
+  | [@bs.as "table-column-group"] `tableColumnGroup
+  | [@bs.as "table-column"] `tableColumn
+  | [@bs.as "table-caption"] `tableCaption
+  | `none
+  | [@bs.as "inline-block"] `inlineBlock
+  | [@bs.as "inline-table"] `inlineTable
+  | [@bs.as "inline-flex"] `inlineFlex
+  | [@bs.as "inline-grid"] `inlineGrid
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+
+[@bs.deriving jsConverter]
+type overflow = [
+  | `visible
+  | `hidden
+  | `clip
+  | `scroll
+  | `auto
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type textOverflow = [
+  | `clip
+  | `ellipsis
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type visibility = [
+  | `visible
+  | `hidden
+  | `collapse
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type whiteSpace = [
+  | `normal
+  | `nowrap
+  | `pre
+  | [@bs.as "pre-wrap"] `preWrap
+  | [@bs.as "pre-line"] `preLine
+  | [@bs.as "break-spaces"] `breakSpaces
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type flexDirection = [
+  | `row
+  | [@bs.as "row-reverse"] `rowReverse
+  | `column
+  | [@bs.as "column-reverse"] `columnReverse
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type flexWrap = [
+  | `nowrap
+  | `wrap
+  | [@bs.as "wrap-reverse"] `wrapReverse
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type justifyContent = [
+  | `start
+  | [@bs.as "end"] `end_
+  | [@bs.as "flex-start"] `flexStart
+  | [@bs.as "flex-end"] `flexEnd
+  | `center
+  | `left
+  | `right
+  | `normal
+  | `baseline
+  | [@bs.as "first baseline"] `first_baseline
+  | [@bs.as "last baseline"] `last_baseline
+  | [@bs.as "space-between"] `spaceBetween
+  | [@bs.as "space-around"] `spaceAround
+  | [@bs.as "space-evenly"] `spaceEvenly
+  | `stretch
+  | `safe
+  | `unsafe
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type position = [
+  | `static
+  | `relative
+  | `absolute
+  | `fixed
+  | `sticky
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type textAlign = [
+  | `left
+  | `right
+  | `center
+  | `justify
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+
+[@bs.deriving jsConverter]
+type alignContent = [
+  | `start
+  | [@bs.as "end"] `end_
+  | [@bs.as "flex-start"] `flexStart
+  | [@bs.as "flex-end"] `flexEnd
+  | `center
+  | `normal
+  | `baseline
+  | [@bs.as "first baseline"] `first_baseline
+  | [@bs.as "last baseline"] `last_baseline
+  | [@bs.as "space-between"] `spaceBetween
+  | [@bs.as "space-around"] `spaceAround
+  | [@bs.as "space-evenly"] `spaceEvenly
+  | `stretch
+  | `safe
+  | `unsafe
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type alignItems = [
+  | `normal
+  | [@bs.as "flex-start"] `flexStart
+  | [@bs.as "flex-end"] `flexEnd
+  | `center
+  | `start
+  | [@bs.as "end"] `end_
+  | [@bs.as "self-start"] `selfStart
+  | [@bs.as "flex-end"] `flexEnd
+  | `baseline
+  | [@bs.as "first baseline"] `first_baseline
+  | [@bs.as "last baseline"] `last_baseline
+  | `stretch
+  | `safe
+  | `unsafe
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type alignSelf = [
+  | `auto
+  | `normal
+  | [@bs.as "self-start"] `selfStart
+  | [@bs.as "self-end"] `selfEnd
+  | [@bs.as "flex-start"] `flexStart
+  | [@bs.as "flex-end"] `flexEnd
+  | `center
+  | `baseline
+  | [@bs.as "first baseline"] `first_baseline
+  | [@bs.as "last baseline"] `last_baseline
+  | `stretch
+  | `safe
+  | `unsafe
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type all = [
+  | `initial
+  | [@bs.as "inherit"] `inherit_
+  | `unset
+  | `revert
+];
+[@bs.deriving jsConverter]
+type animationDirection = [
+  | `normal
+  | `reverse
+  | `alternate
+  | [@bs.as "alternate-reverse"] `alternateReverse
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type animationFillMode = [
+  | `none
+  | `forwards
+  | `backwards
+  | `both
+];
+type animationPlayStateValues = [
+  | `running
+  | `paused
+  | `inherit_
+  | `initial
+  | `unset
+];
+type animationPlayStateMulti = [ 
+  | `Multi2(animationPlayStateValues, animationPlayStateValues) 
+  | `Multi3(animationPlayStateValues, animationPlayStateValues, animationPlayStateValues)
+  | `Multi4(animationPlayStateValues, animationPlayStateValues, animationPlayStateValues, animationPlayStateValues)
+  | `Multi5(animationPlayStateValues, animationPlayStateValues, animationPlayStateValues, animationPlayStateValues, animationPlayStateValues)
+  | `Multi6(animationPlayStateValues, animationPlayStateValues, animationPlayStateValues, animationPlayStateValues, animationPlayStateValues, animationPlayStateValues)
+];
+type animationPlayState = [ 
+  | animationPlayStateValues 
+  | animationPlayStateMulti 
+];
+[@bs.deriving jsConverter]
+type backgroundAttachment = [
+  | `fixed
+  | `local
+  | `scroll
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type backgroundClip = [
+  | [@bs.as "border-box"] `borderBox
+  | [@bs.as "padding-box"] `paddingBox
+  | [@bs.as "content-box"] `contentBox
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type backgroundOrigin = [
+  | [@bs.as "border-box"] `borderBox
+  | [@bs.as "padding-box"] `paddingBox
+  | [@bs.as "content-box"] `contentBox
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type backgroundRepeat = [
+  | [@bs.as "repeat-x"] `repeatX
+  | [@bs.as "repeat-y"] `repeatY
+  | `repeat
+  | `space
+  | `round
+  | [@bs.as "no-repeat"] `noRepeat
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type borderStyle = [
+  | `none
+  | `hidden
+  | `dotted
+  | `dashed
+  | `double
+  | `groove
+  | `ridge
+  | `inset
+  | `outset
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type borderCollapse = [
+  | `collapse
+  | `separate
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type boxDecorationBreak = [
+  | `slice
+  | `clone
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type break = [
+  | `auto
+  | `avoid
+  | `always // This is experimental API that should not be used in production code
+  | `all // This is experimental API that should not be used in production code
+  | [@bs.as "avoid-page"] `avoidPage
+  | `page
+  | `left
+  | `right
+  | `recto // This is experimental API that should not be used in production code
+  | `verso // This is experimental API that should not be used in production code
+  | [@bs.as "avoid-column"] `avoidColumn
+  | `column
+  | [@bs.as "avoid-region"] `avoidRegion // This is experimental API that should not be used in production code
+  | `region // This is experimental API that should not be used in production code
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+[@bs.deriving jsConverter]
+type breakInside = [
+  | `auto
+  | `avoid
+  | [@bs.as "avoid-page"] `avoidPage
+  | [@bs.as "avoid-column"] `avoidColumn
+  | [@bs.as "avoid-region"] `avoidRegion // This is experimental API that should not be used in production code
+  | [@bs.as "inherit"] `inherit_
+  | `initial
+  | `unset
+];
+
+/**
+ * 
+ * additiveSymbols
+ * 
+ * !!! This is experimental API that should not be used in production code !!!
+ * 
+ */
+let additiveSymbols = value => ("additiveSymbols", valueOfString(value));
+/**
+ * 
+ * additiveSymbols
+ * 
+ */
+let alignContent = value => ("alignContent", alignContentToJs(value)->valueOfString);
+let alignItems = value => ("alignItems", alignItemsToJs(value)->valueOfString);
+let alignSelf = value => ("alignSelf", alignSelfToJs(value)->valueOfString);
+let all = value => ("all", allToJs(value)->valueOfString);
+let animation = value => ("animation", valueOfString(value));
+let animationDelay = value => ("animationDelay", valueOfString(value));
+let animationDirection = value => ("animationDirection", animationDirectionToJs(value)->valueOfString);
+let animationDuration = value => ("animationDuration", valueOfString(value));
+let animationFillMode = value => ("animationFillMode", animationFillModeToJs(value)->valueOfString);
+let animationIterationCount = value => ("animationIterationCount", valueOfString(value));
+let animationName = value => ("animationName", valueOfString(value));
+let animationPlayState = (value: animationPlayState) => {
+  let valuesToJs = value => 
+    switch value {
+    | `running => "running"
+    | `paused => "paused"
+    | `inherit_ => "inherit"
+    | `initial => "initial"
+    | `unset => "unset"
+    };
+  let value = switch value {
+  | `running => "running"
+  | `paused => "paused"
+  | `inherit_ => "inherit"
+  | `initial => "initial"
+  | `unset => "unset"
+  | `Multi2(value, value2) => {
+    let value = valuesToJs(value);
+    let value2 = valuesToJs(value2);
+    Js.String2.concatMany(", ", [|value, value2|])
+  }
+  | `Multi3(value, value2, value3) => {
+    let value = valuesToJs(value);
+    let value2 = valuesToJs(value2);
+    let value3 = valuesToJs(value3);
+    Js.String2.concatMany(", ", [|value, value2, value3|])
+  }
+  | `Multi4(value, value2, value3, value4) => {
+    let value = valuesToJs(value);
+    let value2 = valuesToJs(value2);
+    let value3 = valuesToJs(value3);
+    let value4 = valuesToJs(value4);
+    Js.String2.concatMany(", ", [|value, value2, value3, value4|])
+  }
+  | `Multi5(value, value2, value3, value4, value5) => {
+    let value = valuesToJs(value);
+    let value2 = valuesToJs(value2);
+    let value3 = valuesToJs(value3);
+    let value4 = valuesToJs(value4);
+    let value5 = valuesToJs(value5);
+    Js.String2.concatMany(", ", [|value, value2, value3, value4, value5|])
+  }
+  | `Multi6(value, value2, value3, value4, value5, value6) => {
+    let value = valuesToJs(value);
+    let value2 = valuesToJs(value2);
+    let value3 = valuesToJs(value3);
+    let value4 = valuesToJs(value4);
+    let value5 = valuesToJs(value5);
+    let value6 = valuesToJs(value6);
+    Js.String2.concatMany(", ", [|value, value2, value3, value4, value5, value6|])
+  }
+  };
+
+  ("animationPlayState", valueOfString(value))
+};
+let animationTimingFunction = value => ("animationTimingFunction", valueOfString(value));
+let backfaceVisibility = value => ("backfaceVisibility", valueOfString(value));
+let background = value => ("background", valueOfString(value));
+let backgroundAttachment = value => ("backgroundAttachment", backgroundAttachmentToJs(value)->valueOfString);
+let backgroundBlendMode = value => ("backgroundBlendMode", valueOfString(value));
+let backgroundClip = value => ("backgroundClip", backgroundClipToJs(value)->valueOfString);
+let backgroundColor = value => ("backgroundColor", valueOfString(value));
+let backgroundImage = value => ("backgroundImage", valueOfString(value));
+let backgroundOrigin = value => ("backgroundOrigin", backgroundOriginToJs(value)->valueOfString);
+let backgroundPosition = value => ("backgroundPosition", valueOfString(value));
+let backgroundRepeat = value => ("backgroundRepeat", backgroundRepeatToJs(value)->valueOfString);
+let backgroundSize = value => ("backgroundSize", valueOfString(value));
+let blockSize = value => ("blockSize", valueOfString(value));
+let border = value => ("border", valueOfString(value));
+/**
+ * 
+ * borderBlock
+ * 
+ * !!! This is experimental API that should not be used in production code !!!
+ * 
+ */
+let borderBlock = value => ("borderBlock", valueOfString(value));
+let borderBlockColor = value => ("borderBlockColor", valueOfString(value));
+let borderBlockEnd = value => ("borderBlockEnd", valueOfString(value));
+let borderBlockEndColor = value => ("borderBlockEndColor", valueOfString(value));
+let borderBlockEndStyle = value => ("borderBlockEndStyle", borderStyleToJs(value)->valueOfString);
+let borderBlockEndWidth = value => ("borderBlockEndWidth", valueOfString(value));
+let borderBlockStart = value => ("borderBlockStart", valueOfString(value));
+let borderBlockStartColor = value => ("borderBlockStartColor", valueOfString(value));
+let borderBlockStartStyle = value => ("borderBlockStartStyle", borderStyleToJs(value)->valueOfString);
+let borderBlockStartWidth = value => ("borderBlockStartWidth", valueOfString(value));
+let borderBlockStyle = value => ("borderBlockStyle", borderStyleToJs(value)->valueOfString);
+let borderBlockWidth = value => ("borderBlockWidth", valueOfString(value));
+/**
+ * 
+ * borderBlock
+ * 
+ */
+let borderBottom = value => ("borderBottom", valueOfString(value));
+let borderBottomColor = value => ("borderBottomColor", valueOfString(value));
+let borderBottomLeftRadius = value => ("borderBottomLeftRadius", valueOfString(value));
+let borderBottomRightRadius = value => ("borderBottomRightRadius", valueOfString(value));
+let borderBottomStyle = value => ("borderBottomStyle", borderStyleToJs(value)->valueOfString);
+let borderBottomWidth = value => ("borderBottomWidth", valueOfString(value));
+let borderCollapse = value => ("borderCollapse", borderCollapseToJs(value)->valueOfString);
+let borderColor = value => ("borderColor", valueOfString(value));
+/**
+ * 
+ * borderEnd
+ * 
+ * !!! This is experimental API that should not be used in production code !!!
+ * 
+ */
+let borderEndEndRadius = value => ("borderEndEndRadius", valueOfString(value));
+let borderEndStartRadius = value => ("borderEndStartRadius", valueOfString(value));
+/**
+ * 
+ * borderEnd
+ * 
+ */
+let borderImage = value => ("borderImage", valueOfString(value));
+let borderImageOutset = value => ("borderImageOutset", valueOfString(value));
+let borderImageRepeat = value => ("borderImageRepeat", valueOfString(value));
+let borderImageSlice = value => ("borderImageSlice", valueOfString(value));
+let borderImageSource = value => ("borderImageSource", valueOfString(value));
+let borderImageWidth = value => ("borderImageWidth", valueOfString(value));
+/**
+ * 
+ * borderInline
+ * 
+ * !!! This is experimental API that should not be used in production code !!!
+ * 
+ */
+let borderInline = value => ("borderInline", valueOfString(value));
+let borderInlineColor = value => ("borderInlineColor", valueOfString(value));
+let borderInlineEnd = value => ("borderInlineEnd", valueOfString(value));
+let borderInlineEndColor = value => ("borderInlineEndColor", valueOfString(value));
+let borderInlineEndStyle = value => ("borderInlineEndStyle", borderStyleToJs(value)->valueOfString);
+let borderInlineEndWidth = value => ("borderInlineEndWidth", valueOfString(value));
+let borderInlineStart = value => ("borderInlineStart", valueOfString(value));
+let borderInlineStartColor = value => ("borderInlineStartColor", valueOfString(value));
+let borderInlineStartStyle = value => ("borderInlineStartStyle", borderStyleToJs(value)->valueOfString);
+let borderInlineStartWidth = value => ("borderInlineStartWidth", valueOfString(value));
+let borderInlineStyle = value => ("borderInlineStyle", borderStyleToJs(value)->valueOfString);
+let borderInlineWidth = value => ("borderInlineWidth", valueOfString(value));
+/**
+ * 
+ * borderInline
+ * 
+ */
+let borderLeft = value => ("borderLeft", valueOfString(value));
+let borderLeftColor = value => ("borderLeftColor", valueOfString(value));
+let borderLeftStyle = value => ("borderLeftStyle", borderStyleToJs(value)->valueOfString);
+let borderLeftWidth = value => ("borderLeftWidth", valueOfString(value));
+let borderRadius = value => ("borderRadius", valueOfString(value));
+let borderRight = value => ("borderRight", valueOfString(value));
+let borderRightColor = value => ("borderRightColor", valueOfString(value));
+let borderRightStyle = value => ("borderRightStyle", borderStyleToJs(value)->valueOfString);
+let borderRightWidth = value => ("borderRightWidth", valueOfString(value));
+let borderSpacing = value => ("borderSpacing", valueOfString(value));
+let borderStartEndRadius = value => ("borderStartEndRadius", valueOfString(value));
+let borderStartStartRadius = value => ("borderStartStartRadius", valueOfString(value));
+let borderStyle = value => ("borderStyle", borderStyleToJs(value)->valueOfString);
+let borderTop = value => ("borderTop", valueOfString(value));
+let borderTopColor = value => ("borderTopColor", valueOfString(value));
+let borderTopLeftRadius = value => ("borderTopLeftRadius", valueOfString(value));
+let borderTopRightRadius = value => ("borderTopRightRadius", valueOfString(value));
+let borderTopStyle = value => ("borderTopStyle", borderStyleToJs(value)->valueOfString);
+let borderTopWidth = value => ("borderTopWidth", valueOfString(value));
+let borderWidth = value => ("borderWidth", valueOfString(value));
+let bottom = value => ("bottom", valueOfString(value));
+let boxDecorationBreak = value => ("boxDecorationBreak", boxDecorationBreakToJs(value)->valueOfString);
+let boxShadow = value => ("boxShadow", valueOfString(value));
+let boxSizing = value => ("boxSizing", valueOfString(value));
+let breakAfter = value => ("breakAfter", breakToJs(value)->valueOfString);
+let breakBefore = value => ("breakBefore", breakToJs(value)->valueOfString);
+let breakInside = value => ("breakInside", breakInsideToJs(value)->valueOfString);
+let captionSide = value => ("captionSide", valueOfString(value));
+let caretColor = value => ("caretColor", valueOfString(value));
+let clear = value => ("clear", valueOfString(value));
+let clip = value => ("clip", valueOfString(value));
+let clipPath = value => ("clipPath", valueOfString(value));
+let color = value => ("color", valueOfString(value));
+let colorAdjust = value => ("colorAdjust", valueOfString(value));
+let columnCount = value => ("columnCount", valueOfString(value));
+let columnFill = value => ("columnFill", valueOfString(value));
+let columnGap = value => ("columnGap", valueOfString(value));
+let columnRule = value => ("columnRule", valueOfString(value));
+let columnRuleColor = value => ("columnRuleColor", valueOfString(value));
+let columnRuleStyle = value => ("columnRuleStyle", valueOfString(value));
+let columnRuleWidth = value => ("columnRuleWidth", valueOfString(value));
+let columnSpan = value => ("columnSpan", valueOfString(value));
+let columnWidth = value => ("columnWidth", valueOfString(value));
+let columns = value => ("columns", valueOfString(value));
+let content = value => ("content", valueOfString(value));
+let counterIncrement = value => ("counterIncrement", valueOfString(value));
+let counterReset = value => ("counterReset", valueOfString(value));
+let counterSet = value => ("counterSet", valueOfString(value));
+let cursor = value => ("cursor", valueOfString(value));
+let direction = value => ("direction", valueOfString(value));
+let display = value => ("display", displayToJs(value)->valueOfString);
+let emptyCells = value => ("emptyCells", valueOfString(value));
+let fallback = value => ("fallback", valueOfString(value));
+let filter = value => ("filter", valueOfString(value));
+let flex = value => ("flex", valueOfString(value));
+let flexBasis = value => ("flexBasis", valueOfString(value));
+let flexDirection = value => ("flexDirection", flexDirectionToJs(value)->valueOfString);
+let flexFlow = value => ("flexFlow", valueOfString(value));
+let flexGrow = value => ("flexGrow", valueOfString(value));
+let flexShrink = value => ("flexShrink", valueOfString(value));
+let flexWrap = value => ("flexWrap", flexWrapToJs(value)->valueOfString);
+let float = value => ("float", valueOfString(value));
+let font = value => ("font", valueOfString(value));
+let fontFamily = value => ("fontFamily", valueOfString(value));
+let fontFeatureSettings = value => ("fontFeatureSettings", valueOfString(value));
+let fontKerning = value => ("fontKerning", valueOfString(value));
+let fontLanguageOverride = value => ("fontLanguageOverride", valueOfString(value));
+let fontOpticalSizing = value => ("fontOpticalSizing", valueOfString(value));
+let fontSize = value => ("fontSize", valueOfString(value));
+let fontSizeAdjust = value => ("fontSizeAdjust", valueOfString(value));
+let fontStretch = value => ("fontStretch", valueOfString(value));
+let fontStyle = value => ("fontStyle", valueOfString(value));
+let fontSynthesis = value => ("fontSynthesis", valueOfString(value));
+let fontVariant = value => ("fontVariant", valueOfString(value));
+let fontVariantAlternates = value => ("fontVariantAlternates", valueOfString(value));
+let fontVariantCaps = value => ("fontVariantCaps", valueOfString(value));
+let fontVariantEastAsian = value => ("fontVariantEastAsian", valueOfString(value));
+let fontVariantLigatures = value => ("fontVariantLigatures", valueOfString(value));
+let fontVariantNumeric = value => ("fontVariantNumeric", valueOfString(value));
+let fontVariantPosition = value => ("fontVariantPosition", valueOfString(value));
+let fontVariantSettings = value => ("fontVariantSettings", valueOfString(value));
+let fontWeight = value => ("fontWeight", valueOfString(value));
+let gap = value => ("gap", valueOfString(value));
+let grid = value => ("grid", valueOfString(value));
+let gridArea = value => ("gridArea", valueOfString(value));
+let gridAutoColumns = value => ("gridAutoColumns", valueOfString(value));
+let gridAutoFlow = value => ("gridAutoFlow", valueOfString(value));
+let gridAutoRows = value => ("gridAutoRows", valueOfString(value));
+let gridColumn = value => ("gridColumn", valueOfString(value));
+let gridColumnEnd = value => ("gridColumnEnd", valueOfString(value));
+let gridColumnStart = value => ("gridColumnStart", valueOfString(value));
+let gridRow = value => ("gridRow", valueOfString(value));
+let gridRowEnd = value => ("gridRowEnd", valueOfString(value));
+let gridRowStart = value => ("gridRowStart", valueOfString(value));
+let gridTemplate = value => ("gridTemplate", valueOfString(value));
+let gridTemplateAreas = value => ("gridTemplateAreas", valueOfString(value));
+let gridTemplateColumns = value => ("gridTemplateColumns", valueOfString(value));
+let gridTemplateRows = value => ("gridTemplateRows", valueOfString(value));
+let hangingPunctuation = value => ("hangingPunctuation", valueOfString(value));
+let height = value => ("height", valueOfString(value));
+let hyphens = value => ("hyphens", valueOfString(value));
+let imageOrientation = value => ("imageOrientation", valueOfString(value));
+let imageRendering = value => ("imageRendering", valueOfString(value));
+let inlineSize = value => ("inlineSize", valueOfString(value));
+let inset = value => ("inset", valueOfString(value));
+let insetBlock = value => ("insetBlock", valueOfString(value));
+let insetBlockEnd = value => ("insetBlockEnd", valueOfString(value));
+let insetBlockStart = value => ("insetBlockStart", valueOfString(value));
+let insetInline = value => ("insetInline", valueOfString(value));
+let insetInlineEnd = value => ("insetInlineEnd", valueOfString(value));
+let insetInlineStart = value => ("insetInlineStart", valueOfString(value));
+let isolation = value => ("isolation", valueOfString(value));
+let justifyContent = value => ("justifyContent", justifyContentToJs(value)->valueOfString);
+let justifyItems = value => ("justifyItems", valueOfString(value));
+let justifySelf = value => ("justifySelf", valueOfString(value));
+let left = value => ("left", valueOfString(value));
+let letterSpacing = value => ("letterSpacing", valueOfString(value));
+let lineBreak = value => ("lineBreak", valueOfString(value));
+let lineHeight = value => ("lineHeight", valueOfString(value));
+let listStyle = value => ("listStyle", valueOfString(value));
+let listStyleImage = value => ("listStyleImage", valueOfString(value));
+let listStylePosition = value => ("listStylePosition", valueOfString(value));
+let listStyleType = value => ("listStyleType", valueOfString(value));
+let margin = value => ("margin", valueOfString(value));
+let marginBlock = value => ("marginBlock", valueOfString(value));
+let marginBlockEnd = value => ("marginBlockEnd", valueOfString(value));
+let marginBlockStart = value => ("marginBlockStart", valueOfString(value));
+let marginBottom = value => ("marginBottom", valueOfString(value));
+let marginInline = value => ("marginInline", valueOfString(value));
+let marginInlineEnd = value => ("marginInlineEnd", valueOfString(value));
+let marginInlineStart = value => ("marginInlineStart", valueOfString(value));
+let marginLeft = value => ("marginLeft", valueOfString(value));
+let marginRight = value => ("marginRight", valueOfString(value));
+let marginTop = value => ("marginTop", valueOfString(value));
+let mask = value => ("mask", valueOfString(value));
+let maskClip = value => ("maskClip", valueOfString(value));
+let maskComposite = value => ("maskComposite", valueOfString(value));
+let maskImage = value => ("maskImage", valueOfString(value));
+let maskMode = value => ("maskMode", valueOfString(value));
+let maskOrigin = value => ("maskOrigin", valueOfString(value));
+let maskPosition = value => ("maskPosition", valueOfString(value));
+let maskRepeat = value => ("maskRepeat", valueOfString(value));
+let maskSize = value => ("maskSize", valueOfString(value));
+let maskType = value => ("maskType", valueOfString(value));
+let maxHeight = value => ("maxHeight", valueOfString(value));
+let maxWidth = value => ("maxWidth", valueOfString(value));
+let minBlockSize = value => ("minBlockSize", valueOfString(value));
+let minHeight = value => ("minHeight", valueOfString(value));
+let minInlineSize = value => ("minInlineSize", valueOfString(value));
+let minWidth = value => ("minWidth", valueOfString(value));
+let minZoom = value => ("minZoom", valueOfString(value));
+let mixBlendMode = value => ("mixBlendMode", valueOfString(value));
+let negative = value => ("negative", valueOfString(value));
+let objectFit = value => ("objectFit", valueOfString(value));
+let objectPosition = value => ("objectPosition", valueOfString(value));
+let opacity = value => ("opacity", valueOfString(value));
+let order = value => ("order", valueOfString(value));
+let orientation = value => ("orientation", valueOfString(value));
+let orphans = value => ("orphans", valueOfString(value));
+let outline = value => ("outline", valueOfString(value));
+let outlineColor = value => ("outlineColor", valueOfString(value));
+let outlineOffset = value => ("outlineOffset", valueOfString(value));
+let outlineStyle = value => ("outlineStyle", valueOfString(value));
+let outlineWidth = value => ("outlineWidth", valueOfString(value));
+let overflow = value => ("overflow", overflowToJs(value)->valueOfString);
+let overflowWrap = value => ("overflowWrap", valueOfString(value));
+let overflowX = value => ("overflowX", valueOfString(value));
+let overflowY = value => ("overflowY", valueOfString(value));
+let pad = value => ("pad", valueOfString(value));
+let padding = value => ("padding", valueOfString(value));
+let paddingBlock = value => ("paddingBlock", valueOfString(value));
+let paddingBlockEnd = value => ("paddingBlockEnd", valueOfString(value));
+let paddingBlockStart = value => ("paddingBlockStart", valueOfString(value));
+let paddingBottom = value => ("paddingBottom", valueOfString(value));
+let paddingInline = value => ("paddingInline", valueOfString(value));
+let paddingInlineEnd = value => ("paddingInlineEnd", valueOfString(value));
+let paddingInlineStart = value => ("paddingInlineStart", valueOfString(value));
+let paddingLeft = value => ("paddingLeft", valueOfString(value));
+let paddingRight = value => ("paddingRight", valueOfString(value));
+let paddingTop = value => ("paddingTop", valueOfString(value));
+let pageBreakAfter = value => ("pageBreakAfter", valueOfString(value));
+let pageBreakBefore = value => ("pageBreakBefore", valueOfString(value));
+let pageBreakInside = value => ("pageBreakInside", valueOfString(value));
+let perspective = value => ("perspective", valueOfString(value));
+let perspectiveOrigin = value => ("perspectiveOrigin", valueOfString(value));
+let placeContent = value => ("placeContent", valueOfString(value));
+let placeItems = value => ("placeItems", valueOfString(value));
+let placeSelf = value => ("placeSelf", valueOfString(value));
+let pointerEvents = value => ("pointerEvents", valueOfString(value));
+let position = value => ("position", positionToJs(value)->valueOfString);
+let prefix = value => ("prefix", valueOfString(value));
+let quotes = value => ("quotes", valueOfString(value));
+let range = value => ("range", valueOfString(value));
+let resize = value => ("resize", valueOfString(value));
+let right = value => ("right", valueOfString(value));
+let rotate = value => ("rotate", valueOfString(value));
+let rowGap = value => ("rowGap", valueOfString(value));
+let scale = value => ("scale", valueOfString(value));
+let scrollBehavior = value => ("scrollBehavior", valueOfString(value));
+let scrollMargin = value => ("scrollMargin", valueOfString(value));
+let scrollMarginBlock = value => ("scrollMarginBlock", valueOfString(value));
+let scrollMarginBlockEnd = value => ("scrollMarginBlockEnd", valueOfString(value));
+let scrollMarginBlockStart = value => ("scrollMarginBlockStart", valueOfString(value));
+let scrollMarginBottom = value => ("scrollMarginBottom", valueOfString(value));
+let scrollMarginInline = value => ("scrollMarginInline", valueOfString(value));
+let scrollMarginInlineEnd = value => ("scrollMarginInlineEnd", valueOfString(value));
+let scrollMarginInlineStart = value => ("scrollMarginInlineStart", valueOfString(value));
+let scrollMarginLeft = value => ("scrollMarginLeft", valueOfString(value));
+let scrollMarginRight = value => ("scrollMarginRight", valueOfString(value));
+let scrollMarginTop = value => ("scrollMarginTop", valueOfString(value));
+let scrollPadding = value => ("scrollPadding", valueOfString(value));
+let scrollPaddingBlock = value => ("scrollPaddingBlock", valueOfString(value));
+let scrollPaddingBlockEnd = value => ("scrollPaddingBlockEnd", valueOfString(value));
+let scrollPaddingBlockStart = value => ("scrollPaddingBlockStart", valueOfString(value));
+let scrollPaddingBottom = value => ("scrollPaddingBottom", valueOfString(value));
+let scrollPaddingInline = value => ("scrollPaddingInline", valueOfString(value));
+let scrollPaddingInlineEnd = value => ("scrollPaddingInlineEnd", valueOfString(value));
+let scrollPaddingInlineStart = value => ("scrollPaddingInlineStart", valueOfString(value));
+let scrollPaddingLeft = value => ("scrollPaddingLeft", valueOfString(value));
+let scrollPaddingRight = value => ("scrollPaddingRight", valueOfString(value));
+let scrollPaddingTop = value => ("scrollPaddingTop", valueOfString(value));
+let scrollSnapAlign = value => ("scrollSnapAlign", valueOfString(value));
+let scrollSnapStop = value => ("scrollSnapStop", valueOfString(value));
+let scrollSnapType = value => ("scrollSnapType", valueOfString(value));
+let scrollbarColor = value => ("scrollbarColor", valueOfString(value));
+let scrollbarWidth = value => ("scrollbarWidth", valueOfString(value));
+let shapeImageThreshold = value => ("shapeImageThreshold", valueOfString(value));
+let shapeMargin = value => ("shapeMargin", valueOfString(value));
+let shapeOutside = value => ("shapeOutside", valueOfString(value));
+let speakAs = value => ("speakAs", valueOfString(value));
+let src = value => ("src", valueOfString(value));
+let suffix = value => ("suffix", valueOfString(value));
+let symbols = value => ("symbols", valueOfString(value));
+let system = value => ("system", valueOfString(value));
+let tabSize = value => ("tabSize", valueOfString(value));
+let tableLayout = value => ("tableLayout", valueOfString(value));
+let textAlign = value => ("textAlign", textAlignToJs(value)->valueOfString);
+let textAlignLast = value => ("textAlignLast", valueOfString(value));
+let textCombineUpright = value => ("textCombineUpright", valueOfString(value));
+let textDecoration = value => ("textDecoration", valueOfString(value));
+let textDecorationColor = value => ("textDecorationColor", valueOfString(value));
+let textDecorationLine = value => ("textDecorationLine", valueOfString(value));
+let textDecorationStyle = value => ("textDecorationStyle", valueOfString(value));
+let textDecorationThickness = value => ("textDecorationThickness", valueOfString(value));
+let textEmphasis = value => ("textEmphasis", valueOfString(value));
+let textEmphasisColor = value => ("textEmphasisColor", valueOfString(value));
+let textEmphasisPosition = value => ("textEmphasisPosition", valueOfString(value));
+let textEmphasisStyle = value => ("textEmphasisStyle", valueOfString(value));
+let textIndent = value => ("textIndent", valueOfString(value));
+let textJustify = value => ("textJustify", valueOfString(value));
+let textOrientation = value => ("textOrientation", valueOfString(value));
+let textOverflow = value => ("textOverflow", textOverflowToJs(value)->valueOfString);
+let textRendering = value => ("textRendering", valueOfString(value));
+let textShadow = value => ("textShadow", valueOfString(value));
+let textTransform = value => ("textTransform", valueOfString(value));
+let textUnderlineOffset = value => ("textUnderlineOffset", valueOfString(value));
+let textUnderlinePosition = value => ("textUnderlinePosition", valueOfString(value));
+let top = value => ("top", valueOfString(value));
+let touchAction = value => ("touchAction", valueOfString(value));
+let transform = value => ("transform", valueOfString(value));
+let transformBox = value => ("transformBox", valueOfString(value));
+let transformOrigin = value => ("transformOrigin", valueOfString(value));
+let transformStyle = value => ("transformStyle", valueOfString(value));
+let transition = value => ("transition", valueOfString(value));
+let transitionDelay = value => ("transitionDelay", valueOfString(value));
+let transitionDuration = value => ("transitionDuration", valueOfString(value));
+let transitionProperty = value => ("transitionProperty", valueOfString(value));
+let transitionTimingFunction = value => ("transitionTimingFunction", valueOfString(value)); 
+let translate = value => ("translate", valueOfString(value));
+let unicodeBidi = value => ("unicodeBidi", valueOfString(value));
+let unicodeRange = value => ("unicodeRange", valueOfString(value));
+let userZoom = value => ("userZoom", valueOfString(value));
+let verticalAlign = value => ("verticalAlign", valueOfString(value));
+let visibility = value => ("visibility", visibilityToJs(value)->valueOfString);
+let whiteSpace = value => ("whiteSpace", whiteSpaceToJs(value)->valueOfString);
+let widows = value => ("widows", valueOfString(value));
+let width = value => ("width", valueOfString(value));
+let willChange = value => ("willChange", valueOfString(value));
+let wordBreak = value => ("wordBreak", valueOfString(value));
+let wordSpacing = value => ("wordSpacing", valueOfString(value));
+let wordWrap = value => ("wordWrap", valueOfString(value));
+let writingMode = value => ("writingMode", valueOfString(value));
+let zIndex = value => ("zIndex", valueOfString(value));
+let zoom = value => ("zoom", valueOfString(value));
