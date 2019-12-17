@@ -1,8 +1,8 @@
 type t;
 type options;
 
-[@bs.module "@material-ui/core/styles"]
-external make: options => t = "createMuiTheme";
+[@bs.module "@material-ui/core/styles/createMuiTheme"]
+external make: options => t = "default";
 [@bs.obj]
 external options: (
   ~shape: Mui_Styles_Shape.options=?,
