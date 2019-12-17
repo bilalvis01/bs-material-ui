@@ -1,5 +1,6 @@
 type t;
 type options;
+type style;
 
 [@bs.module "@material-ui/core/styles/createTypography"]
 external make: (
@@ -9,19 +10,19 @@ external make: (
 ) => t = "default";
 [@bs.obj]
 external options: (
-  ~h1: Mui_Styles_TypographyStyle.options=?,
-  ~h2: Mui_Styles_TypographyStyle.options=?,
-  ~h3: Mui_Styles_TypographyStyle.options=?,
-  ~h4: Mui_Styles_TypographyStyle.options=?,
-  ~h5: Mui_Styles_TypographyStyle.options=?,
-  ~h6: Mui_Styles_TypographyStyle.options=?,
-  ~subtitle1: Mui_Styles_TypographyStyle.options=?,
-  ~subtitle2: Mui_Styles_TypographyStyle.options=?,
-  ~body1: Mui_Styles_TypographyStyle.options=?,
-  ~body2: Mui_Styles_TypographyStyle.options=?,
-  ~caption: Mui_Styles_TypographyStyle.options=?,
-  ~button: Mui_Styles_TypographyStyle.options=?,
-  ~overline: Mui_Styles_TypographyStyle.options=?,
+  ~h1: style=?,
+  ~h2: style=?,
+  ~h3: style=?,
+  ~h4: style=?,
+  ~h5: style=?,
+  ~h6: style=?,
+  ~subtitle1: style=?,
+  ~subtitle2: style=?,
+  ~body1: style=?,
+  ~body2: style=?,
+  ~caption: style=?,
+  ~button: style=?,
+  ~overline: style=?,
   ~fontFamily: string=?,
   ~fontSize: int=?,
   ~fontWeightLight: int=?,
@@ -32,6 +33,18 @@ external options: (
   ~allVariants: Mui_Styles_Style.t=?,
   unit
 ) => options = "";
+[@bs.obj]
+external style: (
+  ~fontFamily: string=?,
+  ~fontSize: string=?,
+  ~fontWeight: string=?,
+  ~fontStyle: string=?,
+  ~color: string=?,
+  ~letterSpacing: string=?,
+  ~lineHeight: string=?,
+  ~textTransform: string=?,
+  unit
+) => style = "";
 [@bs.get]
 external htmlFontSize: t => int = "htmlFontSize";
 [@bs.send]
