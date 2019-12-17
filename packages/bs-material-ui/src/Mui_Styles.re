@@ -57,6 +57,7 @@ module BackgroundColor = Mui_Styles_BackgroundColor;
 module CommonColor = Mui_Styles_CommonColor;
 module Props = Mui_Styles_Props;
 module Shadows = Mui_Styles_Shadows;
+module Spacing = Mui_Styles_Spacing;
 module Transitions = Mui_Styles_Transitions;
 module TransitionDuration = Mui_Styles_TransitionDuration;
 module Easing = Mui_Styles_Easing;
