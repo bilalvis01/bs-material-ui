@@ -6,16 +6,16 @@ describe("make style", () => {
 
   let style = Style.(make([
     color("red"),
-    display("block"),
+    display(`block),
     backgroundColor("blue"),
   ]));
 
   test("color", () =>
-    expect(Js.Dict.get(style, "color")) |> toBe(Some(Style.stringValue("red"))));
+    expect(Js.Dict.get(style, "color")) |> toBe(Some(Style.valueOfString("red"))));
   test("background-color", () => 
-    expect(Js.Dict.get(style, "backgroundColor")) |> toBe(Some(Style.stringValue("blue"))));
+    expect(Js.Dict.get(style, "backgroundColor")) |> toBe(Some(Style.valueOfString("blue"))));
   test("display", () => 
-    expect(Js.Dict.get(style, "display")) |> toBe(Some(Style.stringValue("block"))));
+    expect(Js.Dict.get(style, "display")) |> toBe(Some(Style.valueOfString("block"))));
 });
 
 describe("nested style", () => {
@@ -35,7 +35,7 @@ describe("nested style", () => {
         |]));
 
   test("width", () => 
-    expect(Js.Dict.get(style, "width")) |> toBe(Some(Style.stringValue("200px"))));
+    expect(Js.Dict.get(style, "width")) |> toBe(Some(Style.valueOfString("200px"))));
   test(":hover", () =>
     expect(Js.Dict.get(style, ":hover")) 
       |> toEqual(Some(Style.(nestedStyle(make([
@@ -48,19 +48,19 @@ describe("merged style", () => {
 
   let style = Style.(merge([
     make([
-      display("inline"),
+      display(`inline),
       color("#000"),
     ]),
     make([
-      display("block"),
+      display(`block),
       backgroundColor("#fff"),
     ]),
   ]));
 
   test("color", () => 
-    expect(Js.Dict.get(style, "color")) |> toBe(Some(Style.stringValue("#000"))));
+    expect(Js.Dict.get(style, "color")) |> toBe(Some(Style.valueOfString("#000"))));
   test("background-color", () => 
-    expect(Js.Dict.get(style, "backgroundColor")) |> toBe(Some(Style.stringValue("#fff"))));
+    expect(Js.Dict.get(style, "backgroundColor")) |> toBe(Some(Style.valueOfString("#fff"))));
   test("display", () => 
-    expect(Js.Dict.get(style, "display")) |> toBe(Some(Style.stringValue("block"))));
+    expect(Js.Dict.get(style, "display")) |> toBe(Some(Style.valueOfString("block"))));
 })
