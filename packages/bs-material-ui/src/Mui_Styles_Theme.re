@@ -13,7 +13,7 @@ external options: (
   ~palette: Mui_Styles_Palette.options=?,
   ~props: Mui_Styles_Props.t=?,
   ~shadows: Mui_Styles_Shadows.t=?,
-  ~spacing: Mui_Styles_Spacing.options=?,
+  ~spacing: int => 'spacingReturn=?,
   ~transitions: Mui_Styles_Transitions.options=?,
   ~typography: Mui_Styles_Palette.t => Mui_Styles_Typography.options=?,
   ~zIndexOptions: Mui_Styles_ZIndex.options=?,
