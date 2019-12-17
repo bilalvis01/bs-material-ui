@@ -47,7 +47,6 @@ module Shape = Mui_Styles_Shape;
 module Breakpoints = Mui_Styles_Breakpoints;
 module Mixins = Mui_Styles_Mixins;
 module Overrides = Mui_Styles_Overrides;
-module AppBarStyle = Mui_Styles_AppBarStyle;
 module Palette = Mui_Styles_Palette;
 module PaletteColor = Mui_Styles_PaletteColor;
 module ActionColor = Mui_Styles_ActionColor;
