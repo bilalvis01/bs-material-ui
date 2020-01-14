@@ -36,9 +36,9 @@ Here is a quick examples to get you started, it's all you need:
 let make = () => {
   open MaterialuiPropsTypes;
 
-  <Mui.Button variant=Variant.Button.contained color=Color.Button.primary>
+  <Materialui.Button variant=Variant.Button.contained color=Color.Button.primary>
     {React.string("Hello World")}
-  </Mui.Button>;
+  </Materialui.Button>;
 }
 ```
 
