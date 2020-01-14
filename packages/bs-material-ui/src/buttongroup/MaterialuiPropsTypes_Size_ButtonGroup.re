@@ -1,0 +1,1 @@
+include MaterialuiPropsTypes_Size_Button;

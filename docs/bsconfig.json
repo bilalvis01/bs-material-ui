@@ -11,7 +11,7 @@
       "subdirs": true
     },
     {
-      "dir": "mui-icons"
+      "dir": "materialui-icons"
     }
   ],
   "bs-dependencies": [

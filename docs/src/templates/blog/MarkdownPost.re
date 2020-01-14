@@ -1,5 +1,7 @@
-module MuiStyles = Mui.Styles.Make({
-  type theme = Mui.Styles.Theme.t;
+open MaterialuiPropsTypes;
+
+module MaterialuiStyles = Materialui.Styles.Make({
+  type theme = Materialui.Styles.Theme.t;
   type styles('a) = {
     .
     "listItem": 'a,
@@ -7,8 +9,8 @@ module MuiStyles = Mui.Styles.Make({
   type props = unit;
 });
 
-let useStyles = MuiStyles.make(theme => {
-  open Mui.Styles;
+let useStyles = MaterialuiStyles.make(theme => {
+  open Materialui.Styles;
   
   {
     "listItem": () => Style.(make([
@@ -25,36 +27,57 @@ module Li = {
     let classes = useStyles();
 
     <li className=classes##listItem>  
-      <Mui.Typography component=`span>
+      <Materialui.Typography component=Component.span>
         children
-      </Mui.Typography>
+      </Materialui.Typography>
     </li>
   };
 };
 
 let options = Markdown.(options(
   ~overrides=overrides([
-    componentWithProps("h1", Mui.Typography.make, Mui.Typography.makeProps(
-      ~gutterBottom=true,
-      ~variant=`h4,
-      ())),
-    componentWithProps("h2", Mui.Typography.make, Mui.Typography.makeProps(
-      ~gutterBottom=true,
-      ~variant=`h6,
-      ())),
-    componentWithProps("h3", Mui.Typography.make, Mui.Typography.makeProps(
-      ~gutterBottom=true,
-      ~variant=`subtitle1,
-      ())),
-    componentWithProps("h4", Mui.Typography.make, Mui.Typography.makeProps(
-      ~gutterBottom=true,
-      ~variant=`caption,
-      ~paragraph=true,
-      ())),
-    component("a", Mui.Link.make),
+    componentWithProps(
+      "h1", 
+      Materialui.Typography.make, 
+      Materialui.Typography.makeProps(
+        ~gutterBottom=true,
+        ~variant=Variant.Typography.h4,
+        ()
+      )
+    ),
+    componentWithProps(
+      "h2", 
+      Materialui.Typography.make, 
+      Materialui.Typography.makeProps(
+        ~gutterBottom=true,
+        ~variant=Variant.Typography.h6,
+        ()
+      )
+    ),
+    componentWithProps(
+      "h3", 
+      Materialui.Typography.make, 
+      Materialui.Typography.makeProps(
+        ~gutterBottom=true,
+        ~variant=Variant.Typography.subtitle1,
+        ()
+      )
+    ),
+    componentWithProps(
+      "h4", 
+      Materialui.Typography.make, 
+      Materialui.Typography.makeProps(
+        ~gutterBottom=true,
+        ~variant=Variant.Typography.caption,
+        ~paragraph=true,
+        ()
+      )
+    ),
+    component("a", Materialui.Link.make),
     component("li", Li.make),
   ]),
-  ()));
+  ()
+));
 
 
 [@react.component]

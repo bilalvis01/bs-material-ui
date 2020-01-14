@@ -2,7 +2,8 @@
   "name": "@bilalvis01/bs-material-ui",
   "sources": [
     {
-      "dir": "src"
+      "dir": "src",
+      "subdirs": true
     },
     {
       "dir": "__tests__",

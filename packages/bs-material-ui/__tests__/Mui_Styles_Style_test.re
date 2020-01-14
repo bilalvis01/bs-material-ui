@@ -1,66 +1,69 @@
 open Jest;
-open Mui.Styles;
+open Materialui.Styles;
 
-describe("make style", () => {
+describe("make", () => {
   open Expect;
 
   let style = Style.(make([
     color("red"),
-    display(`block),
+    display("block"),
     backgroundColor("blue"),
   ]));
 
   test("color", () =>
-    expect(Js.Dict.get(style, "color")) |> toBe(Some(Style.valueOfString("red"))));
-  test("background-color", () => 
-    expect(Js.Dict.get(style, "backgroundColor")) |> toBe(Some(Style.valueOfString("blue"))));
+    expect(Js.Dict.get(style, "color")) 
+    |> toBe(Some(Style.StyleProperty("red"))));
+  test("backgroundColor", () => 
+    expect(Js.Dict.get(style, "backgroundColor")) 
+    |> toBe(Some(Style.StyleProperty("blue"))));
   test("display", () => 
-    expect(Js.Dict.get(style, "display")) |> toBe(Some(Style.valueOfString("block"))));
+    expect(Js.Dict.get(style, "display")) 
+    |> toBe(Some(Style.StyleProperty("block"))));
 });
 
-describe("nested style", () => {
+describe("nest", () => {
   open Expect;
 
   let style = Style.(make([
     width("200px"),
-    nest(":hover", [
+    nest(":hover", make([
       width("240px"),
-    ]),
+    ])),
   ]));
 
-  test("nested rule name", () =>
+  test("rule name", () =>
     expect(Js.Dict.keys(style)) 
-      |> toBeSupersetOf([|
-          ":hover",
-        |]));
+    |> toBeSupersetOf([|":hover"|]));
 
   test("width", () => 
-    expect(Js.Dict.get(style, "width")) |> toBe(Some(Style.valueOfString("200px"))));
+    expect(Js.Dict.get(style, "width")) 
+    |> toBe(Some(Style.StyleProperty("200px"))));
   test(":hover", () =>
     expect(Js.Dict.get(style, ":hover")) 
-      |> toEqual(Some(Style.(nestedStyle(make([
-          width("240px")
-        ]))))));
+    |> toEqual(Some(Style.StyleProperty({ "width": "240px" }))));
 });
 
-describe("merged style", () => {
+describe("merge", () => {
   open Expect;
 
   let style = Style.(merge([
     make([
-      display(`inline),
+      display("inline"),
       color("#000"),
     ]),
     make([
-      display(`block),
+      display("block"),
       backgroundColor("#fff"),
     ]),
   ]));
 
   test("color", () => 
-    expect(Js.Dict.get(style, "color")) |> toBe(Some(Style.valueOfString("#000"))));
-  test("background-color", () => 
-    expect(Js.Dict.get(style, "backgroundColor")) |> toBe(Some(Style.valueOfString("#fff"))));
+    expect(Js.Dict.get(style, "color")) 
+    |> toBe(Some(Style.StyleProperty("#000"))));
+  test("backgroundColor", () => 
+    expect(Js.Dict.get(style, "backgroundColor")) 
+    |> toBe(Some(Style.StyleProperty("#fff"))));
   test("display", () => 
-    expect(Js.Dict.get(style, "display")) |> toBe(Some(Style.valueOfString("block"))));
-})
+    expect(Js.Dict.get(style, "display")) 
+    |> toBe(Some(Style.StyleProperty("block"))));
+});

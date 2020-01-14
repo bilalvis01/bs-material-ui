@@ -5,7 +5,7 @@
   "description": "a blog example",
   "main": "Index.bs.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "bs:dev": "bsb -make-world -w",
     "bs:clean": "bsb -clean-world",
     "bs:build": "bsb -clean-world -make-world",
@@ -19,7 +19,7 @@
   "devDependencies": {
     "@bilalvis01/bs-material-ui-icons": "^0.10.3",
     "@glennsl/bs-jest": "0.4.9",
-    "bs-platform": "7.0.1"
+    "bs-platform": "7.0.2-dev.1"
   },
   "dependencies": {
     "@bilalvis01/bs-material-ui": "^0.10.3",

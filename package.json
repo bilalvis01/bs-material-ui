@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "test": "lerna run test --scope @bilalvis01/bs-material-ui",
+    "test": "lerna run test",
     "bootstrap": "lerna bootstrap",
     "publish": "lerna publish",
     "bs:dev": "lerna run bs:dev --parallel",
@@ -15,7 +15,7 @@
     "docs:build-icons": "lerna run build-icons --scope docs --stream --no-prefix"
   },
   "devDependencies": {
-    "bs-platform": "7.0.1",
+    "bs-platform": "7.0.2-dev.1",
     "lerna": "^3.18.3",
     "@glennsl/bs-jest": "0.4.9"
   }
