@@ -3,7 +3,7 @@ Reason bindings for material ui.
 
 ## Status
 
-This package is still under active development.
+This package is still under active development thus breaking changes and crashes should be expected.
 
 ## Installation
 
@@ -33,10 +33,13 @@ Here is a quick examples to get you started, it's all you need:
 ```
 /* App.re */
 [@react.component]
-let make = () => 
-  <Mui.Button variant=`contained color=`primary>
+let make = () => {
+  open MaterialuiPropsTypes;
+
+  <Mui.Button variant=Variant.Button.contained color=Color.Button.primary>
     {React.string("Hello World")}
   </Mui.Button>;
+}
 ```
 
 in another file:
